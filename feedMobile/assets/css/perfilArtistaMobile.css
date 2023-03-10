@@ -1,0 +1,298 @@
+@font-face {
+    font-family: 'AsapRegular';
+    src: url('../fonts/Asap-Regular.ttf');
+}
+@font-face {
+    font-family: 'AsapBold';
+    src: url('../fonts/Asap-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'InterRegular';
+    src: url('../fonts/Inter-Regular.ttf');
+}
+@font-face {
+    font-family: 'InterBold';
+    src: url('../fonts/Inter-Bold.ttf');
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.ttf');
+}
+
+p{
+  margin: 0;
+}
+
+body{
+  background-color: #ecebf3;
+}
+
+
+.div-logo-marca{
+  
+  
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.div-logo-marca .logo-marca img{
+  height: 35px;
+  width: 35px;
+  
+  
+} 
+
+
+
+
+
+.container-fluid .box-area-perfil .area-perfil{
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  min-height: 100vh;
+  overflow: auto;
+  
+  
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-momentos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+}
+
+
+.container-fluid .box-area-perfil .area-perfil .box-momentos .momento{
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+.container-fluid .box-area-perfil .area-perfil .box-momentos .momento .img-momento img{
+  width: 63px;
+  height: 63px;
+  border: 2px solid #664187;
+  box-shadow: 3px 2px 7px #664187;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-momentos .momento .nick-momento h1{
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+  text-align: center;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 85%;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .titulo-box-publicacao {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .titulo-box-publicacao h1{
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .header-publicacao{
+  display: flex;
+  flex-direction: row;
+
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .header-publicacao 
+.informacoes-perfil-publicacao .nick-e-bio-perfil-publicacao
+.nick h1 {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+  color: #000000;
+
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .header-publicacao 
+.informacoes-perfil-publicacao .nick-e-bio-perfil-publicacao
+.bio p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 12px;
+  color: #664187;
+
+}
+
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .header-publicacao 
+.box-btn-configuracao-publicacao button{
+  background: none;
+  border: none;
+
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .header-publicacao 
+.informacoes-perfil-publicacao{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .header-publicacao 
+.informacoes-perfil-publicacao .img-perfil-publicacao img{
+  width: 55px;
+  height: 55px;
+  border: 1.06796px solid #FFFFFF;
+  box-shadow: 0px 2.13592px 2.13592px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .header-publicacao 
+.informacoes-perfil-publicacao .nick-e-bio-perfil-publicacao{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .box-img-publicacao {
+  width: 85%;
+  height: auto;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .box-img-publicacao img{
+  width: 100%;
+  height: auto;
+  border-radius: 7px;
+}
+
+.container-fluid .box-area-perfil 
+.area-perfil .box-publicacoes 
+.publicacao .legenda-publicacao {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 12px;
+  width: 85%;
+  color: #656565;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .acoes-publicacao{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes{
+  display: flex;
+  flex-direction: row;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes button{
+  background: none;
+  border: none;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes button img{
+  width: 30px;
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .acoes-publicacao .tempo-publicacao p{
+ margin: 0;
+
+}
+
+.mobile-nav {
+  background: #ecebf3;
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bloc-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bloc-icon img {
+  width: 30px;
+}
+
+@media screen and (min-width: 1000px) {
+  .mobile-nav {
+  display: none;
+  }
+}
+
