@@ -1,0 +1,124 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: 'InterRegular';
+    src: url(../fonts/Inter-Regular.ttf);
+}
+
+.papel-parede-img:hover{
+
+    transition: filter 0.3s ease-in-out;
+
+}
+.papel-parede-img:hover{
+
+    filter: brightness(50%);
+}
+.papel-parede h1{
+    position: absolute;
+    top: 12%;
+    color: #fff;
+    right: 30%;
+}
+
+.btn-perfil{
+    background-color: #664187 !important;
+    border-color: #664187 !important;
+    border-radius: 15px;
+}
+.btn-excluir{
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    border-radius: 10px;
+}
+
+.modal-header{
+    width: 100%;
+    border: 0;
+}
+
+.modal-header h1{
+    font-weight: 600;
+}
+ .btn-fechar{
+    background-color: transparent;
+    border: 0;
+}
+form .form-control {
+    background-color: transparent;
+    color:  #7C7C8A!important;
+    border-radius: 15px!important;
+    display: flex!important;
+    flex-direction: row!important;
+    align-items: center!important;
+    background-repeat: no-repeat;
+    padding: 12px 16px!important;
+    background-position-y: center;
+    background-position-x: 15px;
+    width: 100%;
+    font-family: 'Roboto';
+    font-size: 14px;
+    border: 2px solid #664187;
+    border-radius: 10px;
+  }
+  form label{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-family: 'InterRegular';
+      font-weight: 400;
+  }
+form .form-control:focus{
+   border: 1px #343441 solid;
+   box-shadow: none;
+}
+.modal-excluir{
+    height: 200px;
+}
+
+.modal-perfil{
+    height: 550px;
+    align-items: center;
+    font-family: 'Roboto';
+}
+
+.editar-img{
+    
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    border: 2px #000000;
+}
+.editar-foto{
+    margin-left: 2rem;
+    color: #000000
+}
+.form {
+    width: 100%;
+    
+   
+}
+.modal-footer {
+    border-top: transparent;
+
+}
+
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 15px;
+   
+    
+}
+.modal-body{
+    width: 70%;
+    min-width: 320px;
+}
+
+
