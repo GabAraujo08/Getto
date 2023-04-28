@@ -81,8 +81,8 @@ function showTab(n) {
   if (n == (x.length - 1)) {
     document.getElementById("nextBtn").style.display = "none";
     document.getElementById("btn-enviarPub").style.display = "inline";
-    
-    
+
+
   } else {
     document.getElementById("nextBtn").innerHTML = "Próximo";
   }
@@ -142,15 +142,15 @@ function fixStepIndicator(n) {
 }
 
 
-document.getElementById("option-1").addEventListener("click", function() {
+document.getElementById("option-1").addEventListener("click", function () {
   document.getElementById("inputFile").disabled = false;
 });
 
-document.getElementById("option-2").addEventListener("click", function() {
+document.getElementById("option-2").addEventListener("click", function () {
   document.getElementById("inputFile").disabled = false;
 });
 
-document.getElementById("option-3").addEventListener("click", function() {
+document.getElementById("option-3").addEventListener("click", function () {
   document.getElementById("inputFile").disabled = false;
 });
 
@@ -185,7 +185,7 @@ radio3.addEventListener('click', function () {
 // ------------------- PREVIEW DO INPUT ---------------------
 
 
-document.getElementById('inputFile').addEventListener('change', function(event) {
+document.getElementById('inputFile').addEventListener('change', function (event) {
   var file = event.target.files[0];
   var fileType = file.type.split('/')[0]; // Obtém o tipo de arquivo (imagem, vídeo ou música)
   var previewContainer = document.getElementById('previewContainer');
@@ -215,7 +215,7 @@ document.getElementById('inputFile').addEventListener('change', function(event) 
     var inputCover = document.createElement('input');
     inputCover.type = 'file';
     inputCover.id = 'inputCover';
-    inputCover.addEventListener('change', function(event) {
+    inputCover.addEventListener('change', function (event) {
       // Adicione o código para tratar o evento de mudança do novo input file aqui
 
       var coverFile = event.target.files[0]; // Obtém o arquivo da capa do single
@@ -249,35 +249,32 @@ document.getElementById('inputFile').addEventListener('change', function(event) 
 // ----------------------- INPUT MUSICA CAPA -------------------------
 
 /*
-	By Mushfiq Shishir, hello@mrshishir.me, www.mrshishir.me	
+  By Mushfiq Shishir, hello@mrshishir.me, www.mrshishir.me	
 */
 
 'use strict';
 
-;( function ( document, window, index )
-{
-	var inputs = document.querySelectorAll( '.inputfile' );
-	Array.prototype.forEach.call( inputs, function( input )
-	{
-		var label	 = input.nextElementSibling,
-			labelVal = label.innerHTML;
+; (function (document, window, index) {
+  var inputs = document.querySelectorAll('.inputfile');
+  Array.prototype.forEach.call(inputs, function (input) {
+    var label = input.nextElementSibling,
+      labelVal = label.innerHTML;
 
-		input.addEventListener( 'change', function( e )
-		{
-			var fileName = '';
-			if( this.files && this.files.length > 1 )
-				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-			else
-				fileName = e.target.value.split( '\\' ).pop();
+    input.addEventListener('change', function (e) {
+      var fileName = '';
+      if (this.files && this.files.length > 1)
+        fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+      else
+        fileName = e.target.value.split('\\').pop();
 
-			if( fileName )
-				label.querySelector( 'span' ).innerHTML = fileName;
-			else
-				label.innerHTML = labelVal;
-		});
+      if (fileName)
+        label.querySelector('span').innerHTML = fileName;
+      else
+        label.innerHTML = labelVal;
+    });
 
-		// Firefox bug fix
-		input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
-		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
-	});
-}( document, window, 0 ));
+    // Firefox bug fix
+    input.addEventListener('focus', function () { input.classList.add('has-focus'); });
+    input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
+  });
+}(document, window, 0));

@@ -39,17 +39,67 @@
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
                             publicação</button>
                     </div>
-                    <a href="../../Controller/Logout.php">
-                        <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
-                            <img src="assets/img/icon-logout.svg" alt="Sair">
-                            <h1>Sair</h1>
+                    <div class="dropup-center dropup">
+                        <div class="btn-perfil-sair" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="img-perfil-btn">
+                                <img src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                            </div>
+                            <div class="desc-btn">
+                                <div class="btn-perfilNomes">
+                                    <div class="nome-usuario">
+                                        <h1><?PHP echo $_SESSION['nomeUsuario']; ?></h1>
+                                    </div>
+                                    <div class="nickname">
+                                        <h3><?PHP echo $_SESSION['nicknameUsuario']; ?></h3>
+                                    </div>
+
+                                </div>
+
+                             
+
+
+                                <button class="btn btn-primary" type="button">
+                                    <img src="assets/img/btn-dropdown.svg" alt="">
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Action two</a></li>
+                                    <li><a class="dropdown-item" href="#">Action three</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </a>
+
+                    </div>
+
+
+
+                    <!-- <div class="menu-container">
+
+                        <nav>
+                            <ul class="menu">
+                                <li class="dropdown dropdown-6">
+                                    Scale Down
+                                    <ul class="dropdown_menu dropdown_menu--animated dropdown_menu-6">
+                                        <li class="dropdown_item-1">Item 1</li>
+                                        <li class="dropdown_item-2">Item 2</li>
+                                        <li class="dropdown_item-3">Item 3</li>
+                                        <li class="dropdown_item-4">Item 4</li>
+                                        <li class="dropdown_item-5">Item 5</li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                    </div> -->
+
+
                 </div>
             </div>
             <div class="nova-pub">
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
             </div>
+
+
             <a href="">
                 <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
                     <img src="assets/img/icon-logout.svg" alt="Sair">
@@ -644,13 +694,13 @@
 
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
-    </script>
+    </script> -->
 
     <script>
         /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
