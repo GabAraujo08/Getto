@@ -1,0 +1,95 @@
+form {
+    width: 100%;
+    display: inherit;
+}
+
+
+.area-buscar {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.search-bar form {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+input[type="search" i] {
+    appearance: auto;
+    box-sizing: border-box;
+    padding: 1px 20px;
+    width: 100%;
+    border-radius: 20px 0px 0px 20px;
+    border: solid 1px;
+    height: 40px;
+}
+
+
+.search-bar input[type="search"] {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+
+.search-bar button[type="submit"] {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #666666;
+    margin-left: 10px;
+  
+}
+
+/* Ícone de pesquisa */
+.search-bar button[type="submit"] i {
+    margin-left: 10px;
+    border-radius: 6px;
+    width: 100%
+}
+
+.search-bar button[type="submit"] img{
+    width: 67%;
+}
+
+button {
+    width: 59px;
+    border-radius: 0px 20px 20px 0px;
+    background-color:transparent;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px
+}
+
+
+button:hover{
+    background-color: #cbbdd8;
+}
+
+button img{
+    width: 70%;
+}
+
+.area-buscar button img{
+    width: 15px;
+    height: 15px;
+}

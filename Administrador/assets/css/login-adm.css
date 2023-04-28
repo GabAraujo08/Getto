@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'InterBold';
+    src: url('../fonts/Inter-Bold.ttf');
+}
+@font-face {
+    font-family: 'InterRegular';
+    src: url('../fonts/Inter-Regular.ttf');
+}
+
+body{
+    background-image: url('../img/fundo.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.texts{
+    font-family: 'InterBold'!important;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row{
+    background-color: white;
+    border: 2px solid #9ca3af;
+    padding: 50px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    margin-top: 10%;
+}
+
+.form-container{
+    display: flex;
+}
+
+.form-container .form-box{
+    display: flex;
+    width: 150%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.email-label{
+    font-size: 16px;
+    font-family: 'InterRegular'!important;
+    padding: 15px;
+}
+
+.input-email{
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #6b21a8;
+}
+
+
+
+.senha-label{
+    font-family: 'InterRegular'!important;
+    padding: 15px;
+}
+
+.input-senha{
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #6b21a8;
+}
+
+.btn-entrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #664187;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    transition: 0.25s;
+    cursor: pointer;
+    border: 1px solid rgb(80 78 78);
+}
+
+
+
+.btn-entrar:hover,
+.btn-entrar:focus {
+box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+transform: translateY(-0.25em);
+}
+
+
+form .check-box{
+    font-family: 'InterRegular'!important;
+    font-style: normal!important;
+    font-weight: 500!important;
+    font-size: 16px!important;
+    color: #202024!important;
+    margin-top: 15px;
+  }

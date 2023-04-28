@@ -1,0 +1,319 @@
+@font-face {
+    font-family: 'InterBold';
+    src: url('../fonts/Inter-Bold.ttf');
+}
+@font-face {
+    font-family: 'InterRegular';
+    src: url('../fonts/Inter-Regular.ttf');
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+  }
+
+.container {
+    display: flex;
+}
+
+.container .background {
+    width: 50%;
+    margin-top: 10%;
+  }
+  
+  .container .background img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container .background .titulo-background  p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: #2C2C2C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 1%;
+  }
+  
+  .container .background .titulo-background  span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    color: #493A8B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+  }
+  
+  .container .background .titulo-background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container .background .conteudo-background  p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #202024;
+    padding: 2%;
+  }
+
+.container .div-form {
+    width: 50%;
+    display: flex;
+      justify-content: center;
+  }
+
+.registro-login{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 4rem;
+    
+
+}
+.registro-login h1{
+    font-family: 'InterRegular';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.registro-login a{
+   
+    text-decoration: none;
+}
+
+.registro-login h1:hover{
+    color: hsl(270, 70%, 40%);
+}
+.cadastro{
+
+    margin-top: 14px;
+}
+.entrar{
+    border-bottom: 3px solid hsl(270, 70%, 40%);
+    padding-bottom: 16px;
+    width: 11.8rem;
+    text-align: center;
+    margin-top: 33px;
+}
+
+
+
+.form-container{
+    background: rgba(236, 235, 243, 0.94)!important;
+    box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.25)!important;
+    border: 1px solid #b2b2b6!important;
+    border-radius: 20px!important;
+    max-width: 30rem;
+    width: 100%;
+    height: 39rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-box form{
+    width: 18rem;
+}
+
+
+form .email-label{  /*LABEL DO EMAIL*/
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'InterRegular';
+    line-height: 43px;
+}
+
+form .senha-label{  /*LABEL DA SENHA*/
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'InterRegular';
+    line-height: 43px;
+}
+
+.rounded-3 {
+    border-radius: 20px!important;
+}
+
+.logo-marca-container{
+    display: flex;
+    justify-content: center;
+    
+}
+.texts h1{
+    text-align: center;
+    font-family: 'InterBold';
+
+}
+
+/*H5 ABAIXO DA LOGOMARCA*/
+.fs-5 {
+    font-size: 1rem!important;
+}
+
+.fw-light {
+    font-weight: 600!important;
+}
+
+
+
+
+
+
+
+
+/*INPUTS*/
+
+.input-email{
+    background: transparent;
+    color:  #7C7C8A;
+    border-radius: 10px!important;
+    border: 2px solid #664187;
+height: 48px!important;
+display: flex!important;
+flex-direction: row!important;
+align-items: center!important;
+background-image: url('../img/email-icon.png');
+background-repeat: no-repeat;
+padding: 12px 16px!important;
+background-position-y: center;
+background-position-x: 15px;
+    
+}
+
+.input-senha{
+    background: transparent;
+    color:  #7C7C8A;
+    border: 2px solid #664187;
+
+    border-radius: 10px!important;
+    height: 48px!important;
+    padding: 12px 16px!important;
+    background-image: url('../img/senha-icon.png');
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 15px;
+    
+}
+
+
+.form-control:focus { /*PARA MUDAR A COR DA BORDA DO INPUT AO CLICAR*/
+    border-color: #7C7C8A; /* substitua pela cor que desejar */
+    box-shadow: none;
+  }
+
+ 
+
+  .form-control:focus { /*FAZ COM QUE O INPUT MUDE DE COR AO CLICAR, 
+    DEIXEI A COR ATUAL PARA JUSTAMENTE NAO MUDAR*/
+    background-color: #7C7C8A;
+  }
+
+/*CHECK BOX E SEU TEXTO*/
+
+.form-check-input:focus{
+    border-color: #202024; /* SERVE PARA QUE O CHECK BOX FIQUE DA COR CERTA AO CLICAR E NAO AZUL */
+    box-shadow: none;
+    background-color: #664187;
+  }
+
+  form .check-box{
+    font-family: 'InterRegular'!important;
+    font-style: normal!important;
+font-weight: 500!important;
+font-size: 16px!important;
+
+color: #202024!important;
+  }
+
+
+  /*INPUT DE SUBMIT*/
+
+  form .btn-entrar{
+    display: flex!important;
+flex-direction: row!important;
+justify-content: center!important;
+align-items: center!important;
+color: #E1E1E6;
+font-weight: 500;
+font-size: 16px;
+height: 43px!important;
+border: 0;
+background: #664187!important;
+border-radius: 10px!important;
+border-radius: 4px!important;
+text-transform: none!important;
+font-weight: 600!important;
+  }
+
+
+  form .btn-esqueceu-senha{
+    margin-top: 15px;
+    display: flex!important;
+flex-direction: row!important;
+justify-content: center!important;
+align-items: center!important;
+color: #664187;
+font-weight: 500;
+font-size: 16px;
+height: 43px!important;
+border: 0;
+background: #E3D5E8!important;
+border-radius: 10px!important;
+border-radius: 4px!important;
+text-transform: none!important;
+font-weight: 600!important;
+  }
+
+  .btn-esqueceu-senha:hover{
+    color: #202024;
+  }
+
+/*BOTOES DE ESQUECEU SENHA E CRIAR CONTA*/
+
+form .captions{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'InterRegular';
+    font-weight: 600;
+    font-size: 20px;
+}
+
+form .captions a{
+   
+    color: #202024!important;
+    text-decoration: none!important;
+}
+
+
+
+
+@media (max-width: 996px){
+    .background {
+      display: none;
+    }
+  
+    .container{
+      justify-content: center;
+    }
+  }
+

@@ -1,0 +1,575 @@
+@font-face {
+  font-family: "AsapRegular";
+  src: url("../fonts/Asap-Regular.ttf");
+}
+
+@font-face {
+  font-family: "AsapBold";
+  src: url("../fonts/Asap-Bold.ttf");
+}
+
+@font-face {
+  font-family: "InterRegular";
+  src: url("../fonts/Inter-Regular.ttf");
+}
+
+@font-face {
+  font-family: "InterBold";
+  src: url("../fonts/Inter-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
+main {
+  display: flex;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+/*=================================== SIDEBAR ==========================================*/
+
+main .box-sidebar {
+  display: flex;
+  width: 360px;
+  justify-content: center;
+}
+
+.box-sidebar .sidebar {
+  height: 100vh;
+  position: fixed;
+  width: 320px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box-sidebar .sidebar .logotipo-e-logomarca {
+  display: flex;
+
+  justify-content: flex-start;
+  align-items: center;
+  width: 77%;
+  height: 130px;
+}
+
+.box-sidebar .sidebar .logotipo-e-logomarca img {
+  margin-right: 10px;
+}
+
+.box-sidebar .sidebar .logotipo-e-logomarca .logotipo h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  color: #2c2c2c;
+}
+
+.box-sidebar .sidebar .navegacao-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  margin-top: 35px;
+  width: 100%;
+}
+
+.box-sidebar .sidebar .navegacao-sidebar .item-sidebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  width: 130%;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.box-sidebar .sidebar .navegacao-sidebar .item-sidebar a {
+  text-decoration: none;
+  color: #84828a;
+  padding-left: 40px;
+  display: flex;
+  border-radius: 8px;
+  border: none;
+  background-color: #fff;
+  width: 80%;
+  height: 60px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.box-sidebar .sidebar .navegacao-sidebar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 280px;
+}
+
+#dash {
+  background-image: url("../img/dash-icon.svg");
+  background-repeat: no-repeat;
+  background-position-y: 18px;
+  background-position-x: 10px;
+  transition: 0.3s;
+}
+
+#dash:hover {
+  background-image: url("../img/dash-roxa-icon.svg");
+}
+
+#denuncia {
+  background-image: url("../img/denuncia-icon.svg");
+  background-repeat: no-repeat;
+  background-position-y: 18px;
+  background-position-x: 10px;
+  transition: 0.3s;
+}
+
+#denuncia:hover {
+  background-image: url("../img/denuncia-roxa-icon.svg");
+}
+
+#verificacao {
+  background-image: url("../img/verify-icon.svg");
+  background-repeat: no-repeat;
+  background-position-y: 18px;
+  background-position-x: 10px;
+  transition: 0.3s;
+}
+
+#verificacao:hover {
+  background-image: url("../img/verify-roxo-icon.svg");
+}
+
+#tutorial {
+  background-image: url("../img/tuto-icon.svg");
+  background-repeat: no-repeat;
+  background-position-y: 18px;
+  background-position-x: 10px;
+  transition: 0.3s;
+}
+
+#tutorial:hover {
+  background-image: url("../img/tuto-roxo-icon.svg");
+}
+
+.box-sidebar .sidebar .navegacao-sidebar .item-sidebar a:hover {
+  background-color: #efe9ff;
+  border-radius: 8px;
+  color: #664187;
+}
+
+.sair .btn-sair {
+  text-decoration: none;
+  color: #84828a;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.btn-sair:hover {
+  color: #664187;
+}
+
+.sair {
+  display: flex;
+  height: 170px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#sair {
+  padding-left: 30px;
+  background-image: url("../img/logout-icon.svg");
+  background-repeat: no-repeat;
+  background-position-x: 0px;
+  transition: 0.3s;
+}
+
+#sair:hover {
+  background-image: url("../img/logout-roxo-icon.svg");
+}
+
+#perfil-adm {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+/* ============================= DASHBOARD ==================================*/
+
+.box-dashboard {
+  background-color: #f7f6f9;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.box-dashboard .header-adm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.box-dashboard .header-adm .texto-adm {
+  margin-left: 10px;
+}
+
+.box-dashboard .header-adm .texto-adm p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  color: #2c2c2c;
+}
+
+.box-dashboard .header-adm .notificacao-perfil {
+  display: flex;
+  margin-right: 10px;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
+  width: 10%;
+}
+
+.box-dashboard .header-adm .notificacao-perfil .img-perfil img {
+  border: 1px solid #e1ddeb;
+}
+
+.box-dashboard .box-denuncia-verificacao {
+  display: flex;
+
+}
+
+.box-dashboard .box-denuncia-verificacao {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias {
+  width: 45%;
+  margin-left: 25px;
+  height: auto;
+  background-color: #d9d9d9;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .titulo-container-denuncia h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+
+  color: #2c2c2c;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia {
+  display: flex;
+  align-items: center;
+  background-color: #f7f6f9;
+  margin: 15px;
+  border: 3px solid #d9d9d9;
+  border-radius: 15px;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .textos-denuncia .titulo-denuncia h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+
+  color: #000000;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .textos-denuncia .desc-denuncia p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .img-denuncia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 75px;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .box-btn-denuncia  {
+  width: 60%;
+  margin-right: 5px;
+}
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .box-btn-denuncia .btn-denuncia {
+  background: #664187;
+  border-radius: 15px;
+  color: white;
+  width: 100%;
+  border: none;
+  height: 40px;
+  transition: 0.30s;
+}
+
+
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .box-btn-denuncia .btn-denuncia:hover,
+.box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .box-btn-denuncia .btn-denuncia:focus {
+box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+transform: translateY(-0.25em);
+}
+
+.container-verificacao .box-verificacao {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: #d9d9d9;
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 25px;
+}
+
+.container-verificacao .box-verificacao .titulo-container-verificacao h1 {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+
+  color: #2c2c2c;
+}
+
+.container-verificacao .box-verificacao .verificacao {
+  background: #ffffff;
+  border: 3px solid #d9d9d9;
+  border-radius: 15px;
+  display: flex;
+  width: 303px;
+  height: 69px;
+  margin: 15px;
+}
+
+.container-verificacao .box-verificacao .verificacao .box-btn-verificacao .btn-verificacao {
+  background: #664187;
+  border-radius: 5px;
+  width: 75px;
+  height: 34px;
+  border: none;
+  margin-left: 85%;
+  margin-top: 20%;
+  transition: 0.30s;
+}
+
+
+.container-verificacao .box-verificacao .verificacao .box-btn-verificacao .btn-verificacao:hover,
+.container-verificacao .box-verificacao .verificacao .box-btn-verificacao .btn-verificacao:focus {
+box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+transform: translateY(-0.25em);
+}
+
+.container-verificacao .box-verificacao .verificacao .box-btn-verificacao .btn-verificacao {
+  background-image: url('../img/files-icon.svg');
+  background-repeat: no-repeat;
+  background-position-y: 4px;
+  background-position-x: 25px;
+}
+
+.container-verificacao .box-verificacao .verificacao .titulo-verificacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+}
+
+/* ============================= MEDIA SCREEN ==================================*/
+
+@media screen and (max-width: 1092px) {
+  .navegacao-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 4rem;
+    padding: 0 1rem;
+    display: grid;
+    align-content: center;
+    border-radius: 1.25rem 1.25rem 0 0;
+    transition: 0.4s;
+    box-shadow: 0 -1px 12px rgb(59, 59, 59, 0.25);
+    flex-direction: column;
+  }
+
+  .box-sidebar .sidebar .navegacao-sidebar ul {
+    flex-direction: row;
+    padding: 10px;
+    margin-left: 30%;
+    justify-content: space-around;
+    height: 200px;
+  }
+
+  .sair {
+    display: none;
+  }
+
+  .box-sidebar .sidebar .navegacao-sidebar .item-sidebar a {
+    padding: 0 50px 0 50px;
+  }
+
+  .box-sidebar .sidebar .navegacao-sidebar .item-sidebar {
+    height: 72px;
+  }
+
+  .logotipo {
+    display: none;
+  }
+
+  .logomarca {
+    display: none;
+  }
+
+  .box-dashboard .box-denuncia-verificacao {
+    display: block;
+  }
+
+  main .box-sidebar {
+    width: 0;
+  }
+
+  .box-dashboard .box-denuncia-verificacao .box-denuncias {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 93%;
+  }
+
+  .container-verificacao .box-verificacao {
+    width: 93%;
+  }
+}
+
+@media screen and (min-width: 662px) {
+  #dash a {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 980px) {
+  .header-feed {
+    display: none;
+  }
+
+  .box-sidebar .sidebar .logotipo-e-logomarca .navegacao-sidebar {
+    display: none;
+  }
+}
+
+
+/* ============================= MODAL ==================================*/
+
+.modal-body-img {
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  background-color: #8E69AF;
+  padding: 200px;
+}
+
+.modal-body-img>p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 60px;
+  color: #FFFFFF;
+}
+
+.modal-footer{
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-footer > button{
+  padding: 10px;
+  background-color: #664187;
+  border: none;
+}
+
+.modal-footer .btn-primary:hover{
+  background-color: red;
+}
+
+.modal-footer .btn-secondary:hover{
+  background-color: rgb(0, 133, 7);
+}
+
+.modal-body-link .link-titulo{
+  padding: 10px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 10px;
+  font-size: 20px;
+  display: flex;
+}
+
+.modal-body-link .link{
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  border: solid 2px #664187;
+}
+
+
+
+/* ------------------------- ALERT QUANDO APROVAR ARTISTA -------------------------- */
+
+.alert {
+  padding: 20px;
+  background-color: #2eb886;
+  color: white;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

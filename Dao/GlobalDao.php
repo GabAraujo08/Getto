@@ -1,0 +1,17 @@
+<?php
+
+    //função que faz parte da SPL que significa Standard PHP Library
+    spl_autoload_register('carregarClasse3');
+
+    function carregarClasse3($nomeClasse){
+        if (file_exists('Model/' . $nomeClasse . '.php')) {
+            require_once 'Model/' .$nomeClasse . '.php';
+        }
+        if (file_exists($nomeClasse . '.php')) {
+            require_once $nomeClasse . '.php';
+        }
+        if (file_exists('Controller/' .$nomeClasse . '.php')) {
+            require_once 'Controller/' .$nomeClasse . '.php';
+        }
+    }
+?>
