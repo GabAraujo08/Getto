@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="assets/css/preview-criar-evento.css" />
     <link rel="stylesheet" href="assets/css/modal-criarPub.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5bWt6KBQ2Jg9X6nyz/6noy+C6AVrO6ddtpJmiKkh+awOFAkg0SMJG/M49YXJHjvTf+ldcJ0+cTiUGguMq3Qe0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -52,45 +54,32 @@
                                     <div class="nickname">
                                         <h3><?PHP echo $_SESSION['nicknameUsuario']; ?></h3>
                                     </div>
-
                                 </div>
-
-                             
-
-
                                 <button class="btn btn-primary" type="button">
                                     <img src="assets/img/btn-dropdown.svg" alt="">
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Action two</a></li>
-                                    <li><a class="dropdown-item" href="#">Action three</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="d-flex flex-row align-items-center btn-sair">
+                                                <i class="fas fa-user"></i>
+                                                <h1>Perfil</h1>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="d-flex flex-row  align-items-center btn-sair">
+                                                <i class="fas fa-sign-out-alt"></i>
+                                                <h1>Sair</h1>
+                                            </div>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
-
                     </div>
-
-
-
-                    <!-- <div class="menu-container">
-
-                        <nav>
-                            <ul class="menu">
-                                <li class="dropdown dropdown-6">
-                                    Scale Down
-                                    <ul class="dropdown_menu dropdown_menu--animated dropdown_menu-6">
-                                        <li class="dropdown_item-1">Item 1</li>
-                                        <li class="dropdown_item-2">Item 2</li>
-                                        <li class="dropdown_item-3">Item 3</li>
-                                        <li class="dropdown_item-4">Item 4</li>
-                                        <li class="dropdown_item-5">Item 5</li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-
-                    </div> -->
+                    
 
 
                 </div>
@@ -339,10 +328,40 @@
 
                         </div>
                         <label>Estado:</label>
-                        <div class="input-group mb-3">
-
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="estadoUsuario" value="<?PHP echo $_SESSION['estadoUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
-
+                        <div class="form-floating mb-3" style="display: flex;
+                                          flex-direction: column;">
+                           
+                            <select id="estado" name="estadoVisitante" class="select-estado">
+                                
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                                <option value="EX">Estrangeiro</option>
+                            </select>
                         </div>
                         <label>Cidade:</label>
                         <div class="input-group mb-3">
@@ -695,6 +714,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b8f56ddd91.js" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">

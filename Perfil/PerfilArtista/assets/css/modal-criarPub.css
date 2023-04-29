@@ -45,7 +45,7 @@
 }
 
 #modalCriarPub .modal-body .cabecalho-pub .img-perfil img {
-
+    object-fit: cover;
     height: 110px;
     width: 110px;
     border-radius: 50%;

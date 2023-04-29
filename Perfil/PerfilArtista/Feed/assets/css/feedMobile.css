@@ -30,6 +30,7 @@
 
 a {
   text-decoration: none;
+  color: unset;
 }
 
 hr {
@@ -520,6 +521,85 @@ body {
   background-image: url('../img/icone-pincel.png');
 }
 
+.dropup, .menu-container{
+  position: absolute;
+  bottom: 45px;
+  cursor: pointer;
+}
+
+.btn-perfil-sair {
+  width: 225px;
+  height: 80px;
+  background: #FFFFFF;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-around;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-perfil-sair h1 {
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: 700;
+}
+
+
+.btn-perfil-sair h3 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #6B6565;
+}
+
+.img-perfil-btn {
+
+  padding-left: 10px;
+  width: 40%;
+}
+
+.btn-perfil-sair img {
+  cursor: pointer;
+}
+
+.btn-perfil-sair .img-perfil-btn img {
+  width: 100%;
+  border-radius: 50%;
+  max-width: 60px;
+  max-height: 60px;
+  border: solid;
+  border-color: #fff;
+  border-width: 2.5px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+  transition: 0.25s;
+
+
+}
+
+.desc-btn {
+  display: flex;
+  width: 100%;
+  
+  /* padding: 45px; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.desc-btn .btn {
+  background-color: unset;
+    border: 0;
+}
+
+.desc-btn .btn:focus {
+  background-color: unset;
+    border: 0;
+}
+
+
 
 .list-group-box button:hover {
   background-color: #664187 !important;
@@ -567,19 +647,24 @@ body {
   background-color: #664187 !important;
 }
 
+
 .btn-sair {
-  margin-top: 50px;
-  height: 40px;
-  width: 90px;
+ 
+  height: auto;
+  width: 100%;
   background-color: none !important;
   font-family: 'InterBold';
+  cursor: pointer;
 }
+
+
 
 .btn-sair h1 {
   font-weight: 600;
   font-size: 1.4rem;
   color: #202024;
-  margin-top: 7px;
+  margin: 0;
+  padding-left: 10px;
 
 }
 
