@@ -40,6 +40,10 @@
                         <li class="item-sidebar">
                             <a id="tutorial">Tutorial</a>
                         </li>
+
+                         <li class="item-sidebar">
+                            <a id="tutorial">Tutorial</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="sair">
