@@ -307,6 +307,10 @@ body {
 
 }
 
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes  button:hover{
+  transform: scale(0.8);
+}
+
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes {
   display: flex;
   flex-direction: row;
@@ -315,6 +319,7 @@ body {
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes button {
   background: none;
   border: none;
+  transition: 0.25s;
 }
 
 
