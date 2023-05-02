@@ -471,44 +471,44 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data" >
                         <div class="container">
                             <div class="lado-esquerdo">
                                 <label>Inserir título: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="título">
+                                    <input type="text" name="tituloEvento" class="form-control" placeholder="título">
                                 </div>
                                 <div class="hora">
                                     <div class="inicio">
                                         <label for="horario">Horário de início: </label>
                                         <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horario" class="form-control" placeholder="início">
+                                            <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
                                         </div>
                                     </div>
                                     <div class="termino">
                                         <label>Horário de término: </label>
                                         <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horario" class="form-control" placeholder="término">
+                                            <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="data">
                                     <label for="data">Selecione uma data:</label>
                                     <div class="input-group mb-3">
-                                        <input type="date" id="data">
+                                        <input type="date" name="dataEvento" id="data">
                                     </div>
                                     <label>Número de endereço: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="número de endereço">
+                                        <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
                                     </div>
                                 </div>
                                 <label>Endereço: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="endereço">
+                                    <input type="text" class="form-control" name="logradouro" placeholder="endereço">
                                 </div>
                                 <label>Bairro: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="bairro">
+                                    <input type="text" class="form-control" name="" placeholder="bairro">
                                 </div>
                                 <label>CEP: </label>
                                 <div class="input-group mb-3">
