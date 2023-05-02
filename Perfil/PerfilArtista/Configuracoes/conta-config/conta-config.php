@@ -147,6 +147,11 @@
                         <h1>Alterar sua senha</h1><img src="../assets/img/icon-seta.svg" alt="">
                     </li>
                 </a>
+                <a href="">
+                    <li class="item-config"><img src="../assets/img/painel-de-controle.png" alt="">
+                        <h1>Dashboard do artista</h1><img src="../assets/img/icon-seta.svg" alt="">
+                    </li>
+                </a>
                 <li class="item-config" data-bs-toggle="modal" data-bs-target="#modalExcluirConta"><img
                         src="../assets/img/icon-excluir.svg" alt="">
                     <h1>Excluir conta</h1> <img src="../assets/img/icon-seta.svg" alt="">
