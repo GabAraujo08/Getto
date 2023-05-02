@@ -314,13 +314,13 @@
                             <input type="text" class="form-control" aria-label="Sizing example input" name="bioArtista" value="<?PHP echo $_SESSION['bioArtista']; ?>" aria-describedby="inputGroup-sizing-default">
 
                         </div>
-                        <!--<label>Genero:</label>
+                        <label>Genero:</label>
                     <div class="input-group mb-3">
 
                         <input type="text" class="form-control" aria-label="Sizing example input" name="generoArtista"  value="<?PHP echo $_SESSION['generoArtista']; ?>"
                             aria-describedby="inputGroup-sizing-default">
 
-                    </div>-->
+                    </div>
                         <label>Telefone:</label>
                         <div class="input-group mb-3">
 
@@ -331,7 +331,7 @@
                         <div class="form-floating mb-3" style="display: flex;
                                           flex-direction: column;">
                            
-                            <select id="estado" name="estadoVisitante" class="select-estado">
+                            <select id="estado" name="estadoUsuario" class="select-estado">
                                 
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
@@ -369,14 +369,15 @@
                             <input type="text" class="form-control" aria-label="Sizing example input" name="cidadeUsuario" value="<?PHP echo $_SESSION['cidadeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
 
                         </div>
-                    </form>
+                    
 
 
                 </div>
-                <div class="modal-footer">
+                    <div class="modal-footer">
 
-                    <button type="button" class="btn btn-primary">Salvar</button>
-                </div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -471,56 +472,56 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data" >
                         <div class="container">
                             <div class="lado-esquerdo">
                                 <label>Inserir título: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="título">
+                                    <input type="text" name="tituloEvento" class="form-control" placeholder="título">
                                 </div>
                                 <div class="hora">
                                     <div class="inicio">
                                         <label for="horario">Horário de início: </label>
                                         <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horario" class="form-control" placeholder="início">
+                                            <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
                                         </div>
                                     </div>
                                     <div class="termino">
                                         <label>Horário de término: </label>
                                         <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horario" class="form-control" placeholder="término">
+                                            <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="data">
                                     <label for="data">Selecione uma data:</label>
                                     <div class="input-group mb-3">
-                                        <input type="date" id="data">
+                                        <input type="date" name="dataEvento" id="data">
                                     </div>
                                     <label>Número de endereço: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="número de endereço">
+                                        <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
                                     </div>
                                 </div>
                                 <label>Endereço: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="endereço">
+                                    <input type="text" class="form-control" name="logradouro" placeholder="endereço">
                                 </div>
                                 <label>Bairro: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="bairro">
+                                    <input type="text" class="form-control" name="bairroEvento" placeholder="bairro">
                                 </div>
                                 <label>CEP: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="cep">
+                                    <input type="text" class="form-control" name="cepEvento" placeholder="cep">
                                 </div>
                                 <label>Cidade: </label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" placeholder="cidade">
+                                    <input type="text" class="form-control" name="cidEvento" placeholder="cidade">
                                 </div>
                                 <label>Estado: </label>
                                 <div class="input-group mb-3">
-                                    <select id="estado-evento" name="estado-evento" class="select-estado">
+                                    <select id="estado-evento" name="estadoEvento" class="select-estado">
                                         <option value="AC">Selecionar</option>
                                         <option value="AC">Acre</option>
                                         <option value="AL">Alagoas</option>
@@ -559,12 +560,12 @@
                                         <label class="picture" for="picture__input" tabIndex="0">
                                             <span class="picture__image"></span>
                                         </label>
-                                        <input type="file" name="picture__input" id="picture__input">
+                                        <input type="file" name="imagemEvento" id="picture__input">
                                     </div>
                                 </div>
                                 <label>Descrição do evento</label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" id="desc-evento" placeholder="descrição">
+                                    <input type="textarea" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição">
                                 </div>
                             </div>
                         </div>
