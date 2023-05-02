@@ -25,7 +25,7 @@
                     $_SESSION['nivelContaUsuario'] = $resultado['nivelContaUsuario'];
                     $_SESSION['fotoPerfilUsuario'] = $resultado['fotoPerfilUsuario'];
                     
-                    header('Location: ../Perfil/PerfilVisitante/perfil-visitante.php');
+                    header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');
 
                 }else if($resultado['nivelContaUsuario'] == 2){
                     session_start();
@@ -47,7 +47,7 @@
                     $_SESSION['generoArtista']=$artista['generoArtista'];
                     $_SESSION['bioArtista']=$artista['bioArtista'];
 
-                    header('Location: ../Perfil/PerfilArtista/perfil.php');
+                    header('Location: ../Perfil/PerfilArtista/Feed/feed.php');
 
                 }
 

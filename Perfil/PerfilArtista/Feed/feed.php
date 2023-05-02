@@ -1,3 +1,4 @@
+<?php include('../../../Controller/VerificaLogado.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,7 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                         <ul class="list-group">
-                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item"><a href="feed.php">Início</a></button></li>
                             <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                             <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
@@ -53,7 +54,7 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="../perfil.php">
                                             <div class="d-flex flex-row align-items-center btn-sair">
                                                 <i class="fas fa-user"></i>
                                                 <h1>Perfil</h1>
@@ -61,7 +62,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="../../../Controller/Logout.php">
                                             <div class="d-flex flex-row  align-items-center btn-sair">
                                                 <i class="fas fa-sign-out-alt"></i>
                                                 <h1>Sair</h1>
