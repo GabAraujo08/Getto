@@ -104,7 +104,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 100%;
 }
 
 .container-fluid .box-area-perfil {
@@ -331,7 +331,7 @@ body {
 }
 
 .mobile-nav {
-  background: #ecebf3;
+  background: #ffffff;
   position: fixed;
   bottom: 0;
   height: 65px;
@@ -679,7 +679,7 @@ body {
 }
 
 .area-info {
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: #eae9f1 !important;
   padding: 15px;

@@ -62,7 +62,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="../../../Controller/Logout.php">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex flex-row  align-items-center btn-sair">
                                                 <i class="fas fa-sign-out-alt"></i>
                                                 <h1>Sair</h1>
