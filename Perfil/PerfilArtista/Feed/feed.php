@@ -38,15 +38,15 @@
                     <div class="dropup-center dropup">
                         <div class="btn-perfil-sair" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="img-perfil-btn">
-                                <img src="assets/img/img-perfil.svg" alt="">
+                                <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
                             </div>
                             <div class="desc-btn">
                                 <div class="btn-perfilNomes">
                                     <div class="nome-usuario">
-                                        <h1>Gabriel</h1>
+                                        <h1><?PHP echo $_SESSION['nomeUsuario']; ?></h1>
                                     </div>
                                     <div class="nickname">
-                                        <h3>@gabbs</h3>
+                                        <h3><?PHP echo $_SESSION['nicknameUsuario']; ?></h3>
                                     </div>
                                 </div>
                                 <button class="btn btn-primary" type="button">
