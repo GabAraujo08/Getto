@@ -332,7 +332,7 @@
                                           flex-direction: column;">
                            
                             <select id="estado" name="estadoUsuario" class="select-estado">
-                                
+                                <option value="<?PHP echo $_SESSION['estadoUsuario']; ?>"><?PHP echo $_SESSION['estadoUsuario']; ?></option>
                                 <option value="AC">Acre</option>
                                 <option value="AL">Alagoas</option>
                                 <option value="AP">Amapá</option>

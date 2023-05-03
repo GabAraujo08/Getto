@@ -2,7 +2,7 @@
         require_once 'GlobalPerfil.php';
         
         session_start();
-        //header('Location: perfil.php');     
+        header('Location: perfil.php');     
 
         $conexao = Conexao::conectar();
 
@@ -20,6 +20,7 @@
             $prepareStatement->bindValue(2, $_POST['nicknameUsuario']);
             $prepareStatement->bindValue(3, $_POST['foneUsuario']);
             $prepareStatement->bindValue(4, $_POST['estadoUsuario']);
+            $prepareStatement->bindValue(5, $_POST['cidadeUsuario']);
             $prepareStatement->bindValue(6, $_SESSION['idUsuario']);
 
             $prepareStatement->execute();
