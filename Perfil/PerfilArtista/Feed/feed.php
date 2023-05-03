@@ -38,7 +38,7 @@
                     <div class="dropup-center dropup">
                         <div class="btn-perfil-sair" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="img-perfil-btn">
-                                <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                                <a href="../perfil.php"><img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt=""></a>
                             </div>
                             <div class="desc-btn">
                                 <div class="btn-perfilNomes">
