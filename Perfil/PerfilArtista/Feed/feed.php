@@ -25,7 +25,7 @@
                         <ul class="list-group">
                             <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item"><a href="feed.php">Início</a></button></li>
                             <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
-                            <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
+                            <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button"><a href="/Evento/evento.html">Eventos</a></button></li>
                             <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                             <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button"><a href="descobrir.php">Descobrir</a></button></li>
