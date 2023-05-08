@@ -471,6 +471,26 @@ body {
 }
 
 
+.sair {
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+}
+
+.sair a {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'InterRegular';
+}
+
+.sair img{
+  width: 30px;
+    margin-right: 5px;
+}
+
 #eventos {
   background-image: url('../img/icone-calendario.png');
 

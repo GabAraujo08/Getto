@@ -29,14 +29,23 @@
                             <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                             <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button"><a href="descobrir.php">Descobrir</a></button></li>
-                            <a href="../perfil.php"><li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li></a>
+                            <a href="../perfil.php">
+                                <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
+                            </a>
                         </ul>
                     </div>
                     <div class="nova-pub">
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova
                             publicação</button>
                     </div>
-                    <div class="dropup-center dropup">
+
+                    <div class="sair">
+                    <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
+                    </div>
+
+                    <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
+
+                    <!-- <div class="dropup-center dropup">
                         <div class="btn-perfil-sair" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="img-perfil-btn">
                                 <a href="../perfil.php"><img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt=""></a>
@@ -73,7 +82,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="nova-pub">
