@@ -9,11 +9,6 @@
 <body>
     <a href="registroVisitante.php"> aqui </a>
     <a href="Administrador/login-adm.php"> aqui </a>
-    <!--<form action="Controller/Login.php" method="Post">
-        <input name="email" type="text">
-        <input name="senha" type="password">
-        <button type="submit">Entrar</button>-->
-    </form>
-    <p>camilly</p>
+    
 </body>
 </html>
