@@ -1,0 +1,43 @@
+.add-tags{
+    padding: 10px;
+    font-family: 'InterRegular';
+}
+
+ span{
+    font-family: 'InterBold'!important;
+}
+
+.add-tags .tags-existentes h1{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-family: 'InterBold'!important;
+}
+
+.add-tags .input-group button{
+   background-color: #664187!important;
+   border: 0;
+}
+
+.add-tags .input-group button{
+    background-color: #664187!important;
+    border: 0;
+ }
+
+
+
+ #mudarTag .modal-footer button {
+    width: 100%;
+ }
+
+#mudarTag .modal-footer .btn-secondary {
+    background-color: #664187!important;
+    border: 0;
+ }
+
+ 
+#mudarTag .modal-footer .btn-primary {
+    background-color: #6c757d!important;
+    border: 0;
+ }
+

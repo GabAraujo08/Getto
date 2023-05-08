@@ -29,7 +29,7 @@
                             <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                             <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button"><a href="descobrir.php">Descobrir</a></button></li>
-                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button"><a href="../perfil.php">Perfil</a></button></li>
+                            <a href="../perfil.php"><li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li></a>
                         </ul>
                     </div>
                     <div class="nova-pub">
