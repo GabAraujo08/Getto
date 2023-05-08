@@ -12,6 +12,190 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
+<style>
+
+    body{
+        background-color: #ECEBF3;
+    }
+
+    .voltar-dashboard{
+        display: flex;
+    }
+    .voltar-dashboard p{
+        margin: 0;
+        margin-left: 5%;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .box{
+        background-color: white;
+        border-radius: 20px;
+        margin: 0;
+        margin-top: 2%;
+        margin-left: 22%;
+        margin-right: 2%;
+    }
+    .explicacao-dashboard{
+        background-color: #ECEBF3;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        display: flex;
+        width: 100%;
+        margin-top: 2%;
+    }
+    .explicacao-textos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5%;
+    }
+    .explicacao-titulo p{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+    }
+    .explicacao-descricao p{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        color: #656565;
+    }
+    .explicacao-img img{
+        padding: 10%;
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+    .cards-engajamentos{
+        display: flex;
+        width: 100%;
+        margin-top: 2%;
+    }
+    .card-visitas{
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 2%;
+    }
+    .visitas-titulo p{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+    .visitas-quantidade{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+    .card-curtidas{
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 1%;
+    }
+    .curtidas-titulo p{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+    .curtidas-quantidade{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+    .card-compartilhamentos{
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1%;
+    }
+    .compartilhamentos-titulo p{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+    .compartilhamentos-quantidade{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+    .card-publicacoes{
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 2%;
+    }
+    .publicacoes-titulo p{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+    .publicacoes-quantidade{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+</style>
+
 <body>
 
 
@@ -118,7 +302,73 @@
 
         </div>
     </div>
-    
+    <div class="box">
+        <div class="voltar-dashboard">
+            <img src="../assets/img/seta-esquerda.svg" alt="">
+            <p>Dashboard</p>
+        </div>
+        <div class="explicacao-dashboard">
+            <div class="explicacao-textos">
+                <div class="explicacao-titulo">
+                    <p>Aqui você poderá ver o seu engajamento!</p>
+                </div>
+                <div class="explicacao-descricao">
+                    <p>Fique de olho e veja quando estiver abaixo que o esperado!</p>
+                </div>
+            </div>
+            <div class="explicacao-img">
+                <img src="../assets/img/img-dash.svg" alt="">
+            </div>
+        </div>
+
+        <div class="cards-engajamentos">
+            <div class="card-visitas">
+                <div class="visitas-img">
+                    <img src="../assets/img/olho-vermelho (2).png" alt="">
+                </div>
+                <div class="visitas-titulo">
+                    <p>Visitas totais ao perfil</p>
+                </div>
+                <div class="visitas-quantidade">
+                    <p>1000</p>
+                </div>
+            </div>
+            <div class="card-curtidas">
+                <div class="curtidas-img">
+                    <img src="../assets/img/estrela-getto.png" alt="">
+                </div>
+                <div class="curtidas-titulo">
+                    <p>Curtidas totais</p>
+                </div>
+                <div class="curtidas-quantidade">
+                    <p>1000</p>
+                </div>
+            </div>
+            <div class="card-compartilhamentos">
+                <div class="compartilhamentos-img">
+                    <img src="../assets/img/compartilhar.png" alt="">
+                </div>
+                <div class="compartilhamentos-titulo">
+                    <p>Compartilhamentos totais</p>
+                </div>
+                <div class="compartilhamentos-quantidade">
+                    <p>1000</p>
+                </div>
+            </div>
+            <div class="card-publicacoes">
+                <div class="publicacoes-img">
+                    <img src="../assets/img/pincel.png" alt="">
+                </div>
+                <div class="publicacoes-titulo">
+                    <p>Publicações totais</p>
+                </div>
+                <div class="publicacoes-quantidade">
+                    <p>1000</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <nav class="mobile-nav">
         <a href="#" class="bloc-icon">
             <img src="../assets/img/bottomNav/icon-home.svg" alt="">
