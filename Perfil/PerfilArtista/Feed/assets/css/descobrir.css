@@ -93,3 +93,13 @@ button img{
     width: 15px;
     height: 15px;
 }
+
+#results{
+    display: flex;
+    flex-direction:row;
+    background-color: #cbbdd8;
+}
+
+.ul marker{
+    display: none;
+}
