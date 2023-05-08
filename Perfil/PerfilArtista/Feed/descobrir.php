@@ -1,28 +1,6 @@
 <?php
      include('../../../Controller/VerificaLogado.php'); 
      require_once '../GlobalPerfil.php';
-
-     if(isset($_POST['busca'])){
-        $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
-        $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
-        $consulta->execute();
-        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-        if (count($resultado) > 0) {
-            $html = '';
-            foreach ($resultado as $row) {
-                $html .= '<li>';
-                $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
-                $html .= '<a href="#">' . $row['nicknameUsuario'] . '</a>';
-                $html .= '</li>';
-            }
-            echo '<ul id="results">' . $html . '</ul>';
-        } else {
-            echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
-        }
-        
-     }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,11 +18,34 @@
         <form name="FormBusca" id="FormBusca" method="Post" action="">
             <input type="search" id="search" name="busca" placeholder="Pesquisar...">
             <button type="submit"><img src="assets/img/search.png"></i></button>
-            <ul id="results"></ul>
+            
         </form>
+        </div>
+        <?php
+        if(isset($_POST['busca'])){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
+            $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    
+            if (count($resultado) > 0) {
+                $html = '';
+                foreach ($resultado as $row) {
+                    $html .= '<li>';
+                    $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                    $html .= '<a href="#">' . $row['nicknameUsuario'] . '</a>';
+                    $html .= '</li>';
+                }
+                echo '<ul id="results">' . $html . '</ul>';
+            } else {
+                echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
+            }
+            
+         }?>
         
      
-    </div>
+    
 
     <script>
         $(document).ready(function() {
