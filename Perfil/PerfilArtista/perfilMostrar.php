@@ -1,4 +1,4 @@
-<?php include('../Controller/VerificaLogado.php'); ?>
+<?php include('../../Controller/VerificaLogado.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,7 +160,7 @@
                             </div>
                             <div class="criar-evento">
                                 <div class="titulo-box-evento">
-                                    <h1>Seus eventos</h1>
+                                    <h1>Eventos de </h1>
                                 </div>
                                 
                             </div>
@@ -318,10 +318,10 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mudar capa</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Capa</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="formUpdateCapa" name="formUpdateCapa" enctype="multipart/form-data" action="UpdateFotoCapa.php" method="POST">
+                
                     <div class="modal-body">
 
                         <div class="div-img-capa">
@@ -338,11 +338,7 @@
                         </div> -->
 
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" id="btn-papel-parede-modal">Escolha uma foto</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
+                    
             </div>
         </div>
     </div>
@@ -357,10 +353,10 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mudar foto de perfil</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Ver foto de perfil</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form name="formUpdateFotoPerfil" enctype="multipart/form-data" action="UpdateFotoPerfil.php" method="POST">
+                
                     <div class="modal-body">
                         <div class="div-img-usuario">
                             <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
@@ -375,11 +371,7 @@
                             <img id="preview-img" src="" alt="">
                         </div> -->
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" id="btn-perfil-modal">Escolha uma foto</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
+                    
             </div>
         </div>
     </div>
