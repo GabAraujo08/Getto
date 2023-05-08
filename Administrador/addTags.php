@@ -70,12 +70,15 @@
                 </div>
             </div>
             <div class="add-tags">
+                <form name="FormcadTag" id="FormcadTag" action="../Controller/CadastraTag.php" method="Post">
                 <div class="input-group input-group-lg">
                     <span class="input-group-text" id="inputGroup-sizing-lg">Insira a nova tag</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                    <input type="text" class="form-control" name="tag" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
+                </form>
+               
 
                 <div class="tags-existentes">
 
