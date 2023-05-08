@@ -1,12 +1,12 @@
 <?php
 
 class Publicacao{
-    public $idPublicacao;
-    public $horarioPublicacao;
-    public $quantidadeCurtidas;
-    public $descPublicacao;
-    public $tituloPublicacao;
-    public $statusPublicacao;
+    private $idPublicacao;
+    private $horarioPublicacao;
+    private $quantidadeCurtidas;
+    private $descPublicacao;
+    private $tituloPublicacao;
+    private $statusPublicacao;
 
 
     public function getIdPublicacao(){
@@ -46,7 +46,7 @@ class Publicacao{
 
 
     public function getTituloPublicacao(){
-        return $this->TituloPublicacao;
+        return $this->tituloPublicacao;
     }
     public function setTituloPublicacao($titulo){
         $this->tituloPublicacao = $titulo;
