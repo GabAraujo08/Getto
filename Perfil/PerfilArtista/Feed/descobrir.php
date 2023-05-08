@@ -1,6 +1,7 @@
 <?php
      include('../../../Controller/VerificaLogado.php'); 
      require_once '../GlobalPerfil.php';
+     require_once '../../../Dao/Conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
