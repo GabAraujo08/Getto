@@ -1,4 +1,5 @@
 <?PHP include('../Controller/VerificaLogadoAdm.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,12 +39,10 @@
                             <a id="verificacao">Verificação de artistas</a>
                         </li>
                         <li class="item-sidebar">
-                            <a id="tutorial">Tutorial</a>
+                            <a href="addTags.php" id="tutorial">Tags</a>
                         </li>
 
-                         <li class="item-sidebar">
-                            <a id="tutorial">Tutorial</a>
-                        </li>
+                         
                     </ul>
                 </div>
                 <div class="sair">
