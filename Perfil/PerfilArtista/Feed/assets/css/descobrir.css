@@ -93,3 +93,33 @@ button img{
     width: 15px;
     height: 15px;
 }
+
+#results{
+    display: flex;
+    flex-direction:column;
+    background-color: #cbbdd8;
+}
+
+.ul marker{
+    display: none;
+}
+
+.ul .li {
+
+}
+
+ .li img{
+    width: 6rem;
+    border: solid;
+    border-color: #fff;
+    border-width: 2.5px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+    transition: 0.25s;
+    cursor: pointer;
+    width: 100%;
+    max-width: 6rem;
+    max-height: 6rem,;
+    height: 6rem;
+}

@@ -8,7 +8,20 @@
         $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-        echo $resultado['nomeUsuario'];
+
+        if (count($resultado) > 0) {
+            $html = '';
+            foreach ($resultado as $row) {
+                $html .= '<li>';
+                $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">';
+                $html .= '<a href="#">' . $row['nicknameUsuario'] . '</a>';
+                $html .= '</li>';
+            }
+            echo '<ul id="results">' . $html . '</ul>';
+        } else {
+            echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
+        }
+        
      }
 ?>
 <!DOCTYPE html>
@@ -25,12 +38,33 @@
 <body>
     <div class="area-buscar">
         <form name="FormBusca" id="FormBusca" method="Post" action="">
-            <input type="search" name="busca" placeholder="Pesquisar...">
+            <input type="search" id="search" name="busca" placeholder="Pesquisar...">
             <button type="submit"><img src="assets/img/search.png"></i></button>
+            <ul id="results"></ul>
         </form>
-
+        
      
     </div>
+
+    <script>
+        $(document).ready(function() {
+  $('#search').keyup(function() {
+    var query = $(this).val();
+    if (query != '') {
+      $.ajax({
+        url: 'search.php',
+        method: 'POST',
+        data: {query: query},
+        success: function(data) {
+          $('#results').html(data);
+        }
+      });
+    } else {
+      $('#results').html('');
+    }
+  });
+});
+    </script>
 </body>
 
 </html>
