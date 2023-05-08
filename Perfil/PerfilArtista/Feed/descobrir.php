@@ -1,4 +1,16 @@
-<?php include('../../../Controller/VerificaLogado.php'); ?>
+<?php
+     include('../../../Controller/VerificaLogado.php'); 
+     require_once '../GlobalPerfil.php';
+
+     if(isset($_POST['busca'])){
+        $conexao = Conexao::conectar();
+        $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
+        $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        echo $resultado['nomeUsuario'];
+     }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +24,12 @@
 
 <body>
     <div class="area-buscar">
-        <form>
-            <input type="search" placeholder="Pesquisar...">
+        <form name="FormBusca" id="FormBusca" method="Post" action="">
+            <input type="search" name="busca" placeholder="Pesquisar...">
             <button type="submit"><img src="assets/img/search.png"></i></button>
         </form>
+
+     
     </div>
 </body>
 
