@@ -13,7 +13,7 @@
             $html = '';
             foreach ($resultado as $row) {
                 $html .= '<li>';
-                $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">';
+                $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                 $html .= '<a href="#">' . $row['nicknameUsuario'] . '</a>';
                 $html .= '</li>';
             }
