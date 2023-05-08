@@ -112,10 +112,11 @@ ul li {
     display: flex;
     align-items: center;
     margin-bottom: 0.75rem;
+    color: #664187;
 
 }
 
-ul li a {
+ul li button {
     font-family: 'Poppins';
     font-weight: 600;
     text-decoration: none;
