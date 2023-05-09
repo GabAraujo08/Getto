@@ -71,14 +71,21 @@
             </div>
             <div class="add-tags">
                 <form name="FormcadTag" id="FormcadTag" action="../Controller/CadastraTag.php" method="Post">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-text" id="inputGroup-sizing-lg">Insira a nova tag</span>
-                    <input type="text" class="form-control" name="tag" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Insira o icone da tag</span>
+                        <input name="tagImg" accept="image/*" type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+
+                    </div>
+                    <div class="input-group input-group-lg">
+
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Insira a nova tag</span>
+                        <input type="text" class="form-control" name="tag" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
                 </form>
-               
+
 
                 <div class="tags-existentes">
 
@@ -146,10 +153,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group input-group-lg">
-                     
+
                         <input type="text" value="Tag atual" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 
-                        
+
                     </div>
                 </div>
                 <div class="modal-footer">
