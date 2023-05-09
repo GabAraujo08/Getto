@@ -6,11 +6,11 @@ class TipoArte{
     private $imagemTipoArte;
 
     public function getIdTipoArte(){
-        return $this->IdTipoArte;
+        return $this->idTipoArte;
     }
 
     public function setIdTipoArte($id){
-        $this->IdTipoArte = $id;
+        $this->idTipoArte = $id;
     }
 
 
