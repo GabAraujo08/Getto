@@ -12,7 +12,7 @@
     $extensao = substr($nome, -4);
     $nomenovo = $_SESSION['idUsuario'].$extensao;
     
-    move_uploaded_file($arquivo, "../Perfil/assets/img/FotoCapa/".$nomenovo);
+    move_uploaded_file($arquivo, "assets/img/FotoCapa/".$nomenovo);
 
     $conexao = Conexao::conectar();
 

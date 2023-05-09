@@ -36,9 +36,18 @@
                     foreach ($resultado as $row) {
                         $html .= '<form action="../perfilMostrar.php" method="POST">';
                         $html .= '<li>';
-                        $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                        if($row['nivelContaUsuario'] == 2){
+                          $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                          //$html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                        }else{
+                          $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                          //$html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                        }
+                        $html .= '<input type="hidden" name="usuarioNivelConta" value= "'. $row['nivelContaUsuario'] .'">';
+                        $html .= '<input type="hidden" name="usuarioFotoCapa" value= "'. $row['papelParedeUsuario'] .'">';
                         $html .= '<input type="hidden" name="usuarioNome" value= "'. $row['nomeUsuario'] .'">';
                         $html .= '<input type="hidden" name="usuarioNick" value= "'. $row['nicknameUsuario'] .'">';
+                        $html .= '<input type="hidden" name="usuarioId" value= "'. $row['idUsuario'] .'">';
                         $html .= '<button type="submit">' . $row['nicknameUsuario'] . '</button>';
                         $html .= '</li>';
                         $html .= '</form>';
