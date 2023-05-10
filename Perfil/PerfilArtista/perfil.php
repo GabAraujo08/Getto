@@ -623,12 +623,12 @@
 
 
                     <div class="area-form">
-                        <form id="regForm" action="">
+                        <form id="regForm" method="POST" action="../../Controller/cadastrarPublicacao.php">
 
 
                             <!-- One "tab" for each step in the form: -->
                             <div class="tab">
-                                <textarea placeholder="No que você está pensando?" name="" id="" cols="40" rows="10"></textarea>
+                                <textarea placeholder="No que você está pensando?" name="descPub" id="" cols="40" rows="10"></textarea>
                                 <h1 class="title-form">Selecione o tipo de mídia</h1>
                                 <div class="wrapper">
                                 
@@ -649,13 +649,19 @@
                                     </label>
 
                                 </div>
-                                <input type="file" id="inputFile" style="display:none;">
+                                <input type="file" name="arquivo" id="inputFile" style="display:none;">
 
                                 <div class="privacidade">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option value="1">Imagem</option>
-                                    <option value="2">Video</option>
-                                    <option value="3">Musica</option>
+                                <select class="form-select" name="idTipoMidia" aria-label="Default select example">
+                                    <option value="#">Selecionar...</option>
+                                    <?PHP
+                                        $mm = TipoMidiaDao::ListaTipoMidia();
+                                        foreach($mm as $m){
+                                    ?>
+                                    <option value="<?PHP echo $m['idTipoMidia']; ?>"><?PHP echo $m['nomeTipoMidia']; ?></option>
+                                    <?PHP
+                                        }
+                                    ?>
                                 </select>
                             </div>
 
@@ -679,7 +685,7 @@
 
                             <div class="tab">
                                 <h1 class="title-form">Qual o tipo da sua publicação?</h1>
-                                <select style="margin-bottom: 10px;" class="form-select" aria-label="Default select example">
+                                <select style="margin-bottom: 10px;" name="idTipoArte" class="form-select" aria-label="Default select example">
                                 <option value="#">Selecionar...</option>
                                 <?php
                                     $t = TipoArteDao::ListaTag(); 
