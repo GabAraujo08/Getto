@@ -1,4 +1,4 @@
-<?php include('../../../Controller/VerificaLogado.php'); ?>
+<?php include('../../../../Controller/VerificaLogado.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 

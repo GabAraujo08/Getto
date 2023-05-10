@@ -669,13 +669,12 @@
                             <div class="tab">
                                 <h1 class="title-form">Qual o tipo da sua publicação?</h1>
                                 <select style="margin-bottom: 10px;" class="form-select" aria-label="Default select example">
-                                <option value="#">Selecinar...</option>
+                                <option value="#">Selecionar...</option>
                                 <?php
-                                    require_once 'GlobalAdm.php';
+                                    require_once 'GlobalPerfil.php';
                                     $t = TipoArteDao::ListaTag(); 
-                                    foreach($t as  $chave => $tag){
+                                    foreach($t as $tag){
                                 ?>
-                                    
                                     <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
                                 <?php
                                     }
