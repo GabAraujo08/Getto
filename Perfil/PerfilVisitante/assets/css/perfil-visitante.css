@@ -30,6 +30,7 @@
 
 a {
   text-decoration: none !important;
+  color: unset!important;
 }
 
 body {
@@ -109,6 +110,12 @@ body {
 
 .sidebar .sidebar-box {
   margin-top: 25px !important;
+}
+
+.logos h1{
+  font-family: 'InterBold';
+  color: #664187;
+  margin: 0;
 }
 
 .sidebar .sidebar-box .list-group-box button {
@@ -326,7 +333,7 @@ body {
 
 .container-fluid .area-perfil .papel-parede-img-perfil .papel-parede-img {
   width: 100%;
-  height: 145px;
+  height: 215px;
   z-index: -1;
   margin-bottom: 5px;
   border-radius: 8px;
