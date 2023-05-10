@@ -1,5 +1,5 @@
-<?php include('../../Controller/VerificaLogado.php'); 
-    require_once 'GlobalPerfil.php';
+<?php include('../../Controller/VerificaLogado.php');
+require_once 'GlobalPerfil.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
+    <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/perfilArtistaMobile.css">
     <link rel="stylesheet" href="assets/css/preview-criar-evento.css" />
@@ -31,12 +32,24 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                         <ul class="list-group">
-                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item"><a href="Feed/feed.php">Início</a></button></li>
-                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
-                            <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
-                            <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
-                            <li class="list-group-item"><a href="Configuracoes/configuracoes.php"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></a></li>
-                            <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button"><a href="Feed/descobrir.php">Descobrir</a></button></li>
+                            <a href="Feed/feed.php">
+                                <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                            </a>
+                            <a href="">
+                                <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                            </a>
+                            <a href="../../Evento/evento.php">
+                                <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
+                            </a>
+                            <a href="">
+                                <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                            </a>
+                            <a href="Configuracoes/configuracoes.php">
+                                <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
+                            </a>
+                            <a href="Feed/descobrir.php">
+                                <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                            </a>
                         </ul>
                     </div>
                     <div class="nova-pub">
@@ -631,7 +644,7 @@
                                 <textarea placeholder="No que você está pensando?" name="descPub" id="" cols="40" rows="10"></textarea>
                                 <h1 class="title-form">Selecione o tipo de mídia</h1>
                                 <div class="wrapper">
-                                
+
                                     <input type="radio" name="select" id="option-1" checked>
                                     <input type="radio" name="select" id="option-2">
                                     <input type="radio" name="select" id="option-3">
@@ -652,18 +665,18 @@
                                 <input type="file" name="arquivo" id="inputFile" style="display:none;">
 
                                 <div class="privacidade">
-                                <select class="form-select" name="idTipoMidia" aria-label="Default select example">
-                                    <option value="#">Selecionar...</option>
-                                    <?PHP
+                                    <select class="form-select" name="idTipoMidia" aria-label="Default select example">
+                                        <option value="#">Selecionar...</option>
+                                        <?PHP
                                         $mm = TipoMidiaDao::ListaTipoMidia();
-                                        foreach($mm as $m){
-                                    ?>
-                                    <option value="<?PHP echo $m['idTipoMidia']; ?>"><?PHP echo $m['nomeTipoMidia']; ?></option>
-                                    <?PHP
+                                        foreach ($mm as $m) {
+                                        ?>
+                                            <option value="<?PHP echo $m['idTipoMidia']; ?>"><?PHP echo $m['nomeTipoMidia']; ?></option>
+                                        <?PHP
                                         }
-                                    ?>
-                                </select>
-                            </div>
+                                        ?>
+                                    </select>
+                                </div>
 
                                 <div id="previewContainer"></div>
                                 <div id="previewCover"></div>
@@ -686,16 +699,16 @@
                             <div class="tab">
                                 <h1 class="title-form">Qual o tipo da sua publicação?</h1>
                                 <select style="margin-bottom: 10px;" name="idTipoArte" class="form-select" aria-label="Default select example">
-                                <option value="#">Selecionar...</option>
-                                <?php
-                                    $t = TipoArteDao::ListaTag(); 
-                                    foreach($t as $tag){
-                                ?>
-                                    <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
-                                <?php
+                                    <option value="#">Selecionar...</option>
+                                    <?php
+                                    $t = TipoArteDao::ListaTag();
+                                    foreach ($t as $tag) {
+                                    ?>
+                                        <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
+                                    <?php
                                     }
-                                ?>
-                                
+                                    ?>
+
                                 </select>
                             </div>
 

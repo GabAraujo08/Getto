@@ -110,6 +110,13 @@ body {
   border: 0 !important;
 }
 
+.logos h1{
+  font-family: 'InterBold';
+  color: #664187;
+  margin: 0;
+}
+
+
 
 .sidebar .sidebar-box {
   margin-top: 25px !important;
