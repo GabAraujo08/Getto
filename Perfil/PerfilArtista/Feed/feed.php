@@ -1,4 +1,7 @@
-<?php include('../../../Controller/VerificaLogado.php'); ?>
+<?php include('../../../Controller/VerificaLogado.php'); 
+    require_once '../../../Dao/publicacaoDao.php';
+    require_once '../../../Dao/Conexao.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -181,60 +184,62 @@
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
                             </div>
-                            <div class="publicacao">
-                                <div class="header-publicacao">
-                                    <div class="informacoes-perfil-publicacao">
-                                        <div class="img-perfil-publicacao">
-                                            <img src="assets/img/img-perfil.svg" alt="">
-                                        </div>
-                                        <div class="nick-e-bio-perfil-publicacao">
-                                            <div class="nick">
-                                                <h1>@Melis</h1>
+                            <?PHP
+                                $pub = PublicacaoDao::ListaPublicacao();
+                                foreach($pub as $p){
+                            ?>
+                                    <div class="publicacao">
+                                        <div class="header-publicacao">
+                                            <div class="informacoes-perfil-publicacao">
+                                                <div class="img-perfil-publicacao">
+                                                    <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                                </div>
+                                                <div class="nick-e-bio-perfil-publicacao">
+                                                    <div class="nick">
+                                                        <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
+                                                    </div>
+                                                   
+                                                </div>
                                             </div>
-                                            <div class="bio">
-                                                <p>Cantor e compositor na zona leste de SP</p>
+                                            <div class="box-btn-configuracao-publicacao">
+                                                <button class="btn-configuracao-publicacao">
+                                                    <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                                </button>
                                             </div>
+                                        </div>
 
+
+                                        <div class="box-img-publicacao">
+                                            <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                        </div>
+                                        <div class="legenda-publicacao">
+                                            <p>
+                                                <?PHP echo $p['descPublicacao']; ?>!
+                                            </p>
+                                        </div>
+                                        <div class="acoes-publicacao">
+                                            <div class="box-btn-acoes">
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                </button>
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-comentario-btn.svg" alt="">
+                                                </button>
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-salvar-btn.svg" alt="">
+                                                </button>
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                                </button>
+                                            </div>
+                                            <div class="tempo-publicacao">
+                                                <p><?PHP echo $p['horarioPublicacao']; ?></p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="box-btn-configuracao-publicacao">
-                                        <button class="btn-configuracao-publicacao">
-                                            <img src="assets/img/icon-configuracao-publicacao-btn.svg" alt="">
-                                        </button>
-                                    </div>
-                                </div>
-
-
-                                <div class="box-img-publicacao">
-                                    <img src="assets/img/img-publicacao.svg" alt="" class="img-publicacao">
-                                </div>
-                                <div class="legenda-publicacao">
-                                    <p>
-                                        Gostaria de compartilhar o clipe da minha nova música que produzi junto a alguns
-                                        amigos,
-                                        compartilhe com o pessoal que será de grande ajuda, tamo junto!
-                                    </p>
-                                </div>
-                                <div class="acoes-publicacao">
-                                    <div class="box-btn-acoes">
-                                        <button class="btn-acao">
-                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                        </button>
-                                        <button class="btn-acao">
-                                            <img src="assets/img/icon-comentario-btn.svg" alt="">
-                                        </button>
-                                        <button class="btn-acao">
-                                            <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                        </button>
-                                        <button class="btn-acao">
-                                            <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                        </button>
-                                    </div>
-                                    <div class="tempo-publicacao">
-                                        <p>1 min</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?PHP
+                                }
+                            ?>
                             <div class="publicacao">
                                 <div class="header-publicacao">
                                     <div class="informacoes-perfil-publicacao">
