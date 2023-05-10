@@ -651,6 +651,14 @@
                                 </div>
                                 <input type="file" id="inputFile" style="display:none;">
 
+                                <div class="privacidade">
+                                <select class="form-select" aria-label="Default select example">
+                                    <option value="1">Imagem</option>
+                                    <option value="2">Video</option>
+                                    <option value="3">Musica</option>
+                                </select>
+                            </div>
+
                                 <div id="previewContainer"></div>
                                 <div id="previewCover"></div>
 
