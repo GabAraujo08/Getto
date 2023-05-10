@@ -1,8 +1,9 @@
 <?php
 
 class Midia{
-    private $idMidia;
+    private $idMidia, $idTipoMidia;
     private $arquivoMidia;
+
    
 
     public function getIdMidia(){
@@ -10,6 +11,13 @@ class Midia{
     }
     public function setIdMidia($id){
         $this->idMidia = $id;
+    }
+
+    public function getIdTipoMidia(){
+        return $this->idTipoMidia;
+    }
+    public function setIdTipoMidia($id){
+        $this->idTipoMidia = $id;
     }
 
 
