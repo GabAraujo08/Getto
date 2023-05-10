@@ -1,8 +1,8 @@
 <?php
 
 class Midia{
-    public $idMidia;
-    public $arquivoMidia;
+    private $idMidia;
+    private $arquivoMidia;
    
 
     public function getIdMidia(){

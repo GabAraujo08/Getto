@@ -1,4 +1,4 @@
-<?php include('../../../Controller/VerificaLogado.php'); ?>
+<?php include('../../../../Controller/VerificaLogado.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,21 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conta</title>
+    <link rel="shortcut icon" href="../assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/conta-configuracoes.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <style>
-
-    body{
+    body {
         background-color: #ECEBF3;
     }
 
-    .voltar-dashboard{
+    .voltar-dashboard {
         display: flex;
     }
-    .voltar-dashboard p{
+
+    .voltar-dashboard p {
         margin: 0;
         margin-left: 5%;
         font-family: 'Poppins';
@@ -30,7 +30,8 @@
         font-size: 20px;
         line-height: 30px;
     }
-    .box{
+
+    .box {
         background-color: white;
         border-radius: 20px;
         margin: 0;
@@ -38,7 +39,8 @@
         margin-left: 22%;
         margin-right: 2%;
     }
-    .explicacao-dashboard{
+
+    .explicacao-dashboard {
         background-color: #ECEBF3;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
@@ -46,13 +48,15 @@
         width: 100%;
         margin-top: 2%;
     }
-    .explicacao-textos{
+
+    .explicacao-textos {
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 5%;
     }
-    .explicacao-titulo p{
+
+    .explicacao-titulo p {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
@@ -60,7 +64,8 @@
         line-height: 48px;
         color: #9056E8;
     }
-    .explicacao-descricao p{
+
+    .explicacao-descricao p {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
@@ -68,17 +73,20 @@
         line-height: 30px;
         color: #656565;
     }
-    .explicacao-img img{
+
+    .explicacao-img img {
         padding: 10%;
         margin-bottom: 5%;
         margin-top: 5%;
     }
-    .cards-engajamentos{
+
+    .cards-engajamentos {
         display: flex;
         width: 100%;
         margin-top: 2%;
     }
-    .card-visitas{
+
+    .card-visitas {
         background: #ECEBF3;
         box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
@@ -89,7 +97,8 @@
         justify-content: center;
         margin-right: 2%;
     }
-    .visitas-titulo p{
+
+    .visitas-titulo p {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
@@ -98,7 +107,8 @@
         color: #595964;
         margin: 0;
     }
-    .visitas-quantidade{
+
+    .visitas-quantidade {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
@@ -107,7 +117,8 @@
         color: #9056E8;
         margin: 0;
     }
-    .card-curtidas{
+
+    .card-curtidas {
         background: #ECEBF3;
         box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
@@ -118,7 +129,8 @@
         justify-content: center;
         margin-right: 1%;
     }
-    .curtidas-titulo p{
+
+    .curtidas-titulo p {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
@@ -127,7 +139,8 @@
         color: #595964;
         margin: 0;
     }
-    .curtidas-quantidade{
+
+    .curtidas-quantidade {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
@@ -136,7 +149,8 @@
         color: #9056E8;
         margin: 0;
     }
-    .card-compartilhamentos{
+
+    .card-compartilhamentos {
         background: #ECEBF3;
         box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
@@ -147,7 +161,8 @@
         justify-content: center;
         margin-left: 1%;
     }
-    .compartilhamentos-titulo p{
+
+    .compartilhamentos-titulo p {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
@@ -156,7 +171,8 @@
         color: #595964;
         margin: 0;
     }
-    .compartilhamentos-quantidade{
+
+    .compartilhamentos-quantidade {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
@@ -165,7 +181,8 @@
         color: #9056E8;
         margin: 0;
     }
-    .card-publicacoes{
+
+    .card-publicacoes {
         background: #ECEBF3;
         box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
         border-radius: 20px;
@@ -176,7 +193,8 @@
         justify-content: center;
         margin-left: 2%;
     }
-    .publicacoes-titulo p{
+
+    .publicacoes-titulo p {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
@@ -185,7 +203,8 @@
         color: #595964;
         margin: 0;
     }
-    .publicacoes-quantidade{
+
+    .publicacoes-quantidade {
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 600;
@@ -209,18 +228,24 @@
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                 <ul class="list-group">
-                    <li class="list-group-item"><button id="inicio" type="button"
-                            class="btn btn-primary custom-btn-item">Início</button></li>
-                    <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list"
-                            type="button">Amigos</button></li>
-                    <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list"
-                            type="button">Eventos</button></li>
-                    <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list"
-                            type="button">Notificações</button></li>
-                    <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list"
-                            type="button">Configurações</button></li>
-                    <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list"
-                            type="button">Descobrir</button></li>
+                    <a href="../../Feed/feed.php">
+                        <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                    </a>
+                    <a href="../../../../Evento/evento.php">
+                        <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                    </a>
+                    <a href="../configuracoes.php">
+                        <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
+                    </a>
+                    <a href="../../Feed/descobrir.php">
+                        <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                    </a>
                 </ul>
             </div>
             <div class="nova-pub">
@@ -393,7 +418,7 @@
         </a>
 
     </nav>
-    
+
 </body>
 
 </html>
