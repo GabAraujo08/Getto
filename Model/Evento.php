@@ -16,6 +16,8 @@ class Evento
     private $bairroEvento;
     private $cidadeEvento;
     private $estadoEvento;
+    private $idArtista;
+    private $idTipoArte;
 
 
     public function getHorarioInicioEvento()
@@ -168,5 +170,27 @@ class Evento
     public function setEstadoEvento($estado)
     {
         $this->estadoEvento = $estado;
+    }
+
+
+
+    public function getIdArtista()
+    {
+        return $this->idArtista;
+    }
+    public function setIdArtista($idArtista)
+    {
+        $this->idArtista = $idArtista;
+    }
+
+
+
+    public function getIdTipoArte()
+    {
+        return $this->idTipoArte;
+    }
+    public function setIdTipoArte($idTipoArte)
+    {
+        $this->idTipoArte = $idTipoArte;
     }
 }
