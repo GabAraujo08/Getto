@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Abr-2023 às 21:06
+-- Tempo de geração: 10-Maio-2023 às 19:04
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -257,6 +257,15 @@ CREATE TABLE `tbtipomidia` (
   `nomeTipoMidia` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tbtipomidia`
+--
+
+INSERT INTO `tbtipomidia` (`idTipoMidia`, `nomeTipoMidia`) VALUES
+(1, 'Audio'),
+(2, 'Vídeo'),
+(3, 'Imagem');
+
 -- --------------------------------------------------------
 
 --
@@ -283,7 +292,7 @@ CREATE TABLE `tbusuario` (
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `nicknameUsuario`, `senhaUsuario`, `foneUsuario`, `fotoPerfilUsuario`, `statusContaUsuario`, `papelParedeUsuario`, `nivelContaUsuario`, `cidadeUsuario`, `estadoUsuario`) VALUES
-(1, 'Luana', 'luacruz2014@gmail.com', '@lua', '123', '(11) 96125-5631', ' ', 'Normal', ' ', '1', 'São Paulo', 'SP'),
+(1, 'Luana', 'luacruz2014@gmail.com', '@lua', '$2y$10$naNsF59zCPEbBsa98SyPG.Xsk3diRMJ34WCiV32bZaX7Z4QPJrgdC', '(11) 96125-5631', ' 0.png', 'Normal', ' ', '1', 'São Paulo', 'SP'),
 (2, 'Eddie Murphy', 'eddiezao@gmail.com', '@eddie', '$2y$10$naNsF59zCPEbBsa98SyPG.Xsk3diRMJ34WCiV32bZaX7Z4QPJrgdC', '21325456568', '2.jpg', 'Normal', '2.jpg', '2', 'Canudos', 'BA');
 
 --
@@ -514,7 +523,7 @@ ALTER TABLE `tbtipodenuncia`
 -- AUTO_INCREMENT de tabela `tbtipomidia`
 --
 ALTER TABLE `tbtipomidia`
-  MODIFY `idTipoMidia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTipoMidia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbusuario`

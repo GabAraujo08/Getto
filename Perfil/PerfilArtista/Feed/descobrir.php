@@ -40,7 +40,7 @@
                           $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                           //$html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                         }else{
-                          $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                          $html .= '<img src="../../../Perfil/PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                           //$html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                         }
                         $html .= '<input type="hidden" name="usuarioNivelConta" value= "'. $row['nivelContaUsuario'] .'">';
