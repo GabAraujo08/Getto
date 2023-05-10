@@ -70,15 +70,22 @@
                 </div>
             </div>
             <div class="add-tags">
-                <form name="FormcadTag" id="FormcadTag" action="../Controller/CadastraTag.php" method="Post">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-text" id="inputGroup-sizing-lg">Insira a nova tag</span>
-                    <input type="text" class="form-control" name="tag" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                <form name="FormcadTag" id="FormcadTag" enctype="multipart/form-data" action="../Controller/CadastraTag.php" method="Post">
 
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Insira o icone da tag</span>
+                        <input name="imagem" accept="image/*" type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+
+                    </div>
+                    <div class="input-group input-group-lg">
+
+                        <span class="input-group-text" id="inputGroup-sizing-lg">Insira a nova tag</span>
+                        <input type="text" class="form-control" name="nome" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
                 </form>
-               
+
 
                 <div class="tags-existentes">
 
@@ -87,29 +94,29 @@
                         <thead>
                             <tr>
                                 <th scope="col">Id</th>
+                                <th scope="col">imagem</th>
                                 <th scope="col">Tag</th>
+                                <th scope="col">#</th>
+                                <th scope="col">#</th>
 
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                             require_once 'GlobalAdm.php';
+                             $t = TipoArteDao::ListaTag(); 
+                             foreach($t as  $chave => $tag){
+                        ?>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Música</td>
+                                <th scope="row"><?php echo $tag['idTipoArte']; ?></th>
+                                <th scope="row">#</th>
+                                <td><?php echo $tag['nomeTipoArte']; ?></td>
                                 <td><button class="btn btn-danger">Excluir</button></td>
                                 <td><button data-bs-toggle="modal" data-bs-target="#mudarTag" class="btn btn-warning">Editar</button></td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Pintura</td>
-                                <td><button class="btn btn-danger">Excluir</button></td>
-                                <td><button data-bs-toggle="modal" data-bs-target="#mudarTag" class="btn btn-warning">Editar</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Desenho</td>
-                                <td><button class="btn btn-danger">Excluir</button></td>
-                                <td><button data-bs-toggle="modal" data-bs-target="#mudarTag" class="btn btn-warning">Editar</button></td>
-                            </tr>
+                        <?php
+                             }
+                        ?>
                         </tbody>
                     </table>
                 </div>
@@ -146,10 +153,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group input-group-lg">
-                     
+
                         <input type="text" value="Tag atual" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
 
-                        
+
                     </div>
                 </div>
                 <div class="modal-footer">

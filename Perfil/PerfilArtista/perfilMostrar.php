@@ -1,4 +1,7 @@
-<?php include('../../Controller/VerificaLogado.php'); ?>
+<?php 
+    include('../../Controller/VerificaLogado.php');
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,10 +83,10 @@
                                 <div class="usuario-bio">
                                     <div class="area-nick-nome">
                                         <div class="nick">
-                                            <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                                            <h1> <?PHP echo $_POST['usuarioNick']; ?></h1>
                                         </div>
                                         <div class="nome">
-                                            <h1>(<?PHP echo $_SESSION['nomeUsuario']; ?>)</h1>
+                                            <h1>(<?PHP echo $_POST['usuarioNome']; ?>)</h1>
                                         </div>
                                     </div>
                                     <div class="bio">

@@ -12,7 +12,7 @@
     $extensao = substr($nome, -4);
     $nomenovo = $_SESSION['idUsuario'].$extensao;
     
-    move_uploaded_file($arquivo, "../Perfil/assets/img/FotoPerfil/".$nomenovo);
+    move_uploaded_file($arquivo, "assets/img/FotoPerfil/".$nomenovo);
 
     $conexao = Conexao::conectar();
 
@@ -22,7 +22,7 @@
 
     $prepareStatement = $conexao->prepare($queryInsert);
 
-    $prepareStatement->bindValue(1, $nomeovo);
+    $prepareStatement->bindValue(1, $nomenovo);
     $prepareStatement->bindValue(2, $_SESSION['idUsuario']);
 
     $prepareStatement->execute();

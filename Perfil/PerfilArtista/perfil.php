@@ -41,7 +41,13 @@
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
                             publicação</button>
                     </div>
-                    <div class="dropup-center dropup">
+                    <div class="sair">
+                        <a href="../../Controller/Logout.php"><img src="Feed/assets/img/sair.png">Sair</a>
+                    </div>
+
+                    <!-- ---------------------------    BOTAO SAIR E PERFIL --------------------------- -->
+
+                    <!-- <div class="dropup-center dropup">
                         <div class="btn-perfil-sair" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="img-perfil-btn">
                                 <img src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
@@ -78,8 +84,8 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    
+                    </div> -->
+
 
 
                 </div>
@@ -87,6 +93,9 @@
             <div class="nova-pub">
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
             </div>
+
+
+
 
 
             <a href="">
@@ -315,12 +324,11 @@
 
                         </div>
                         <label>Genero:</label>
-                    <div class="input-group mb-3">
+                        <div class="input-group mb-3">
 
-                        <input type="text" class="form-control" aria-label="Sizing example input" name="generoArtista"  value="<?PHP echo $_SESSION['generoArtista']; ?>"
-                            aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" name="generoArtista" value="<?PHP echo $_SESSION['generoArtista']; ?>" aria-describedby="inputGroup-sizing-default">
 
-                    </div>
+                        </div>
                         <label>Telefone:</label>
                         <div class="input-group mb-3">
 
@@ -330,7 +338,7 @@
                         <label>Estado:</label>
                         <div class="form-floating mb-3" style="display: flex;
                                           flex-direction: column;">
-                           
+
                             <select id="estado" name="estadoUsuario" class="select-estado">
                                 <option value="<?PHP echo $_SESSION['estadoUsuario']; ?>"><?PHP echo $_SESSION['estadoUsuario']; ?></option>
                                 <option value="AC">Acre</option>
@@ -369,14 +377,14 @@
                             <input type="text" class="form-control" aria-label="Sizing example input" name="cidadeUsuario" value="<?PHP echo $_SESSION['cidadeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
 
                         </div>
-                    
+
 
 
                 </div>
-                    <div class="modal-footer">
+                <div class="modal-footer">
 
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -472,7 +480,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data" >
+                    <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
                         <div class="container">
                             <div class="lado-esquerdo">
                                 <label>Inserir título: </label>
@@ -661,11 +669,17 @@
                             <div class="tab">
                                 <h1 class="title-form">Qual o tipo da sua publicação?</h1>
                                 <select style="margin-bottom: 10px;" class="form-select" aria-label="Default select example">
-                                    <option value="1">Música</option>
-                                    <option value="2">Pintura</option>
-                                    <option value="3">Desenho</option>
-                                    <option value="4">Atuação</option>
-                                    <option value="5">Outros</option>
+                                <option value="#">Selecionar...</option>
+                                <?php
+                                    require_once 'GlobalPerfil.php';
+                                    $t = TipoArteDao::ListaTag(); 
+                                    foreach($t as $tag){
+                                ?>
+                                    <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
+                                <?php
+                                    }
+                                ?>
+                                
                                 </select>
                             </div>
 
@@ -697,7 +711,7 @@
                             </div>
 
                         </form>
-                        
+
                     </div>
 
 

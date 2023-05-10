@@ -20,6 +20,7 @@
             $prepareStatement->bindValue(2, $_POST['nicknameUsuario']);
             $prepareStatement->bindValue(3, $_POST['foneUsuario']);
             $prepareStatement->bindValue(4, $_POST['estadoUsuario']);
+            $prepareStatement->bindValue(5, $_POST['cidadeUsuario']);
             $prepareStatement->bindValue(6, $_SESSION['idUsuario']);
 
             $prepareStatement->execute();
