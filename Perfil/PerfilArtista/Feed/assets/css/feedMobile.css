@@ -699,7 +699,6 @@ body {
 }
 
 .area-info {
-  display: none;
   flex-direction: column;
   background-color: #eae9f1 !important;
   padding: 15px;
