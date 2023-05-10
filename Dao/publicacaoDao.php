@@ -19,11 +19,13 @@
             $prepareStatement->execute();
             return 'Cadastrou'; 
         }
-
-        public static function consultarPublicacao($publicacao){
+        public static function consultarId($publicacao){
             $conexao = Conexao::conectar();
             $querySelect = "SELECT idPublicacao FROM tbPublicacao WHERE descPublicacao LIKE '".$publicacao->getDescPublicacao()."'";
-            $resultado = $conexao->query($querySelect); 
-            return $resultado; 
+            $resultado = $conexao->query($querySelect);
+            $lista = $resultado->fetchAll();
+            foreach ($lista as $publicacao)
+                $id = $publicacao['idPublicacao'];
+            return $id;   
         }
 }

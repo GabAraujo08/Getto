@@ -636,7 +636,7 @@ require_once 'GlobalPerfil.php';
 
 
                     <div class="area-form">
-                        <form id="regForm" method="POST" action="../../Controller/cadastrarPublicacao.php">
+                        <form id="regForm" method="POST" enctype="multipart/form-data" action="../../Controller/cadastrarPublicacao.php">
 
 
                             <!-- One "tab" for each step in the form: -->
