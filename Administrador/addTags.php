@@ -12,7 +12,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/dashboard.css">
     <link rel="stylesheet" href="assets/css/addTags.css">
-
 </head>
 
 <body>
@@ -74,8 +73,12 @@
 
                     <div class="input-group" style="margin-bottom: 10px;">
                         <span class="input-group-text" id="inputGroup-sizing-lg">Insira o icone da tag</span>
-                        <input name="imagem" accept="image/*" type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-
+                        <div class="preview-img">
+                            <label class="picture" for="picture__input" tabIndex="0">
+                                <span class="picture__image"></span>
+                            </label>
+                            <input type="file" name="imagemEvento" id="picture__input">
+                        </div>
                     </div>
                     <div class="input-group input-group-lg">
 
@@ -102,21 +105,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php
-                             require_once 'GlobalAdm.php';
-                             $t = TipoArteDao::ListaTag(); 
-                             foreach($t as  $chave => $tag){
-                        ?>
-                            <tr>
-                                <th scope="row"><?php echo $tag['idTipoArte']; ?></th>
-                                <th scope="row">#</th>
-                                <td><?php echo $tag['nomeTipoArte']; ?></td>
-                                <td><button class="btn btn-danger">Excluir</button></td>
-                                <td><button data-bs-toggle="modal" data-bs-target="#mudarTag" class="btn btn-warning">Editar</button></td>
-                            </tr>
-                        <?php
-                             }
-                        ?>
+                            <?php
+                            require_once 'GlobalAdm.php';
+                            $t = TipoArteDao::ListaTag();
+                            foreach ($t as  $chave => $tag) {
+                            ?>
+                                <tr>
+                                    <th scope="row"><?php echo $tag['idTipoArte']; ?></th>
+                                    <th scope="row" id="icone"><img src="../assets/img/background.svg" alt="" srcset=""></th>
+                                    <td><?php echo $tag['nomeTipoArte']; ?></td>
+                                    <td><button class="btn btn-danger">Excluir</button></td>
+                                    <td><button data-bs-toggle="modal" data-bs-target="#mudarTag" class="btn btn-warning">Editar</button></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -145,7 +148,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="mudarTag" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Alterar tag</h1>
@@ -204,7 +207,7 @@
             document.body.appendChild(divAlert);
         });
     </script>
-
+    <script src="assets/js/preview.js"></script>
 
 
 
