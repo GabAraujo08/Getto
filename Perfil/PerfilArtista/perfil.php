@@ -1,4 +1,6 @@
-<?php include('../../Controller/VerificaLogado.php'); ?>
+<?php include('../../Controller/VerificaLogado.php'); 
+    require_once 'GlobalPerfil.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -629,14 +631,7 @@
                                 <textarea placeholder="No que você está pensando?" name="" id="" cols="40" rows="10"></textarea>
                                 <h1 class="title-form">Selecione o tipo de mídia</h1>
                                 <div class="wrapper">
-
-                                    <div class="privacidade">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option value="1">Imagem</option>
-                                            <option value="2">Video</option>
-                                            <option value="3">Musica</option>
-                                        </select>
-                                    </div>
+                                
                                     <input type="radio" name="select" id="option-1" checked>
                                     <input type="radio" name="select" id="option-2">
                                     <input type="radio" name="select" id="option-3">
@@ -677,17 +672,16 @@
                             <div class="tab">
                                 <h1 class="title-form">Qual o tipo da sua publicação?</h1>
                                 <select style="margin-bottom: 10px;" class="form-select" aria-label="Default select example">
-                                    <option value="#">Selecionar...</option>
-                                    <?php
-                                    require_once 'GlobalPerfil.php';
-                                    $t = TipoArteDao::ListaTag();
-                                    foreach ($t as $tag) {
-                                    ?>
-                                        <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
-                                    <?php
+                                <option value="#">Selecionar...</option>
+                                <?php
+                                    $t = TipoArteDao::ListaTag(); 
+                                    foreach($t as $tag){
+                                ?>
+                                    <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
+                                <?php
                                     }
-                                    ?>
-
+                                ?>
+                                
                                 </select>
                             </div>
 
