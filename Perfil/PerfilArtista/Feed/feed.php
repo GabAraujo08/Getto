@@ -24,7 +24,7 @@
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                         <ul class="list-group">
-                            <a href="Feed/feed.php">
+                            <a href="../Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
                             <a href="">
