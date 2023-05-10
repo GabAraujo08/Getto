@@ -1,6 +1,4 @@
 
-
-
 /*ABRIR INPUT FOTO PAPEL DE PAREDE*/
 
 
@@ -79,12 +77,9 @@ function showTab(n) {
     document.getElementById("prevBtn").style.display = "inline";
   }
   if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").style.display = "none";
-    document.getElementById("btn-enviarPub").style.display = "inline";
-
-
+    document.getElementById("nextBtn").innerHTML = "Submit";
   } else {
-    document.getElementById("nextBtn").innerHTML = "Próximo";
+    document.getElementById("nextBtn").innerHTML = "Next";
   }
   // ... and run a function that displays the correct step indicator:
   fixStepIndicator(n)
@@ -142,15 +137,15 @@ function fixStepIndicator(n) {
 }
 
 
-document.getElementById("option-1").addEventListener("click", function () {
+document.getElementById("option-1").addEventListener("click", function() {
   document.getElementById("inputFile").disabled = false;
 });
 
-document.getElementById("option-2").addEventListener("click", function () {
+document.getElementById("option-2").addEventListener("click", function() {
   document.getElementById("inputFile").disabled = false;
 });
 
-document.getElementById("option-3").addEventListener("click", function () {
+document.getElementById("option-3").addEventListener("click", function() {
   document.getElementById("inputFile").disabled = false;
 });
 
@@ -185,7 +180,7 @@ radio3.addEventListener('click', function () {
 // ------------------- PREVIEW DO INPUT ---------------------
 
 
-document.getElementById('inputFile').addEventListener('change', function (event) {
+document.getElementById('inputFile').addEventListener('change', function(event) {
   var file = event.target.files[0];
   var fileType = file.type.split('/')[0]; // Obtém o tipo de arquivo (imagem, vídeo ou música)
   var previewContainer = document.getElementById('previewContainer');
@@ -208,40 +203,42 @@ document.getElementById('inputFile').addEventListener('change', function (event)
     // Se for uma música, cria uma tag de áudio e define o atributo src com a URL do arquivo selecionado
     var audio = document.createElement('audio');
     audio.src = URL.createObjectURL(file);
+    audio.id = 'player'
     audio.controls = true; // Adiciona controles de reprodução
     previewContainer.innerHTML = ''; // Limpa o conteúdo anterior
     previewContainer.appendChild(audio);
 
     var inputCover = document.createElement('input');
-    inputCover.type = 'file';
-    inputCover.id = 'inputCover';
-    inputCover.addEventListener('change', function (event) {
-      // Adicione o código para tratar o evento de mudança do novo input file aqui
+inputCover.type = 'file';
+inputCover.id = 'inputCover';
+inputCover.addEventListener('change', function(event) {
 
-      var coverFile = event.target.files[0]; // Obtém o arquivo da capa do single
-      var coverType = coverFile.type.split('/')[0]; // Obtém o tipo de arquivo da capa do single
+  var coverFile = event.target.files[0]; // Obtém o arquivo da capa do single
+  var coverType = coverFile.type.split('/')[0]; // Obtém o tipo de arquivo da capa do single
 
-      if (coverType === 'image') {
-        // Se for uma imagem, cria uma tag de imagem e define o atributo src com a URL do arquivo selecionado
-        var img = document.createElement('img');
-        img.src = URL.createObjectURL(coverFile);
-        previewCover.innerHTML = ''; // Limpa o conteúdo anterior
-        previewCover.appendChild(img);
-      } else {
-        // Caso contrário, exibe uma mensagem de erro ou realiza outras ações de tratamento
-        previewCover.innerHTML = 'Arquivo inválido. Por favor, selecione uma imagem como capa do single.';
-      }
-    });
-    previewContainer.appendChild(inputCover);
-
-    var label = document.createElement('label');
-    label.htmlFor = 'inputCover';
-    label.textContent = 'Selecionar a capa';
-    previewCover.appendChild(label);
-
-    label.addEventListener('change', main)
+  if (coverType === 'image') {
+    // Se for uma imagem, cria uma tag de imagem e define o atributo src com a URL do arquivo selecionado
+    // var img = document.createElement('img');
+    // img.src = URL.createObjectURL(coverFile);
+    // previewCover.innerHTML = ''; // Limpa o conteúdo anterior
+    // previewCover.appendChild(img);
+  } else {
+    // Caso contrário, exibe uma mensagem de erro ou realiza outras ações de tratamento
+    previewCover.innerHTML = 'Arquivo inválido. Por favor, selecione uma imagem como capa do single.';
   }
+  
+  extrator(coverFile); // chama a função extrator passando o arquivo da capa do single como parâmetro
+
 });
+previewContainer.appendChild(inputCover);
+
+var label = document.createElement('label');
+label.htmlFor = 'inputCover';
+label.textContent = 'Selecionar a capa';
+previewCover.appendChild(label);
+}
+});
+
 
 
 
@@ -249,32 +246,35 @@ document.getElementById('inputFile').addEventListener('change', function (event)
 // ----------------------- INPUT MUSICA CAPA -------------------------
 
 /*
-  By Mushfiq Shishir, hello@mrshishir.me, www.mrshishir.me	
+	By Mushfiq Shishir, hello@mrshishir.me, www.mrshishir.me	
 */
 
 'use strict';
 
-; (function (document, window, index) {
-  var inputs = document.querySelectorAll('.inputfile');
-  Array.prototype.forEach.call(inputs, function (input) {
-    var label = input.nextElementSibling,
-      labelVal = label.innerHTML;
+;( function ( document, window, index )
+{
+	var inputs = document.querySelectorAll( '.inputfile' );
+	Array.prototype.forEach.call( inputs, function( input )
+	{
+		var label	 = input.nextElementSibling,
+			labelVal = label.innerHTML;
 
-    input.addEventListener('change', function (e) {
-      var fileName = '';
-      if (this.files && this.files.length > 1)
-        fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
-      else
-        fileName = e.target.value.split('\\').pop();
+		input.addEventListener( 'change', function( e )
+		{
+			var fileName = '';
+			if( this.files && this.files.length > 1 )
+				fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+			else
+				fileName = e.target.value.split( '\\' ).pop();
 
-      if (fileName)
-        label.querySelector('span').innerHTML = fileName;
-      else
-        label.innerHTML = labelVal;
-    });
+			if( fileName )
+				label.querySelector( 'span' ).innerHTML = fileName;
+			else
+				label.innerHTML = labelVal;
+		});
 
-    // Firefox bug fix
-    input.addEventListener('focus', function () { input.classList.add('has-focus'); });
-    input.addEventListener('blur', function () { input.classList.remove('has-focus'); });
-  });
-}(document, window, 0));
+		// Firefox bug fix
+		input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
+		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
+	});
+}( document, window, 0 ));
