@@ -1,4 +1,4 @@
-const fileInput = document.getElementById('imgFile');
+const fileInput = document.getElementById('coverFile');
 
 const updateColor = (color, elementId) => {
   const element = document.getElementById(elementId);
@@ -36,21 +36,31 @@ const buildPalette = (colorsList) => {
       }
     }
 
-    // atualiza a cor do botão "next"
+
     if (i === 3) {
-      updateColor(hexColor, 'next');
+    
+      updateColor(hexColor, 'nextBtn');
+      updateColor(hexColor, 'option-1');
+      updateColor(hexColor, 'step')
+  
     }
 
-    // atualiza a cor do botão "back"
-    if (i === 2) {
-      updateColor(hexColor, 'back');
-    }
 
-    // atualiza a cor do botão "pause"
     if (i === 1) {
-      const hexColorComplementary = hslToHex(hslColors[0]);
-      updateColor(hexColor, 'pause');
+      updateColor(hexColor,'modalContent')
+      updateColor(hexColor,'legend')
+      updateColor(hexColor,'areaForm')
+      updateColor(hexColor,'regForm')
+      updateColor(hexColor,'wrapper')
+      updateColor(hexColor,'opcao-1')
+      updateColor(hexColor,'opcao-2')
+      updateColor(hexColor,'opcao-3')
+      updateColor(hexColor, 'prevBtn');
+      updateColor(hexColor, 'step-active');
+      updateColor(hexColor, 'PreviewContainer');
+
     }
+
   }
 };
   
@@ -290,8 +300,8 @@ const buildPalette = (colorsList) => {
     ];
   };
   
-  const main = () => {
-    const imgFile = document.getElementById("imgfile");
+    const extrator = () => {
+    const imgFile = document.getElementById("inputCover");
     const image = new Image();
     const file = imgFile.files[0];
     const fileReader = new FileReader();
@@ -332,5 +342,5 @@ const buildPalette = (colorsList) => {
     fileReader.readAsDataURL(file);
   };
   
-  main();
+  extrator();
   
