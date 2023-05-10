@@ -20,4 +20,11 @@
             $prepareStatement->execute();
             return 'Cadastrou'; 
         }
-    }
+
+        public static function consultarIdTipoArte($publicacao){
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT idUsuario FROM tbUsuario '".$publicacao->get()."'";
+            $resultado = $conexao->query($querySelect); 
+            return $resultado; 
+        }
+}
