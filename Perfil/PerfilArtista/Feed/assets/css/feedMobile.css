@@ -402,8 +402,8 @@ body {
   display: flex;
   justify-content: center;
   width: 300px;
-  background-color: #eae9f1 !important;
-  border-right: 1px solid #d1cdcd;
+  background-color: #fff !important;
+  
   position: fixed;
   height: 100%;
   box-sizing: border-box;
@@ -436,7 +436,7 @@ body {
 }
 
 .sidebar .sidebar-box .list-group-box button {
-  background-color: #eae9f1;
+  background-color: transparent;
   border: 0 !important;
   font-family: 'InterRegular';
   font-style: normal;
@@ -699,7 +699,6 @@ body {
 }
 
 .area-info {
-  display: none;
   flex-direction: column;
   background-color: #eae9f1 !important;
   padding: 15px;

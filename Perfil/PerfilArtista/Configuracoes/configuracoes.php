@@ -30,7 +30,7 @@
                     <a href="">
                         <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                     </a>
-                    <a href="../../../Evento/evento.php">
+                    <a href="../../../Perfil/PerfilArtista/Evento/eventoArtista.php">
                         <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                     </a>
                     <a href="">
