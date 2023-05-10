@@ -19,19 +19,25 @@
                 <h1 class="logo-tipo">Getto</h1>
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-                <ul class="list-group">
-                    <li class="list-group-item"><button id="inicio" type="button"
-                            class="btn btn-primary custom-btn-item">Início</button></li>
-                    <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list"
-                            type="button">Amigos</button></li>
-                    <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list"
-                            type="button">Eventos</button></li>
-                    <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list"
-                            type="button">Notificações</button></li>
-                    <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list"
-                            type="button">Configurações</button></li>
-                    <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list"
-                            type="button">Descobrir</button></li>
+            <ul class="list-group">
+                    <a href="../../Feed/feed.php">
+                        <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                    </a>
+                    <a href="../../../../Evento/evento.php">
+                        <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                    </a>
+                    <a href="../configuracoes.php">
+                        <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
+                    </a>
+                    <a href="../../Feed/descobrir.php">
+                        <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                    </a>
                 </ul>
             </div>
             <div class="nova-pub">

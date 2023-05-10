@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conta</title>
+    <link rel="shortcut icon" href="../assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/conta-configuracoes.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -24,19 +25,25 @@
                 <h1 class="logo-tipo">Getto</h1>
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-                <ul class="list-group">
-                    <li class="list-group-item"><button id="inicio" type="button"
-                            class="btn btn-primary custom-btn-item">Início</button></li>
-                    <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list"
-                            type="button">Amigos</button></li>
-                    <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list"
-                            type="button">Eventos</button></li>
-                    <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list"
-                            type="button">Notificações</button></li>
-                    <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list"
-                            type="button">Configurações</button></li>
-                    <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list"
-                            type="button">Descobrir</button></li>
+            <ul class="list-group">
+                    <a href="../../Feed/feed.php">
+                        <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                    </a>
+                    <a href="../../../../Evento/evento.php">
+                        <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
+                    </a>
+                    <a href="">
+                        <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                    </a>
+                    <a href="../configuracoes.php">
+                        <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
+                    </a>
+                    <a href="../../Feed/descobrir.php">
+                        <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                    </a>
                 </ul>
             </div>
             <div class="nova-pub">
@@ -147,7 +154,7 @@
                         <h1>Alterar sua senha</h1><img src="../assets/img/icon-seta.svg" alt="">
                     </li>
                 </a>
-                <a href="">
+                <a href="dashArtista.php">
                     <li class="item-config"><img src="../assets/img/painel-de-controle.png" alt="">
                         <h1>Dashboard do artista</h1><img src="../assets/img/icon-seta.svg" alt="">
                     </li>
