@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/feedMobile.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
 </head>
 
 <style>
+    a {
+        text-decoration: none;
+    }
+
     @font-face {
         font-family: 'InterRegular';
         src: url('../fonts/Inter-Regular.ttf');
@@ -266,6 +269,7 @@
             margin-top: 3%;
             background-color: #E1E1E6;
         }
+
         .baixo {
             display: flex;
             flex-direction: column;
@@ -286,19 +290,26 @@
                 <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                     <ul class="list-group">
                         <a href="../Feed/feed.php">
-                        <li class="list-group-item"><button id="inicio" type="button"
-                                class="btn btn-primary custom-btn-item">Início</button></li>
+                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                         </a>
-                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list"
-                                type="button">Amigos</button></li>
-                        <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list"
-                                type="button">Eventos</button></li>
-                        <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list"
-                                type="button">Notificações</button></li>
-                        <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list"
-                                type="button">Configurações</button></li>
-                        <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list"
-                                type="button">Descobrir</button></li>
+                        <a href="">
+                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                        </a>
+                        <a href="../../PerfilArtista/Evento/eventoArtista.php">
+                            <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
+                        </a>
+                        <a href="">
+                            <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                        </a>
+                        <a href="../Configuracoes/configuracoes.php">
+                            <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
+                        </a>
+                        <a href="../Feed/descobrir.php">
+                            <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                        </a>
+                        <a href="../perfil.php">
+                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
+                        </a>
                     </ul>
                 </div>
                 <div class="nova-pub">
@@ -316,9 +327,7 @@
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
                 <h2 class="accordion-header rounded-4" id="flush-headingOne">
-                    <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"
-                        style="border-radius: 20px;">
+                    <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="border-radius: 20px;">
                         <div class="resumoDiv">
                             <div class="card">
                                 <div class="front">
@@ -339,8 +348,7 @@
                         </div>
                     </button>
                 </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                    data-bs-parent="#accordionFlushExample">
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body rounded-4">
                         <div class="baixo">
                             <div class="img-evento">
@@ -373,7 +381,7 @@
                         </div>
                     </div>
                 </div>
-            </div>  
+            </div>
         </div>
 
         <nav class="mobile-nav">
@@ -412,9 +420,7 @@
             })
         </script>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

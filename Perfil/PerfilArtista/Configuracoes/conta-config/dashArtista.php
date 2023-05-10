@@ -14,7 +14,7 @@
 
 <style>
     body {
-        background-color: #ECEBF3;
+        background-color: #fff;
     }
 
     .voltar-dashboard {
@@ -234,7 +234,7 @@
                     <a href="">
                         <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                     </a>
-                    <a href="../../../../Evento/evento.php">
+                    <a href="../../../../Perfil/PerfilArtista/Evento/eventoArtista.php">
                         <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                     </a>
                     <a href="">
@@ -245,6 +245,9 @@
                     </a>
                     <a href="../../Feed/descobrir.php">
                         <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                    </a>
+                    <a href="../../perfil.php">
+                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                     </a>
                 </ul>
             </div>
