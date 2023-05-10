@@ -38,7 +38,7 @@ require_once 'GlobalPerfil.php';
                             <a href="">
                                 <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                             </a>
-                            <a href="../../Evento/evento.php">
+                            <a href="../../PerfilArtista/Evento/eventoArtista.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
                             <a href="">
@@ -639,7 +639,7 @@ require_once 'GlobalPerfil.php';
 
 
                     <div class="area-form">
-                        <form id="regForm" method="POST" action="../../Controller/cadastrarPublicacao.php">
+                        <form id="regForm" method="POST" enctype="multipart/form-data" action="../../Controller/cadastrarPublicacao.php">
 
 
                             <!-- One "tab" for each step in the form: -->
