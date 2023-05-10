@@ -1,4 +1,6 @@
-<?php include('../../Controller/VerificaLogado.php'); ?>
+<?php include('../../Controller/VerificaLogado.php'); 
+    require_once 'GlobalPerfil.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -629,6 +631,7 @@
                                 <textarea placeholder="No que você está pensando?" name="" id="" cols="40" rows="10"></textarea>
                                 <h1 class="title-form">Selecione o tipo de mídia</h1>
                                 <div class="wrapper">
+                                
                                     <input type="radio" name="select" id="option-1" checked>
                                     <input type="radio" name="select" id="option-2">
                                     <input type="radio" name="select" id="option-3">
@@ -671,7 +674,6 @@
                                 <select style="margin-bottom: 10px;" class="form-select" aria-label="Default select example">
                                 <option value="#">Selecionar...</option>
                                 <?php
-                                    require_once 'GlobalPerfil.php';
                                     $t = TipoArteDao::ListaTag(); 
                                     foreach($t as $tag){
                                 ?>
