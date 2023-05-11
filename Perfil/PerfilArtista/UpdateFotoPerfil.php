@@ -2,7 +2,7 @@
     require_once 'GlobalPerfil.php';
 
     session_start();
-    header('Location: perfil-visitante.php');
+    header('Location: perfil.php');
 
     $nome = $_FILES['fotoPerfil']['name'];
     $tipo = $_FILES['fotoPerfil']['type'];

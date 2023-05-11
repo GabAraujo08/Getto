@@ -1,4 +1,7 @@
-<?php include('../../../Controller/VerificaLogado.php'); ?>
+<?php include('../../../Controller/VerificaLogado.php');
+require_once '../../../Dao/publicacaoDao.php';
+require_once '../../../Dao/Conexao.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
