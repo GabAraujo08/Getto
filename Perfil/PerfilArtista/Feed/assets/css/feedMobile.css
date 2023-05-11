@@ -112,7 +112,8 @@ body {
   position: sticky;
   border-radius: 10px;
   min-height: 100vh;
-  width: 74%;
+  width: 100%;
+  max-width: 783px;
   margin-bottom: 4rem;
 
 }
