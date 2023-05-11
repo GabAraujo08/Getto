@@ -183,7 +183,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="modal-body-img">
-                                            <img src="../Perfil/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
+                                            <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
                                         </div>
                                         <div class="modal-body-link">
                                             <div class="link-titulo">
