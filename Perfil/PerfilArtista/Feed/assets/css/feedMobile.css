@@ -266,7 +266,6 @@ body {
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-img-publicacao {
   width: 100%;
   height: auto;
-  border-radius: 7px;
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -278,7 +277,6 @@ body {
   max-height: 673px;
   object-fit: cover;
   height: auto;
-  border-radius: 7px;
 }
 
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .legenda-publicacao {

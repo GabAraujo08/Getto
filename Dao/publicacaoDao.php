@@ -31,12 +31,12 @@
         public static function ListaPublicacao(){
             
                 $conexao = Conexao::conectar();
-                $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, tbPublicacao.horarioPublicacao FROM tbPublicacao
+                $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
                                                    INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
                                                    INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                                    INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
                                                    INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
-                                                   ORDER BY tbPublicacao.horarioPublicacao');
+                                                   ORDER BY tbPublicacao.horarioPublicacao DESC');
                 $consulta->execute();
                 $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
                 
