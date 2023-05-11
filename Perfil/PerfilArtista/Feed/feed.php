@@ -232,9 +232,12 @@ require_once '../../../Dao/Conexao.php';
                                             </button>
                                         </div>
                                         <div class="tempo-publicacao">
-                                            <p><?PHP
+                                        <p><?PHP
                                                 if($p['minutosPublicacao'] == 0){
                                                     echo 'Agora mesmo';
+                                                }else if($p['minutosPublicacao'] > 59){
+                                                    $m = $p['minutosPublicacao'] / 60;
+                                                    echo 'há '.$m.' h';
                                                 }else{
                                                     echo 'há '.$p['minutosPublicacao'].' min';
                                                 }  
