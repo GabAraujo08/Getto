@@ -21,7 +21,7 @@ require_once '../../../Dao/Conexao.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img style="display: none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -55,7 +55,7 @@ require_once '../../../Dao/Conexao.php';
                     </div>
 
                     <div class="sair">
-                    <a href="../../../Controller/Logout.php"><img src="../assets/img/sair.png">Sair</a>
+                    <a href="../../../Controller/Logout.php"><img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair</a>
                     </div>
 
                     <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
@@ -186,6 +186,9 @@ require_once '../../../Dao/Conexao.php';
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
                             </div>
+<<<<<<< HEAD
+                            
+=======
                             <?PHP
                             $pub = PublicacaoDao::ListaPublicacao();
                             foreach ($pub as $p) {
@@ -680,6 +683,7 @@ require_once '../../../Dao/Conexao.php';
                                     </div>
                                 </div>
                             </div>
+>>>>>>> 1d3e80085b617f2dbec826fe20dfb25803df6fb2
                         </div>
                     </div>
                 </div>
