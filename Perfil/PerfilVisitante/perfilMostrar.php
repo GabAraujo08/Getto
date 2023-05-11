@@ -1,6 +1,5 @@
-<?php 
-    include('../../Controller/VerificaLogado.php');
-    
+<?php include('../../Controller/VerificaLogado.php');
+require_once 'GlobalPerfil.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -132,9 +131,14 @@
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
-
+                                    <?PHP
+                                            
+                                            $seguindo = SeguidoresDao::consultarSeguindo($_POST['usuarioId']);
+                                        ?>
                                         <div class="seguindo-numero">
-                                            <p>0</p>
+                                        <p><?PHP
+                                                        echo $seguindo; 
+                                            ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>
@@ -145,9 +149,12 @@
                                         
                                         <?PHP
                                             if($_POST['usuarioNivelConta'] == 2){
+                                                $seguimores = SeguidoresDao::consultarSeguidores($_POST['artistaId']);
                                         ?>
                                             <div class="seguidores-numero">
-                                                <p>0</p>
+                                            <p><?PHP
+                                                        echo $seguimores; 
+                                            ?></p>
                                             </div>
                                             <div class="seguidores-text">
                                                 <h1>Seguidores</h1>

@@ -169,9 +169,14 @@ require_once 'GlobalPerfil.php';
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
-
+                                        <?PHP
+                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idArtista']);
+                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                        ?>
                                         <div class="seguindo-numero">
-                                            <p>0</p>
+                                            <p><?PHp
+                                                        echo $seguindo;   
+                                            ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>
@@ -180,7 +185,9 @@ require_once 'GlobalPerfil.php';
                                     <div class="seguidores">
 
                                         <div class="seguidores-numero">
-                                            <p>0</p>
+                                        <p><?PHP
+                                                        echo $seguimores;
+                                            ?></p>
                                         </div>
                                         <div class="seguidores-text">
                                             <h1>Seguidores</h1>

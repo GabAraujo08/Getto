@@ -1,4 +1,6 @@
-<?php include('../../Controller/VerificaLogado.php'); ?>
+<?php include('../../Controller/VerificaLogado.php');
+require_once 'GlobalPerfil.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,9 +110,13 @@
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
-
+                                        <?PHP
+                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                        ?>
                                         <div class="seguindo-numero">
-                                            <p>0</p>
+                                            <p><?PHP
+                                                        echo $seguindo; 
+                                            ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>

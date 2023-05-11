@@ -15,5 +15,36 @@
             $prepareStatement->execute();
             return 'Cadastrou';
         }
+        public static function consultarSeguidores($artista){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('SELECT COUNT(*) as total_seguidores FROM tbSeguidores WHERE idArtista = ? GROUP BY idArtista');
+            $consulta->bindValue(1, $artista);
+            $consulta->execute();
+            $resultado = $consulta->fetch();
+            
+            if($resultado == false){
+                $nada = 0;
+                return $nada;
+            }else{
+                return $resultado['total_seguidores'];
+            }
+            
+           
+        }
+        public static function consultarSeguindo($artista){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('SELECT COUNT(*) as total_seguindo FROM tbSeguidores WHERE idUsuario = ? GROUP BY idUsuario');
+            $consulta->bindValue(1, $artista);
+            $consulta->execute();
+            $resultado = $consulta->fetch();
+            
+            if($resultado == false){
+                $nada = 0;
+                return $nada;
+            }else{
+                return $resultado['total_seguindo'];
+            }
+            
+        }
     }
 ?>
