@@ -490,7 +490,7 @@
   }
   
 form {
-    width: 100%;
+    width: 80%;
     display: inherit;
 }
 
@@ -601,8 +601,8 @@ ul li {
     align-items: center;
     margin-bottom: 0.75rem;
     color: #664187;
-    width: 100%;
-
+    width: 70%;
+    margin-left: 30%;
 }
 
 ul li button {

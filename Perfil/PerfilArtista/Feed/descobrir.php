@@ -107,7 +107,7 @@ require_once '../../../Dao/ArtistaDao.php';
       </div>
 
     </div>
-  
+  </div>
   <div class="area-buscar">
     <form name="FormBusca" id="FormBusca" method="Post" action="descobrir.php">
       <input type="search" id="search" name="busca" placeholder="Pesquisar...">
@@ -115,7 +115,7 @@ require_once '../../../Dao/ArtistaDao.php';
 
     </form>
   </div>
-  </div>
+ 
   <?php
 
   if (isset($_POST['busca'])) {
