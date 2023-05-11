@@ -51,10 +51,14 @@ require_once 'GlobalPerfil.php';
                             <a href="Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
+<<<<<<< HEAD
                             <a href="#">
                                 <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                             </a>
                         </ul>
+=======
+                        </ul>   
+>>>>>>> 41dffe66a60c5737b4f9f006512ffca382d25c3d
                     </div>
                     <div class="nova-pub">
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova

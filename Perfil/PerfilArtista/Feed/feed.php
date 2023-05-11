@@ -256,7 +256,7 @@ require_once '../../../Dao/Conexao.php';
         <div class="box-area-info">
             <div class="area-info">
                 <div class="titulo-box-tags">
-                    <h2>tags</h2>
+                    <h2>Tags</h2>
                 </div>
                 <div class="box-tags">
                     <div class="titulo-tags">

@@ -721,10 +721,11 @@ body {
 .titulo-box-tags>h2 {
   font-family: 'InterRegular';
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 15px;
-  color: #686464;
+  font-weight: 700;
+  font-size: 15.5498px;
+  line-height: 19px;  
+  color: #37373A;
+  margin-bottom: 5%;
 }
 
 
@@ -734,7 +735,7 @@ body {
   width: 100%;
   border-radius: 13px;
   background-color: #fff;
-  height: 22%;
+  height: 24%;
   padding: 20px;
 }
 
@@ -780,6 +781,7 @@ body {
   font-size: 10px;
   line-height: 15px;
   color: #000000;
+  margin: 0;
 }
 
 .btn-top-tag {
@@ -793,6 +795,7 @@ body {
   cursor: pointer;
   color: #fff !important;
   border-radius: 15px;
+  margin: 2%;
 }
 
 
