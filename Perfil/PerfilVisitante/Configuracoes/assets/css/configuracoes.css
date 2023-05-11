@@ -199,6 +199,15 @@ width: 35px;
     background-image: url('../img/icon-pessoa-branco.svg')
   }
 
+  #perfil{
+    background-image: url('../../../Feed/assets/img/perfil-icon.svg');
+  }
+  
+  
+  #perfil:hover{
+    background-image: url('../../../Feed/assets/img/perfil-icon-branco.png');
+  }
+
   #nova-pub{
     background-image: url('../img/icone-pincel.png');
   }
