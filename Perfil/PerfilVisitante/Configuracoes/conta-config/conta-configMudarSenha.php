@@ -39,8 +39,8 @@
                         <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                     </a>
 
-                    <a href="">
-                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                    <a href="../../../PerfilVisitante/perfil-visitante.php">
+                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                     </a>
                 </ul>
             </div>

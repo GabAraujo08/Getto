@@ -43,7 +43,7 @@ require_once '../../../Dao/Conexao.php';
                             <a href="../Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
-                            <a href="../Feed/descobrir.php">
+                            <a target="_blank" href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
                             <a href="../perfil.php">
@@ -232,9 +232,12 @@ require_once '../../../Dao/Conexao.php';
                                             </button>
                                         </div>
                                         <div class="tempo-publicacao">
-                                            <p><?PHP
+                                        <p><?PHP
                                                 if($p['minutosPublicacao'] == 0){
                                                     echo 'Agora mesmo';
+                                                }else if($p['minutosPublicacao'] > 59){
+                                                    $m = intval($p['minutosPublicacao'] / 60);
+                                                    echo 'há '.$m.' h';
                                                 }else{
                                                     echo 'há '.$p['minutosPublicacao'].' min';
                                                 }  
@@ -253,7 +256,7 @@ require_once '../../../Dao/Conexao.php';
         <div class="box-area-info">
             <div class="area-info">
                 <div class="titulo-box-tags">
-                    <h2>tags</h2>
+                    <h2>Tags</h2>
                 </div>
                 <div class="box-tags">
                     <div class="titulo-tags">
