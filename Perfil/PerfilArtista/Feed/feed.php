@@ -255,7 +255,7 @@ require_once '../../../Dao/Conexao.php';
                                                 if($p['minutosPublicacao'] == 0){
                                                     echo 'Agora mesmo';
                                                 }else{
-                                                    echo $p['minutosPublicacao'];
+                                                    echo 'há '.$p['minutosPublicacao'].' min';
                                                 }  
                                                  ?></p>
                                         </div>
