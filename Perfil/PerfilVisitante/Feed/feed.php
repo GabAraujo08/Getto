@@ -180,6 +180,68 @@
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
                             </div>
+                            <?PHP
+                            $pub = PublicacaoDao::ListaPublicacao();
+                            foreach ($pub as $p) {
+                            ?>
+                                <div class="publicacao">
+                                    <div class="header-publicacao">
+                                        <div class="informacoes-perfil-publicacao">
+                                            <div class="img-perfil-publicacao">
+                                                <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                            </div>
+                                            <div class="nick-e-bio-perfil-publicacao">
+                                                <div class="nick">
+                                                    <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="box-btn-configuracao-publicacao">
+                                            <button class="btn-configuracao-publicacao">
+                                                <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="box-img-publicacao">
+                                        <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                    </div>
+                                    <div class="legenda-publicacao">
+                                        <p>
+                                            <?PHP echo $p['descPublicacao']; ?>!
+                                        </p>
+                                    </div>
+                                    <div class="acoes-publicacao">
+                                        <div class="box-btn-acoes">
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="tempo-publicacao">
+                                            <p><?PHP
+                                                if($p['minutosPublicacao'] == 0){
+                                                    echo 'Agora mesmo';
+                                                }else{
+                                                    echo $p['minutosPublicacao'];
+                                                }  
+                                                 ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?PHP
+                            }
+                            ?>
                             <div class="publicacao">
                                 <div class="header-publicacao">
                                     <div class="informacoes-perfil-publicacao">
