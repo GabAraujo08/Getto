@@ -46,6 +46,9 @@ require_once '../../../Dao/Conexao.php';
                             <a href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
+                            <a href="">
+                                <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
+                            </a>
                         </ul>
                     </div>
                     <div class="nova-pub">
@@ -53,30 +56,8 @@ require_once '../../../Dao/Conexao.php';
                             publicação</button>
                     </div>
 
-                    <div class="dropup">
-                        <button class="dropbtn">
-                            <div class="perfil">
-                                <div class="perfil-imagem">
-                                    <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
-                                </div>
-                                <div class="perfil-usuario">
-                                    <div class="perfil-nome">
-                                        <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
-                                    </div>
-                                    <div class="perfil-apelido">
-                                        <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
-                                    </div>
-                                </div>
-
-                                <div class="perfil-seta">
-                                    <img src="../../../assets/img/arrowup2.png" alt="">
-                                </div>
-                            </div>
-                        </button>
-                        <div class="dropup-content">
-                            <a href="../../PerfilArtista/perfil.php">Perfil</a>
-                            <a href="../../../Login/login.php">Sair</a>
-                        </div>
+                    <div class="sair">
+                    <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
                     </div>
 
                     <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->

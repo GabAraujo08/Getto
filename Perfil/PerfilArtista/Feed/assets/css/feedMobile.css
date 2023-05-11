@@ -538,12 +538,21 @@ body {
   background-image: url('../img/icone-pessoa.png');
 }
 
+#perfil{
+  background-image: url('../img/perfil-icon.svg');
+}
+
+
+#perfil:hover{
+  background-image: url('../img/perfil-icon-branco.png');
+}
+
 #amigos:hover {
   background-image: url('../img/icon-pessoa-branco.svg')
 }
 
 #nova-pub {
-  background-image: url('../img/icone-pincel.png');
+  background-image: url('../img/pincel-branco.png');
 }
 
 .dropup, .menu-container{
