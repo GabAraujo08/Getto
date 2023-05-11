@@ -46,7 +46,7 @@ require_once '../../../Dao/Conexao.php';
                             <a href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
-                            <a href="">
+                            <a href="../perfil.php">
                                 <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                             </a>
                         </ul>
