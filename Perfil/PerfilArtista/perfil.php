@@ -28,7 +28,7 @@ require_once 'GlobalPerfil.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img style="display:none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -189,9 +189,14 @@ require_once 'GlobalPerfil.php';
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
-
+                                        <?PHP
+                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idArtista']);
+                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                        ?>
                                         <div class="seguindo-numero">
-                                            <p>0</p>
+                                            <p><?PHp
+                                                        echo $seguindo;   
+                                            ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>
@@ -200,7 +205,9 @@ require_once 'GlobalPerfil.php';
                                     <div class="seguidores">
 
                                         <div class="seguidores-numero">
-                                            <p>0</p>
+                                        <p><?PHP
+                                                        echo $seguimores;
+                                            ?></p>
                                         </div>
                                         <div class="seguidores-text">
                                             <h1>Seguidores</h1>
@@ -298,13 +305,13 @@ require_once 'GlobalPerfil.php';
 
 
     <nav class="mobile-nav">
-        <a href="./Feed/feed.php" class="bloc-icon">
+        <a href="Feed/feed.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-home.svg" alt="">
         </a>
-        <a href="./Feed/descobrir.php" class="bloc-icon">
+        <a href="Feed/descobrir.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../PerfilArtista/Evento/eventoArtista.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
         </a>
         <a data-bs-toggle="modal" data-bs-target="#modalCriarPub" href="#" class="bloc-icon">
@@ -316,7 +323,7 @@ require_once 'GlobalPerfil.php';
         <a href="#" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
         </a>
-        <a href="./Configuracoes/configuracoes.php" class="bloc-icon">
+        <a href="Configuracoes/configuracoes.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
         </a>
 

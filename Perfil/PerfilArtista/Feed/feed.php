@@ -23,12 +23,12 @@ require_once '../../../Dao/Conexao.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img style="display: none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                         <ul class="list-group">
-                            <a href="../Feed/feed.php">
+                            <a href="#">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
                             <a href="">
@@ -40,10 +40,10 @@ require_once '../../../Dao/Conexao.php';
                             <a href="">
                                 <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                             </a>
-                            <a href="Configuracoes/configuracoes.php">
+                            <a href="../Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
-                            <a href="Feed/descobrir.php">
+                            <a href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
                         </ul>
@@ -705,10 +705,10 @@ require_once '../../../Dao/Conexao.php';
         <a href="#" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-home.svg" alt="">
         </a>
-        <a href="descobrir.php" class="bloc-icon">
+        <a href="../Feed/descobrir.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../../PerfilArtista/Evento/eventoArtista.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
         </a>
         <a href="#" class="bloc-icon">
@@ -717,10 +717,10 @@ require_once '../../../Dao/Conexao.php';
         <a href="#" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../perfil.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../Configuracoes/configuracoes.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
         </a>
 

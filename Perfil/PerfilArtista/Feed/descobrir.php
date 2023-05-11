@@ -2,6 +2,7 @@
      include('../../../Controller/VerificaLogado.php'); 
      require_once '../GlobalPerfil.php';
      require_once '../../../Dao/Conexao.php';
+     require_once '../../../Dao/ArtistaDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,12 +40,15 @@
                         $html .= '<li>';
                         if($row['nivelContaUsuario'] == 2){
                           $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
-                          //$html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
+                          $a = ArtistaDao::consultarArtista($row['idUsuario']);
+                          $html .= '<input type="hidden" name="bio" value= "'. $a['bioArtista'] .'">';
+                          $html .= '<input type="hidden" name="artistaId" value= "'. $a['idArtista'] .'">';
+
                         }else{
                           $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
-                          //$html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                         }
                         $html .= '<input type="hidden" name="usuarioNivelConta" value= "'. $row['nivelContaUsuario'] .'">';
+                        $html .= '<input type="hidden" name="usuarioFotoPerfil" value= "'. $row['fotoPerfilUsuario'] .'">';
                         $html .= '<input type="hidden" name="usuarioFotoCapa" value= "'. $row['papelParedeUsuario'] .'">';
                         $html .= '<input type="hidden" name="usuarioNome" value= "'. $row['nomeUsuario'] .'">';
                         $html .= '<input type="hidden" name="usuarioNick" value= "'. $row['nicknameUsuario'] .'">';

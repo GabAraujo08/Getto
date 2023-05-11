@@ -27,7 +27,7 @@
                     <a href="">
                         <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                     </a>
-                    <a href="../../../../Evento/evento.php">
+                    <a href="../../Evento/eventoArtista.php">
                         <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                     </a>
                     <a href="">
@@ -201,13 +201,13 @@
 
     </div>
     <nav class="mobile-nav">
-        <a href="#" class="bloc-icon">
+        <a href="../../Feed/feed.php" class="bloc-icon">
             <img src="../assets/img/bottomNav/icon-home.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../../Feed/descobrir.php" class="bloc-icon">
             <img src="../assets/img/bottomNav/icon-pesquisa.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../../Evento/eventoArtista.php" class="bloc-icon">
             <img src="../assets/img/bottomNav/icon-calendario.svg" alt="">
         </a>
         <a href="#" class="bloc-icon">
@@ -216,7 +216,7 @@
         <a href="#" class="bloc-icon">
             <img src="../assets/img/bottomNav/icon-notificacao.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../../perfil.php" class="bloc-icon">
             <img src="../assets/img/bottomNav/icon-amigos.svg" alt="">
         </a>
         <a href="../configuracoes.php" class="bloc-icon">
