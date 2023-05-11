@@ -250,7 +250,7 @@ require_once '../../../Dao/Conexao.php';
                                             </button>
                                         </div>
                                         <div class="tempo-publicacao">
-                                            <p><?PHP echo $p['horarioPublicacao']; ?></p>
+                                            <p><?PHP echo $p['minutosPublicacao']; ?></p>
                                         </div>
                                     </div>
                                 </div>
