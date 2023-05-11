@@ -209,7 +209,7 @@
 
 
                                     <div class="box-img-publicacao">
-                                        <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                        <img src="../../PerfilArtista/assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
                                     </div>
                                     <div class="legenda-publicacao">
                                         <p>
