@@ -35,7 +35,8 @@
                                                    INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
                                                    INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                                    INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
-                                                   INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia');
+                                                   INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                                   ORDER BY tbPublicacao.horarioPublicacao');
                 $consulta->execute();
                 $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
                 
