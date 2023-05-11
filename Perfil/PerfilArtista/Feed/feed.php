@@ -251,7 +251,13 @@ require_once '../../../Dao/Conexao.php';
                                             </button>
                                         </div>
                                         <div class="tempo-publicacao">
-                                            <p><?PHP echo $p['minutosPublicacao']; ?></p>
+                                            <p><?PHP
+                                                if($p['minutosPublicacao'] == 0){
+                                                    echo 'Agora mesmo';
+                                                }else{
+                                                    echo $p['minutosPublicacao'];
+                                                }  
+                                                 ?></p>
                                         </div>
                                     </div>
                                 </div>
