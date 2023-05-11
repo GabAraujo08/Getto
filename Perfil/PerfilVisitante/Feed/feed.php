@@ -186,9 +186,9 @@ require_once '../../../Dao/Conexao.php';
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
                             </div>
-<<<<<<< HEAD
+
                             
-=======
+
                             <?PHP
                             $pub = PublicacaoDao::ListaPublicacao();
                             foreach ($pub as $p) {
@@ -197,7 +197,7 @@ require_once '../../../Dao/Conexao.php';
                                     <div class="header-publicacao">
                                         <div class="informacoes-perfil-publicacao">
                                             <div class="img-perfil-publicacao">
-                                                <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                                <img src="../../PerfilArtista/assets/img/FotoPerfil/ <?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
                                             </div>
                                             <div class="nick-e-bio-perfil-publicacao">
                                                 <div class="nick">
@@ -238,11 +238,11 @@ require_once '../../../Dao/Conexao.php';
                                             </button>
                                         </div>
                                         <div class="tempo-publicacao">
-                                            <p><?PHP
+                                        <p><?PHP
                                                 if($p['minutosPublicacao'] == 0){
                                                     echo 'Agora mesmo';
                                                 }else{
-                                                    echo $p['minutosPublicacao'];
+                                                    echo 'há '.$p['minutosPublicacao'].' min';
                                                 }  
                                                  ?></p>
                                         </div>
