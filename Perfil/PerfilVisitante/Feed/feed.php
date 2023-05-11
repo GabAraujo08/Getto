@@ -197,7 +197,7 @@ require_once '../../../Dao/Conexao.php';
                                     <div class="header-publicacao">
                                         <div class="informacoes-perfil-publicacao">
                                             <div class="img-perfil-publicacao">
-                                                <img src="../../PerfilArtista/assets/img/FotoPerfil/ <?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                                <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
                                             </div>
                                             <div class="nick-e-bio-perfil-publicacao">
                                                 <div class="nick">
