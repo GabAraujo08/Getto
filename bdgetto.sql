@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Maio-2023 às 19:04
+-- Tempo de geração: 11-Maio-2023 às 16:18
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -62,7 +62,9 @@ CREATE TABLE `tbartista` (
 --
 
 INSERT INTO `tbartista` (`idArtista`, `generoArtista`, `bioArtista`, `portfolio`, `idUsuario`) VALUES
-(1, 'AC', '', 'fjdkgdfhdhjgddhdjhgdjgdhdhgh', 2);
+(1, 'AC', '', 'fjdkgdfhdhjgddhdjhgdjgdhdhgh', 2),
+(2, 'AC', 'maior rapper da historia', 'j7tyuhgoli9pi0opo7yhdrgfdr', 3),
+(3, 'AC', 'cantor e compositor', 'j7tyuhgoli9pi0opo7yhdrgfdr', 4);
 
 -- --------------------------------------------------------
 
@@ -158,6 +160,18 @@ CREATE TABLE `tbmidia` (
   `idTipoMidia` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tbmidia`
+--
+
+INSERT INTO `tbmidia` (`idMidia`, `arquivoMidia`, `idTipoMidia`) VALUES
+(1, '1jfif', 3),
+(2, '2jfif', 3),
+(3, '3jfif', 3),
+(4, '4.jpg', 3),
+(5, '5.jpg', 3),
+(6, '6.jpg', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -181,6 +195,18 @@ CREATE TABLE `tbmidiapublicacao` (
   `idMidia` int(11) DEFAULT NULL,
   `idPublicacao` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbmidiapublicacao`
+--
+
+INSERT INTO `tbmidiapublicacao` (`idMidiaPublicacao`, `idMidia`, `idPublicacao`) VALUES
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 4),
+(5, 5, 5),
+(6, 6, 6);
 
 -- --------------------------------------------------------
 
@@ -211,6 +237,18 @@ CREATE TABLE `tbpublicacao` (
   `idTipoArte` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tbpublicacao`
+--
+
+INSERT INTO `tbpublicacao` (`idPublicacao`, `horarioPublicacao`, `quantidadeCurtidas`, `descPublicacao`, `tituloPublicacao`, `statusPublicacao`, `idArtista`, `idTipoArte`) VALUES
+(1, '2023-05-11 11:10:32', 0, 'tbt dessa época!', NULL, 'Normal', 1, 1),
+(2, '2023-05-11 11:11:29', 0, 'Obrigado por mais um premio!', NULL, 'Normal', 1, 1),
+(3, '2023-05-11 11:13:24', 0, 'produzindo nova musica!', NULL, 'Normal', 2, 9),
+(4, '2023-05-11 11:14:08', 0, 'show de ontem', NULL, 'Normal', 2, 9),
+(5, '2023-05-11 11:15:11', 0, 'premiação grammy', NULL, 'Normal', 3, 9),
+(6, '2023-05-11 11:15:41', 0, 'gravando a bomba', NULL, 'Normal', 3, 9);
+
 -- --------------------------------------------------------
 
 --
@@ -223,6 +261,17 @@ CREATE TABLE `tbseguidores` (
   `idUsuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `tbseguidores`
+--
+
+INSERT INTO `tbseguidores` (`idSeguidores`, `idArtista`, `idUsuario`) VALUES
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 2, 2),
+(5, 3, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -234,6 +283,21 @@ CREATE TABLE `tbtipoarte` (
   `nomeTipoArte` varchar(20) NOT NULL,
   `imagemTipoArte` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbtipoarte`
+--
+
+INSERT INTO `tbtipoarte` (`idTipoArte`, `nomeTipoArte`, `imagemTipoArte`) VALUES
+(1, 'Fotografia', '1'),
+(2, 'Artesanato', '2'),
+(3, 'Literatura', '3'),
+(4, 'Dança', '4'),
+(5, 'Escultura', '5'),
+(6, 'Pintura', '6'),
+(7, 'Grafite', '7'),
+(8, 'Artes Cênicas', '8'),
+(9, 'Musica', '9');
 
 -- --------------------------------------------------------
 
@@ -292,8 +356,10 @@ CREATE TABLE `tbusuario` (
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `nicknameUsuario`, `senhaUsuario`, `foneUsuario`, `fotoPerfilUsuario`, `statusContaUsuario`, `papelParedeUsuario`, `nivelContaUsuario`, `cidadeUsuario`, `estadoUsuario`) VALUES
-(1, 'Luana', 'luacruz2014@gmail.com', '@lua', '$2y$10$naNsF59zCPEbBsa98SyPG.Xsk3diRMJ34WCiV32bZaX7Z4QPJrgdC', '(11) 96125-5631', ' 0.png', 'Normal', ' ', '1', 'São Paulo', 'SP'),
-(2, 'Eddie Murphy', 'eddiezao@gmail.com', '@eddie', '$2y$10$naNsF59zCPEbBsa98SyPG.Xsk3diRMJ34WCiV32bZaX7Z4QPJrgdC', '21325456568', '2.jpg', 'Normal', '2.jpg', '2', 'Canudos', 'BA');
+(1, 'Luana', 'luacruz2014@gmail.com', '@lua', '$2y$10$naNsF59zCPEbBsa98SyPG.Xsk3diRMJ34WCiV32bZaX7Z4QPJrgdC', '(11) 96125-5631', '1.jpg', 'Normal', '1jfif', '1', 'São Paulo', 'SP'),
+(2, 'Eddie Murphy', 'eddiezao@gmail.com', '@eddie', '$2y$10$naNsF59zCPEbBsa98SyPG.Xsk3diRMJ34WCiV32bZaX7Z4QPJrgdC', '21325456568', '2.jpg', 'Normal', '2.jpg', '2', 'Canudos', 'BA'),
+(3, 'Kanye West', 'kanye@gmail.com', '@Kanye', '$2y$10$pcvyZxEzWoPM6fdZuAssLuj1VWjw9oUfYo4O2nwdmd5Z7/bhlrDOm', '212434554757', '3.jpg', 'Normal', '3.png', '2', 'Manaus', 'AM'),
+(4, 'kendrick', 'kendrick@gmail.com', '@duckworth', '$2y$10$9xYi7C/qJ1.OH6jfi/M.i.Cvks6txAtHicljblOM5dcjAzzEiu9G2', '11123123123', '4.jpg', 'Normal', '4.png', '2', 'piai', 'PI');
 
 --
 -- Índices para tabelas despejadas
@@ -439,7 +505,7 @@ ALTER TABLE `tbadministrador`
 -- AUTO_INCREMENT de tabela `tbartista`
 --
 ALTER TABLE `tbartista`
-  MODIFY `idArtista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idArtista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbcomentario`
@@ -475,7 +541,7 @@ ALTER TABLE `tbevento`
 -- AUTO_INCREMENT de tabela `tbmidia`
 --
 ALTER TABLE `tbmidia`
-  MODIFY `idMidia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMidia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbmidiamomentos`
@@ -487,7 +553,7 @@ ALTER TABLE `tbmidiamomentos`
 -- AUTO_INCREMENT de tabela `tbmidiapublicacao`
 --
 ALTER TABLE `tbmidiapublicacao`
-  MODIFY `idMidiaPublicacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMidiaPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbmomentos`
@@ -499,19 +565,19 @@ ALTER TABLE `tbmomentos`
 -- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbseguidores`
 --
 ALTER TABLE `tbseguidores`
-  MODIFY `idSeguidores` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSeguidores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbtipoarte`
 --
 ALTER TABLE `tbtipoarte`
-  MODIFY `idTipoArte` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTipoArte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tbtipodenuncia`
@@ -529,7 +595,7 @@ ALTER TABLE `tbtipomidia`
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restrições para despejos de tabelas
