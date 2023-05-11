@@ -26,63 +26,74 @@
     }
 
     .card {
-        position: relative;
-        width: 160px;
-        height: 100px;
-        border-radius: 20px;
-    }
+            position: relative;
+            width: 160px;
+            height: 100px;
+            border-radius: 20px;
+            background-color: #E1E1E6;
+            border: none;
+        }
 
-    .card div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backface-visibility: hidden;
-        transition: 1s;
-    }
+        .card .front:after{
+            position: absolute;
+            content: '';
+            right: 0;
+            top: 0;
+            border-bottom: 30px solid #9056E8;
+            border-right: 30px solid #E1E1E6;
+        }
 
-    .card .front {
-        background: #664187;
-        transform: perspective(500px) rotateY(0deg);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-    }
+        .card div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: hidden;
+            transition: 1s;
+        }
 
-    .card .back {
-        background: #9056E8;
-        transform: perspective(500px) rotateY(180deg);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-    }
+        .card .front {
+            background: #664187;
+            transform: perspective(500px) rotateY(0deg);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card .back {
+            background: #9056E8;
+            transform: perspective(500px) rotateY(180deg);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+        }
 
 
-    .card:hover .front {
-        transform: perspective(100px) rotateY(180deg);
-    }
+        .card:hover .front {
+            transform: perspective(100px) rotateY(180deg);
+        }
 
-    .card:hover .back {
-        transform: perspective(100px) rotateY(360deg);
-    }
+        .card:hover .back {
+            transform: perspective(100px) rotateY(360deg);
+        }
 
-    .card div p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 26px;
-        color: #FFFFFF;
-    }
+        .card div p {
+            font-family: 'InterRegular';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 26px;
+            color: #FFFFFF;
+        }
 
-    .card div span {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 26px;
-        color: #FFFFFF;
-    }
+        .card div span {
+            font-family: 'InterRegular';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 26px;
+            color: #FFFFFF;
+        }
 
     .criador-evento {
         display: flex;
