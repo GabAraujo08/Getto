@@ -45,12 +45,16 @@ require_once '../../../Dao/Conexao.php';
                             <a target="_blank" href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
+<<<<<<< Updated upstream
                             <a href="../perfil-visitante.php">
+=======
+                            <a href="../perfil.php">
+>>>>>>> Stashed changes
                                 <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                             </a>
                         </ul>
                     </div>
-                    <div class="nova-pub">
+                    <div style="display: none;" class="nova-pub">
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova
                             publicação</button>
                     </div>

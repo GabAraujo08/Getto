@@ -48,7 +48,7 @@
                     </a>
                 </ul>
             </div>
-            <div class="nova-pub">
+            <div style="display: none;" class="nova-pub">
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
             </div>
             <!-- <div class="container">

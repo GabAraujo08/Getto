@@ -1,0 +1,1507 @@
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins-Medium.ttf');
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+	font-family: 'Poppins' !important;
+	margin: 0;
+}
+
+a {
+	text-decoration: none !important;
+	color: unset;
+}
+
+h1,
+h2,
+p {
+	margin: 0;
+	color: #000000;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 15px;
+	background: #77467d;
+}
+
+.main {
+	background-image: url('../img/tinta.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 150vh;
+	position: relative;
+}
+
+.main .primeira-parte .conteudo-primeira-parte .img-pintora {
+	display: flex;
+}
+
+#pintora {
+	width: 135%;
+	position: relative;
+	right: 50px;
+	top: 18px;
+}
+
+/* -------------------------------- NAVBAR ------------------------------- */
+
+@media (max-width: 992px) {
+	.navbar-expand-lg .navbar-collapse {
+		display: none !important;
+	}
+
+	.buttons-nav {
+		display: none !important;
+	}
+
+	.navbar-brand {
+		display: none;
+	}
+
+	.main .primeira-parte .conteudo-primeira-parte {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+		width: 35rem !important;
+	}
+
+	.img-pintora {
+		width: 39% !important;
+		margin-top: 3rem !important;
+	}
+
+	#pintora {
+		width: 93vh !important;
+	}
+
+
+}
+
+.navbar {
+	--mdb-navbar-box-shadow: none;
+}
+
+nav {
+	font-weight: 600;
+	font-size: 1.1rem;
+}
+
+nav a {
+	color: #580661 !important;
+}
+
+#listinha {
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-around;
+}
+
+.navbar-nav li a {
+	position: relative;
+	transition: color 0.3s;
+	transition: border 0.3s;
+	left: 50%;
+}
+
+.navbar-nav li a:hover {
+	color: #400a46;
+}
+
+.navbar-nav li a::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #400a46;
+	transform-origin: bottom right;
+	transition: transform 0.3s ease;
+}
+
+.navbar-nav li a:hover::after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+nav img {
+	width: 50px;
+}
+
+nav .buttons-nav {
+	width: 40%;
+	display: flex;
+	justify-content: flex-end;
+	padding-right: 95px;
+}
+
+nav .buttons-nav .btn-cadastro {
+	margin-right: 15px;
+}
+
+nav .buttons-nav a {
+	background: transparent;
+	border: 2px solid #53035b;
+	border-radius: 13px;
+	height: 45px;
+	display: flex;
+	padding: 10px;
+	align-items: center;
+	transition: 0.25s;
+	font-size: 85%;
+	z-index: 100;
+}
+
+nav .buttons-nav a:hover,
+nav .buttons-nav a:focus {
+	box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+	transform: translateY(-0.25em);
+}
+
+.img-fluid {
+	width: 73%;
+	padding-left: 8px;
+}
+
+/*-------------------- SIDEBAR MOBILE ----------------------- */
+
+@media (min-width: 992px) {
+
+	.toggle,
+	.header,
+	.sidebar {
+		display: none !important;
+	}
+}
+
+.header {
+	background: transparent;
+	box-shadow: 0;
+	padding: 15px 20px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+}
+
+button {
+	background: transparent;
+	border: none;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	outline: 0;
+}
+
+.toggle span {
+	width: 100%;
+	height: 3px;
+	background: #555;
+	display: block;
+	position: relative;
+	cursor: pointer;
+}
+
+.toggle span:before,
+.toggle span:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #555;
+	transition: all 0.3s ease-out;
+}
+
+.toggle span:before {
+	top: -8px;
+}
+
+.toggle span:after {
+	top: 8px;
+}
+
+.toggle span.toggle {
+	background: transparent;
+}
+
+.toggle span.toggle:before {
+	top: 0;
+	transform: rotate(-45deg);
+	background: #580661;
+}
+
+.toggle span.toggle:after {
+	top: 0;
+	transform: rotate(45deg);
+	background: #580661;
+}
+
+.sidebar {
+	background: #fff;
+	width: 235px;
+	position: fixed;
+	top: 0;
+	left: -235px;
+	height: 100%;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+	padding-top: 90px;
+	transition: all 0.3s ease-out;
+}
+
+.sidebar ul {
+	list-style: none;
+}
+
+.sidebar ul li {
+	display: block;
+}
+
+.sidebar ul li a {
+	padding: 8px 15px;
+	color: #580661 !important;
+	font-family: arial;
+	text-decoration: none;
+	display: block;
+	position: relative;
+	z-index: 1;
+	transition: all 0.3s ease-out;
+	font-weight: 600 !important;
+	font-size: 1.1rem !important;
+}
+
+.sidebar ul li a:before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	right: 50%;
+	transform: translate(-50%, -50%);
+	width: 0;
+	height: 1px;
+	background: #400a46;
+	z-index: -1;
+	transition: all 0.3s ease-out;
+}
+
+.sidebar ul li a:hover:before {
+	width: 100%;
+}
+
+.sidebar ul li a:hover {
+	color: #400a46;
+}
+
+.sidebarshow {
+	left: 0;
+}
+
+@media (max-width: 1920px) {
+
+	.navbar-brand {
+		width: 8%;
+	}
+
+	.btn-cadastro,
+	.site-empresa {
+		margin-left: 2.5%;
+	}
+
+	#listinha {
+		flex-direction: row;
+		width: 73rem;
+		justify-content: space-around;
+		font-size: 18px;
+
+	}
+
+	.primeira-parte {
+		width: 100% !important;
+	}
+
+	.main {
+		background-image: url('../img/tinta.svg') !important;
+		width: 100% !important;
+	}
+
+	.main .primeira-parte .conteudo-primeira-parte {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+		width: 35rem !important;
+	}
+
+	.img-pintora {
+		width: 39%;
+		margin-top: 3rem;
+	}
+
+	#pintora {
+		width: 93vh;
+	}
+
+	.funcionalidades {
+		display: flex;
+	}
+
+
+	/******segunda parte******/
+
+	#altofalante {
+		width: 75vh !important;
+	}
+
+	.h1-oque-e {
+		margin-left: 20% !important;
+		margin-top: 3rem !important;
+	}
+
+	.segunda-parte .h1-oque-e p {
+		width: 76% !important;
+		font-size: 23px !important;
+	}
+
+	/*********TERCEIRA-PARTE**********/
+
+	.terceira-parte {
+		background-image: url('../img/fundo_uso.svg') !important;
+		width: 100% !important;
+	}
+
+	.terceira-parte .imagem-seguidor {
+		position: relative;
+		right: 0.5%;
+		bottom: 1rem;
+	}
+
+	.terceira-parte .retangulo {
+		width: 25% !important;
+		height: 30rem !important;
+		margin-left: 17% !important;
+		top: 13rem !important;
+		color: #000000 !important;
+	}
+
+	.terceira-parte .retangulo .por-que-usar h1 {
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 5rem;
+		color: #580661;
+		text-align: center;
+	}
+
+	/*************QUARTA-PARTE**********/
+
+	.area-artista-text {
+		bottom: 40rem !important;
+	}
+
+	.quarta-parte .area-artista-text h1 {
+		padding-right: 23.6% !important;
+		font-size: 45px !important;
+	}
+
+	.quarta-parte .btn-verifica-artista {
+		display: flex;
+		justify-content: space-between;
+		width: 41.3%;
+	}
+
+	.quarta-parte .area-artista-text p {
+		width: 36% !important;
+		margin-right: 5.5% !important;
+		font-size: 23px !important;
+		color: #000000 !important;
+	}
+
+	.quarta-parte .card .card-text {
+		color: #000000 !important;
+	}
+
+	.quarta-parte .card {
+		height: 28rem !important;
+		width: 233% !important;
+	}
+
+	/******QUINTA-PARTE********/
+	.quinta-parte {
+		margin-top: 5rem;
+	}
+
+	#quinta-parte-img {
+		width: 100vh !important;
+	}
+
+	.quinta-parte .quinta-parte-text h1 {
+		font-size: 45px !important;
+		line-height: 5rem !important;
+	}
+
+	.quinta-parte .quinta-parte-text p {
+		width: 82% !important;
+		font-size: 23px !important;
+		color: #000000 !important;
+	}
+
+	/*******SEXTA-PARTE******/
+	#parceiro {
+		width: 95vh !important;
+	}
+
+	.sexta-parte .sexta-parte-text {
+		padding-left: 10.8rem !important;
+	}
+
+	.sexta-parte .sexta-parte-text h1 {
+		font-size: 45px !important;
+		line-height: 5rem !important;
+	}
+
+	.sexta-parte .sexta-parte-text p {
+		width: 85% !important;
+		font-size: 23px !important;
+	}
+}
+
+@media (max-width: 1680px) {
+	.buttons-nav {
+		margin-left: 5rem !important;
+	}
+
+	.btn-cadastro,
+	.site-empresa {
+		height: 2.6rem !important;
+		margin: 5px !important;
+		font-size: 80% !important;
+	}
+	#listinha {
+		flex-direction: row;
+		width: 60rem;
+		justify-content: space-around;
+		font-size: 18px;
+
+	}
+
+	.img-pintora {
+		width: 45%;
+		margin-bottom: 5rem;
+	}
+
+	#pintora {
+		width: 88vh;
+	}
+
+	.icons {
+		width: 90%;
+	}
+
+	/****segunda-parte***/
+	#altofalante {
+		width: 75vh !important;
+	}
+
+	.segunda-parte .h1-oque-e p {
+		width: 85% !important;
+	}
+
+	/****terceira-parte*****/
+	.terceira-parte {
+		height: 79vh !important;
+	}
+
+	.terceira-parte .imagem-seguidor {
+		right: 6.8%;
+		top: 1rem !important;
+	}
+
+	.terceira-parte .retangulo {
+		width: 34% !important;
+		height: 29rem !important;
+		margin-left: 15% !important;
+		top: 10rem !important;
+
+	}
+
+	.terceira-parte .retangulo .por-que-usar h1 {
+		margin-top: 1rem !important;
+	}
+
+	/*****quarta-parte****/
+
+	.quarta-parte .area-artista-text h1 {
+		padding-right: 24% !important;
+	}
+
+	.quarta-parte .area-artista-text p {
+		width: 39% !important;
+	}
+
+	.quarta-parte .btn-verifica-artista {
+		display: flex;
+		justify-content: space-between;
+		width: 44.3% !important;
+	}
+
+	/*****quinta-parte****/
+	.quinta-parte .quinta-parte-text p {
+		width: 90% !important;
+
+	}
+
+	/****sexta-parte****/
+	#parceiro {
+		width: 88vh !important;
+	}
+
+	.sexta-parte .sexta-parte-text {
+		padding-left: 7.8rem !important;
+	}
+
+	.sexta-parte .sexta-parte-text p {
+		width: 89% !important;
+	}
+
+	.btn-topo {
+		right: 75px !important;
+	}
+
+}
+
+@media (max-width: 1440px) {
+	.main {
+		height: 135vh;
+	}
+
+	.navbar-brand {
+		width: 10%;
+	}
+
+	#listinha {
+		flex-direction: row;
+		width: 50rem;
+		justify-content: space-around;
+		font-size: 16px;
+	}
+
+	.buttons-nav {
+		margin-left: 5rem !important;
+	}
+
+	.btn-cadastro,
+	.site-empresa {
+		height: 2.6rem !important;
+		margin: 5px !important;
+		font-size: 80% !important;
+	}
+
+	.img-pintora {
+		width: 45%;
+		margin-bottom: 1rem;
+	}
+
+	#pintora {
+		width: 80vh;
+		margin-bottom: 3rem;
+	}
+
+	.icons {
+		width: 93% !important;
+	}
+
+	/****segunda-parte****/
+	#altofalante {
+		width: 60vh !important;
+	}
+
+	.h1-oque-e {
+		margin-left: 15% !important;
+	}
+
+	.h1-oque-e h1 {
+		font-size: 43px !important;
+	}
+
+	.segunda-parte .h1-oque-e p {
+		width: 89% !important;
+		font-size: 20px !important;
+	}
+
+	/****terceira-parte****/
+	.terceira-parte {
+		height: 65vh !important;
+	}
+
+	.terceira-parte .imagem-seguidor {
+		right: 11.8%;
+
+	}
+
+	.terceira-parte .imagem-seguidor img {
+		width: 75% !important;
+	}
+
+	.terceira-parte .retangulo {
+		width: 43% !important;
+		height: 30rem !important;
+		margin-left: 15% !important;
+		top: 9rem !important;
+	}
+
+	.terceira-parte .retangulo li {
+		font-size: 19px !important;
+	}
+
+	.terceira-parte .retangulo .por-que-usar h1 {
+		font-size: 40px !important;
+
+	}
+
+	/******quarta-parte******/
+	#area-artista {
+		width: 55%;
+	}
+
+	.area-artista-text {
+		bottom: 35rem !important;
+		left: 2.8rem;
+	}
+
+	.quarta-parte .area-artista-text h1 {
+		padding-right: 23.6% !important;
+		font-size: 40px !important;
+	}
+
+	.quarta-parte .btn-verifica-artista {
+		width: 44.3% !important;
+	}
+
+	.quarta-parte .area-artista-text p {
+		font-size: 20px !important;
+	}
+
+	/****quinta-parte****/
+	#quinta-parte-img {
+		width: 88vh !important;
+	}
+
+	.quinta-parte .quinta-parte-text {
+		margin-left: 5rem !important;
+		margin-top: -20px !important;
+	}
+
+	.quinta-parte .quinta-parte-text h1 {
+		font-size: 40px !important;
+		line-height: 5rem !important;
+	}
+
+	.quinta-parte .quinta-parte-text p {
+		width: 93% !important;
+		font-size: 20px !important;
+	}
+
+	/****quarta-parte****/
+	#parceiro {
+		width: 80vh !important;
+	}
+
+	.sexta-parte .sexta-parte-text {
+		padding-left: 7.8rem !important;
+	}
+
+	.sexta-parte .sexta-parte-text p {
+		width: 89% !important;
+		font-size: 20px !important;
+	}
+
+	.sexta-parte .sexta-parte-text h1 {
+		font-size: 40px !important;
+	}
+
+	.btn-topo {
+		right: 60px !important;
+	}
+
+}
+
+@media (max-width: 1366px) {
+	.navbar-brand {
+		width: 12% !important;
+	}
+
+	#listinha {
+		flex-direction: row;
+		width: 50rem;
+		justify-content: space-around;
+		font-size: 16px;
+		margin-left: -36px !important;
+	}
+
+	nav .buttons-nav {
+		padding-right: 15px !important;
+	}
+
+	.img-pintora {
+		width: 39%;
+		margin-bottom: 1rem !important;
+	}
+
+	#pintora {
+		width: 90vh;
+	}
+
+	.btn-cadastro,
+	.site-empresa {
+		margin: 8px !important;
+	}
+
+	/****segunda-parte****/
+	#altofalante {
+		width: 79vh !important;
+	}
+
+	.h1-oque-e h1 {
+		font-size: 40px !important;
+	}
+
+	.segunda-parte .h1-oque-e p {
+		width: 85% !important;
+		font-size: 20px !important;
+	}
+
+	/****terceira-parte****/
+	.terceira-parte {
+		height: 79vh !important;
+	}
+
+	.terceira-parte .imagem-seguidor {
+		right: 17%;
+	}
+
+	.terceira-parte .imagem-seguidor img {
+		width: 78% !important;
+	}
+
+	.terceira-parte .retangulo {
+		width: 51% !important;
+		margin-left: 13% !important;
+		top: 5rem !important;
+	}
+
+
+	.terceira-parte .retangulo .por-que-usar h1 {
+		margin-top: 2rem !important;
+	}
+
+	/******quarta-parte******/
+	.area-artista-img {
+		margin-left: -50px !important;
+	}
+
+	.quarta-parte .area-artista-text h1 {
+		padding-right: 21% !important;
+	}
+
+	/****quinta-parte****/
+	#quinta-parte-img {
+		width: 100vh !important;
+		margin-right: -70px;
+	}
+
+	.quinta-parte .quinta-parte-text {
+		margin-left: 90px !important;
+		margin-top: -70px !important;
+	}
+
+	.quinta-parte .quinta-parte-text p {
+		width: 85% !important;
+	}
+
+	.quinta-parte .botao-negros-arte {
+		width: 7.5rem !important;
+		height: 2.3rem !important;
+		font-size: 80%;
+	}
+
+	/****sexta-parte****/
+	#parceiro {
+		width: 100vh !important;
+		margin-left: -45px !important;
+	}
+
+	.sexta-parte .sexta-parte-text {
+		padding-left: 3rem !important;
+	}
+
+	.sexta-parte .sexta-parte-text p {
+		width: 96% !important;
+		font-size: 20px !important;
+	}
+
+	.sexta-parte .sexta-parte-text h1 {
+		font-size: 40px !important;
+	}
+
+	.sexta-parte .btn-sexta-parte {
+		width: 7.5rem !important;
+		height: 2.3rem !important;
+		font-size: 80%;
+	}
+
+	.btn-topo {
+		right: 45px !important;
+		bottom: 10px !important;
+	}
+}
+
+@media (max-width: 1280px) {
+	.main {
+		height: 135vh;
+	}
+
+	.navbar-brand {
+		width: 10% !important;
+	}
+
+	#listinha {
+		width: 45rem !important;
+		margin-left: -10px !important;
+		font-size: 15px !important;
+	}
+
+	nav .buttons-nav a {
+		padding: 5px;
+		font-size: 73% !important;
+	}
+
+	.img-pintora {
+		width: 54%;
+		margin-bottom: 5rem !important;
+	}
+
+	#pintora {
+		width: 73vh;
+	}
+
+	/****segunda-parte****/
+	.img-altofalante {
+		margin-left: -45px;
+	}
+
+	.segunda-parte .h1-oque-e p {
+		width: 94% !important;
+		font-size: 19px !important;
+	}
+
+	/****terceira-parte****/
+	.terceira-parte .imagem-seguidor {
+		right: 23% !important;
+		top: -1rem !important;
+	}
+
+	.terceira-parte .retangulo {
+		width: 65% !important;
+		margin-left: 12% !important;
+		height: 28.8rem !important;
+		top: 52px !important;
+	}
+
+	.terceira-parte .retangulo .por-que-usar h1 {
+		font-size: 38px !important;
+	}
+
+	.terceira-parte {
+		height: 55vh !important;
+	}
+
+	.terceira-parte .imagem-seguidor img {
+		width: 85% !important;
+	}
+
+	/******quarta-parte******/
+	.area-artista-img {
+		margin-left: -85px !important;
+	}
+
+	.quarta-parte .area-artista-text h1 {
+		padding-right: 23.3% !important;
+	}
+
+	.quarta-parte .area-artista-text p {
+		font-size: 19px !important;
+		width: 32rem !important;
+	}
+
+	.quarta-parte .btn-verifica-artista {
+		width: 48.3% !important;
+	}
+
+	/****quinta-parte****/
+	#quinta-parte-img {
+		width: 80vh !important;
+		margin-left: 15px !important;
+	}
+
+	.quinta-parte .quinta-parte-text {
+		margin-left: 60px !important;
+		margin-bottom: 20px !important;
+	}
+
+	.quinta-parte .quinta-parte-text p {
+		width: 102% !important;
+		font-size: 19px !important;
+	}
+
+	.quinta-parte .quinta-parte-text h1 {
+		font-size: 38px !important;
+	}
+
+	.quinta-parte .botao-negros-arte {
+		width: 6.8rem !important;
+		height: 2.2rem !important;
+	}
+
+	/****sexta-parte****/
+	#parceiro {
+		width: 70vh !important;
+		margin-left: -68px !important;
+	}
+
+	.sexta-parte .sexta-parte-text p {
+		width: 92% !important;
+		font-size: 19px !important;
+	}
+
+	.sexta-parte .sexta-parte-text h1 {
+		font-size: 38px !important;
+	}
+
+	.sexta-parte .btn-sexta-parte {
+		width: 6.8rem !important;
+		height: 2.2rem !important;
+	}
+
+	.btn-topo {
+		bottom: 70px !important;
+	}
+}
+
+@media (max-width: 1080px) {
+	.main {
+		height: 120vh;
+	}
+
+	.navbar-brand {
+		width: 13% !important;
+		margin-left: -20px !important;
+	}
+
+	#listinha {
+		width: 40rem !important;
+		margin-left: -50px !important;
+		font-size: 15px !important;
+	}
+
+	nav .buttons-nav a {
+		margin-right: -28px !important;
+	}
+
+	nav .buttons-nav .btn-cadastro {
+		margin-right: 5px !important;
+	}
+
+	.img-pintora {
+		width: 50%;
+		margin-bottom: 5rem !important;
+	}
+
+	#pintora {
+		width: 63vh;
+	}
+
+	.icons {
+		width: 88% !important;
+	}
+
+	/****segunda-parte****/
+	#altofalante {
+		width: 50vh !important;
+	}
+
+	.img-altofalante {
+		margin-left: -65px !important;
+	}
+
+	.h1-oque-e {
+		margin-top: 18px !important;
+	}
+
+	.segunda-parte .h1-oque-e h1 {
+		font-size: 36px !important;
+	}
+
+	.segunda-parte .h1-oque-e p {
+		width: 94% !important;
+		font-size: 18px !important;
+	}
+
+	/****terceira-parte****/
+	.terceira-parte .imagem-seguidor {
+		right: 25% !important;
+		top: -3px !important;
+	}
+
+	.terceira-parte .retangulo {
+		width: 71% !important;
+		margin-left: 6% !important;
+		height: 27.8rem !important;
+		top: 59px !important;
+	}
+
+	.terceira-parte .retangulo .por-que-usar h1 {
+		font-size: 36px !important;
+		line-height: 1.8rem !important;
+		margin-top: 3rem !important;
+	}
+
+	.terceira-parte .retangulo .por-que-usar li {
+		font-size: 17px !important;
+	}
+
+	.terceira-parte .retangulo .por-que-usar ul {
+		line-height: 5rem !important;
+		margin-left: 20px !important;
+	}
+
+	.terceira-parte {
+		height: 50vh !important;
+	}
+
+	.terceira-parte .imagem-seguidor img {
+		width: 80% !important;
+	}
+
+	/******quarta-parte******/
+
+	.quarta-parte .area-artista-text {
+		bottom: 27rem !important;
+	}
+
+	.quarta-parte .area-artista-text h1 {
+		font-size: 36px !important;
+		padding-right: 21.5% !important;
+		line-height: 4rem !important;
+	}
+
+	.quarta-parte .area-artista-text p {
+		font-size: 17px !important;
+		width: 26.8rem !important;
+		margin-right: 60px !important;
+	}
+
+	.quarta-parte .btn-verifica-artista {
+		width: 48.3% !important;
+	}
+
+	/****quinta-parte****/
+	.quinta-parte {
+		bottom: 24rem !important;
+	}
+
+	#quinta-parte-img {
+		width: 68vh !important;
+
+	}
+
+	.quinta-parte .quinta-parte-text {
+		padding-top: 143px !important;
+		margin-left: 4% !important;
+	}
+
+	.quinta-parte .quinta-parte-text p {
+		width: 108% !important;
+		font-size: 17px !important;
+	}
+
+	.quinta-parte .quinta-parte-text h1 {
+		font-size: 36px !important;
+	}
+
+	/****sexta-parte****/
+	#parceiro {
+		width: 65vh !important;
+		margin-left: -68px !important;
+	}
+
+	.sexta-parte .sexta-parte-text {
+		padding-top: 1rem !important;
+	}
+
+	.sexta-parte .sexta-parte-text p {
+		width: 96% !important;
+		font-size: 17px !important;
+	}
+
+	.sexta-parte .sexta-parte-text h1 {
+		font-size: 36px !important;
+	}
+
+	.sexta-parte .btn-sexta-parte {
+		width: 6.8rem !important;
+		height: 2.2rem !important;
+	}
+
+	.card-b {
+		border: #000000 1.8px solid ;
+		border-radius: 15px;
+		width: 16rem !important;
+	}
+
+
+}
+
+
+.main .primeira-parte {
+	height: 60%;
+	display: flex !important;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.main .primeira-parte .conteudo-primeira-parte {
+	display: flex;
+	height: 49%;
+	flex-direction: column;
+	align-items: center;
+}
+
+.main .primeira-parte .logotipo h1 {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 94px;
+	color: #580661;
+}
+
+.main .primeira-parte .btn-primeira-parte button {
+	background: #53035b;
+	border: 2px solid #ffffff;
+	border-radius: 15px;
+	height: 50px;
+	width: auto;
+	/* padding-left: 20px; */
+	/* padding-right: 20px; */
+	width: 160px;
+	color: white;
+	font-weight: 500;
+	transition: 0.25s;
+}
+
+.main .primeira-parte .btn-primeira-parte button:hover,
+.main .primeira-parte .btn-primeira-parte button:focus {
+	box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+	transform: translateY(-0.25em);
+}
+
+
+/*------------------------ FUNCIONALIDADES ----------------------------- */
+
+.main .funcionalidades {
+	justify-content: center;
+	align-items: center;
+	padding: 3%;
+}
+
+.main .funcionalidades .item-funcionalidade {
+	justify-content: center;
+	align-items: center;
+	padding: 3%;
+	margin-top: 23%;
+}
+
+.main .funcionalidades .item-funcionalidade p {
+	font-family: 'Poppins';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1rem;
+	margin-left: 18%;
+	color: #53035b;
+}
+
+
+
+/****************SEGUNDA-PARTE **************/
+.segunda-parte {
+	display: flex;
+	margin-top: 8%;
+}
+
+.segunda-parte .h1-oque-e h1 {
+	font-weight: 600;
+	font-size: 50px;
+	line-height: 5rem;
+	color: #580661;
+}
+
+.segunda-parte .h1-oque-e p {
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 38px;
+	width: 80%;
+	word-break: break-word;
+
+}
+
+.h1-oque-e {
+	margin-left: 20%;
+	margin-top: 4rem;
+}
+
+.segunda-parte .img-altofalante img {
+	margin-left: 20%;
+	width: 40rem;
+}
+
+/*------------------------ TERCEIRA PARTE ----------------------------- */
+
+.terceira-parte {
+	display: flex;
+	background-image: url('../img/fundo_uso.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 43rem;
+	width: 100%;
+	margin-top: 10rem;
+}
+
+.terceira-parte .retangulo {
+	background-color: white;
+	width: 25%;
+	height: 35rem;
+	margin-left: 17%;
+	top: 13rem;
+	position: relative;
+	color: #000000;
+}
+
+.terceira-parte .retangulo .por-que-usar h1 {
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 55px;
+	color: #580661;
+	text-align: center;
+}
+
+.terceira-parte .retangulo .por-que-usar ul {
+	line-height: 6rem;
+	text-align: left;
+	font-size: 20px;
+	margin-left: 2%;
+}
+
+.terceira-parte .imagem-seguidor img {
+	width: 70%;
+	margin-left: 24rem;
+}
+
+/****************** QUARTA PARTE ******************/
+
+.quarta-parte .area-artista-img img {
+	padding-left: 6rem;
+	width: 50%;
+	margin-top: 9rem;
+}
+
+.area-artista-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	position: relative;
+	bottom: 43rem;
+}
+
+.quarta-parte .btn-verificar {
+	width: 7.3rem;
+	height: 2.5rem;
+	background-color: #53035b;
+	border: solid 2px #000000;
+	color: #fff;
+	font-weight: 500;
+	margin-right: 41.5rem;
+	margin-top: 1rem;
+}
+
+.quarta-parte .area-artista-text h1 {
+	font-weight: 600;
+	font-size: 50px;
+	line-height: 100px;
+	color: #580661;
+	padding-right: 23%;
+}
+
+.quarta-parte .area-artista-text p {
+	width: 33%;
+	margin-right: 10.5%;
+	font-size: 25px;
+	word-break: break-word;
+}
+
+
+.quarta-parte .card-artista {
+	display: flex;
+	text-align: center;
+}
+
+.quarta-parte .card {
+	width: 90rem;
+	height: 28rem;
+	border-radius: 15px;
+}
+
+.quarta-parte .card-a {
+	width: 8rem;
+	border: none;
+	background-color: transparent;
+}
+
+.quarta-parte .card .img-card {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+}
+
+.quarta-parte .card .card-title {
+	text-align: center;
+	color: #580661;
+	font-weight: 700;
+}
+
+/**************QUINTA-PARTE************* */
+.quinta-parte {
+	display: flex;
+	flex-direction: row-reverse;
+	position: relative;
+	bottom: 28rem;
+}
+
+#quinta-parte-img {
+	position: relative;
+	right: 8%;
+	width: 60rem;
+}
+
+.quinta-parte .quinta-parte-text {
+	padding-top: 178px;
+	margin-left: 8%;
+}
+
+.quinta-parte .quinta-parte-text h1 {
+	font-weight: 600;
+	font-size: 50px;
+	line-height: 100px;
+	color: #580661;
+}
+
+.quinta-parte .quinta-parte-text p {
+	width: 78%;
+	word-break: break-word;
+	font-size: 23px;
+}
+
+.quinta-parte .botao-negros-arte {
+	width: 8.5rem;
+	height: 2.5rem;
+	background-color: #53035b;
+	border: solid 2px #000000;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: 500;
+	margin-top: 1%;
+}
+
+/*****************SEXTA-PARTE***************/
+.sexta-parte {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	bottom: 18rem;
+}
+
+.sexta-parte .sexta-parte-img img {
+	width: 50rem;
+	padding-left: 5.8rem;
+}
+
+.sexta-parte .sexta-parte-text {
+	padding-left: 10rem;
+	padding-top: 3rem;
+}
+
+.sexta-parte .sexta-parte-text h1 {
+	font-weight: 600;
+	font-size: 50px;
+	line-height: 100px;
+	color: #580661;
+}
+
+.sexta-parte .sexta-parte-text p {
+	width: 86%;
+	word-break: break-word;
+	font-size: 23px;
+	color: #000000;
+}
+
+.btn-sexta-parte {
+	width: 8.5rem;
+	height: 2.5rem;
+	background-color: #53035b;
+	border: solid 2px #000000;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: 500;
+	margin-top: 1%;
+}
+
+.cards-sexta-parte {
+	display: flex;
+	justify-content: space-evenly;
+	position: relative;
+	bottom: 15rem;
+}
+
+.card-b {
+	margin: -3%;
+	margin-top: 6rem;
+}
+
+.btn-topo {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	cursor: pointer;
+}
+
+.btn-topo img {
+	width: 30px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.btn-topo img:hover,
+.btn-topo img:focus {
+	box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+	transform: translateY(-0.25em);
+}
