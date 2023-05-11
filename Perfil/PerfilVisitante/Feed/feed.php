@@ -22,14 +22,14 @@
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-                    <ul class="list-group">
+                   <ul class="list-group">
                             <a href="#">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
                             <a href="">
                                 <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                             </a>
-                            <a href="../../../Evento/evento.php">
+                            <a href="../../PerfilArtista/Evento/eventoArtista.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
                             <a href="">
@@ -41,6 +41,9 @@
                             <a href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
+                            <a href="">
+                                <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
+                            </a>
                         </ul>
                     </div>
                     <div class="nova-pub">
@@ -49,7 +52,7 @@
                     </div>
 
                     <div class="sair">
-                    <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
+                    <a href="../../../Controller/Logout.php"><img src="../assets/img/sair.png">Sair</a>
                     </div>
 
                     <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
@@ -180,6 +183,68 @@
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
                             </div>
+                            <?PHP
+                            $pub = PublicacaoDao::ListaPublicacao();
+                            foreach ($pub as $p) {
+                            ?>
+                                <div class="publicacao">
+                                    <div class="header-publicacao">
+                                        <div class="informacoes-perfil-publicacao">
+                                            <div class="img-perfil-publicacao">
+                                                <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                            </div>
+                                            <div class="nick-e-bio-perfil-publicacao">
+                                                <div class="nick">
+                                                    <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="box-btn-configuracao-publicacao">
+                                            <button class="btn-configuracao-publicacao">
+                                                <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="box-img-publicacao">
+                                        <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                    </div>
+                                    <div class="legenda-publicacao">
+                                        <p>
+                                            <?PHP echo $p['descPublicacao']; ?>!
+                                        </p>
+                                    </div>
+                                    <div class="acoes-publicacao">
+                                        <div class="box-btn-acoes">
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="tempo-publicacao">
+                                            <p><?PHP
+                                                if($p['minutosPublicacao'] == 0){
+                                                    echo 'Agora mesmo';
+                                                }else{
+                                                    echo $p['minutosPublicacao'];
+                                                }  
+                                                 ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?PHP
+                            }
+                            ?>
                             <div class="publicacao">
                                 <div class="header-publicacao">
                                     <div class="informacoes-perfil-publicacao">

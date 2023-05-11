@@ -30,6 +30,7 @@
 
 a {
   text-decoration: none;
+  color: unset;
 }
 
 hr {
@@ -103,7 +104,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 90%;
+  width: 100%;
 }
 
 .container-fluid .box-area-perfil {
@@ -273,6 +274,9 @@ body {
 
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-img-publicacao img {
   width: 100%;
+  max-width: 1005px;
+  max-height: 673px;
+  object-fit: cover;
   height: auto;
   border-radius: 7px;
 }
@@ -306,6 +310,10 @@ body {
 
 }
 
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes  button:hover{
+  transform: scale(0.8);
+}
+
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes {
   display: flex;
   flex-direction: row;
@@ -314,6 +322,7 @@ body {
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-btn-acoes button {
   background: none;
   border: none;
+  transition: 0.25s;
 }
 
 
@@ -325,7 +334,7 @@ body {
 }
 
 .mobile-nav {
-  background: #ecebf3;
+  background: #ffffff;
   position: fixed;
   bottom: 0;
   height: 65px;
@@ -396,8 +405,8 @@ body {
   display: flex;
   justify-content: center;
   width: 300px;
-  background-color: #eae9f1 !important;
-  border-right: 1px solid #d1cdcd;
+  background-color: #fff !important;
+  
   position: fixed;
   height: 100%;
   box-sizing: border-box;
@@ -430,7 +439,7 @@ body {
 }
 
 .sidebar .sidebar-box .list-group-box button {
-  background-color: #eae9f1;
+  background-color: transparent;
   border: 0 !important;
   font-family: 'InterRegular';
   font-style: normal;
@@ -464,6 +473,26 @@ body {
   background-color: #ffffff;
 }
 
+
+.sair {
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 25px;
+}
+
+.sair a {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'InterRegular';
+}
+
+.sair img{
+  width: 30px;
+    margin-right: 5px;
+}
 
 #eventos {
   background-image: url('../img/icone-calendario.png');
@@ -512,6 +541,15 @@ body {
   background-image: url('../img/icone-pessoa.png');
 }
 
+#perfil{
+  background-image: url('../img/perfil-icon.svg');
+}
+
+
+#perfil:hover{
+  background-image: url('../img/perfil-icon-branco.png');
+}
+
 #amigos:hover {
   background-image: url('../img/icon-pessoa-branco.svg')
 }
@@ -519,6 +557,85 @@ body {
 #nova-pub {
   background-image: url('../img/icone-pincel.png');
 }
+
+.dropup, .menu-container{
+  position: absolute;
+  bottom: 45px;
+  cursor: pointer;
+}
+
+.btn-perfil-sair {
+  width: 225px;
+  height: 80px;
+  background: #FFFFFF;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-around;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-perfil-sair h1 {
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: 700;
+}
+
+
+.btn-perfil-sair h3 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #6B6565;
+}
+
+.img-perfil-btn {
+
+  padding-left: 10px;
+  width: 40%;
+}
+
+.btn-perfil-sair img {
+  cursor: pointer;
+}
+
+.btn-perfil-sair .img-perfil-btn img {
+  width: 100%;
+  border-radius: 50%;
+  max-width: 60px;
+  max-height: 60px;
+  border: solid;
+  border-color: #fff;
+  border-width: 2.5px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 30%);
+  transition: 0.25s;
+
+
+}
+
+.desc-btn {
+  display: flex;
+  width: 100%;
+  
+  /* padding: 45px; */
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.desc-btn .btn {
+  background-color: unset;
+    border: 0;
+}
+
+.desc-btn .btn:focus {
+  background-color: unset;
+    border: 0;
+}
+
 
 
 .list-group-box button:hover {
@@ -567,19 +684,24 @@ body {
   background-color: #664187 !important;
 }
 
+
 .btn-sair {
-  margin-top: 50px;
-  height: 40px;
-  width: 90px;
+ 
+  height: auto;
+  width: 100%;
   background-color: none !important;
   font-family: 'InterBold';
+  cursor: pointer;
 }
+
+
 
 .btn-sair h1 {
   font-weight: 600;
   font-size: 1.4rem;
   color: #202024;
-  margin-top: 7px;
+  margin: 0;
+  padding-left: 10px;
 
 }
 
@@ -589,7 +711,7 @@ body {
 }
 
 .area-info {
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: #eae9f1 !important;
   padding: 15px;
@@ -675,6 +797,106 @@ body {
   color: #fff !important;
   border-radius: 15px;
 }
+
+
+/* Dropup Button */
+.dropbtn {
+  background-color:  #E1E1E6;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* The container <div> - needed to position the dropup content */
+.dropup {
+  position: relative;
+  display: inline-block;
+  margin-top: 35%;
+  width: 100%;
+}
+
+/* Dropup content (Hidden by Default) */
+.dropup-content {
+  display: none;
+  position: absolute;
+  bottom: 80px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 100%;
+}
+
+/* Links inside the dropup */
+.dropup-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropup links on hover */
+.dropup-content a:hover {
+  background-color: #ddd;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #664187;
+}
+
+/* Show the dropup menu on hover */
+.dropup:hover .dropup-content {
+  display: block;
+  border-radius: 20px;
+}
+
+/* Change the background color of the dropup button when the dropup content is shown */
+.dropup:hover .dropbtn {
+  background-color: #D4D3DE;
+}
+
+.perfil {
+  display: flex;
+}
+
+.perfil .perfil-seta{
+    padding: 10px;
+    margin-left: 30%;
+}
+
+.perfil-imagem img {
+  max-width: 50px;
+}
+
+.perfil-usuario{
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.perfil-usuario .perfil-nome p {
+  margin: 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: black;
+}
+
+.perfil-usuario .perfil-apelido p {
+  margin: 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #6b6565;
+}
+
 
 
 
