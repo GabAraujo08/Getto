@@ -57,30 +57,8 @@ require_once 'GlobalPerfil.php';
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
                             publicação</button>
                     </div>
-                    <div class="dropup">
-                        <button class="dropbtn">
-                            <div class="perfil">
-                                <div class="perfil-imagem">
-                                    <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
-                                </div>
-                                <div class="perfil-usuario">
-                                    <div class="perfil-nome">
-                                        <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
-                                    </div>
-                                    <div class="perfil-apelido">
-                                        <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
-                                    </div>
-                                </div>
-
-                                <div class="perfil-seta">
-                                    <img src="../../../assets/img/arrowup2.png" alt="">
-                                </div>
-                            </div>
-                        </button>
-                        <div class="dropup-content">
-                            <a href="../../PerfilArtista/perfil.php">Perfil</a>
-                            <a href="../../../Login/login.php">Sair</a>
-                        </div>
+                    <div class="sair">
+                        <a href="../../../Controller/Logout.php"><img src="../PerfilArtista/Feed/assets/img/sair.png">Sair</a>
                     </div>
 
                     <!-- ---------------------------    BOTAO SAIR E PERFIL --------------------------- -->
@@ -190,13 +168,13 @@ require_once 'GlobalPerfil.php';
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
                                         <?PHP
-                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idArtista']);
-                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                        $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idArtista']);
+                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
                                         ?>
                                         <div class="seguindo-numero">
                                             <p><?PHp
-                                                        echo $seguindo;   
-                                            ?></p>
+                                                echo $seguindo;
+                                                ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>
@@ -205,9 +183,9 @@ require_once 'GlobalPerfil.php';
                                     <div class="seguidores">
 
                                         <div class="seguidores-numero">
-                                        <p><?PHP
-                                                        echo $seguimores;
-                                            ?></p>
+                                            <p><?PHP
+                                                echo $seguimores;
+                                                ?></p>
                                         </div>
                                         <div class="seguidores-text">
                                             <h1>Seguidores</h1>
