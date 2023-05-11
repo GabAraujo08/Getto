@@ -274,6 +274,9 @@ body {
 
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-img-publicacao img {
   width: 100%;
+  max-width: 1005px;
+  max-height: 673px;
+  object-fit: cover;
   height: auto;
   border-radius: 7px;
 }
@@ -477,7 +480,7 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 50px;
+    bottom: 25px;
 }
 
 .sair a {
@@ -699,6 +702,7 @@ body {
 }
 
 .area-info {
+  display: none;
   flex-direction: column;
   background-color: #eae9f1 !important;
   padding: 15px;

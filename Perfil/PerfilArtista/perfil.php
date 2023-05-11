@@ -27,7 +27,7 @@ require_once 'GlobalPerfil.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img style="display:none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -278,13 +278,13 @@ require_once 'GlobalPerfil.php';
 
 
     <nav class="mobile-nav">
-        <a href="./Feed/feed.php" class="bloc-icon">
+        <a href="Feed/feed.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-home.svg" alt="">
         </a>
-        <a href="./Feed/descobrir.php" class="bloc-icon">
+        <a href="Feed/descobrir.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
         </a>
-        <a href="#" class="bloc-icon">
+        <a href="../PerfilArtista/Evento/eventoArtista.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
         </a>
         <a data-bs-toggle="modal" data-bs-target="#modalCriarPub" href="#" class="bloc-icon">
@@ -296,7 +296,7 @@ require_once 'GlobalPerfil.php';
         <a href="#" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
         </a>
-        <a href="./Configuracoes/configuracoes.php" class="bloc-icon">
+        <a href="Configuracoes/configuracoes.php" class="bloc-icon">
             <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
         </a>
 
