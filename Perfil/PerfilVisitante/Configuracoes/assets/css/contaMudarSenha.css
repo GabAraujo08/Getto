@@ -94,8 +94,8 @@ width: 35px;
     display: flex;
     justify-content: center;
     width: 300px;
-    background-color: #d4d3de;
-    border-right: 1px solid #d1cdcd;
+    background-color: #fff;
+    
     position: fixed;
     height: 100%;
     box-sizing: border-box;
@@ -127,7 +127,7 @@ width: 35px;
 }
 
 .sidebar .sidebar-box .list-group-box button{
-    background-color: #D4D3DE;
+    background-color: transparent;
     border: 0!important;
     font-family: 'InterRegular';
     font-style: normal;
@@ -407,6 +407,10 @@ font-weight: 600!important;
   @media screen and (min-width: 980px) {
     .mobile-nav {
     display: none;
+    }
+
+    .header-feed{
+      display: none;
     }
 
    
