@@ -683,7 +683,7 @@ body {
 
 
 .btn-sair {
- 
+  bottom: 25px;
   height: auto;
   width: 100%;
   background-color: none !important;
