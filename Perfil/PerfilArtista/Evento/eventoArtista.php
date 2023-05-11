@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="stylesheet" href="../Evento/assets/css/eventoArtista.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
 </head>
@@ -26,74 +27,90 @@
     }
 
     .card {
-            position: relative;
-            width: 160px;
-            height: 100px;
-            border-radius: 20px;
-            background-color: #E1E1E6;
-            border: none;
-        }
+        position: relative;
+        width: 160px;
+        height: 100px;
+        border-radius: 20px;
+        background-color: #E1E1E6;
+        border: none;
+    }
 
-        .card .front:after{
-            position: absolute;
-            content: '';
-            right: 0;
-            top: 0;
-            border-bottom: 30px solid #9056E8;
-            border-right: 30px solid #E1E1E6;
-        }
+    .card .front:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 0;
+        border-bottom: 30px solid #9056E8;
+        border-right: 30px solid #E1E1E6;
+    }
 
-        .card div {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backface-visibility: hidden;
-            transition: 1s;
-        }
+    .card div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backface-visibility: hidden;
+        transition: 1s;
+    }
 
-        .card .front {
-            background: #664187;
-            transform: perspective(500px) rotateY(0deg);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-        }
+    .card .front {
+        background: #664187;
+        transform: perspective(500px) rotateY(0deg);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+    }
 
-        .card .back {
-            background: #9056E8;
-            transform: perspective(500px) rotateY(180deg);
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-        }
+    .card .back {
+        background: #9056E8;
+        transform: perspective(500px) rotateY(180deg);
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+    }
 
 
-        .card:hover .front {
-            transform: perspective(100px) rotateY(180deg);
-        }
+    .card:hover .front {
+        transform: perspective(100px) rotateY(180deg);
+    }
 
-        .card:hover .back {
-            transform: perspective(100px) rotateY(360deg);
-        }
+    .card:hover .back {
+        transform: perspective(100px) rotateY(360deg);
+    }
 
-        .card div p {
-            font-family: 'InterRegular';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 26px;
-            color: #FFFFFF;
-        }
+    .card .front p {
+        font-family: 'InterRegular';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 26px;
+        color: #FFFFFF;
+    }
 
-        .card div span {
-            font-family: 'InterRegular';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 26px;
-            color: #FFFFFF;
-        }
+    .card .front span {
+        font-family: 'InterRegular';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 26px;
+        color: #FFFFFF;
+    }
+
+    .card .back p {
+        font-family: 'InterRegular';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        color: #FFFFFF;
+    }
+
+    .card .back span {
+        font-family: 'InterRegular';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        color: #FFFFFF;
+    }
 
     .criador-evento {
         display: flex;
@@ -219,6 +236,26 @@
         box-shadow: 0 0 0 0.25rem rgba(92, 2, 128, 0.25);
     }
 
+    .horario-inicio p {
+        font-family: 'InterRegular';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+    }
+
+    .horario-termino p {
+        font-family: 'InterRegular';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        display: flex;
+        align-items: center;
+    }
+
     @media screen and (max-width: 1550px) {
         #accordionFlushExample {
             width: 80%;
@@ -326,12 +363,33 @@
                 <div class="nova-pub">
                     <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
                 </div>
-                <a href="#">
-                    <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
-                        <img src="assets/img/icon-logout.svg" alt="Sair">
-                        <h1>Sair</h1>
+
+                <div class="dropup">
+                    <button class="dropbtn">
+                        <div class="perfil">
+                            <div class="perfil-imagem">
+                                <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
+                            </div>
+                            <div class="perfil-usuario">
+                                <div class="perfil-nome">
+                                    <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
+                                </div>
+                                <div class="perfil-apelido">
+                                    <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
+                                </div>
+                            </div>
+
+                            <div class="perfil-seta">
+                                <img src="../../../assets/img/arrowup2.png" alt="">
+                            </div>
+                        </div>
+                    </button>
+                    <div class="dropup-content">
+                        <a href="../../PerfilArtista/perfil.php">Perfil</a>
+                        <a href="../../../Login/login.php">Sair</a>
                     </div>
-                </a>
+                </div>
+
             </div>
         </div>
 
@@ -345,7 +403,7 @@
                                     <p>11</p><span>Abr</span>
                                 </div>
                                 <div class="back">
-                                    <p>12</p><span>AM</span>
+                                    <p>inicio: 12am</p><span>fim: 17:45pm</span>
                                 </div>
                             </div>
                             <div class="card-evento">
@@ -380,6 +438,16 @@
                                         vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 </div>
+
+                                <div class="horario">
+                                    <div class="horario-inicio">
+                                        <p>Horário de início: 12:00 am</p>
+                                    </div>
+                                    <div class="horario-termino">
+                                        <p>Horário de término: 15:00pm</p>
+                                    </div>
+                                </div>
+
                                 <div class="presenca-evento">
                                     <div class="confirmados-evento">
                                         <p>138 confirmados</p>
@@ -394,6 +462,8 @@
                 </div>
             </div>
         </div>
+
+
 
         <nav class="mobile-nav">
             <a href="#" class="bloc-icon">

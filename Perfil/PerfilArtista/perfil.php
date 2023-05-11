@@ -15,6 +15,7 @@ require_once 'GlobalPerfil.php';
     <link rel="stylesheet" href="assets/css/preview-criar-evento.css" />
     <link rel="stylesheet" href="assets/css/modal-criarPub.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
+    <link rel="stylesheet" href="../PerfilArtista/Evento/assets/css/eventoArtista.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5bWt6KBQ2Jg9X6nyz/6noy+C6AVrO6ddtpJmiKkh+awOFAkg0SMJG/M49YXJHjvTf+ldcJ0+cTiUGguMq3Qe0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -50,17 +51,36 @@ require_once 'GlobalPerfil.php';
                             <a href="Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
-                            <a href="#">
-                                <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
-                            </a>
                         </ul>
                     </div>
                     <div class="nova-pub">
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
                             publicação</button>
                     </div>
-                    <div class="sair">
-                        <a href="../../Controller/Logout.php"><img src="Feed/assets/img/sair.png">Sair</a>
+                    <div class="dropup">
+                        <button class="dropbtn">
+                            <div class="perfil">
+                                <div class="perfil-imagem">
+                                    <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
+                                </div>
+                                <div class="perfil-usuario">
+                                    <div class="perfil-nome">
+                                        <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
+                                    </div>
+                                    <div class="perfil-apelido">
+                                        <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
+                                    </div>
+                                </div>
+
+                                <div class="perfil-seta">
+                                    <img src="../../../assets/img/arrowup2.png" alt="">
+                                </div>
+                            </div>
+                        </button>
+                        <div class="dropup-content">
+                            <a href="../../PerfilArtista/perfil.php">Perfil</a>
+                            <a href="../../../Login/login.php">Sair</a>
+                        </div>
                     </div>
 
                     <!-- ---------------------------    BOTAO SAIR E PERFIL --------------------------- -->

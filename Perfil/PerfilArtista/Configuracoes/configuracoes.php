@@ -1,6 +1,7 @@
 <?php include('../../../Controller/VerificaLogado.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,13 @@
     <title>Configurações</title>
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="assets/css/configuracoes.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Evento/assets/css/eventoArtista.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
+
 <body>
 
-   
+
 
 
     <div class="sidebar">
@@ -23,7 +25,7 @@
                 <h1 class="logo-tipo">Getto</h1>
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-            <ul class="list-group">
+                <ul class="list-group">
                     <a href="../Feed/feed.php">
                         <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                     </a>
@@ -42,14 +44,39 @@
                     <a href="../Feed/descobrir.php">
                         <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                     </a>
-                    <a href="../perfil.php">
-                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
-                    </a>
                 </ul>
             </div>
             <div class="nova-pub">
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
             </div>
+
+            <div class="dropup">
+                <button class="dropbtn">
+                    <div class="perfil">
+                        <div class="perfil-imagem">
+                            <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
+                        </div>
+                        <div class="perfil-usuario">
+                            <div class="perfil-nome">
+                                <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
+                            </div>
+                            <div class="perfil-apelido">
+                                <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="perfil-seta">
+                            <img src="assets/img/arrowup.png" alt="">
+                        </div>
+                    </div>
+                </button>
+                <div class="dropup-content">
+                    <a href="../../PerfilArtista/perfil.php">Perfil</a>
+                    <a href="../../../Login/login.php">Sair</a>
+                </div>
+            </div>
+
+
             <!-- <div class="container">
                 <div class="d-flex justify-content-center align-items-center flex-column sugestao-seguidores">
                     <h1>Sugestão de seguidores!</h1>
@@ -123,7 +150,7 @@
                     </div>
                 </div>
             </div> -->
-           
+
         </div>
     </div>
     <div class="box">
@@ -142,17 +169,29 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="titulo-config">
             <h1>Configurações</h1>
         </div>
         <div class="lista-itens-config">
             <ul class="lista-config">
-                <a href="conta-config/conta-config.php"><li class="item-config"><h2>Conta</h2> <img src="assets/img/icon-seta.svg" alt=""></li></a>
-                <li class="item-config"><h2>Privacidade</h2>  <img src="assets/img/icon-seta.svg" alt=""></li>
-                <li class="item-config"><h2>Segurança</h2>  <img src="assets/img/icon-seta.svg" alt=""></li>
-                <li class="item-config"><h2>Acessibilidade</h2>  <img src="assets/img/icon-seta.svg" alt=""></li>
-                <li class="item-config"><h2>Recursos Adicionais</h2>  <img src="assets/img/icon-seta.svg" alt=""></li>
+                <a href="conta-config/conta-config.php">
+                    <li class="item-config">
+                        <h2>Conta</h2> <img src="assets/img/icon-seta.svg" alt="">
+                    </li>
+                </a>
+                <li class="item-config">
+                    <h2>Privacidade</h2> <img src="assets/img/icon-seta.svg" alt="">
+                </li>
+                <li class="item-config">
+                    <h2>Segurança</h2> <img src="assets/img/icon-seta.svg" alt="">
+                </li>
+                <li class="item-config">
+                    <h2>Acessibilidade</h2> <img src="assets/img/icon-seta.svg" alt="">
+                </li>
+                <li class="item-config">
+                    <h2>Recursos Adicionais</h2> <img src="assets/img/icon-seta.svg" alt="">
+                </li>
             </ul>
         </div>
     </div>
@@ -180,14 +219,12 @@
         </a>
 
     </nav>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>

@@ -6,275 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="stylesheet" href="./assets/css/evento.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
 </head>
 
 <style>
-    a {
-        text-decoration: none;
-    }
-
-    @font-face {
-        font-family: 'InterRegular';
-        src: url('../fonts/Inter-Regular.ttf');
-    }
-
-    .resumoDiv {
-        display: flex;
-        margin-left: 5%;
-    }
-
-    .card {
-        position: relative;
-        width: 160px;
-        height: 100px;
-        border-radius: 20px;
-    }
-
-    .card div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backface-visibility: hidden;
-        transition: 1s;
-    }
-
-    .card .front {
-        background: #664187;
-        transform: perspective(500px) rotateY(0deg);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .card .back {
-        background: #9056E8;
-        transform: perspective(500px) rotateY(180deg);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    .card:hover .front {
-        transform: perspective(100px) rotateY(180deg);
-    }
-
-    .card:hover .back {
-        transform: perspective(100px) rotateY(360deg);
-    }
-
-    .card div p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 26px;
-        color: #FFFFFF;
-    }
-
-    .card div span {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 26px;
-        color: #FFFFFF;
-    }
-
-    .criador-evento {
-        display: flex;
-    }
-
-    .criador-evento .img-criador {
-        width: 53px;
-        height: 53px;
-        border-radius: 100%;
-    }
-
-    .criador-evento .nome-criador p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .baixo .img-evento {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .conteudo-evento .descricao-evento p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-    }
-
-    .conteudo-evento {
-        display: flex;
-        flex-direction: column;
-        padding: 50px;
-    }
-
-    .conteudo-evento .confirmar-evento button {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 22px;
-        color: #FFFFFF;
-        background: #664187;
-        border-radius: 15px;
-        border: none;
-        width: 200px;
-        height: 50px;
-    }
-
-    .presenca-evento {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .presenca-evento .confirmados-evento {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 15px;
-        line-height: 22px;
-    }
-
-    .baixo {
-        display: flex;
-    }
-
-    .card-evento {
-        width: 100%;
-        border-radius: 20px;
-        margin-left: 10%;
-    }
-
-    .card-evento .titulo-evento p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 39px;
-    }
-
-    .card-evento .endereco-evento p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 29px;
-    }
-
     #accordionFlushExample {
-        width: 80%;
-        margin-left: 18%;
-        margin-top: 3%;
-        background-color: #E1E1E6;
-    }
+    width: 80%;
+    margin-left: 18%;
+    margin-top: 3%;
+    background-color: #E1E1E6;
+}
 
-    .accordion-item {
-        background-color: #E1E1E6;
-        border-radius: 20px;
-    }
+.accordion-item {
+    background-color: #E1E1E6;
+    border-radius: 20px;
+}
 
-    .accordion-button {
-        background-color: #E1E1E6;
-        border-radius: 20px;
-    }
+.accordion-button {
+    background-color: #E1E1E6;
+    border-radius: 20px;
+}
 
-    .accordion-button:not(.collapsed) {
-        color: #664187;
-        background-color: #E1E1E6;
-        box-shadow: #9056E8;
-    }
+.accordion-button:not(.collapsed) {
+    color: #664187;
+    background-color: #E1E1E6;
+    box-shadow: #9056E8;
+}
 
-    .accordion-button:focus {
-        border-color: #9056E8;
-        box-shadow: 0 0 0 0.25rem rgba(92, 2, 128, 0.25);
-    }
-
-    @media screen and (max-width: 1550px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 25%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-        }
-    }
-
-    @media screen and (max-width: 1440px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 25%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-        }
-    }
-
-    @media screen and (max-width: 1300px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 30%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-        }
-    }
-
-    @media screen and (max-width: 1000px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 35%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-        }
-    }
-
-    @media screen and (max-width: 979px) {
-        #accordionFlushExample {
-            width: 100%;
-            margin-left: 2%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-        }
-    }
-
-    @media screen and (max-width: 300px) {
-        #accordionFlushExample {
-            width: 100%;
-            margin-left: 2%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-        }
-    }
-
-    @media screen and (max-width: 730px) {
-        #accordionFlushExample {
-            width: 100%;
-            margin-left: 2%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-        }
-
-        .baixo {
-            display: flex;
-            flex-direction: column;
-        }
-    }
+.accordion-button:focus {
+    border-color: #9056E8;
+    box-shadow: 0 0 0 0.25rem rgba(92, 2, 128, 0.25);
+}
 </style>
 
 <body>

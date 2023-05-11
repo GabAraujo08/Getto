@@ -1,6 +1,6 @@
-<?php include('../../../Controller/VerificaLogado.php'); 
-    require_once '../../../Dao/publicacaoDao.php';
-    require_once '../../../Dao/Conexao.php';
+<?php include('../../../Controller/VerificaLogado.php');
+require_once '../../../Dao/publicacaoDao.php';
+require_once '../../../Dao/Conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="stylesheet" href="../Evento/assets/css/feedMobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5bWt6KBQ2Jg9X6nyz/6noy+C6AVrO6ddtpJmiKkh+awOFAkg0SMJG/M49YXJHjvTf+ldcJ0+cTiUGguMq3Qe0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -45,9 +46,6 @@
                             <a href="Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
-                            <a href="../perfil.php">
-                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
-                    </a>
                         </ul>
                     </div>
                     <div class="nova-pub">
@@ -55,8 +53,30 @@
                             publicação</button>
                     </div>
 
-                    <div class="sair">
-                    <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
+                    <div class="dropup">
+                        <button class="dropbtn">
+                            <div class="perfil">
+                                <div class="perfil-imagem">
+                                    <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
+                                </div>
+                                <div class="perfil-usuario">
+                                    <div class="perfil-nome">
+                                        <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
+                                    </div>
+                                    <div class="perfil-apelido">
+                                        <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
+                                    </div>
+                                </div>
+
+                                <div class="perfil-seta">
+                                    <img src="../../../assets/img/arrowup2.png" alt="">
+                                </div>
+                            </div>
+                        </button>
+                        <div class="dropup-content">
+                            <a href="../../PerfilArtista/perfil.php">Perfil</a>
+                            <a href="../../../Login/login.php">Sair</a>
+                        </div>
                     </div>
 
                     <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
@@ -104,12 +124,7 @@
             <div class="nova-pub">
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
             </div>
-            <a href="#">
-                <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
-                    <img src="assets/img/icon-logout.svg" alt="Sair">
-                    <h1>Sair</h1>
-                </div>
-            </a>
+
         </div>
         <div class="box-container">
             <div class="container-fluid">
@@ -188,60 +203,60 @@
                                 <h1>Publicações</h1>
                             </div>
                             <?PHP
-                                $pub = PublicacaoDao::ListaPublicacao();
-                                foreach($pub as $p){
+                            $pub = PublicacaoDao::ListaPublicacao();
+                            foreach ($pub as $p) {
                             ?>
-                                    <div class="publicacao">
-                                        <div class="header-publicacao">
-                                            <div class="informacoes-perfil-publicacao">
-                                                <div class="img-perfil-publicacao">
-                                                    <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                <div class="publicacao">
+                                    <div class="header-publicacao">
+                                        <div class="informacoes-perfil-publicacao">
+                                            <div class="img-perfil-publicacao">
+                                                <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                            </div>
+                                            <div class="nick-e-bio-perfil-publicacao">
+                                                <div class="nick">
+                                                    <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
                                                 </div>
-                                                <div class="nick-e-bio-perfil-publicacao">
-                                                    <div class="nick">
-                                                        <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
-                                                    </div>
-                                                   
-                                                </div>
-                                            </div>
-                                            <div class="box-btn-configuracao-publicacao">
-                                                <button class="btn-configuracao-publicacao">
-                                                    <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                                </button>
-                                            </div>
-                                        </div>
 
-
-                                        <div class="box-img-publicacao">
-                                            <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
-                                        </div>
-                                        <div class="legenda-publicacao">
-                                            <p>
-                                                <?PHP echo $p['descPublicacao']; ?>!
-                                            </p>
-                                        </div>
-                                        <div class="acoes-publicacao">
-                                            <div class="box-btn-acoes">
-                                                <button class="btn-acao">
-                                                    <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                </button>
-                                                <button class="btn-acao">
-                                                    <img src="assets/img/icon-comentario-btn.svg" alt="">
-                                                </button>
-                                                <button class="btn-acao">
-                                                    <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                                </button>
-                                                <button class="btn-acao">
-                                                    <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                                </button>
                                             </div>
-                                            <div class="tempo-publicacao">
-                                                <p><?PHP echo $p['horarioPublicacao']; ?></p>
-                                            </div>
+                                        </div>
+                                        <div class="box-btn-configuracao-publicacao">
+                                            <button class="btn-configuracao-publicacao">
+                                                <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                            </button>
                                         </div>
                                     </div>
+
+
+                                    <div class="box-img-publicacao">
+                                        <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                    </div>
+                                    <div class="legenda-publicacao">
+                                        <p>
+                                            <?PHP echo $p['descPublicacao']; ?>!
+                                        </p>
+                                    </div>
+                                    <div class="acoes-publicacao">
+                                        <div class="box-btn-acoes">
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                            </button>
+                                        </div>
+                                        <div class="tempo-publicacao">
+                                            <p><?PHP echo $p['horarioPublicacao']; ?></p>
+                                        </div>
+                                    </div>
+                                </div>
                             <?PHP
-                                }
+                            }
                             ?>
                             <div class="publicacao">
                                 <div class="header-publicacao">
