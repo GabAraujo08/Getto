@@ -244,7 +244,7 @@ require_once '../../../Dao/Conexao.php';
                                                     echo 'Agora mesmo';
                                                 }else if($p['minutosPublicacao'] > 59){
                                                     $m = $p['minutosPublicacao'] / 60;
-                                                    echo $m;
+                                                    echo 'há '.$m.' h';;
                                                 }else{
                                                     echo 'há '.$p['minutosPublicacao'].' min';
                                                 }  
