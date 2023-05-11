@@ -76,8 +76,19 @@
                     <div class="box-perfil">
                         <div class="informacao-perfil">
                             <div class="papel-parede-img-perfil">
-                                <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papelParedeUsuario']; ?>" alt="">
-                                <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                                    <?PHP
+                                        if($_POST['usuarioNivelConta'] == 2){
+                                    ?>
+                                        <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo  $_POST['usuarioFotoCapa']; ?>" alt="">
+                                <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_POST['usuarioFotoPerfil']; ?>" alt="">
+                                    <?PHP
+                                        }else{
+                                    ?>
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilVisitante/assets/img/FotoCapa/<?PHP echo  $_POST['usuarioFotoCapa']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $_POST['usuarioFotoPerfil']; ?>" alt="">
+                                <?PHP
+                                    }
+                                ?>
                             </div>
                             <div class="area-bio">
                                 <div class="usuario-bio">
@@ -89,17 +100,32 @@
                                             <h1>(<?PHP echo $_POST['usuarioNome']; ?>)</h1>
                                         </div>
                                     </div>
-                                    <div class="bio">
-                                        <p><?PHP echo $_SESSION['bioArtista']; ?></p>
-                                    </div>
+                                    <?PHP
+                                        if($_POST['usuarioNivelConta'] == 2){
+                                    ?>
+                                        <div class="bio">
+                                            <p><?PHP echo $_POST['bio']; ?></p>
+                                        </div>
+                                    <?PHP
+                                        }
+                                    ?>
                                 </div>
-
-
-                                <div class="div-btn-editar-perfil">
-                                    <button class="btn btn-primary btn-editar-perfil" value="">
-                                        Seguir
-                                    </button>
-                                </div>
+                                <?PHP
+                                    if($_POST['usuarioNivelConta'] == 2){
+                                ?>
+                                    <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
+                                    <input type="hidden" name="idUsuario" value= "<?PHP echo $_SESSION['idUsuario'];?>">
+                                    <input type="hidden" name="idArtista" value= "<?PHP echo $_POST['artistaId'];?>">
+                                        <div class="div-btn-editar-perfil">
+                                            <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
+                                                Seguir
+                                            </button>
+                                        </div>
+                                    </form>
+                                <?PHP
+                                    }
+                                ?>
+                                
                             </div>
 
 
@@ -116,12 +142,19 @@
                                     </div>
                                     <div class="seguidores">
 
-                                        <div class="seguidores-numero">
-                                            <p>0</p>
-                                        </div>
-                                        <div class="seguidores-text">
-                                            <h1>Seguidores</h1>
-                                        </div>
+                                        
+                                        <?PHP
+                                            if($_POST['usuarioNivelConta'] == 2){
+                                        ?>
+                                            <div class="seguidores-numero">
+                                                <p>0</p>
+                                            </div>
+                                            <div class="seguidores-text">
+                                                <h1>Seguidores</h1>
+                                            </div>
+                                        <?PHP
+                                            }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +196,14 @@
                             </div>
                             <div class="criar-evento">
                                 <div class="titulo-box-evento">
-                                    <h1>Eventos de </h1>
+                                <?PHP
+                                        if($_POST['usuarioNivelConta'] == 2){
+                                    ?>
+                                        <h1>Eventos de </h1>
+                                    <?PHP
+                                        }
+                                    ?>
+                               
                                 </div>
                                 
                             </div>
