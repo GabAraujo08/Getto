@@ -10,7 +10,7 @@ require_once 'GlobalPerfil.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/perfilArtistaMobile.css">
+    <link rel="stylesheet" href="assets/css/perfil-visitante.css">
     <link rel="stylesheet" href="assets/css/preview-criar-evento.css" />
     <link rel="stylesheet" href="assets/css/modal-criarPub.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
@@ -28,13 +28,28 @@ require_once 'GlobalPerfil.php';
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-                        <ul class="list-group">
-                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
-                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
-                            <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
-                            <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
-                            <li class="list-group-item"><a href="Configuracoes/configuracoes.php"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></a></li>
-                            <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                    <ul class="list-group">
+                            <a href="../PerfilVisitante/Feed/feed.php">
+                                <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                            </a>
+                            <a href="">
+                                <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                            </a>
+                            <a href="../PerfilArtista/Evento/eventoArtista.php">
+                                <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
+                            </a>
+                            <a href="">
+                                <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                            </a>
+                            <a href="Configuracoes/configuracoes.php">
+                                <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
+                            </a>
+                            <a href="Feed/descobrir.php">
+                                <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                            </a>
+                            <a href="#">
+                                <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
+                            </a>
                         </ul>
                     </div>
                     <div class="nova-pub">

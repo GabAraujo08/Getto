@@ -1,4 +1,4 @@
-<?php include('../../Controller/VerificaLogado.php'); ?>
+<?php include('../../../Controller/VerificaLogado.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
     <div class="sidebar">
         <div class="d-flex justify-center align-items-center flex-column sidebar-box">
             <div class="d-flex justify-center align-items-center logos">
-                <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                <img style="display: none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                 <h1 class="logo-tipo">Getto</h1>
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -40,6 +40,9 @@
                     </a>
                     <a href="../Feed/descobrir.php">
                         <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                    </a>
+                    <a href="../perfil-visitante.php">
+                        <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                     </a>
                 </ul>
             </div>

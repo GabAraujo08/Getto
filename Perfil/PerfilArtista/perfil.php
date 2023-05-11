@@ -32,7 +32,7 @@ require_once 'GlobalPerfil.php';
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-                        <ul class="list-group">
+                    <ul class="list-group">
                             <a href="Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
@@ -51,7 +51,14 @@ require_once 'GlobalPerfil.php';
                             <a href="Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
+
+                            <a href="#">
+                                <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
+                            </a>
+                        </ul>
+
                         </ul>   
+
                     </div>
                     <div class="nova-pub">
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
