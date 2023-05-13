@@ -254,6 +254,7 @@ body {
   border: 1.06796px solid #FFFFFF;
   box-shadow: 0px 2.13592px 2.13592px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
+  object-fit: cover;
 
 }
 
@@ -330,6 +331,75 @@ body {
   font-size: 0.9rem;
 
 }
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .comentario {
+  width: 100%;
+    padding-left: 50px;
+
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .comentario textarea {
+  font-family: 'InterBold';
+    width: 100%;
+    
+    height: 80px;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.comentario textarea::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+.comentario textarea::-webkit-scrollbar-track {
+  background: #ECEBF3;        /* color of the tracking area */
+}
+
+.comentario textarea::-webkit-scrollbar-thumb {
+  background-color: #664187;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #664187;  /* creates padding around scroll thumb */
+}
+
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .comentario .box-text-area {
+  position: relative;
+  margin-top: 5px;
+
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .comentario .box-btn-comentario {
+  width: auto;
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  bottom: 5px;
+  right: 5px;
+
+}
+
+.container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .comentario button {
+  background-color: unset!important;
+  border: 0!important;
+
+
+}
+
+
+.slide-in {  /*EFEITO QUE CRIA A TRANSIÇÃO DE ENTRADA DO COMENTARIO*/
+  animation: slideIn 0.8s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 
 .mobile-nav {
   background: #ffffff;
@@ -684,7 +754,7 @@ body {
 
 
 .btn-sair {
- 
+  bottom: 25px;
   height: auto;
   width: 100%;
   background-color: none !important;
@@ -722,10 +792,11 @@ body {
 .titulo-box-tags>h2 {
   font-family: 'InterRegular';
   font-style: normal;
-  font-weight: 600;
-  font-size: 15px;
-  line-height: 15px;
-  color: #686464;
+  font-weight: 700;
+  font-size: 15.5498px;
+  line-height: 19px;  
+  color: #37373A;
+  margin-bottom: 5%;
 }
 
 
@@ -735,7 +806,7 @@ body {
   width: 100%;
   border-radius: 13px;
   background-color: #fff;
-  height: 22%;
+  height: 24%;
   padding: 20px;
 }
 
@@ -781,6 +852,7 @@ body {
   font-size: 10px;
   line-height: 15px;
   color: #000000;
+  margin: 0;
 }
 
 .btn-top-tag {
@@ -794,6 +866,7 @@ body {
   cursor: pointer;
   color: #fff !important;
   border-radius: 15px;
+  margin: 2%;
 }
 
 
@@ -896,7 +969,19 @@ body {
 }
 
 
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
 
+body::-webkit-scrollbar-track {
+  background: #ECEBF3;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #664187;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #664187;  /* creates padding around scroll thumb */
+}
 
 
 @media screen and (min-width: 980px) {

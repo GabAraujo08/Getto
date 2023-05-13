@@ -13,10 +13,15 @@ require_once '../../../Dao/Conexao.php';
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/feedMobile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5bWt6KBQ2Jg9X6nyz/6noy+C6AVrO6ddtpJmiKkh+awOFAkg0SMJG/M49YXJHjvTf+ldcJ0+cTiUGguMq3Qe0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
+
+    <!-- Adicione a seguinte linha ao cabeçalho do seu documento HTML -->
+
+
 </head>
 
 <body>
+
     <div class="d-flex">
         <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
         <div class="area-sidebar">
@@ -57,7 +62,7 @@ require_once '../../../Dao/Conexao.php';
                     </div>
 
                     <div class="sair">
-                    <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
+                        <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
                     </div>
 
                     <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
@@ -221,7 +226,8 @@ require_once '../../../Dao/Conexao.php';
                                             <button class="btn-acao">
                                                 <img src="assets/img/icon-estrela-btn.svg" alt="">
                                             </button>
-                                            <button class="btn-acao">
+                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
+                                                <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
                                                 <img src="assets/img/icon-comentario-btn.svg" alt="">
                                             </button>
                                             <button class="btn-acao">
@@ -232,18 +238,34 @@ require_once '../../../Dao/Conexao.php';
                                             </button>
                                         </div>
                                         <div class="tempo-publicacao">
-                                        <p><?PHP
-                                                if($p['minutosPublicacao'] == 0){
+                                            <p><?PHP
+                                                if ($p['minutosPublicacao'] == 0) {
                                                     echo 'Agora mesmo';
-                                                }else if($p['minutosPublicacao'] > 59){
+                                                } else if ($p['minutosPublicacao'] > 59) {
                                                     $m = intval($p['minutosPublicacao'] / 60);
-                                                    echo 'há '.$m.' h';
-                                                }else{
-                                                    echo 'há '.$p['minutosPublicacao'].' min';
-                                                }  
-                                                 ?></p>
+                                                    echo 'há ' . $m . ' h';
+                                                } else {
+                                                    echo 'há ' . $p['minutosPublicacao'] . ' min';
+                                                }
+                                                ?></p>
                                         </div>
                                     </div>
+                                    <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
+
+                                        <div class="box-text-area">
+                                            <textarea name="comentario" id="" cols="30" rows="10">
+
+                                            </textarea>
+                                            <div  class="box-btn-comentario">
+                                                <button class="btn btn-primary">
+                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div> -->
                                 </div>
                             <?PHP
                             }
@@ -340,18 +362,63 @@ require_once '../../../Dao/Conexao.php';
 
     </div>
 
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentarioModal">
+        Launch demo modal
+    </button> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>Bom dia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="divComentario" class="comentario slide-in">
+
+                        <div class="box-text-area">
+                            <textarea name="comentario" id="" cols="30" rows="10">
+
+                            </textarea>
+                            <div class="box-btn-comentario">
+                                <button class="btn btn-primary">
+                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/b8f56ddd91.js" crossorigin="anonymous"></script>
+
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script> -->
-
+    <!-- 
     <script>
         /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
         function openNav() {
@@ -365,6 +432,18 @@ require_once '../../../Dao/Conexao.php';
             document.getElementById("main").style.marginLeft = "0";
         }
     </script>
+
+    <script>
+        const btnMostrarComentario = document.getElementById('btnComentario');
+
+        const divComentario = document.getElementById('divComentario');
+
+
+btnMostrarComentario.addEventListener('click', function() {
+  divComentario.style.display = 'block';
+});
+
+    </script> -->
 </body>
 
 </html>
