@@ -23,8 +23,7 @@ require_once '../../../Dao/ArtistaDao.php';
             <button type="submit"><img src="assets/img/search.png"></i></button>
             
         </form>
-        </div>
-<<<<<<< HEAD
+      </div>
         <?php
             
             if(isset($_POST['busca'])){
@@ -44,8 +43,8 @@ require_once '../../../Dao/ArtistaDao.php';
                           $a = ArtistaDao::consultarArtista($row['idUsuario']);
                           $html .= '<input type="hidden" name="bio" value= "'. $a['bioArtista'] .'">';
                           $html .= '<input type="hidden" name="artistaId" value= "'. $a['idArtista'] .'">';
-=======
-      </div>
+        ?>
+
       <div class="nova-pub">
         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
       </div>
@@ -98,9 +97,7 @@ require_once '../../../Dao/ArtistaDao.php';
     }
   }
   ?>
-
->>>>>>> 589c67def9cebe4f6c38743a7d4a1797ef5f4b60
-
+        <?php
                         }else{
                           $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                         }

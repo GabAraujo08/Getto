@@ -899,7 +899,19 @@ body {
 }
 
 
+body::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
 
+body::-webkit-scrollbar-track {
+  background: #ECEBF3;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #664187;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #664187;  /* creates padding around scroll thumb */
+}
 
 
 @media screen and (min-width: 980px) {
