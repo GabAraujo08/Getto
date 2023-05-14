@@ -15,6 +15,12 @@ require_once '../../../Dao/Conexao.php';
     <link rel="stylesheet" href="assets/css/feedMobile.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Título da sua página">
+    <meta property="twitter:description" content="Descrição da sua página">
+    <meta property="twitter:image" content="https://exemplo.com/imagem.png">
+
     <!-- Adicione a seguinte linha ao cabeçalho do seu documento HTML -->
 
 
@@ -191,6 +197,7 @@ require_once '../../../Dao/Conexao.php';
                             <?PHP
                             $pub = PublicacaoDao::ListaPublicacao();
                             foreach ($pub as $p) {
+                                $texto_compartilhamento = $p['descPublicacao'];
                             ?>
                                 <div class="publicacao">
                                     <div class="header-publicacao">
@@ -206,9 +213,14 @@ require_once '../../../Dao/Conexao.php';
                                             </div>
                                         </div>
                                         <div class="box-btn-configuracao-publicacao">
-                                            <button class="btn-configuracao-publicacao">
-                                                <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                            </button>
+                                            <div class="btn-group dropend">
+                                                <button class="btn-configuracao-publicacao" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa-solid fa-bars"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    Denunciar
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -233,9 +245,13 @@ require_once '../../../Dao/Conexao.php';
                                             <button class="btn-acao">
                                                 <img src="assets/img/icon-salvar-btn.svg" alt="">
                                             </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                            </button>
+                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode("Confira essa publicação em Getto: " . $p['descPublicacao'] . " - " . $p['arquivoMidia'] . " Para saber mais acesse: Getto.com"); ?>&media=<?php echo urlencode($media_url); ?>">
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                                </button>
+                                            </a>
+
+
                                         </div>
                                         <div class="tempo-publicacao">
                                             <p><?PHP
@@ -373,14 +389,31 @@ require_once '../../../Dao/Conexao.php';
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
+
+
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <!-- <div class="box-input-search">
+                        <input class="busca-comentario" type="search" placeholder="Busque um comentário">
+
+                    </div>
+                    <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
+
                     <div class="box-comentario">
                         <img src="assets/img/img-perfil.svg" alt="">
                         <div class="conteudo-comentario">
                             <h1>@gabbs</h1>
-                            <p>Bom dia</p>
+                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                        </div>
+                    </div>
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>Bom dia,</p>
                         </div>
                     </div>
                 </div>

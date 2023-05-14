@@ -332,9 +332,68 @@ body {
 
 }
 
+
+
+#comentarioModal .modal-body .box-input-search{
+  top: 5px;
+    position: absolute;
+    right: 5px;
+}
+
+
+#comentarioModal .modal-body .btn-search{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border: none;
+  background: none;
+  background-image: none;
+}
+
+#comentarioModal input[type="search"]::-webkit-search-decoration,
+#comentarioModal input[type="search"]::-webkit-search-cancel-button,
+#comentarioModal input[type="search"]::-webkit-search-results-button,
+#comentarioModal input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+
+#comentarioModal p::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+#comentarioModal p::-webkit-scrollbar-track {
+  background: #ECEBF3;        /* color of the tracking area */
+}
+
+#comentarioModal p::-webkit-scrollbar-thumb {
+  background-color: #664187;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #664187;  /* creates padding around scroll thumb */
+}
+
+#comentarioModal .modal-body .box-input-search input {
+  font-family: 'InterBold';
+    /* border-bottom: 41px; */
+    border-top: none!important;
+    border-left: none!important;
+    border-right: none!important;
+    outline: none!important;
+    background-image: none!important;
+}
+
+#comentarioModal .modal-body .box-input-search input:focus {
+  
+    border-top: 0!important;
+    border-left: 0!important;
+    border-right: 0!important;
+}
+
+
 #comentarioModal .modal-body .box-comentario {
   width: 100%;
   display: flex;
+  margin-bottom: 5px;;
   
 
 }
@@ -369,6 +428,8 @@ body {
 #comentarioModal .modal-body .box-comentario .conteudo-comentario p {
   font-family: 'InterBold';
   margin-left: 5px;
+  height: 100px;
+    overflow-y: auto;
   
 
 }
