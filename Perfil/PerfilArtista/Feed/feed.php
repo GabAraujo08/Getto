@@ -16,10 +16,7 @@ require_once '../../../Dao/Conexao.php';
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Título da sua página">
-    <meta property="twitter:description" content="Descrição da sua página">
-    <meta property="twitter:image" content="https://exemplo.com/imagem.png">
+
 
     <!-- Adicione a seguinte linha ao cabeçalho do seu documento HTML -->
 
@@ -406,6 +403,9 @@ require_once '../../../Dao/Conexao.php';
                         <div class="conteudo-comentario">
                             <h1>@gabbs</h1>
                             <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
                         </div>
                     </div>
 
@@ -414,8 +414,72 @@ require_once '../../../Dao/Conexao.php';
                         <div class="conteudo-comentario">
                             <h1>@gabbs</h1>
                             <p>Bom dia,</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>Bom dia,</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>Bom dia,</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>uctus. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere
+                                cubilia Curae; Sed non tellus auctor, consequat
+                                mi eu, pulvinar ipsum. Quisque vel ipsum eros.
+                                Nam consequat vestibulum ligula, sed iaculis quam.
+                                Sed nec ante velit. Nullam eget massa sit amet erat
+                                pharetra euismod sed id elit. Praesent a fringilla
+                                mauris. Fusce ut odio et elit laoreet fermentum.
+                                Nulla vel est ligula. Nam eget enim euismod,
+                                semper leo ac, congue justo. Maecenas nec nibh
+                                a arcu efficitur facilisis a ac lectus.
+
+
+                            </p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <div id="divComentario" class="comentario slide-in">

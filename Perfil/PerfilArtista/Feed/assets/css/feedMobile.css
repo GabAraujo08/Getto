@@ -332,7 +332,27 @@ body {
 
 }
 
+#comentarioModal .modal-body {
+  max-height: 300px;
+  overflow-y: auto;
+}
 
+
+
+
+#comentarioModal .modal-body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+#comentarioModal .modal-body::-webkit-scrollbar-track {
+  background: #ECEBF3;        /* color of the tracking area */
+}
+
+#comentarioModal .modal-body::-webkit-scrollbar-thumb {
+  background-color: #664187;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #664187;  /* creates padding around scroll thumb */
+}
 
 #comentarioModal .modal-body .box-input-search{
   top: 5px;
@@ -414,6 +434,7 @@ body {
   display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
   
 
 }
@@ -428,8 +449,27 @@ body {
 #comentarioModal .modal-body .box-comentario .conteudo-comentario p {
   font-family: 'InterBold';
   margin-left: 5px;
-  height: 100px;
+  max-height: 100px;
     overflow-y: auto;
+  
+
+}
+
+#comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+    padding-right: 10px;
+
+  
+
+}
+
+#comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia button {
+ width: auto;
+ background: none;
+ border: none;
+  
   
 
 }
