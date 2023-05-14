@@ -404,7 +404,7 @@ require_once '../../../Dao/Conexao.php';
                             <h1>@gabbs</h1>
                             <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
                             <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                <button id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                             </div>
                         </div>
                     </div>
@@ -485,24 +485,49 @@ require_once '../../../Dao/Conexao.php';
                     <div id="divComentario" class="comentario slide-in">
 
                         <div class="box-text-area">
-                            <textarea name="comentario" id="" cols="30" rows="10">
+                            <form action="#">
+                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                             </textarea>
-                            <div class="box-btn-comentario">
-                                <button class="btn btn-primary">
-                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                </button>
-                            </div>
+                                <div class="box-btn-comentario">
+                                    <button class="btn btn-primary">
+                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
 
 
 
+
+
                     </div>
+                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                        <div class="box-text-area">
+                            <form action="#">
+                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
+
+                            </textarea>
+                                <div class="box-btn-comentario">
+                                    <button class="btn btn-primary">
+                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> -->
+
 
                 </div>
             </div>
         </div>
     </div>
+
+
+    
+
+
+
 
 
 
@@ -516,19 +541,7 @@ require_once '../../../Dao/Conexao.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script> -->
     <!-- 
-    <script>
-        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
+   
 
     <script>
         const btnMostrarComentario = document.getElementById('btnComentario');
@@ -540,6 +553,20 @@ btnMostrarComentario.addEventListener('click', function() {
   divComentario.style.display = 'block';
 });
 
+    </script> -->
+
+    <!-- <script>
+        const btnDenuncia = document.getElementById('btn-denuncia');
+
+        const divComentario = document.getElementById('divComentario');
+        const divDenuncia = document.getElementById('divDenuncia');
+
+
+        btnDenuncia.addEventListener('click', function() {
+            divComentario.style.display = 'none';
+
+            divDenuncia.style.display = 'block';
+        });
     </script> -->
 </body>
 
