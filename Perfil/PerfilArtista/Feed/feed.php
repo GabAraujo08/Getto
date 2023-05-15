@@ -382,7 +382,7 @@ require_once '../../../Dao/Conexao.php';
 
     <!-- Modal -->
     <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
@@ -409,76 +409,7 @@ require_once '../../../Dao/Conexao.php';
                         </div>
                     </div>
 
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>Bom dia,</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>Bom dia,</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>Bom dia,</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in
-                                faucibus orci luctus et ultrices posuere
-                                cubilia Curae; Sed non tellus auctor, consequat
-                                mi eu, pulvinar ipsum. Quisque vel ipsum eros.
-                                Nam consequat vestibulum ligula, sed iaculis quam.
-                                Sed nec ante velit. Nullam eget massa sit amet erat
-                                pharetra euismod sed id elit. Praesent a fringilla
-                                mauris. Fusce ut odio et elit laoreet fermentum.
-                                Nulla vel est ligula. Nam eget enim euismod,
-                                semper leo ac, congue justo. Maecenas nec nibh
-                                a arcu efficitur facilisis a ac lectus.
-
-
-                            </p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-
-                        </div>
-                    </div>
+                  
 
                 </div>
                 <div class="modal-footer">
@@ -525,7 +456,7 @@ require_once '../../../Dao/Conexao.php';
 
 
     <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando @gabbs</h1>
@@ -629,7 +560,11 @@ require_once '../../../Dao/Conexao.php';
 
 
 
-
+    <div class="div-logo-marca">
+                    <div class="logo-marca">
+                        <img src="assets/img/logomarca.png" alt="">
+                    </div>
+                </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 
