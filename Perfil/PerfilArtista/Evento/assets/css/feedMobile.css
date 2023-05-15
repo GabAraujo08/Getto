@@ -492,9 +492,9 @@ background-color: #ffffff;
 
 
 #eventos {
-  background-image: url('../img/icone-calendario.png');
-  
-  
+  background-image: url('../img/icon-calendario-branco.svg');
+  background-color: #664187;
+  color: white;
 }
 
 #eventos:hover{
@@ -534,7 +534,7 @@ background-color: #ffffff;
 }
 
 #nova-pub{
-  background-image: url('../img/icone-pincel.png');
+  background-image: url('../img/pincel-branco.png');
 }
 
 

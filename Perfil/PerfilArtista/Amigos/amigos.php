@@ -12,7 +12,7 @@ require_once '../../../Dao/Conexao.php';
     <title>Getto</title>
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="stylesheet" href="assets/css/amigos.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
     <!-- Adicione a seguinte linha ao cabeçalho do seu documento HTML -->
@@ -184,181 +184,93 @@ require_once '../../../Dao/Conexao.php';
                             </div>
                         </div>
                         <hr>
-                        <div class="box-publicacoes">
-                            <div class="titulo-box-publicacao">
-                                <h1>Publicações</h1>
-                            </div>
-                            <?PHP
-                            $pub = PublicacaoDao::ListaPublicacao();
-                            foreach ($pub as $p) {
-                            ?>
-                                <div class="publicacao">
-                                    <div class="header-publicacao">
-                                        <div class="informacoes-perfil-publicacao">
-                                            <div class="img-perfil-publicacao">
-                                                <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
-                                            </div>
-                                            <div class="nick-e-bio-perfil-publicacao">
-                                                <div class="nick">
-                                                    <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="box-btn-configuracao-publicacao">
-                                            <button class="btn-configuracao-publicacao">
-                                                <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                            </button>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="box-img-publicacao">
-                                        <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
-                                    </div>
-                                    <div class="legenda-publicacao">
-                                        <p>
-                                            <?PHP echo $p['descPublicacao']; ?>!
-                                        </p>
-                                    </div>
-                                    <div class="acoes-publicacao">
-                                        <div class="box-btn-acoes">
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                            </button>
-                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
-                                                <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
-                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                            </button>
-                                        </div>
-                                        <div class="tempo-publicacao">
-                                            <p><?PHP
-                                                if ($p['minutosPublicacao'] == 0) {
-                                                    echo 'Agora mesmo';
-                                                } else if ($p['minutosPublicacao'] > 59) {
-                                                    $m = intval($p['minutosPublicacao'] / 60);
-                                                    echo 'há ' . $m . ' h';
-                                                } else {
-                                                    echo 'há ' . $p['minutosPublicacao'] . ' min';
-                                                }
-                                                ?></p>
-                                        </div>
-                                    </div>
-                                    <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
-
-                                        <div class="box-text-area">
-                                            <textarea name="comentario" id="" cols="30" rows="10">
-
-                                            </textarea>
-                                            <div  class="box-btn-comentario">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div> -->
+                        <div class="amizades">
+                            <div class="amigos">
+                                <div class="titulo-amigos">
+                                    <p>Seguidores</p>
                                 </div>
-                            <?PHP
-                            }
-                            ?>
+                                <div class="box-amigos">
+                                    <div class="sugestao-amigos">
+                                        <div class="img-amigos">
+                                            <img src="assets/img/img-User.svg" alt="">
+                                        </div>
+                                        <div class="indetificacao-amigos" style="padding: 10px;">
+                                            <div class="nome-amigos">
+                                                <p id="nome">Kauan Rodrigues</p>
+                                            </div>
+                                            <div class="nick-amigos">
+                                                <p id="nick">kua</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="icones-amigos">
+                                        <div class="perfil-amigos">
+                                            <a><img src="assets/img/icone-user-amigos.svg" alt=""></a>
+                                        </div>
+                                        <div class="bloquear-amigos">
+                                            <a><img src="assets/img/icone-block-amigos.svg" alt=""></a>
+                                        </div>
+                                        <div class="excluir-amigos">
+                                            <a><img src="assets/img/icone-lixo-amigos.svg" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sugestoes-amizade">
+                                <div class="titulo-amizade">
+                                    <p>Sugestões para seguir</p>
+                                </div>
+                                <div class="sugestao-amizade">
+                                    <div class="perfil-sugestao">
+                                        <div class="img-sugestao">
+                                            <img src="assets/img/img-User.svg" alt="">
+                                        </div>
+                                        <div class="nomes-sugestao">
+                                            <div class="nome-sugestao">
+                                                <p id="nome-sugestao">Kauan Rodrigues</p>
+                                            </div>
+                                            <div class="nick-sugestao">
+                                                <p id="nick-sugestao">kua</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="botao-sugestao">
+                                        <button>Seguir</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="box-area-info">
-            <div class="area-info">
-                <div class="titulo-box-tags">
-                    <h2>Tags</h2>
-                </div>
-                <div class="box-tags">
-                    <div class="titulo-tags">
-                        <h1>Mais populares</h1>
-                    </div>
-                    <div class="tags">
-                        <div class="column-tags">
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>1#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Musica</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>2#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Teatro</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>3#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Dança</button>
-                            </div>
-                        </div>
-                        <div class="column-tags">
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>4#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Desenho</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>5#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Classicos</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>6#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Realismo</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
-                <div class="area-sugestao"></div>
-            </div>
-        </div>
-    </div>
+        <nav class="mobile-nav">
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-home.svg" alt="">
+            </a>
+            <a href="../Feed/descobrir.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
+            </a>
+            <a href="../../PerfilArtista/Evento/eventoArtista.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
+            </a>
+            <a href="../perfil.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
+            </a>
+            <a href="../Configuracoes/configuracoes.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
+            </a>
 
-
-    <nav class="mobile-nav">
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-home.svg" alt="">
-        </a>
-        <a href="../Feed/descobrir.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
-        </a>
-        <a href="../../PerfilArtista/Evento/eventoArtista.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
-        </a>
-        <a href="../perfil.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
-        </a>
-        <a href="../Configuracoes/configuracoes.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
-        </a>
-
-    </nav>
+        </nav>
 
     </div>
 

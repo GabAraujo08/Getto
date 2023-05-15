@@ -213,6 +213,7 @@
         margin-left: 18%;
         margin-top: 3%;
         background-color: #E1E1E6;
+        margin-right: 5%;
     }
 
     .accordion-item {
@@ -259,18 +260,20 @@
     @media screen and (max-width: 1550px) {
         #accordionFlushExample {
             width: 80%;
-            margin-left: 25%;
+            margin-left: 21%;
             margin-top: 3%;
             background-color: #E1E1E6;
+            margin-right: 2%;
         }
     }
 
     @media screen and (max-width: 1440px) {
         #accordionFlushExample {
             width: 80%;
-            margin-left: 25%;
+            margin-left: 21%;
             margin-top: 3%;
             background-color: #E1E1E6;
+            margin-right: 2%;
         }
     }
 
@@ -280,6 +283,7 @@
             margin-left: 30%;
             margin-top: 3%;
             background-color: #E1E1E6;
+            margin-right: 5%;
         }
     }
 
@@ -289,6 +293,7 @@
             margin-left: 35%;
             margin-top: 3%;
             background-color: #E1E1E6;
+            margin-right: 2%;
         }
     }
 
@@ -298,6 +303,7 @@
             margin-left: 2%;
             margin-top: 3%;
             background-color: #E1E1E6;
+            margin-right: 2%;
         }
     }
 
@@ -307,6 +313,7 @@
             margin-left: 2%;
             margin-top: 3%;
             background-color: #E1E1E6;
+            margin-right: 2%;
         }
     }
 
@@ -316,6 +323,7 @@
             margin-left: 2%;
             margin-top: 3%;
             background-color: #E1E1E6;
+            margin-right: 2%;
         }
 
         .baixo {
@@ -340,7 +348,7 @@
                         <a href="../Feed/feed.php">
                             <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                         </a>
-                        <a href="">
+                        <a href="../../PerfilArtista/Amigos/amigos.php">
                             <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                         </a>
                         <a href="../../PerfilArtista/Evento/eventoArtista.php">

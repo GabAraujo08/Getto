@@ -187,7 +187,9 @@ width: 35px;
     background-image: url('../img/icon-notificacao-branco.svg')
   }
   #configuracoes {
-    background-image: url('../img/icone-configuracoes.png');
+    background-image: url('../img/icon-configuracoes-branco.svg');
+    background-color: #664187;
+    color: white;
   }
   #configuracoes:hover{
     background-image: url('../img/icon-configuracoes-branco.svg')
@@ -200,7 +202,7 @@ width: 35px;
   }
 
   #nova-pub{
-    background-image: url('../img/icone-pincel.png');
+    background-image: url('../img/pincel-branco.png');
   }
   
 
@@ -342,8 +344,9 @@ border-radius: 15px;
     .mobile-nav {
     display: none;
     }
-
-   
+    .header-feed{
+      display: none;
+    }
   }
     
 
