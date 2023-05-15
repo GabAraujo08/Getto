@@ -206,48 +206,6 @@ require_once 'GlobalPerfil.php';
 
                         <div class="box-atividade-eventos">
                             <hr>
-                            <div class="box-atividade">
-                                <div class="atividade">
-                                    <div class="box-atividade-perfil-nick">
-                                        <div class="box-img-atividade">
-                                            <img class="img-fluid img-atividade" src="assets/img/teste.jpg" alt="">
-                                        </div>
-                                        <div class="fotoPerfil-nick">
-                                            <div class="fotoPerfil-atividade">
-                                                <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                            </div>
-                                            <div class="nick-atividade">
-                                                <h1>@Melis</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="atividade">
-                                    <div class="box-img-atividade">
-                                        <img class="img-fluid img-atividade" src="assets/img/img-atividade-2.svg" alt="">
-                                    </div>
-                                    <div class="fotoPerfil-nick">
-                                        <div class="fotoPerfil-atividade">
-                                            <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                        </div>
-                                        <div class="nick-atividade">
-                                            <h1>@Melis</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="criar-evento">
-                                <div class="titulo-box-evento">
-                                    <h1>Seus eventos</h1>
-                                </div>
-                                <div class="btn-criar-evento">
-                                    <button class="btn-criar-evento" value="" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">
-                                        Criar Evento
-                                    </button>
-                                </div>
-                            </div>
-
                             <div class="container box-eventos">
 
                                 <div class="evento">
@@ -265,21 +223,115 @@ require_once 'GlobalPerfil.php';
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="box-atividade">
+                                <?PHP
+                                $pub = PublicacaoDao::ListaPublicacao();
+                                foreach ($pub as $p) {
+                                    $texto_compartilhamento = $p['descPublicacao'];
+                                ?>
+                                    <div class="publicacao">
+                                        <div class="header-publicacao">
+                                            <div class="informacoes-perfil-publicacao">
+                                                <div class="img-perfil-publicacao">
+                                                    <img src="assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                                </div>
+                                                <div class="nick-e-bio-perfil-publicacao">
+                                                    <div class="nick">
+                                                        <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
+                                                    </div>
 
-                                <div class="evento">
-                                    <div class="img-evento">
-                                        <img class="img-fluid" src="assets/img/img-evento.svg" alt="">
-                                    </div>
-                                    <div class="box-desc-evento">
-                                        <div class="desc-evento">
-                                            <h1 class="titulo-evento">Evento musical</h1>
-                                            <h2>Dia: 13/02/2023</h2>
-                                            <h2>Horário: 17:00hrs</h2>
-                                            <h2>Local: Shopping Tatuapé</h2>
+                                                </div>
+                                            </div>
+                                            <div class="box-btn-configuracao-publicacao">
+                                                <div class="btn-group dropend">
+                                                    <button class="btn-configuracao-publicacao" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fa-solid fa-bars"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        Denunciar
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
+
+                                        <div class="box-img-publicacao">
+                                            <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                        </div>
+                                        <div class="legenda-publicacao">
+                                            <p>
+                                                <?PHP echo $p['descPublicacao']; ?>!
+                                            </p>
+                                        </div>
+                                        <div class="acoes-publicacao">
+                                            <div class="box-btn-acoes">
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                </button>
+                                                <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
+                                                    <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
+                                                    <img src="assets/img/icon-comentario-btn.svg" alt="">
+                                                </button>
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-salvar-btn.svg" alt="">
+                                                </button>
+                                                <a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode("Confira essa publicação em Getto: " . $p['descPublicacao'] . " - " . $p['arquivoMidia'] . " Para saber mais acesse: Getto.com"); ?>&media=<?php echo urlencode($media_url); ?>">
+                                                    <button class="btn-acao">
+                                                        <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                                    </button>
+                                                </a>
+
+
+                                            </div>
+                                            <div class="tempo-publicacao">
+                                                <p><?PHP
+                                                    if ($p['minutosPublicacao'] == 0) {
+                                                        echo 'Agora mesmo';
+                                                    } else if ($p['minutosPublicacao'] > 59) {
+                                                        $m = intval($p['minutosPublicacao'] / 60);
+                                                        echo 'há ' . $m . ' h';
+                                                    } else {
+                                                        echo 'há ' . $p['minutosPublicacao'] . ' min';
+                                                    }
+                                                    ?></p>
+                                            </div>
+                                        </div>
+                                        <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
+
+                                        <div class="box-text-area">
+                                            <textarea name="comentario" id="" cols="30" rows="10">
+
+                                            </textarea>
+                                            <div  class="box-btn-comentario">
+                                                <button class="btn btn-primary">
+                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div> -->
+                                    </div>
+                                <?PHP
+                                }
+                                ?>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="criar-evento">
+                            <div class="titulo-box-evento">
+                                <h1>Seus eventos</h1>
+                            </div>
+                            <div class="btn-criar-evento">
+                                <button class="btn-criar-evento" value="" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">
+                                    Criar Evento
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -771,6 +823,245 @@ require_once 'GlobalPerfil.php';
         </div>
     </div>
 
+    <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
+
+
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="box-input-search">
+                        <input class="busca-comentario" type="search" placeholder="Busque um comentário">
+
+                    </div>
+                    <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                            <div class="box-btn-denuncia">
+                                <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>Bom dia,</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>Bom dia,</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>Bom dia,</p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="box-comentario">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>uctus. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere
+                                cubilia Curae; Sed non tellus auctor, consequat
+                                mi eu, pulvinar ipsum. Quisque vel ipsum eros.
+                                Nam consequat vestibulum ligula, sed iaculis quam.
+                                Sed nec ante velit. Nullam eget massa sit amet erat
+                                pharetra euismod sed id elit. Praesent a fringilla
+                                mauris. Fusce ut odio et elit laoreet fermentum.
+                                Nulla vel est ligula. Nam eget enim euismod,
+                                semper leo ac, congue justo. Maecenas nec nibh
+                                a arcu efficitur facilisis a ac lectus.
+
+
+                            </p>
+                            <div class="box-btn-denuncia">
+                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <div id="divComentario" class="comentario slide-in">
+
+                        <div class="box-text-area">
+                            <form action="#">
+                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
+
+                            </textarea>
+                                <div class="box-btn-comentario">
+                                    <button class="btn btn-primary">
+                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+
+
+                    </div>
+                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                        <div class="box-text-area">
+                            <form action="#">
+                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
+
+                            </textarea>
+                                <div class="box-btn-comentario">
+                                    <button class="btn btn-primary">
+                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando @gabbs</h1>
+
+
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <h1 style="font-family: 'InterBold';
+                        font-size: 18px;
+                        margin-bottom: 5px;">
+                        Este é o comentário que você quer denunciar?
+                    </h1>
+                    <div class="box-comentario ">
+                        <img src="assets/img/img-perfil.svg" alt="">
+                        <div class="conteudo-comentario">
+                            <h1>@gabbs</h1>
+                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+
+                        </div>
+                    </div>
+
+                    <h1 style="font-family: 'InterBold';
+                        font-size: 18px;
+                        margin-bottom: 5px;">
+                        Selecione o que mais se assemelha com sua denúncia!
+                    </h1>
+
+                    <select name="tipoDenuncia" id="">
+                        <option value="#">Violência</option>
+                        <option value="#">Assédio</option>
+                        <option value="#">Preconceito</option>
+                        <option value="#">Discurso de ódio</option>
+                        <option value="#">Mensagem falsa</option>
+
+                    </select>
+
+                    <h1 style="font-family: 'InterBold';
+                        font-size: 18px;
+                        margin-top: 5px;">
+                        Abaixo faça uma breve descrição sobre sua denúncia!
+                    </h1>
+
+
+
+
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <div id="divComentario" class="comentario slide-in">
+
+                        <div class="box-text-area">
+                            <form action="#">
+                                <textarea placeholder="Escreva sua denúncia" name="comentario" id="" cols="30" rows="10">
+
+                            </textarea>
+                                <div class="box-btn-comentario">
+                                    <button class="btn btn-primary">
+                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
+
+
+
+                    </div>
+                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                        <div class="box-text-area">
+                            <form action="#">
+                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
+
+                            </textarea>
+                                <div class="box-btn-comentario">
+                                    <button class="btn btn-primary">
+                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- MODAL SEGUIDORES -->
     <div class="modal fade" id="seguidoresModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
