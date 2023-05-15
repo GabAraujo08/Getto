@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="../Evento/assets/css/eventoArtista.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
@@ -364,31 +365,7 @@
                     <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
                 </div>
 
-                <div class="dropup">
-                    <button class="dropbtn">
-                        <div class="perfil">
-                            <div class="perfil-imagem">
-                                <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
-                            </div>
-                            <div class="perfil-usuario">
-                                <div class="perfil-nome">
-                                    <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
-                                </div>
-                                <div class="perfil-apelido">
-                                    <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
-                                </div>
-                            </div>
-
-                            <div class="perfil-seta">
-                                <img src="../../../assets/img/arrowup2.png" alt="">
-                            </div>
-                        </div>
-                    </button>
-                    <div class="dropup-content">
-                        <a href="../../PerfilArtista/perfil.php">Perfil</a>
-                        <a href="../../../Login/login.php">Sair</a>
-                    </div>
-                </div>
+               
 
             </div>
         </div>

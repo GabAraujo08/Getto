@@ -14,6 +14,7 @@ require_once 'GlobalPerfil.php';
     <link rel="stylesheet" href="assets/css/perfilArtistaMobile.css">
     <link rel="stylesheet" href="assets/css/preview-criar-evento.css" />
     <link rel="stylesheet" href="assets/css/modal-criarPub.css">
+    <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
     <link rel="stylesheet" href="../PerfilArtista/Evento/assets/css/eventoArtista.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5bWt6KBQ2Jg9X6nyz/6noy+C6AVrO6ddtpJmiKkh+awOFAkg0SMJG/M49YXJHjvTf+ldcJ0+cTiUGguMq3Qe0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -187,7 +188,7 @@ require_once 'GlobalPerfil.php';
                                             <h1>Seguindo</h1>
                                         </div>
                                     </div>
-                                    <div class="seguidores">
+                                    <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguidoresModal" class="seguidores">
 
                                         <div class="seguidores-numero">
                                             <p><?PHP
@@ -771,6 +772,112 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
+    <!-- MODAL SEGUIDORES -->
+    <div class="modal fade" id="seguidoresModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pessoas que você segue</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="box-comentario">
+                        <div class="imagem-nick">
+                            <img src="assets/img/img-perfil.svg" alt="">
+
+                            <div class="conteudo-comentario">
+                                <h1>@Gustavo Henrique</h1>
+                                <p>@guuss</p>
+
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="opcoes">
+
+                            <button>
+                                <i class="fa-solid fa-user-plus"></i>
+                            </button>
+
+                            <button>
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            <button id="btn-excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+
+                        </div>
+
+                        <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer excluir @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmar">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box-comentario">
+                        <div class="imagem-nick">
+                            <img src="assets/img/img-perfil.svg" alt="">
+
+                            <div class="conteudo-comentario">
+                                <h1>@Gustavo Henrique</h1>
+                                <p>@guuss</p>
+
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="opcoes">
+                            <button>
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            <button>
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+
+                        </div>
+
+                        <!-- <div class="confirmacao-excluir">
+                            <p>Tem certeza que quer excluir @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button>
+                                <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
@@ -781,7 +888,21 @@ require_once 'GlobalPerfil.php';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script> -->
+    <script>
+        const btnExcluir = document.getElementById("btn-excluir");
+        const btnConfirmar = document.getElementById("btn-confirmar");
+        const divConfirmacao = document.getElementById("confirmacao-excluir");
 
+        btnExcluir.addEventListener("click", () => {
+            divConfirmacao.style.display = "block";
+
+        });
+
+        btnConfirmar.addEventListener("click", () => {
+            divConfirmacao.style.display = "none";
+
+        });
+    </script>
     <script>
         /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
         function openNav() {
