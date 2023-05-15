@@ -1092,7 +1092,7 @@ require_once 'GlobalPerfil.php';
                                 <i class="fa-solid fa-user-plus"></i>
                             </button>
 
-                            <button>
+                            <button id="btn-bloquear">
                                 <i class="fa-solid fa-ban"></i>
                             </button>
                             <button id="btn-excluir">
@@ -1105,12 +1105,28 @@ require_once 'GlobalPerfil.php';
                         <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>
                             <div class="btn-confirmacao-excluir">
-                                <button>
+                                <button >
                                     <i class="fa-solid fa-heart-crack"></i>
                                     <p>Sim</p>
                                 </button>
 
                                 <button id="btn-confirmar">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer bloquear @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmarBloqueio">
                                     <i class="fa-solid fa-face-smile-beam"></i>
                                     <p>Não</p>
                                 </button>
@@ -1179,34 +1195,7 @@ require_once 'GlobalPerfil.php';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script> -->
-    <script>
-        const btnExcluir = document.getElementById("btn-excluir");
-        const btnConfirmar = document.getElementById("btn-confirmar");
-        const divConfirmacao = document.getElementById("confirmacao-excluir");
-
-        btnExcluir.addEventListener("click", () => {
-            divConfirmacao.style.display = "block";
-
-        });
-
-        btnConfirmar.addEventListener("click", () => {
-            divConfirmacao.style.display = "none";
-
-        });
-    </script>
-    <script>
-        /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "100px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
-
-        /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-    </script>
+   
 
     <script src="assets/js/perfil.js"></script>
     <script src="assets/js/jquery-3.6.4.min.js"></script>

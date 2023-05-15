@@ -409,7 +409,7 @@ require_once '../../../Dao/Conexao.php';
                         </div>
                     </div>
 
-                  
+
 
                 </div>
                 <div class="modal-footer">
@@ -467,7 +467,7 @@ require_once '../../../Dao/Conexao.php';
                 </div>
                 <div class="modal-body">
 
-                    <h1  style="font-family: 'InterBold';
+                    <h1 style="font-family: 'InterBold';
                         font-size: 18px;
                         margin-bottom: 5px;">
                         Este é o comentário que você quer denunciar?
@@ -481,13 +481,13 @@ require_once '../../../Dao/Conexao.php';
                         </div>
                     </div>
 
-                    <h1  style="font-family: 'InterBold';
+                    <h1 style="font-family: 'InterBold';
                         font-size: 18px;
                         margin-bottom: 5px;">
-                       Selecione o que mais se assemelha com sua denúncia!
+                        Selecione o que mais se assemelha com sua denúncia!
                     </h1>
 
-                    <select  name="tipoDenuncia" id="">
+                    <select name="tipoDenuncia" id="">
                         <option value="#">Violência</option>
                         <option value="#">Assédio</option>
                         <option value="#">Preconceito</option>
@@ -496,10 +496,10 @@ require_once '../../../Dao/Conexao.php';
 
                     </select>
 
-                    <h1  style="font-family: 'InterBold';
+                    <h1 style="font-family: 'InterBold';
                         font-size: 18px;
                         margin-top: 5px;">
-                       Abaixo faça uma breve descrição sobre sua denúncia!
+                        Abaixo faça uma breve descrição sobre sua denúncia!
                     </h1>
 
 
@@ -561,10 +561,10 @@ require_once '../../../Dao/Conexao.php';
 
 
     <div class="div-logo-marca">
-                    <div class="logo-marca">
-                        <img src="assets/img/logomarca.png" alt="">
-                    </div>
-                </div>
+        <div class="logo-marca">
+            <img src="assets/img/logomarca.png" alt="">
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 
