@@ -1368,6 +1368,33 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+/*-------------------------- MODAL SAIR DA CONTA ---------------------------------------*/
+
+.modal-dialog .modal-footer .btn-primary {
+  background: #664187!important;
+  border: 0;
+}
+
+.modal-dialog .modal-footer .btn-secondary{
+  background: rgb(214, 37, 37)!important;
+  border: 0;
+}
+
+.modal-dialog .modal-body b{
+  color: rgb(214, 37, 37);
+}
+
+.modal-dialog{
+  padding: 2rem!important;
+  
+}
+
+
+.modal-footer {
+  justify-content: space-between!important;
+}
+
+
 @media screen and (min-width: 980px) {
   .mobile-nav {
     display: none;

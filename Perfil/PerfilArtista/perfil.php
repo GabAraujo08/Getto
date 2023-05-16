@@ -64,8 +64,11 @@ require_once 'GlobalPerfil.php';
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
                             publicação</button>
                     </div>
+
                     <div class="sair">
-                        <a href="../../../Controller/Logout.php"><img src="../PerfilArtista/Feed/assets/img/sair.png">Sair</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                            <img src="../PerfilArtista/Feed/assets/img/sair.png">Sair
+                        </a>
                     </div>
 
                     <!-- ---------------------------    BOTAO SAIR E PERFIL --------------------------- -->
@@ -117,21 +120,7 @@ require_once 'GlobalPerfil.php';
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
             </div>
 
-
-
-
-
-            <a href="">
-                <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
-                    <img src="assets/img/icon-logout.svg" alt="Sair">
-                    <h1>Sair</h1>
-                </div>
-            </a>
         </div>
-
-
-
-
 
         <div class="box-container">
             <div class="container-fluid">
@@ -278,7 +267,6 @@ require_once 'GlobalPerfil.php';
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -770,7 +758,26 @@ require_once 'GlobalPerfil.php';
         </div>
     </div>
 
-
+    <!-- Modal -->
+    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você deseja sair da sua conta?</p> 
+                </div>
+                <div class="modal-footer">
+                    <form name="formExclui" action="../../Controller/Logout.php" method="POST">
+                        <button type="submit" class="btn btn-secondary">Sair da conta</button>
+                    </form>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

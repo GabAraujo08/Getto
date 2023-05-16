@@ -156,6 +156,16 @@ width: 35px;
   background-color: #ffffff;
 }
 
+#perfil{
+  background-image: url('../img/perfil-icon.svg');
+}
+
+
+#perfil:hover{
+  background-image: url('../img/perfil-icon-branco.png');
+}
+
+
 
 #eventos {
     background-image: url('../img/icone-calendario.png');
@@ -214,9 +224,28 @@ width: 35px;
   .list-group-box button img:hover {
     background-color: #664187!important;
     color: #ffffff!important;
-    
-   
   }
+  
+  .sair {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 25px;
+}
+
+.sair a {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: 'InterRegular';
+}
+
+.sair img {
+  width: 30px;
+  margin-right: 5px;
+}
+
 .nova-pub{
     margin-top: 15px;
 
@@ -316,7 +345,31 @@ border-radius: 15px;
   }
 
 
+/*-------------------------- MODAL SAIR DA CONTA ---------------------------------------*/
 
+.modal-dialog .modal-footer .btn-primary {
+  background: #664187!important;
+  border: 0;
+}
+
+.modal-dialog .modal-footer .btn-secondary{
+  background: rgb(214, 37, 37)!important;
+  border: 0;
+}
+
+.modal-dialog .modal-body b{
+  color: rgb(214, 37, 37);
+}
+
+.modal-dialog{
+  padding: 2rem!important;
+  
+}
+
+
+.modal-footer {
+  justify-content: space-between!important;
+}
 
 /*------------------------------- NAVBAR MOBILE --------------------------*/
 

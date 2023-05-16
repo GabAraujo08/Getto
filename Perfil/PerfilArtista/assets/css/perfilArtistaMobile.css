@@ -110,6 +110,10 @@ body {
 	margin-top: 25px !important;
 }
 
+.sidebar .sidebar-box .list-group-box {
+	margin-top: 20px;
+  }
+
 .sidebar .sidebar-box .list-group-box button {
 	background-color: transparent;
 	border: 0 !important;
@@ -152,6 +156,14 @@ body {
 	width: 30px;
 	margin-right: 5px;
 }
+
+#perfil{
+	background-image: url('../img/perfil-icon.svg');
+  }
+  
+#perfil:hover{
+	background-image: url('../img/perfil-icon-branco.png');
+  }
 
 #eventos {
 	background-image: url('../img/icone-calendario.png');
@@ -202,7 +214,7 @@ body {
 }
 
 #nova-pub {
-	background-image: url('../img/icone-pincel.png');
+	background-image: url('../img/pincel-branco.png');
 }
 
 .nova-pub {
@@ -1271,6 +1283,33 @@ hr {
 
 	transition: none;
 }
+
+/*-------------------------- MODAL SAIR DA CONTA ---------------------------------------*/
+
+.modal-dialog .modal-footer .btn-primary {
+    background: #664187!important;
+    border: 0;
+  }
+
+  .modal-dialog .modal-footer .btn-secondary{
+    background: rgb(214, 37, 37)!important;
+    border: 0;
+  }
+
+  .modal-dialog .modal-body b{
+    color: rgb(214, 37, 37);
+  }
+  
+  .modal-dialog{
+    padding: 2rem!important;
+    
+  }
+
+
+  .modal-footer {
+    justify-content: space-between!important;
+  }
+  
 
 /*-------------------------- MODAL CRIAR EVENTO ---------------------------------------*/
 

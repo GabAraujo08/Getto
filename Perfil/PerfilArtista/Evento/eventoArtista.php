@@ -372,30 +372,10 @@
                     <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
                 </div>
 
-                <div class="dropup">
-                    <button class="dropbtn">
-                        <div class="perfil">
-                            <div class="perfil-imagem">
-                                <img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" class="rounded-circle">
-                            </div>
-                            <div class="perfil-usuario">
-                                <div class="perfil-nome">
-                                    <p><?PHP echo $_SESSION['nomeUsuario']; ?></p>
-                                </div>
-                                <div class="perfil-apelido">
-                                    <p><?PHP echo $_SESSION['nicknameUsuario']; ?></p>
-                                </div>
-                            </div>
-
-                            <div class="perfil-seta">
-                                <img src="../../../assets/img/arrowup2.png" alt="">
-                            </div>
-                        </div>
-                    </button>
-                    <div class="dropup-content">
-                        <a href="../../PerfilArtista/perfil.php">Perfil</a>
-                        <a href="../../../Login/login.php">Sair</a>
-                    </div>
+                <div class="sair">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                        <img src="assets/img/sair.png">Sair
+                    </a>
                 </div>
 
             </div>
@@ -497,6 +477,27 @@
             </a>
 
         </nav>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered justify-content-center">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                        <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Você deseja sair da sua conta?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form name="formExclui" action="../../../Controller/Logout.php" method="POST">
+                            <button type="submit" class="btn btn-secondary">Sair da conta</button>
+                        </form>
+                        <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script>
             const card = document.querySelector("#card")

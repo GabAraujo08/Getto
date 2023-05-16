@@ -51,7 +51,7 @@ require_once '../../../Dao/Conexao.php';
                             <a href="../Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
-                            <a target="_blank" href="../Feed/descobrir.php">
+                            <a target="../Descobrir/descobrir.php" href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
                             <a href="../perfil.php">
@@ -65,7 +65,9 @@ require_once '../../../Dao/Conexao.php';
                     </div>
 
                     <div class="sair">
-                        <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                            <img src="assets/img/sair.png">Sair
+                        </a>
                     </div>
 
                     <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
@@ -382,7 +384,7 @@ require_once '../../../Dao/Conexao.php';
 
     <!-- Modal -->
     <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
@@ -525,7 +527,7 @@ require_once '../../../Dao/Conexao.php';
 
 
     <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando @gabbs</h1>
@@ -536,7 +538,7 @@ require_once '../../../Dao/Conexao.php';
                 </div>
                 <div class="modal-body">
 
-                    <h1  style="font-family: 'InterBold';
+                    <h1 style="font-family: 'InterBold';
                         font-size: 18px;
                         margin-bottom: 5px;">
                         Este é o comentário que você quer denunciar?
@@ -550,13 +552,13 @@ require_once '../../../Dao/Conexao.php';
                         </div>
                     </div>
 
-                    <h1  style="font-family: 'InterBold';
+                    <h1 style="font-family: 'InterBold';
                         font-size: 18px;
                         margin-bottom: 5px;">
-                       Selecione o que mais se assemelha com sua denúncia!
+                        Selecione o que mais se assemelha com sua denúncia!
                     </h1>
 
-                    <select  name="tipoDenuncia" id="">
+                    <select name="tipoDenuncia" id="">
                         <option value="#">Violência</option>
                         <option value="#">Assédio</option>
                         <option value="#">Preconceito</option>
@@ -565,15 +567,34 @@ require_once '../../../Dao/Conexao.php';
 
                     </select>
 
-                    <h1  style="font-family: 'InterBold';
+                    <h1 style="font-family: 'InterBold';
                         font-size: 18px;
                         margin-top: 5px;">
-                       Abaixo faça uma breve descrição sobre sua denúncia!
+                        Abaixo faça uma breve descrição sobre sua denúncia!
                     </h1>
 
 
 
-
+                    <!-- Modal sair -->
+                    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered justify-content-center">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Você deseja sair da sua conta?
+                                </div>
+                                <div class="modal-footer">
+                                    <form name="formExclui" action="../../../Controller/Logout.php" method="POST">
+                                        <button type="submit" class="btn btn-secondary">Sair</button>
+                                    </form>
+                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
 
@@ -624,7 +645,26 @@ require_once '../../../Dao/Conexao.php';
 
 
 
-
+  <!-- Modal -->
+  <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você deseja sair da sua conta?</p> 
+                </div>
+                <div class="modal-footer">
+                    <form name="formExclui" action="../../Controller/Logout.php" method="POST">
+                        <button type="submit" class="btn btn-secondary">Sair da conta</button>
+                    </form>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

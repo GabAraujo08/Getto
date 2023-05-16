@@ -476,9 +476,7 @@ button {
 }
 
 @media (max-width: 1680px) {
-	.buttons-nav {
-		margin-left: 5rem !important;
-	}
+	
 
 	.btn-cadastro,
 	.site-empresa {
