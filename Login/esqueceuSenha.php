@@ -9,22 +9,13 @@
   <title>Entre agora!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/login.css">
-
+  <link rel="stylesheet" href="assets/css/esqueceuSenha.css">
 <body>
 
 
   <div class="container">
     <div class="div-form">
       <div>
-        <div class="registro-login">
-          <a href="../registroVisitante.php">
-            <h1 class="cadastro">Cadastre-se</h1>
-          </a>
-          <a href="login.php">
-            <h1 class="entrar">Entre</h1>
-          </a>
-        </div>
-
         <div class="card border-0 shadow rounded-3 my-5 form-container">
           <div class="card-body p-4 p-sm-5 form-box">
             <div class="logo-marca-container">
@@ -59,11 +50,8 @@
                 <button class="btn btn-primary btn-login text-uppercase fw-bold btn-entrar" type="submit">Avançar</button>
               </div>
               <div class="d-grid">
-                <button class="btn btn-primary btn-login text-uppercase fw-bold btn-esqueceu-senha" type="submit"><a href="./esqueceuSenha.php">Esqueceu sua senha?</a></button>
+                <button class="btn btn-primary btn-login text-uppercase fw-bold btn-esqueceu-senha" type="button" href="./esqueceuSenha.php">Esqueceu sua senha?</button>
               </div>
-
-
-
             </form>
           </div>
         </div>
