@@ -28,6 +28,24 @@
   src: url('../fonts/Roboto-Regular.ttf');
 }
 
+.div-logo-marca {
+	width: 100vw;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  
+}
+
+.div-logo-marca .logo-marca img {
+	height: 35px;
+	width: 35px;
+}
+
+
 a {
   text-decoration: none;
   color: unset;
@@ -43,6 +61,7 @@ p, h1 {
 
 body {
   background-color: #fff;
+  position: relative;
 
 }
 
@@ -274,9 +293,9 @@ body {
 
 .container-fluid .box-area-perfil .area-perfil .box-publicacoes .publicacao .box-img-publicacao img {
   width: 100%;
-  max-width: 1005px;
+  
   max-height: 673px;
-  object-fit: cover;
+  
   height: auto;
 }
 
@@ -336,7 +355,8 @@ body {
 /* ---------------- COMENTARIO MODAL --------------------- */
 
 #comentarioModal .modal-body {
-  max-height: 300px;
+  max-height: 70vh;
+  min-height: 70vh;
   overflow-y: auto;
 }
 
@@ -724,6 +744,7 @@ right: 5px;
     height: 80px;
     border-radius: 5px;
     padding: 5px;
+    resize: none;
 
 }
 
@@ -861,6 +882,7 @@ right: 5px;
   position: fixed;
   height: 100%;
   box-sizing: border-box;
+  z-index: 100;
 }
 
 .sidebar .sidebar-box {

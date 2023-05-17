@@ -278,3 +278,54 @@ previewCover.appendChild(label);
 		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
 	});
 }( document, window, 0 ));
+
+
+
+
+// -------------------- ANIMAÇÃO NO MODAL DE AMIGOS 
+
+const btnExcluir = document.getElementById("btn-excluir");
+const btnConfirmar = document.getElementById("btn-confirmar");
+const divConfirmacao = document.getElementById("confirmacao-excluir");
+
+btnExcluir.addEventListener("click", () => {
+    divConfirmacao.style.display = "block";
+
+});
+
+btnConfirmar.addEventListener("click", () => {
+    divConfirmacao.style.display = "none";
+
+});
+
+
+
+const btnBloquear = document.getElementById("btn-bloquear");
+const btnConfirmarBloqueio = document.getElementById("btn-confirmarBloqueio");
+const divConfirmacaoBloqueio = document.getElementById("confirmacao-bloqueio");
+
+btnBloquear.addEventListener("click", () => {
+  divConfirmacaoBloqueio.style.display = "block";
+
+});
+
+btnConfirmarBloqueio.addEventListener("click", () => {
+  divConfirmacaoBloqueio.style.display = "none";
+
+});
+
+
+
+
+
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+function openNav() {
+    document.getElementById("mySidebar").style.width = "100px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+}
