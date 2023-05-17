@@ -49,10 +49,7 @@
                                         <img class="img-fluid logo-marca" src="assets/img/logomarca.png" alt="">
                                     </div>
                                     <h1>Getto</h1>
-                                    <h5 class="text-center mb-5 fw-light fs-5 header-legenda">Faça seu cadastro e comece
-                                        a
-                                        usar!
-                                    </h5>
+                                    <h5 class="text-center mb-5 fw-light fs-5 header-legenda">Faça seu cadastro e comece a usar!</h5>
                                     <div class="selecao-tipo-conta">
                                         <div class="artista-convidado-btns">
                                             <div class="div-artista-btn">
