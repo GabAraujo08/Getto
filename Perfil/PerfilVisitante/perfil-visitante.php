@@ -419,7 +419,7 @@ require_once 'GlobalPerfil.php';
 
                         </div>
 
-                        <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
+                        <div id="confirmacao-excluirSeguindo" style="display: none;" class="confirmacao-excluir">
                             <p>Tem certeza que quer <b>excluir</b> @guuss</p>
                             <div class="btn-confirmacao-excluir">
                                 <button>

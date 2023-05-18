@@ -332,32 +332,32 @@ btnConfirmarBloqueio.addEventListener("click", () => {
 
 
 
-// const btnExcluirSeguindo = document.getElementById("btn-excluirSeguindo");
-// const btnConfirmar = document.getElementById("btn-confirmar");
-// const divConfirmacao = document.getElementById("confirmacao-excluir");
+const btnExcluirSeguindo = document.getElementById("btn-excluirSeguindo");
+const btnConfirmarSeguindo = document.getElementById("btn-confirmarSeguindo");
+const divConfirmacaoSeguindo = document.getElementById("confirmacao-excluirSeguindo");
 
-// btnExcluir.addEventListener("click", () => {
-//     divConfirmacao.style.display = "block";
+btnExcluirSeguindo.addEventListener("click", () => {
+    divConfirmacaoSeguindo.style.display = "block";
 
-// });
+});
 
-// btnConfirmar.addEventListener("click", () => {
-//     divConfirmacao.style.display = "none";
+btnConfirmarSeguindo.addEventListener("click", () => {
+    divConfirmacaoSeguindo.style.display = "none";
 
-// });
+});
 
 
 
-// const btnBloquear = document.getElementById("btn-bloquear");
-// const btnConfirmarBloqueio = document.getElementById("btn-confirmarBloqueio");
-// const divConfirmacaoBloqueio = document.getElementById("confirmacao-bloqueio");
+const btnBloquearSeguindo = document.getElementById("btn-bloquearSeguindo");
+const btnConfirmarBloqueioSeguindo = document.getElementById("btn-confirmarBloqueioSeguindo");
+const divConfirmacaoBloqueioSeguindo = document.getElementById("confirmacao-bloqueioSeguindo");
 
-// btnBloquear.addEventListener("click", () => {
-//     divConfirmacaoBloqueio.style.display = "block";
+btnBloquearSeguindo.addEventListener("click", () => {
+    divConfirmacaoBloqueioSeguindo.style.display = "block";
 
-// });
+});
 
-// btnConfirmarBloqueio.addEventListener("click", () => {
-//     divConfirmacaoBloqueio.style.display = "none";
+btnConfirmarBloqueioSeguindo.addEventListener("click", () => {
+    divConfirmacaoBloqueioSeguindo.style.display = "none";
 
-// });
+});
