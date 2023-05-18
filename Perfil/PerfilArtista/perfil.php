@@ -17,7 +17,7 @@ require_once 'GlobalPerfil.php';
     <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
     <link rel="stylesheet" href="../PerfilArtista/Evento/assets/css/eventoArtista.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-5bWt6KBQ2Jg9X6nyz/6noy+C6AVrO6ddtpJmiKkh+awOFAkg0SMJG/M49YXJHjvTf+ldcJ0+cTiUGguMq3Qe0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 </head>
 
@@ -821,254 +821,22 @@ require_once 'GlobalPerfil.php';
                     <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Você deseja sair da sua conta?</p> 
+                    <p>Você deseja sair da sua conta?</p>
                 </div>
                 <div class="modal-footer">
                     <form name="formExclui" action="../../Controller/Logout.php" method="POST">
                         <button type="submit" class="btn btn-secondary">Sair da conta</button>
                     </form>
                     <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
-    <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
-
-
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- <div class="box-input-search">
-                        <input class="busca-comentario" type="search" placeholder="Busque um comentário">
-
-                    </div>
-                    <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-                            <div class="box-btn-denuncia">
-                                <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>Bom dia,</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>Bom dia,</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>Bom dia,</p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in
-                                faucibus orci luctus et ultrices posuere
-                                cubilia Curae; Sed non tellus auctor, consequat
-                                mi eu, pulvinar ipsum. Quisque vel ipsum eros.
-                                Nam consequat vestibulum ligula, sed iaculis quam.
-                                Sed nec ante velit. Nullam eget massa sit amet erat
-                                pharetra euismod sed id elit. Praesent a fringilla
-                                mauris. Fusce ut odio et elit laoreet fermentum.
-                                Nulla vel est ligula. Nam eget enim euismod,
-                                semper leo ac, congue justo. Maecenas nec nibh
-                                a arcu efficitur facilisis a ac lectus.
-
-
-                            </p>
-                            <div class="box-btn-denuncia">
-                                <button type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <div id="divComentario" class="comentario slide-in">
-
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-
-
-
-
-                    </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
-
-
                 </div>
             </div>
         </div>
     </div>
 
 
-    <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando @gabbs</h1>
+    <!-- ---------------------------- MODAL SEGUIDORES ------------------------- -->
 
 
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-bottom: 5px;">
-                        Este é o comentário que você quer denunciar?
-                    </h1>
-                    <div class="box-comentario ">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-
-                        </div>
-                    </div>
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-bottom: 5px;">
-                        Selecione o que mais se assemelha com sua denúncia!
-                    </h1>
-
-                    <select name="tipoDenuncia" id="">
-                        <option value="#">Violência</option>
-                        <option value="#">Assédio</option>
-                        <option value="#">Preconceito</option>
-                        <option value="#">Discurso de ódio</option>
-                        <option value="#">Mensagem falsa</option>
-
-                    </select>
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-top: 5px;">
-                        Abaixo faça uma breve descrição sobre sua denúncia!
-                    </h1>
-
-
-
-
-
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <div id="divComentario" class="comentario slide-in">
-
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Escreva sua denúncia" name="comentario" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-
-
-
-
-                    </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- MODAL SEGUIDORES -->
     <div class="modal fade" id="seguidoresModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -1108,9 +876,9 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer excluir @guuss</p>
+                            <p>Tem certeza que quer <b>excluir</b> @guuss</p>
                             <div class="btn-confirmacao-excluir">
-                                <button >
+                                <button>
                                     <i class="fa-solid fa-heart-crack"></i>
                                     <p>Sim</p>
                                 </button>
@@ -1124,7 +892,7 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer bloquear @guuss</p>
+                            <p>Tem certeza que quer <b>bloquear</b> @guuss</p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
                                     <i class="fa-solid fa-heart-crack"></i>
@@ -1136,24 +904,16 @@ require_once 'GlobalPerfil.php';
                                     <p>Não</p>
                                 </button>
                             </div>
-
                         </div>
                     </div>
-
                     <div class="box-comentario">
                         <div class="imagem-nick">
                             <img src="assets/img/img-perfil.svg" alt="">
-
                             <div class="conteudo-comentario">
                                 <h1>@Gustavo Henrique</h1>
                                 <p>@guuss</p>
-
-
-
-
                             </div>
                         </div>
-
                         <div class="opcoes">
                             <button>
                                 <i class="fa-solid fa-ban"></i>
@@ -1161,8 +921,6 @@ require_once 'GlobalPerfil.php';
                             <button>
                                 <i class="fa-solid fa-trash"></i>
                             </button>
-
-
                         </div>
 
                         <!-- <div class="confirmacao-excluir">
@@ -1183,12 +941,16 @@ require_once 'GlobalPerfil.php';
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button> -->
+                  
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+
 
 
 
@@ -1200,11 +962,11 @@ require_once 'GlobalPerfil.php';
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script> -->
-   
+
 
     <script src="assets/js/perfil.js"></script>
     <script src="assets/js/jquery-3.6.4.min.js"></script>
-    <script src="assets/js/extrator"></script>
+
     <script src="assets/js/preview.js"></script>
 </body>
 

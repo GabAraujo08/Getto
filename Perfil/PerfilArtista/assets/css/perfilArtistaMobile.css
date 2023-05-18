@@ -113,7 +113,7 @@ body {
 
 .sidebar .sidebar-box .list-group-box {
 	margin-top: 20px;
-  }
+}
 
 .sidebar .sidebar-box .list-group-box button {
 	background-color: transparent;
@@ -158,13 +158,13 @@ body {
 	margin-right: 5px;
 }
 
-#perfil{
+#perfil {
 	background-image: url('../img/perfil-icon.svg');
-  }
-  
-#perfil:hover{
+}
+
+#perfil:hover {
 	background-image: url('../img/perfil-icon-branco.png');
-  }
+}
 
 #eventos {
 	background-image: url('../img/icone-calendario.png');
@@ -1142,29 +1142,29 @@ hr {
 /*-------------------------- MODAL SAIR DA CONTA ---------------------------------------*/
 
 .modal-dialog .modal-footer .btn-primary {
-    background: #664187!important;
-    border: 0;
-  }
+	background: #664187 !important;
+	border: 0;
+}
 
-  .modal-dialog .modal-footer .btn-secondary{
-    background: rgb(214, 37, 37)!important;
-    border: 0;
-  }
+.modal-dialog .modal-footer .btn-secondary {
+	background: rgb(214, 37, 37) !important;
+	border: 0;
+}
 
-  .modal-dialog .modal-body b{
-    color: rgb(214, 37, 37);
-  }
-  
-  .modal-dialog{
-    padding: 2rem!important;
-    
-  }
+.modal-dialog .modal-body b {
+	color: rgb(214, 37, 37);
+}
+
+.modal-dialog {
+	padding: 2rem !important;
+
+}
 
 
-  .modal-footer {
-    justify-content: space-between!important;
-  }
-  
+.modal-footer {
+	justify-content: space-between !important;
+}
+
 
 /*-------------------------- MODAL CRIAR EVENTO ---------------------------------------*/
 
@@ -1488,17 +1488,16 @@ body::-webkit-scrollbar-thumb {
 
 #seguidoresModal .modal-body .box-comentario .confirmacao-excluir {
 
-	display: flex;
 	border: solid;
 	border-width: 1px 0px 1px 1px;
-
-	left: 441px;
-	height: 80px;
+	left: 415px;
+	height: 90px;
 	position: absolute;
 	background-color: #fff;
 	padding: 10px;
-
 	border-radius: 5px 5px 0px 5px;
+	top: -15px;
+
 
 }
 
@@ -1527,6 +1526,24 @@ body::-webkit-scrollbar-thumb {
 	align-items: center;
 
 
+
+}
+
+
+@media (max-width: 768px) {
+
+
+	#seguidoresModal .modal-body .box-comentario .confirmacao-excluir {
+		border: solid;
+		border-width: 1px 0px 1px 1px;
+		left: -8px;
+		height: 90px;
+		position: absolute;
+		background-color: #fff;
+		padding: 10px;
+		border-radius: 5px 5px 0px 5px;
+		top: -20px;
+	}
 
 }
 
