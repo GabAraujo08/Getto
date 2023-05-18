@@ -1,5 +1,35 @@
 
 
+        const btnExcluir = document.getElementById("btn-excluir");
+        const btnConfirmar = document.getElementById("btn-confirmar");
+        const divConfirmacao = document.getElementById("confirmacao-excluir");
+
+        btnExcluir.addEventListener("click", () => {
+            divConfirmacao.style.display = "block";
+
+        });
+
+        btnConfirmar.addEventListener("click", () => {
+            divConfirmacao.style.display = "none";
+
+        });
+
+
+
+        const btnBloquear = document.getElementById("btn-bloquear");
+        const btnConfirmarBloqueio = document.getElementById("btn-confirmarBloqueio");
+        const divConfirmacaoBloqueio = document.getElementById("confirmacao-bloqueio");
+
+        btnBloquear.addEventListener("click", () => {
+            divConfirmacaoBloqueio.style.display = "block";
+
+        });
+
+        btnConfirmarBloqueio.addEventListener("click", () => {
+            divConfirmacaoBloqueio.style.display = "none";
+
+        });
+
 
 /*ABRIR INPUT FOTO PAPEL DE PAREDE*/
 
@@ -246,6 +276,8 @@ document.getElementById('inputFile').addEventListener('change', function(event) 
 
 
 
+
+
 // ----------------------- INPUT MUSICA CAPA -------------------------
 
 /*
@@ -281,3 +313,5 @@ document.getElementById('inputFile').addEventListener('change', function(event) 
 		input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
 	});
 }( document, window, 0 ));
+
+

@@ -163,7 +163,7 @@ require_once 'GlobalPerfil.php';
 
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
-                                    <div class="seguindo">
+                                    <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
                                         <?PHP
                                         $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idArtista']);
                                         $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
@@ -841,7 +841,7 @@ require_once 'GlobalPerfil.php';
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pessoas que você segue</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">1000 Pessoas estão seguindo você</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -951,6 +951,109 @@ require_once 'GlobalPerfil.php';
 
 
 
+   <!-- ---------------------------- MODAL SEGUINDO ------------------------- -->
+
+    <div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está seguindo 1000 pessoas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="box-comentario">
+                        <div class="imagem-nick">
+                            <img src="assets/img/img-perfil.svg" alt="">
+                            <div class="conteudo-comentario">
+                                <h1>@Gustavo Henrique</h1>
+                                <p>@guuss</p>
+                            </div>
+                        </div>
+                        <div class="opcoes">
+                            <button id="btn-bloquear">
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            <button id="btn-excluir">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+
+                        <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer <b>excluir</b> @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmar">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer <b>bloquear</b> @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmarBloqueio">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-comentario">
+                        <div class="imagem-nick">
+                            <img src="assets/img/img-perfil.svg" alt="">
+                            <div class="conteudo-comentario">
+                                <h1>@Gustavo Henrique</h1>
+                                <p>@guuss</p>
+                            </div>
+                        </div>
+                        <div class="opcoes">
+                            <button>
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            <button>
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+
+                        <!-- <div class="confirmacao-excluir">
+                            <p>Tem certeza que quer excluir @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button>
+                                <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
 
 
@@ -968,6 +1071,8 @@ require_once 'GlobalPerfil.php';
     <script src="assets/js/jquery-3.6.4.min.js"></script>
 
     <script src="assets/js/preview.js"></script>
+
+    
 </body>
 
 </html>

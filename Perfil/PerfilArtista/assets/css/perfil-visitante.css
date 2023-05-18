@@ -487,6 +487,163 @@ body {
 }
 
 
+/* -------------------------- MODAL SEGUINDO -------------------------- */
+
+#seguindoModal .modal-body .box-comentario {
+	width: 100%;
+	display: flex;
+	margin-bottom: 5px;
+	;
+	position: relative;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario .imagem-nick {
+	display: flex;
+	width: 60%;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario img {
+	width: 60px;
+	height: 60px;
+	border: 2.06796px solid #FFFFFF;
+	box-shadow: 0px 5.13592px 5.13592px rgb(0 0 0 / 25%);
+	border-radius: 50%;
+
+
+}
+
+
+
+#seguindoModal .modal-body .box-comentario .conteudo-comentario {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario .conteudo-comentario h1 {
+	font-family: 'InterBold';
+	font-size: 18px;
+	margin: 0;
+	margin-left: 5px;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario .conteudo-comentario p {
+	font-family: 'InterBold';
+	margin-left: 5px;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-height: 100px;
+	overflow-y: auto;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario .opcoes {
+	display: flex;
+	font-size: 20px;
+	width: 50%;
+	justify-content: flex-end;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario .opcoes button {
+	background: none;
+	border: 0;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario .confirmacao-excluir {
+
+	border: solid;
+	border-width: 1px 0px 1px 1px;
+	left: 415px;
+	height: 90px;
+	position: absolute;
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 5px 5px 0px 5px;
+	top: -15px;
+
+
+}
+
+#seguindoModal .modal-body .box-comentario .confirmacao-excluir p {
+	font-family: 'InterBold';
+	margin: 0;
+	margin-left: 5px;
+
+}
+
+
+#seguindoModal .modal-body .box-comentario .confirmacao-excluir .btn-confirmacao-excluir {
+	display: flex;
+
+	width: 100%;
+	justify-content: space-around;
+
+
+}
+
+
+#seguindoModal .modal-body .box-comentario .confirmacao-excluir .btn-confirmacao-excluir button {
+	background: none;
+	border: 0;
+	display: flex;
+	align-items: center;
+
+
+
+}
+
+
+@media (max-width: 467px ) {
+
+
+	#seguindoModal .modal-body .box-comentario .confirmacao-excluir {
+		border: solid!important;
+		border-width: 1px 0px 1px 1px!important;
+		left: -8px!important;
+		height: 90px!important;
+		position: absolute!important;
+		background-color: #fff!important;
+		padding: 10px!important;
+		border-radius: 5px 5px 0px 5px!important;
+		top: -20px!important;
+	}
+
+}
+
+@media (max-width: 991px) {
+
+
+	#seguindoModal .modal-body .box-comentario .confirmacao-excluir {
+		border: solid;
+    border-width: 1px 0px 1px 1px;
+    left: 167px;
+    height: 90px;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0px 5px;
+    top: -15px;
+	}
+
+}
+
+
+
+
 
 
 .container-fluid .area-perfil .informacao-perfil .div-btn-editar-perfil .btn-editar-perfil {

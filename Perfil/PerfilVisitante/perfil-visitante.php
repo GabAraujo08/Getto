@@ -13,11 +13,14 @@ require_once 'GlobalPerfil.php';
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/perfil-visitante.css">
+    <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
 </head>
 
 <body>
 
+
+ 
 
     <div class="d-flex">
         <div class="area-sidebar">
@@ -28,7 +31,7 @@ require_once 'GlobalPerfil.php';
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-                    <ul class="list-group">
+                        <ul class="list-group">
                             <a href="../PerfilVisitante/Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
@@ -112,14 +115,14 @@ require_once 'GlobalPerfil.php';
 
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
-                                    <div class="seguindo">
+                                    <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
                                         <?PHP
-                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
                                         ?>
                                         <div class="seguindo-numero">
                                             <p><?PHP
-                                                        echo $seguindo; 
-                                            ?></p>
+                                                echo $seguindo;
+                                                ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>
@@ -354,7 +357,7 @@ require_once 'GlobalPerfil.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form name="formUpdateFotoPerfil" enctype="multipart/form-data" action="UpdateFotoPerfil.php" method="POST">
-                <div class="modal-body">
+                    <div class="modal-body">
                         <div class="div-img-usuario">
                             <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
                         </div>
@@ -367,12 +370,123 @@ require_once 'GlobalPerfil.php';
                         <!-- <div class="preview">
                             <img id="preview-img" src="" alt="">
                         </div> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btn-perfil-modal">Escolha uma foto</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está seguindo 1000 pessoas</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="box-comentario">
+                        <div class="imagem-nick">
+                            <img src="assets/img/img-perfil.svg" alt="">
+
+                            <div class="conteudo-comentario">
+                                <h1>@Gustavo Henrique</h1>
+                                <p>@guuss</p>
+
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="opcoes">
+
+
+
+                            <button id="btn-bloquearSeguindo">
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            <button id="btn-excluirSeguindo">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+
+                        </div>
+
+                        <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer <b>excluir</b> @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmar">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer <b>bloquear</b> @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmarBloqueio">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-comentario">
+                        <div class="imagem-nick">
+                            <img src="assets/img/img-perfil.svg" alt="">
+                            <div class="conteudo-comentario">
+                                <h1>@Gustavo Henrique</h1>
+                                <p>@guuss</p>
+                            </div>
+                        </div>
+                        <div class="opcoes">
+                            <button>
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            <button>
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+
+                        <!-- <div class="confirmacao-excluir">
+                            <p>Tem certeza que quer excluir @guuss</p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button>
+                                <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div> -->
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="btn-perfil-modal">Escolha uma foto</button>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+
                 </div>
-                </form>
             </div>
         </div>
     </div>
@@ -402,6 +516,8 @@ require_once 'GlobalPerfil.php';
     </script>
 
     <script src="assets/js/perfil.js"></script>
+
+   
 
 </body>
 
