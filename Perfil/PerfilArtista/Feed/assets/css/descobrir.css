@@ -79,12 +79,12 @@ form {
 
 
 .area-buscar {
-    display: inline-flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-    margin-left: 5%;
-    margin-right: 5%;
+  display: inline-flex;
+  justify-content: center;
+  width: 90%;
+  margin-top: 10px;
+  margin-left: 25%;
+  margin-right: 5%;
 }
 
 .search-bar {
