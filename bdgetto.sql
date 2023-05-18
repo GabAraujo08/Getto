@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Maio-2023 às 16:18
+-- Tempo de geração: 18-Maio-2023 às 18:58
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -130,9 +130,6 @@ CREATE TABLE `tbdenunciausuario` (
 
 CREATE TABLE `tbevento` (
   `idEvento` int(11) NOT NULL,
-  `horarioInicioEvento` datetime NOT NULL,
-  `horarioFinalEvento` datetime NOT NULL,
-  `dataEvento` datetime NOT NULL,
   `quantidadeCurtidas` int(11) DEFAULT NULL,
   `descEvento` varchar(300) DEFAULT NULL,
   `tituloEvento` varchar(50) DEFAULT NULL,
@@ -145,7 +142,10 @@ CREATE TABLE `tbevento` (
   `cidadeEvento` varchar(100) DEFAULT NULL,
   `estadoEvento` varchar(100) DEFAULT NULL,
   `idArtista` int(11) DEFAULT NULL,
-  `idTipoArte` int(11) DEFAULT NULL
+  `idTipoArte` int(11) DEFAULT NULL,
+  `dataEvento` varchar(10) NOT NULL,
+  `horarioFinalEvento` varchar(10) NOT NULL,
+  `horarioInicioEvento` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

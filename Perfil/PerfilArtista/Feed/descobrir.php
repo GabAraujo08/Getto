@@ -122,7 +122,7 @@ require_once '../../../Dao/Conexao.php';
       </div>
         <?php
             
-            if(isset($_POST['busca'])){
+            /*if(isset($_POST['busca'])){
                 $conexao = Conexao::conectar();
                 $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
                 $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
@@ -138,7 +138,7 @@ require_once '../../../Dao/Conexao.php';
                           $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
                           $a = ArtistaDao::consultarArtista($row['idUsuario']);
                           $html .= '<input type="hidden" name="bio" value= "'. $a['bioArtista'] .'">';
-                          $html .= '<input type="hidden" name="artistaId" value= "'. $a['idArtista'] .'">';
+                          $html .= '<input type="hidden" name="artistaId" value= "'. $a['idArtista'] .'">';*/
         ?>
 
       <div class="nova-pub">
