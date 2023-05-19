@@ -515,7 +515,8 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 79%;
+	width: 100%;
+	overflow: auto;
 }
 
 .container-fluid {
@@ -531,6 +532,21 @@ body {
 	height: 100vh;
 	width: 100%;
 }
+
+  
+.container-fluid .area-perfil::-webkit-scrollbar {
+	width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  .container-fluid .area-perfil::-webkit-scrollbar-track {
+	background: #ECEBF3;        /* color of the tracking area */
+  }
+  
+  .container-fluid .area-perfil::-webkit-scrollbar-thumb {
+	background-color: #664187;    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+	border: 3px solid #664187;  /* creates padding around scroll thumb */
+  }
 
 .container-fluid .area-perfil .box-perfil {
 	display: flex;
