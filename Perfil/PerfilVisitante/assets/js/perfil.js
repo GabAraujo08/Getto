@@ -1,22 +1,22 @@
 
 
-        const btnExcluir = document.getElementById("btn-excluir");
-        const btnConfirmar = document.getElementById("btn-confirmar");
-        const divConfirmacao = document.getElementById("confirmacao-excluir");
+        const btnExcluirSeguindo = document.getElementById("btn-excluirSeguindo");
+        const btnConfirmarExcluir = document.getElementById("btn-confirmar-excluir");
+        const divConfirmacaoExcluir = document.getElementById("confirmacao-excluirSeguindo");
 
-        btnExcluir.addEventListener("click", () => {
-            divConfirmacao.style.display = "block";
-
-        });
-
-        btnConfirmar.addEventListener("click", () => {
-            divConfirmacao.style.display = "none";
+        btnExcluirSeguindo.addEventListener("click", () => {
+          divConfirmacaoExcluir.style.display = "block";
 
         });
 
+        btnConfirmarExcluir.addEventListener("click", () => {
+          divConfirmacaoExcluir.style.display = "none";
+
+        });
 
 
-        const btnBloquear = document.getElementById("btn-bloquear");
+
+        const btnBloquear = document.getElementById("btn-bloquearSeguindo");
         const btnConfirmarBloqueio = document.getElementById("btn-confirmarBloqueio");
         const divConfirmacaoBloqueio = document.getElementById("confirmacao-bloqueio");
 

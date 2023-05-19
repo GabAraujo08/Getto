@@ -504,6 +504,69 @@ body {
 
 
 /* -------------------------- MODAL SEGUINDO -------------------------- */
+#seguindoModal .modal-header {
+	display: flex;
+
+
+}
+
+@media (max-width: 548px){
+	#seguindoModal .modal-header{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+#seguindoModal .modal-header .box-btn-fechar {
+	display: flex;
+	align-items: center;
+
+
+}
+
+#seguindoModal .modal-header .box-btn-fechar .box-input-search {
+	width: auto;
+	position: relative;
+
+
+}
+
+
+#seguindoModal .modal-header .box-btn-fechar .box-input-search button {
+	background-color: unset;
+	border: none;
+	position: absolute;
+	top: 7px;
+    right: 5px;
+
+
+}
+
+#seguindoModal .modal-header .box-btn-fechar .box-input-search button {
+	background-color: unset;
+	border: none;
+	position: absolute;
+	top: 7px;
+    right: 5px;
+	
+
+
+}
+
+
+#seguindoModal .modal-header .box-btn-fechar .form-control {
+	font-family: 'InterBold';
+	background: unset!important;
+
+}
+
+
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-decoration,
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-cancel-button,
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-results-button,
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-results-decoration {
+    display: none;
+}
 
 #seguindoModal .modal-body .box-comentario {
 	width: 100%;

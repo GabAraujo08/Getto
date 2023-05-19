@@ -386,9 +386,25 @@ require_once 'GlobalPerfil.php';
     <div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está seguindo 1000 pessoas</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        Você está seguindo 1000 pessoas </h1>
+                    <div class="box-btn-fechar">
+                        <div class="box-input-search">
+                            <form action="">
+                                <input class="form-control" placeholder="Busque algúem..." type="search">
+                                <button type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+
+                        </div>
+
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+
                 </div>
                 <div class="modal-body">
                     <div class="box-comentario">
@@ -406,9 +422,6 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div class="opcoes">
-
-
-
                             <button id="btn-bloquearSeguindo">
                                 <i class="fa-solid fa-ban"></i>
                             </button>
@@ -427,7 +440,7 @@ require_once 'GlobalPerfil.php';
                                     <p>Sim</p>
                                 </button>
 
-                                <button id="btn-confirmar">
+                                <button id="btn-confirmar-excluir">
                                     <i class="fa-solid fa-face-smile-beam"></i>
                                     <p>Não</p>
                                 </button>
