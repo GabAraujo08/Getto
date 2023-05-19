@@ -841,8 +841,24 @@ require_once 'GlobalPerfil.php';
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">1000 Pessoas estão seguindo você</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                        1000 Pessoas estão seguindo você </h1>
+                    <div class="box-btn-fechar">
+                        <div class="box-input-search">
+                            <form action="">
+                                <input class="form-control" placeholder="Busque algúem..." type="search">
+                                <button type="submit">
+                            </form>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+
+                        </div>
+
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+
                 </div>
                 <div class="modal-body">
                     <div class="box-comentario">
@@ -961,14 +977,16 @@ require_once 'GlobalPerfil.php';
                         Você está seguindo 1000 pessoas </h1>
                     <div class="box-btn-fechar">
                         <div class="box-input-search">
-                            <input class="form-control" placeholder="Busque algúem..." type="search">
-                            <button type="submit">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        
+                            <form action="">
+                                <input class="form-control" placeholder="Busque algúem..." type="search">
+                                <button type="submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+
                         </div>
 
-                        
+
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                     </div>

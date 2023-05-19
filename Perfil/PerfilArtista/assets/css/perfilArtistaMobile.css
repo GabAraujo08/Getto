@@ -1428,6 +1428,71 @@ body::-webkit-scrollbar-thumb {
 
 /* -------------------------- MODAL SEGUIDORES -------------------------- */
 
+#seguidoresModal .modal-header {
+	display: flex;
+
+
+}
+
+@media (max-width: 548px){
+	#seguidoresModal .modal-header{
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+#seguidoresModal .modal-header .box-btn-fechar {
+	display: flex;
+	align-items: center;
+
+
+}
+
+#seguidoresModal .modal-header .box-btn-fechar .box-input-search {
+	width: auto;
+	position: relative;
+
+
+}
+
+
+#seguidoresModal .modal-header .box-btn-fechar .box-input-search button {
+	background-color: unset;
+	border: none;
+	position: absolute;
+	top: 7px;
+    right: 5px;
+
+
+}
+
+#seguidoresModal .modal-header .box-btn-fechar .box-input-search button {
+	background-color: unset;
+	border: none;
+	position: absolute;
+	top: 7px;
+    right: 5px;
+	
+
+
+}
+
+
+#seguidoresModal .modal-header .box-btn-fechar .form-control {
+	font-family: 'InterBold';
+	background: unset!important;
+
+}
+
+
+#seguidoresModal .modal-header .box-btn-fechar .form-control::-webkit-search-decoration,
+#seguidoresModal .modal-header .box-btn-fechar .form-control::-webkit-search-cancel-button,
+#seguidoresModal .modal-header .box-btn-fechar .form-control::-webkit-search-results-button,
+#seguidoresModal .modal-header .box-btn-fechar .form-control::-webkit-search-results-decoration {
+    display: none;
+}
+
+
 #seguidoresModal .modal-body .box-comentario {
 	width: 100%;
 	display: flex;
@@ -1626,8 +1691,16 @@ body::-webkit-scrollbar-thumb {
 
 #seguindoModal .modal-header .box-btn-fechar .form-control {
 	font-family: 'InterBold';
+	background: unset!important;
 
 
+}
+
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-decoration,
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-cancel-button,
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-results-button,
+#seguindoModal .modal-header .box-btn-fechar .form-control::-webkit-search-results-decoration {
+    display: none;
 }
 
 
