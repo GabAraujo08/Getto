@@ -1777,6 +1777,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .publicacao {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -1859,7 +1860,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .box-img-publicacao img {
-	width: 1000px;
+	width: 100%;
 	max-width: 1005px;
 	max-height: 673px;
 	object-fit: cover;
@@ -1910,245 +1911,232 @@ body::-webkit-scrollbar-thumb {
 	transition: 0.25s;
 }
 
+
+.box-btn-acoes button img {
+	width: 30px;
+}
+
 .tempo-publicacao p {
 	margin: 0;
 	font-size: 0.9rem;
 
 }
-
 #comentarioModal .modal-body {
-	max-height: 300px;
+	max-height: 70vh;
+	min-height: 70vh;
 	overflow-y: auto;
-}
-
-
-
-
-#comentarioModal .modal-body::-webkit-scrollbar {
-	width: 8px;
-	/* width of the entire scrollbar */
-}
-
-#comentarioModal .modal-body::-webkit-scrollbar-track {
-	background: #ECEBF3;
-	/* color of the tracking area */
-}
-
-#comentarioModal .modal-body::-webkit-scrollbar-thumb {
-	background-color: #664187;
-	/* color of the scroll thumb */
-	border-radius: 20px;
-	/* roundness of the scroll thumb */
-	border: 3px solid #664187;
-	/* creates padding around scroll thumb */
-}
-
-#comentarioModal .modal-body .box-input-search {
+  }
+  
+  
+  
+  
+  #comentarioModal .modal-body::-webkit-scrollbar {
+	width: 8px;               /* width of the entire scrollbar */
+  }
+  
+  #comentarioModal .modal-body::-webkit-scrollbar-track {
+	background: #ECEBF3;        /* color of the tracking area */
+  }
+  
+  #comentarioModal .modal-body::-webkit-scrollbar-thumb {
+	background-color: #664187;    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+	border: 3px solid #664187;  /* creates padding around scroll thumb */
+  }
+  
+  #comentarioModal .modal-body .box-input-search{
 	top: 5px;
-	position: absolute;
-	right: 5px;
-}
-
-
-#comentarioModal .modal-body .btn-search {
+	  position: absolute;
+	  right: 5px;
+  }
+  
+  
+  #comentarioModal .modal-body .btn-search{
 	position: absolute;
 	top: 5px;
 	right: 5px;
 	border: none;
 	background: none;
 	background-image: none;
-}
-
-#comentarioModal input[type="search"]::-webkit-search-decoration,
-#comentarioModal input[type="search"]::-webkit-search-cancel-button,
-#comentarioModal input[type="search"]::-webkit-search-results-button,
-#comentarioModal input[type="search"]::-webkit-search-results-decoration {
+  }
+  
+  #comentarioModal input[type="search"]::-webkit-search-decoration,
+  #comentarioModal input[type="search"]::-webkit-search-cancel-button,
+  #comentarioModal input[type="search"]::-webkit-search-results-button,
+  #comentarioModal input[type="search"]::-webkit-search-results-decoration {
 	display: none;
-}
-
-
-#comentarioModal p::-webkit-scrollbar {
-	width: 8px;
-	/* width of the entire scrollbar */
-}
-
-#comentarioModal p::-webkit-scrollbar-track {
-	background: #ECEBF3;
-	/* color of the tracking area */
-}
-
-#comentarioModal p::-webkit-scrollbar-thumb {
-	background-color: #664187;
-	/* color of the scroll thumb */
-	border-radius: 20px;
-	/* roundness of the scroll thumb */
-	border: 3px solid #664187;
-	/* creates padding around scroll thumb */
-}
-
-#comentarioModal .modal-body .box-input-search input {
+  }
+  
+  
+  #comentarioModal p::-webkit-scrollbar {
+	width: 8px;               /* width of the entire scrollbar */
+  }
+  
+  #comentarioModal p::-webkit-scrollbar-track {
+	background: #ECEBF3;        /* color of the tracking area */
+  }
+  
+  #comentarioModal p::-webkit-scrollbar-thumb {
+	background-color: #664187;    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+	border: 3px solid #664187;  /* creates padding around scroll thumb */
+  }
+  
+  #comentarioModal .modal-body .box-input-search input {
 	font-family: 'InterBold';
-	/* border-bottom: 41px; */
-	border-top: none !important;
-	border-left: none !important;
-	border-right: none !important;
-	outline: none !important;
-	background-image: none !important;
-}
-
-#comentarioModal .modal-body .box-input-search input:focus {
-
-	border-top: 0 !important;
-	border-left: 0 !important;
-	border-right: 0 !important;
-}
-
-
-#comentarioModal .modal-body .box-comentario {
+	  /* border-bottom: 41px; */
+	  border-top: none!important;
+	  border-left: none!important;
+	  border-right: none!important;
+	  outline: none!important;
+	  background-image: none!important;
+  }
+  
+  #comentarioModal .modal-body .box-input-search input:focus {
+	
+	  border-top: 0!important;
+	  border-left: 0!important;
+	  border-right: 0!important;
+  }
+  
+  
+  #comentarioModal .modal-body .box-comentario {
 	width: 100%;
 	display: flex;
-	margin-bottom: 5px;
-	;
-
-
-}
-
-#comentarioModal .modal-body .box-comentario img {
+	margin-bottom: 5px;;
+	
+  
+  }
+  
+  #comentarioModal .modal-body .box-comentario img {
 	width: 60px;
 	height: 60px;
 	border: 2.06796px solid #FFFFFF;
 	box-shadow: 0px 5.13592px 5.13592px rgb(0 0 0 / 25%);
 	border-radius: 50%;
-
-
-}
-
-
-
-#comentarioModal .modal-body .box-comentario .conteudo-comentario {
+	
+  
+  }
+  
+  
+  
+  #comentarioModal .modal-body .box-comentario .conteudo-comentario {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 100%;
-
-
-}
-
-#comentarioModal .modal-body .box-comentario .conteudo-comentario h1 {
+	  flex-direction: column;
+	  justify-content: center;
+	  width: 100%;
+	
+  
+  }
+  
+  #comentarioModal .modal-body .box-comentario .conteudo-comentario h1 {
 	font-family: 'InterBold';
 	font-size: 18px;
-
-
-}
-
-#comentarioModal .modal-body .box-comentario .conteudo-comentario p {
+	
+  
+  }
+  
+  #comentarioModal .modal-body .box-comentario .conteudo-comentario p {
 	font-family: 'InterBold';
 	margin-left: 5px;
 	max-height: 100px;
-	overflow-y: auto;
-
-
-}
-
-#comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia {
+	  overflow-y: auto;
+	
+  
+  }
+  
+  #comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia {
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
-	padding-right: 10px;
-
-
-
-}
-
-#comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia button {
-	width: auto;
-	background: none;
-	border: none;
-
-
-
-}
-
-
-#comentarioModal .modal-footer .comentario {
+	  padding-right: 10px;
+  
+	
+  
+  }
+  
+  #comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia button {
+   width: auto;
+   background: none;
+   border: none;
+	
+	
+  
+  }
+  
+  
+  #comentarioModal .modal-footer .comentario {
 	width: 100%;
-
-
-}
-
-#comentarioModal .modal-footer textarea {
+	
+  
+  }
+  
+  #comentarioModal .modal-footer textarea {
 	font-family: 'InterBold';
-	width: 100%;
-
-	height: 80px;
-	border-radius: 5px;
-	padding: 5px;
-
-}
-
-#comentarioModal .modal-footer textarea::-webkit-scrollbar {
-	width: 8px;
-	/* width of the entire scrollbar */
-}
-
-#comentarioModal .modal-footer textarea::-webkit-scrollbar-track {
-	background: #ECEBF3;
-	/* color of the tracking area */
-}
-
-#comentarioModal .modal-footer textarea::-webkit-scrollbar-thumb {
-	background-color: #664187;
-	/* color of the scroll thumb */
-	border-radius: 20px;
-	/* roundness of the scroll thumb */
-	border: 3px solid #664187;
-	/* creates padding around scroll thumb */
-}
-
-
-#comentarioModal .modal-footer .box-text-area {
+	  width: 100%;
+	  
+	  height: 80px;
+	  border-radius: 5px;
+	  padding: 5px;
+  
+  }
+  
+  #comentarioModal .modal-footer textarea::-webkit-scrollbar {
+	width: 8px;               /* width of the entire scrollbar */
+  }
+  
+  #comentarioModal .modal-footer textarea::-webkit-scrollbar-track {
+	background: #ECEBF3;        /* color of the tracking area */
+  }
+  
+  #comentarioModal .modal-footer textarea::-webkit-scrollbar-thumb {
+	background-color: #664187;    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+	border: 3px solid #664187;  /* creates padding around scroll thumb */
+  }
+  
+  
+  #comentarioModal .modal-footer .box-text-area {
 	position: relative;
 	margin-top: 5px;
-
-}
-
-#comentarioModal .modal-footer .box-btn-comentario {
+  
+  }
+  
+  #comentarioModal .modal-footer .box-btn-comentario  {
 	width: auto;
-	display: flex;
-	position: absolute;
-	justify-content: flex-end;
-	bottom: 5px;
-	right: 5px;
-
-
-}
-
-
-
-#comentarioModal .modal-footer .box-btn-comentario button {
-	background-color: unset !important;
-	border: 0 !important;
-
-
-}
-
-
-
-#comentarioModal .slide-in {
-	/*EFEITO QUE CRIA A TRANSIÇÃO DE ENTRADA DO COMENTARIO*/
+  display: flex;
+  position: absolute;
+  justify-content: flex-end;
+  bottom: 5px;
+  right: 5px;
+  
+  
+  }
+  
+  
+  
+  #comentarioModal .modal-footer .box-btn-comentario button {
+	background-color: unset!important;
+	border: 0!important;
+  
+  
+  }
+  
+  
+  
+  #comentarioModal .slide-in {  /*EFEITO QUE CRIA A TRANSIÇÃO DE ENTRADA DO COMENTARIO*/
 	animation: slideIn 0.8s forwards;
-}
-
-@keyframes slideIn {
+  }
+  
+  @keyframes slideIn {
 	from {
-		transform: translateY(-100%);
+	  transform: translateY(-100%);
 	}
-
 	to {
-		transform: translateY(0);
+	  transform: translateY(0);
 	}
-}
-
+  }
+  
 
 /* --------------------- DENUNCIA MODAL ---------------------- */
 
