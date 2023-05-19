@@ -1,8 +1,8 @@
 <?php
-     include('../../../Controller/VerificaLogado.php'); 
-     require_once '../GlobalPerfil.php';
-     require_once '../../../Dao/Conexao.php';
-     require_once '../../../Dao/ArtistaDao.php';
+include('../../../Controller/VerificaLogado.php');
+require_once '../GlobalPerfil.php';
+require_once '../../../Dao/Conexao.php';
+require_once '../../../Dao/ArtistaDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +38,7 @@
           <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
             <ul class="list-group">
               <a href="#">
-                <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                <li  class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
               </a>
               <a href="../../PerfilArtista/Amigos/amigos.php">
                 <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
@@ -111,81 +111,84 @@
                     </div> -->
         </div>
       </div>
-      
+
     </div>
-    <div class="area-buscar">
+  
+
+
+      <div class="area-buscar">
         <form name="FormBusca" id="FormBusca" method="Post" action="descobrir.php">
-            <input type="search" id="search" name="busca" placeholder="Pesquisar...">
-            <button type="submit"><img src="assets/img/search.png"></i></button>
-            
+          <input type="search" id="search" name="busca" placeholder="Pesquisar...">
+          <button type="submit"><img src="assets/img/search.png"></i></button>
+
         </form>
-        </div>
+      </div>
 
- 
- 
+
+
       <?php
-                
-                if(isset($_POST['busca'])){
-                    $conexao = Conexao::conectar();
-                    $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
-                    $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
-                    $consulta->execute();
-                    $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-            
-                    if (count($resultado) > 0) {
-                        $html = '';
-                        foreach ($resultado as $row) {
-                            $html .= '<form action="../perfilMostrar.php" method="POST">';
-                            $html .= '<li>';
-                            if($row['nivelContaUsuario'] == 2){
-                              $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
-                              $a = ArtistaDao::consultarArtista($row['idUsuario']);
-                              $html .= '<input type="hidden" name="bio" value= "'. $a['bioArtista'] .'">';
-                              $html .= '<input type="hidden" name="artistaId" value= "'. $a['idArtista'] .'">';
 
-                            }else{
-                              $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">' ;
-                            }
-                            $html .= '<input type="hidden" name="usuarioNivelConta" value= "'. $row['nivelContaUsuario'] .'">';
-                            $html .= '<input type="hidden" name="usuarioFotoPerfil" value= "'. $row['fotoPerfilUsuario'] .'">';
-                            $html .= '<input type="hidden" name="usuarioFotoCapa" value= "'. $row['papelParedeUsuario'] .'">';
-                            $html .= '<input type="hidden" name="usuarioNome" value= "'. $row['nomeUsuario'] .'">';
-                            $html .= '<input type="hidden" name="usuarioNick" value= "'. $row['nicknameUsuario'] .'">';
-                            $html .= '<input type="hidden" name="usuarioId" value= "'. $row['idUsuario'] .'">';
-                            $html .= '<button type="submit">' . $row['nicknameUsuario'] . '</button>';
-                            $html .= '</li>';
-                            $html .= '</form>';
-                        }
-                        echo '<ul id="results">' . $html . '</ul>';
-                    } else {
-                        echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
-                    }
+      if (isset($_POST['busca'])) {
+        $conexao = Conexao::conectar();
+        $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
+        $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-                }
-            ?>
-            
-        
-        
+        if (count($resultado) > 0) {
+          $html = '';
+          foreach ($resultado as $row) {
+            $html .= '<form action="../perfilMostrar.php" method="POST">';
+            $html .= '<li>';
+            if ($row['nivelContaUsuario'] == 2) {
+              $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">';
+              $a = ArtistaDao::consultarArtista($row['idUsuario']);
+              $html .= '<input type="hidden" name="bio" value= "' . $a['bioArtista'] . '">';
+              $html .= '<input type="hidden" name="artistaId" value= "' . $a['idArtista'] . '">';
+            } else {
+              $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">';
+            }
+            $html .= '<input type="hidden" name="usuarioNivelConta" value= "' . $row['nivelContaUsuario'] . '">';
+            $html .= '<input type="hidden" name="usuarioFotoPerfil" value= "' . $row['fotoPerfilUsuario'] . '">';
+            $html .= '<input type="hidden" name="usuarioFotoCapa" value= "' . $row['papelParedeUsuario'] . '">';
+            $html .= '<input type="hidden" name="usuarioNome" value= "' . $row['nomeUsuario'] . '">';
+            $html .= '<input type="hidden" name="usuarioNick" value= "' . $row['nicknameUsuario'] . '">';
+            $html .= '<input type="hidden" name="usuarioId" value= "' . $row['idUsuario'] . '">';
+            $html .= '<button type="submit">' . $row['nicknameUsuario'] . '</button>';
+            $html .= '</li>';
+            $html .= '</form>';
+          }
+          echo '<ul id="results">' . $html . '</ul>';
+        } else {
+          echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
+        }
+      }
+      ?>
 
-        <script>
-                  $(document).ready(function() {
-            $('#search').keyup(function() {
-              var query = $(this).val();
-              if (query != '') {
-                $.ajax({
-                  url: 'search.php',
-                  method: 'POST',
-                  data: {query: query},
-                  success: function(data) {
-                    $('#results').html(data);
-                  }
-                });
-              } else {
-                $('#results').html('');
+
+
+
+    <script>
+      $(document).ready(function() {
+        $('#search').keyup(function() {
+          var query = $(this).val();
+          if (query != '') {
+            $.ajax({
+              url: 'search.php',
+              method: 'POST',
+              data: {
+                query: query
+              },
+              success: function(data) {
+                $('#results').html(data);
               }
             });
-          });
-        </script>
+          } else {
+            $('#results').html('');
+          }
+        });
+      });
+    </script>
 
 </body>
 

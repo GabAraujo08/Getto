@@ -27,7 +27,9 @@
   font-family: 'Roboto';
   src: url('../fonts/Roboto-Regular.ttf');
 }
-  
+  ul{
+    list-style: none;
+  }
 
   
   .sidebar {
