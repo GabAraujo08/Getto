@@ -347,6 +347,7 @@ require_once '../../../Dao/Conexao.php';
                                                 <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
                                                 <img src="assets/img/icon-comentario-btn.svg" alt="">
                                             </button>
+
                                             <button class="btn-acao">
                                                 <img src="assets/img/icon-salvar-btn.svg" alt="">
                                             </button>
@@ -391,7 +392,80 @@ require_once '../../../Dao/Conexao.php';
 
                                     </div> -->
                                 </div>
-                            <?PHP
+                                                            <!-- Modal -->
+                                <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de <?PHP echo $p['nicknameUsuario']; ?> </h1>
+
+
+
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- <div class="box-input-search">
+                                                    <input class="busca-comentario" type="search" placeholder="Busque um comentário">
+
+                                                </div>
+                                                <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
+
+                                                <div class="box-comentario">
+                                                    <img src="assets/img/img-perfil.svg" alt="">
+                                                    <div class="conteudo-comentario">
+                                                        <h1>@gabbs</h1>
+                                                        <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                                                        <div class="box-btn-denuncia">
+                                                            <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div id="divComentario" class="comentario slide-in">
+
+                                                    <div class="box-text-area">
+                                                        <form action="#">
+                                                            <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
+
+                                                        </textarea>
+                                                            <div class="box-btn-comentario">
+                                                                <button class="btn btn-primary">
+                                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+
+
+
+
+                                                </div>
+                                                <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                                                    <div class="box-text-area">
+                                                        <form action="#">
+                                                            <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
+
+                                                        </textarea>
+                                                            <div class="box-btn-comentario">
+                                                                <button class="btn btn-primary">
+                                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div> -->
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                                        <?PHP
                             }
                             ?>
 
@@ -496,79 +570,7 @@ require_once '../../../Dao/Conexao.php';
         Launch demo modal
     </button> -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
-
-
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- <div class="box-input-search">
-                        <input class="busca-comentario" type="search" placeholder="Busque um comentário">
-
-                    </div>
-                    <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-                            <div class="box-btn-denuncia">
-                                <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <div id="divComentario" class="comentario slide-in">
-
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-
-
-
-
-                    </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
-
-
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
 
     <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
