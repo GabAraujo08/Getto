@@ -337,9 +337,12 @@ require_once '../../../Dao/Conexao.php';
                                     </div>
                                     <div class="acoes-publicacao">
                                         <div class="box-btn-acoes">
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                            </button>
+                                            <form id="curtida" name="Curtida" action="../../../Controller/CurtirArtista.php" method="POST">
+                                                <input type="hidden" name="idPublicacao" value= "<?PHP echo $p['idPublicacao']; ?>">
+                                                <button name="cc" type="submit" class="btn-acao">
+                                                    <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                </button>
+                                            </form>
                                             <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
                                                 <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
                                                 <img src="assets/img/icon-comentario-btn.svg" alt="">
