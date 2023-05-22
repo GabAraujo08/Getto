@@ -14,8 +14,9 @@ require_once '../../../Dao/ArtistaDao.php';
   <title>Getto</title>
   <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/css/feedMobile.css">
+ 
   <link rel="stylesheet" href="assets/css/descobrir.css">
+  <link rel="stylesheet" href="assets/css/feedMobile.css">
   <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
   <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
 
@@ -38,7 +39,7 @@ require_once '../../../Dao/ArtistaDao.php';
           <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
             <ul class="list-group">
               <a href="#">
-                <li  class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
               </a>
               <a href="../../PerfilArtista/Amigos/amigos.php">
                 <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
@@ -113,16 +114,16 @@ require_once '../../../Dao/ArtistaDao.php';
       </div>
 
     </div>
-  
 
 
-      <div class="area-buscar">
-        <form name="FormBusca" id="FormBusca" method="Post" action="descobrir.php">
-          <input type="search" id="search" name="busca" placeholder="Pesquisar...">
-          <button type="submit"><img src="assets/img/search.png"></i></button>
+    
+    <div class="area-buscar">
+      <form name="FormBusca" id="FormBusca" method="Post" action="descobrir.php">
+        <input type="search" id="search" name="busca" placeholder="Pesquisar...">
+        <button class="btn-descobrir" type="submit"><img src="assets/img/search.png"></i></button>
 
-        </form>
-      </div>
+      </form>
+
 
 
 
@@ -165,7 +166,7 @@ require_once '../../../Dao/ArtistaDao.php';
       }
       ?>
 
-
+    </div>
 
 
     <script>
@@ -190,6 +191,13 @@ require_once '../../../Dao/ArtistaDao.php';
       });
     </script>
 
+
+
+    <div class="div-logo-marca">
+      <div class="logo-marca">
+        <img src="assets/img/logomarca.png" alt="">
+      </div>
+    </div>
 </body>
 
 </html>

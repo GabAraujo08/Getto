@@ -995,9 +995,9 @@ right: 5px;
 }
 
 #inicio {
-  background-image: url('../img/icon-home-branco.svg');
-  background-color: #664187;
-  color: white;
+  background-image: url('../img/icone-home.png');
+ 
+  
 }
 
 #inicio:hover {
