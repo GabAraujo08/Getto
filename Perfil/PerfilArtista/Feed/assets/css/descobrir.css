@@ -90,6 +90,7 @@ form {
   margin-right: 25px;
   position: absolute;
   right: 0;
+  top: 0;
 }
 
 #results{
@@ -252,23 +253,6 @@ ul li button {
 
 
 
-.div-logo-marca {
-	width: 100vw;
-	height: 60px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-  position: fixed;
-  top: 0;
-  background-color: #fff;
-  z-index: -100;
-  
-}
-
-.div-logo-marca .logo-marca img {
-	height: 35px;
-	width: 35px;
-}
 
 
 
