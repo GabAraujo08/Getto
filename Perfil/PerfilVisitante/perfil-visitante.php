@@ -20,14 +20,14 @@ require_once 'GlobalPerfil.php';
 <body>
 
 
- 
+
 
     <div class="d-flex">
         <div class="area-sidebar">
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <!-- <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca"> -->
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -55,7 +55,7 @@ require_once 'GlobalPerfil.php';
                             </a>
                         </ul>
                     </div>
-                    <a href="../../Controller/Logout.php">
+                    <a class="link-sair" data-bs-toggle="modal" data-bs-target="#modalSairConta" href="#">
                         <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
                             <img src="assets/img/icon-logout.svg" alt="Sair">
                             <h1>Sair</h1>
@@ -386,7 +386,7 @@ require_once 'GlobalPerfil.php';
     <div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-            <div class="modal-header">
+                <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
                         Você está seguindo 1000 pessoas </h1>
                     <div class="box-btn-fechar">
@@ -507,6 +507,25 @@ require_once 'GlobalPerfil.php';
 
 
 
+    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você deseja sair da sua conta?
+                </div>
+                <div class="modal-footer">
+                    <form name="formExclui" action="../../Controller/Logout.php" method="POST">
+                        <button style="background: rgb(214, 37, 37)!important;" type="submit" class="btn btn-secondary">Sair</button>
+                    </form>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
@@ -530,7 +549,7 @@ require_once 'GlobalPerfil.php';
 
     <script src="assets/js/perfil.js"></script>
 
-   
+
 
 </body>
 

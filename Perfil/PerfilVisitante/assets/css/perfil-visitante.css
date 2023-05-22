@@ -28,6 +28,22 @@
   src: url('../fonts/Roboto-Regular.ttf');
 }
 
+
+.area-perfil::-webkit-scrollbar {
+	width: 10px;               /* width of the entire scrollbar */
+  }
+  
+  .area-perfil::-webkit-scrollbar-track {
+	background: #ECEBF3;        /* color of the tracking area */
+  }
+  
+  .area-perfil::-webkit-scrollbar-thumb {
+	background-color: #664187;    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+	border: 3px solid #664187;  /* creates padding around scroll thumb */
+  }
+  
+
 a {
   text-decoration: none !important;
   color: unset!important;
@@ -71,8 +87,8 @@ body {
   width: 300px;
   background-color: #fff !important;
   
-  position: fixed;
-  height: 100%;
+  position: relative;
+  height: 100vh;
   box-sizing: border-box;
 
 }
@@ -279,6 +295,27 @@ body {
   width: 32px;
   height: 32px;
 }
+
+.link-sair {
+  position: absolute;
+    bottom: 20px;
+}
+
+#modalSairConta .modal-body{
+	font-family: 'InterBold';
+  }
+  
+  #modalSairConta .modal-header{
+	border-top: 0;
+	border-bottom: 0;
+  
+  }
+  
+  #modalSairConta .modal-footer{
+	border-top: 0;
+	border-bottom: 0;
+	
+  }
 
 
 
@@ -725,7 +762,8 @@ body {
 
 .container-fluid .area-perfil .informacao-perfil .div-btn-editar-perfil .btn-editar-perfil {
   background: #664187;
-  border-radius: 12.3967px;
+  height: 40px;
+  border-radius: 6px;
   border: none;
   color: #fff;
   font-family: 'InterRegular', sans-serif;
@@ -734,9 +772,17 @@ body {
   line-height: 0.89rem;
   font-weight: 500;
   width: 115px;
+  cursor: pointer;
+ 
 
 }
 
+
+.container-fluid .area-perfil .informacao-perfil .div-btn-editar-perfil .btn-editar-perfil:hover {
+  background: #52316e;
+ 
+
+}
 .container-fluid .area-perfil .informacao-perfil .desc-perfil .div-btn-editar-perfil .btn-editar-perfil:hover {
   background-color: #815ba3;
   box-shadow: none;
@@ -752,14 +798,14 @@ body {
 }
 
 .container-fluid .area-perfil .area-nick-nome .nick>h1 {
-  font-size: calc(0.390rem + 1.5vw);
+  font-size: 22px;
   margin-bottom: -0.5px;
   font-weight: bold;
   margin-right: 7px;
 }
 
 .container-fluid .area-perfil .area-nick-nome .nome>h1 {
-  font-size: calc(0.390rem + 1.5vw);
+  font-size: 22px;
   color: #5B5B5B;
 }
 

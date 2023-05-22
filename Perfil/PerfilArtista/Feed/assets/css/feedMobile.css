@@ -947,6 +947,23 @@ right: 5px;
 }
 
 
+#modalSairConta .modal-body{
+  font-family: 'InterBold';
+}
+
+#modalSairConta .modal-header{
+  border-top: 0;
+  border-bottom: 0;
+
+}
+
+#modalSairConta .modal-footer{
+  border-top: 0;
+  border-bottom: 0;
+  
+}
+
+
 .sair {
   width: 100%;
     display: flex;
@@ -978,9 +995,9 @@ right: 5px;
 }
 
 #inicio {
-  background-image: url('../img/icon-home-branco.svg');
-  background-color: #664187;
-  color: white;
+  background-image: url('../img/icone-home.png');
+ 
+  
 }
 
 #inicio:hover {
