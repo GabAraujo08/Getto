@@ -60,7 +60,7 @@ require_once '../../../Dao/Conexao.php';
                         </ul>
                     </div>
                     <div class="nova-pub">
-                        <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova
+                        <button id="nova-pub" class="btn btn-primary btn-nova-pub"  data-bs-toggle="modal" data-bs-target="#modalCriarPub" type="button">Nova
                             publicação</button>
                     </div>
 
@@ -259,7 +259,7 @@ require_once '../../../Dao/Conexao.php';
                                             <p><?PHP
                                                 if ($p['minutosPublicacao'] == 0) {
                                                     echo 'Agora mesmo';
-                                                } else if($p['minutosPublicacao'] > 59){
+                                                } else if ($p['minutosPublicacao'] > 59) {
                                                     $h = intval($p['minutosPublicacao'] / 60);
                                                     echo 'há ' . $h . ' h';
                                                 } else if ($p['minutosPublicacao'] > 1440) {
@@ -359,7 +359,7 @@ require_once '../../../Dao/Conexao.php';
                                             <p><?PHP
                                                 if ($pp['minutosPublicacao'] == 0) {
                                                     echo 'Agora mesmo';
-                                                } else if($pp['minutosPublicacao'] > 59){
+                                                } else if ($pp['minutosPublicacao'] > 59) {
                                                     $h = intval($pp['minutosPublicacao'] / 60);
                                                     echo 'há ' . $h . ' h';
                                                 } else if ($pp['minutosPublicacao'] > 1440) {
@@ -617,28 +617,6 @@ require_once '../../../Dao/Conexao.php';
 
 
 
-                    <!-- Modal sair -->
-                    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered justify-content-center">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
-                                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    Você deseja sair da sua conta?
-                                </div>
-                                <div class="modal-footer">
-                                    <form name="formExclui" action="../../../Controller/Logout.php" method="POST">
-                                        <button type="submit" class="btn btn-secondary">Sair</button>
-                                    </form>
-                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
 
 
                 </div>
@@ -687,8 +665,10 @@ require_once '../../../Dao/Conexao.php';
 
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!----------------------------------- MODAL SAIR DA CONTA -------------------------------- -->
+
+
+    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered justify-content-center">
             <div class="modal-content">
                 <div class="modal-header">
@@ -696,11 +676,11 @@ require_once '../../../Dao/Conexao.php';
                     <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Você deseja sair da sua conta?</p> 
+                    Você deseja sair da sua conta?
                 </div>
                 <div class="modal-footer">
-                    <form name="formExclui" action="../../Controller/Logout.php" method="POST">
-                        <button type="submit" class="btn btn-secondary">Sair da conta</button>
+                    <form name="formExclui" action="../../../Controller/Logout.php" method="POST">
+                        <button type="submit" class="btn btn-secondary">Sair</button>
                     </form>
                     <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
                 </div>
@@ -709,6 +689,10 @@ require_once '../../../Dao/Conexao.php';
     </div>
 
 
+    <!-- ----------------------------- MODAL CRIAR PUBLICAÇÃO ------------------------------- -->
+
+
+   
 
 
     <div class="div-logo-marca">
@@ -716,6 +700,9 @@ require_once '../../../Dao/Conexao.php';
             <img src="assets/img/logomarca.png" alt="">
         </div>
     </div>
+
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 

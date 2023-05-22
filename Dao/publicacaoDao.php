@@ -65,7 +65,7 @@
             
             $conexao = Conexao::conectar();
 
-            $query = $conexao->prepare('SELECT ')
+            $query = $conexao->prepare('SELECT ');
 
             $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
                                                INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
