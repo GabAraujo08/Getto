@@ -1227,7 +1227,7 @@ require_once 'GlobalPerfil.php';
                     Você deseja sair da sua conta?
                 </div>
                 <div class="modal-footer">
-                    <form name="formExclui" action="../../../Controller/Logout.php" method="POST">
+                    <form name="formExclui" action="../../Controller/Logout.php" method="POST">
                         <button type="submit" class="btn btn-secondary">Sair</button>
                     </form>
                     <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
