@@ -43,4 +43,43 @@
                 return $resultado;
             
         }
+        public static function ListaMinhasPublicacao($id){
+            
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
+                                               INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
+                                               INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                               INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
+                                               INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                               INNER JOIN tbSeguidores ON tbSeguidores.idUsuario = tbUsuario.idUsuario
+                                               WHERE tbUsuario.idUsuario = ?
+                                               ORDER BY tbPublicacao.horarioPublicacao DESC
+                                               ');
+            $consulta->bindValue(1, $id);
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $resultado;
+        }
+        public static function ListaPublicacaoSegui($id){
+            
+            $conexao = Conexao::conectar();
+
+            $query = $conexao->prepare('SELECT ')
+
+            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
+                                               INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
+                                               INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                               INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
+                                               INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                               INNER JOIN tbSeguidores ON tbSeguidores.idUsuario = tbUsuario.idUsuario
+                                               WHERE tbSeguidores.idUsuario = ?
+                                               ORDER BY tbPublicacao.horarioPublicacao DESC
+                                               ');
+            $consulta->bindValue(1, $id);
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $resultado;
+        }
 }
