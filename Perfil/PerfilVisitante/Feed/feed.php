@@ -227,12 +227,24 @@ require_once '../../../Dao/Conexao.php';
                                     </div>
                                     <div class="acoes-publicacao">
                                         <div class="box-btn-acoes">
-                                            <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
-                                                <input type="hidden" name="idPublicacao" value= "<?PHP echo $p['idPublicacao']; ?>">
-                                                <button name="cc" type="submit" class="btn-acao">
-                                                    <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                </button>
-                                            </form>
+                                            <?php
+                                                if($_SESSION['curtiu'] == false){
+                                            ?>
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                        <input type="hidden" name="idPublicacao" value= "<?PHP echo $p['idPublicacao']; ?>">
+                                                        <button name="cc" type="submit" class="btn-acao">
+                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                        </button>
+                                                    </form>
+                                            <?php
+                                                }else{
+                                                    <img src="assets/img/icon-like-true.svg" alt="">
+                                            ?>
+
+                                            <?php
+                                                }
+                                            ?>
+                                        
                                             
                                             
                                             <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
