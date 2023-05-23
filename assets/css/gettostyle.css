@@ -55,37 +55,7 @@ p {
 
 /* -------------------------------- NAVBAR ------------------------------- */
 
-@media (max-width: 992px) {
-	.navbar-expand-lg .navbar-collapse {
-		display: none !important;
-	}
 
-	.buttons-nav {
-		display: none !important;
-	}
-
-	.navbar-brand {
-		display: none;
-	}
-
-	.main .primeira-parte .conteudo-primeira-parte {
-		display: flex !important;
-		flex-direction: column !important;
-		align-items: center !important;
-		width: 35rem !important;
-	}
-
-	.img-pintora {
-		width: 39% !important;
-		margin-top: 3rem !important;
-	}
-
-	#pintora {
-		width: 93vh !important;
-	}
-
-
-}
 
 .navbar {
 	--mdb-navbar-box-shadow: none;
@@ -476,7 +446,7 @@ button {
 }
 
 @media (max-width: 1680px) {
-	
+
 
 	.btn-cadastro,
 	.site-empresa {
@@ -484,6 +454,7 @@ button {
 		margin: 5px !important;
 		font-size: 80% !important;
 	}
+
 	#listinha {
 		flex-direction: row;
 		width: 60rem;
@@ -766,7 +737,7 @@ button {
 
 	/****segunda-parte****/
 	#altofalante {
-		width: 79vh !important;
+		width: 70vh !important;
 	}
 
 	.h1-oque-e h1 {
@@ -911,8 +882,8 @@ button {
 	.terceira-parte .retangulo {
 		width: 65% !important;
 		margin-left: 12% !important;
-		height: 28.8rem !important;
-		top: 52px !important;
+		height: 33rem !important;
+		top: 98px !important;
 	}
 
 	.terceira-parte .retangulo .por-que-usar h1 {
@@ -920,7 +891,7 @@ button {
 	}
 
 	.terceira-parte {
-		height: 55vh !important;
+		height: 63vh !important;
 	}
 
 	.terceira-parte .imagem-seguidor img {
@@ -1056,21 +1027,21 @@ button {
 
 	/****terceira-parte****/
 	.terceira-parte .imagem-seguidor {
-		right: 25% !important;
-		top: -3px !important;
+		right: 28.3% !important;
+		top: 20px !important;
 	}
 
 	.terceira-parte .retangulo {
 		width: 71% !important;
 		margin-left: 6% !important;
-		height: 27.8rem !important;
-		top: 59px !important;
+		height: 35rem !important;
+		top: 66px !important;
 	}
 
 	.terceira-parte .retangulo .por-que-usar h1 {
 		font-size: 36px !important;
 		line-height: 1.8rem !important;
-		margin-top: 3rem !important;
+		margin-top: 5rem !important;
 	}
 
 	.terceira-parte .retangulo .por-que-usar li {
@@ -1083,11 +1054,11 @@ button {
 	}
 
 	.terceira-parte {
-		height: 50vh !important;
+		height: 60vh !important;
 	}
 
 	.terceira-parte .imagem-seguidor img {
-		width: 80% !important;
+		width: 88% !important;
 	}
 
 	/******quarta-parte******/
@@ -1161,9 +1132,97 @@ button {
 	}
 
 	.card-b {
-		border: #000000 1.8px solid ;
+		border: #000000 1.8px solid;
 		border-radius: 15px;
 		width: 16rem !important;
+	}
+
+
+}
+
+@media (max-width: 992px) {
+	.navbar-expand-lg .navbar-collapse {
+		display: none !important;
+	}
+
+	.buttons-nav {
+		display: none !important;
+	}
+
+	.navbar-brand {
+		display: none;
+	}
+
+	.main .primeira-parte .conteudo-primeira-parte {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center !important;
+		width: 35rem !important;
+	}
+
+	/* .img-pintora {
+		width: 54% !important;
+		margin-top: 11rem !important;
+	}
+
+	#pintora {
+		width: 68vh !important;
+	}
+
+	.segunda-parte .h1-oque-e p {
+		font-size: 16px !important;
+	}
+
+	.quarta-parte .area-artista-text p {
+		width: 26rem !important;
+		font-size: 16px !important;
+	}
+
+	.quarta-parte .area-artista-text h1 {
+		padding-right: 21% !important;
+	}
+
+	.quarta-parte .btn-verifica-artista {
+		width: 49% !important;
+	}
+
+	.quarta-parte .card-artista {
+		display: flex !important;
+		flex-direction: column;
+		width: 9rem;
+		margin-left: 10%;
+	}
+
+	.quarta-parte .card {
+		margin: 20px;
+	} */
+
+
+
+}
+
+@media (min-width: 375px) {
+	.main {
+		width: 50rem !important;
+	}
+
+	.main .primeira-parte .conteudo-primeira-parte h1 {
+		font-size: 150px !important;
+	}
+
+	.main .primeira-parte {
+		justify-content: space-around;
+		width: 120rem !important;
+	}
+
+	.main .primeira-parte .btn-primeira-parte button {
+		width: 13rem;
+		height: 4rem;
+		font-size: 22px;
+	}
+
+	#pintora {
+		display: none;
 	}
 
 
