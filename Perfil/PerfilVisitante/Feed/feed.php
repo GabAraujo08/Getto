@@ -46,8 +46,7 @@ require_once '../../../Dao/Conexao.php';
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
                             <a href="../perfil-visitante.php">
-
-                                <a href="../perfil.php">
+                            <a href="../perfil-visitante.php">
 
                                     <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                                 </a>
@@ -194,7 +193,7 @@ require_once '../../../Dao/Conexao.php';
 
 
                             <?PHP
-                            $pub = PublicacaoDao::ListaPublicacao();
+                            $pub = PublicacaoDao::ListaPublicacaoSegui($_SESSION['idUsuario']);
                             foreach ($pub as $p) {
                             ?>
                                 <div class="publicacao">
@@ -228,9 +227,26 @@ require_once '../../../Dao/Conexao.php';
                                     </div>
                                     <div class="acoes-publicacao">
                                         <div class="box-btn-acoes">
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                            </button>
+                                            <?php
+                                                if($_SESSION['curtiu'] == false){
+                                            ?>
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                        <input type="hidden" name="idPublicacao" value= "<?PHP echo $p['idPublicacao']; ?>">
+                                                        <button name="cc" type="submit" class="btn-acao">
+                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                        </button>
+                                                    </form>
+                                            <?php
+                                                }else{
+                                                    <img src="assets/img/icon-like-true.svg" alt="">
+                                            ?>
+
+                                            <?php
+                                                }
+                                            ?>
+                                        
+                                            
+                                            
                                             <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
                                                 <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
                                                 <img src="assets/img/icon-comentario-btn.svg" alt="">

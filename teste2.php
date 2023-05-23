@@ -349,7 +349,7 @@
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].classList.remove("active");
         }
-        document.getElementById(formName).style.display = "contents";
+        document.getElementById(formName).style.display = "block";
         evt.currentTarget.classList.add("active");
     }
 

@@ -138,6 +138,23 @@ body {
 	border-radius: 15px;
 }
 
+#modalSairConta .modal-body{
+	font-family: 'InterBold';
+  }
+  
+  #modalSairConta .modal-header{
+	border-top: 0;
+	border-bottom: 0;
+  
+  }
+  
+  #modalSairConta .modal-footer{
+	border-top: 0;
+	border-bottom: 0;
+	
+  }
+  
+
 .sair {
 	width: 100%;
 	display: flex;
