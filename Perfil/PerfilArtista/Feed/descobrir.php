@@ -1,5 +1,6 @@
 <?php include('../../../Controller/VerificaLogado.php');
 require_once '../../../Dao/publicacaoDao.php';
+require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/Conexao.php';
 ?>
 <!DOCTYPE html>
@@ -25,6 +26,8 @@ require_once '../../../Dao/Conexao.php';
 </head>
 
 <body>
+
+   
 
     <div class="d-flex">
         <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
@@ -402,63 +405,7 @@ require_once '../../../Dao/Conexao.php';
                 </div>
             </div>
         </div>
-        <div class="box-area-info">
-            <div class="area-info">
-                <div class="titulo-box-tags">
-                    <h2>Tags</h2>
-                </div>
-                <div class="box-tags">
-                    <div class="titulo-tags">
-                        <h1>Mais populares</h1>
-                    </div>
-                    <div class="tags">
-                        <div class="column-tags">
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>1#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Musica</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>2#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Teatro</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>3#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Dança</button>
-                            </div>
-                        </div>
-                        <div class="column-tags">
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>4#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Desenho</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>5#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Classicos</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>6#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Realismo</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="area-sugestao"></div>
-            </div>
-        </div>
+      
     </div>
 
 
@@ -775,6 +722,8 @@ require_once '../../../Dao/Conexao.php';
         });
       });
     </script>
+
+   
 
 
     

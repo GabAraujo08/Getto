@@ -7,6 +7,7 @@
        $_SESSION['curtiu'] = true;
        PublicacaoDao::Curtir($_POST['idPublicacao']);
        header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');
+       return $_SESSION['curtiu'];
    } else {
        header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');
    }

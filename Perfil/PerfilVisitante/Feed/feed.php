@@ -46,7 +46,7 @@ require_once '../../../Dao/Conexao.php';
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
                             <a href="../perfil-visitante.php">
-                            <a href="../perfil-visitante.php">
+                                <a href="../perfil-visitante.php">
 
                                     <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                                 </a>
@@ -225,28 +225,24 @@ require_once '../../../Dao/Conexao.php';
                                             <?PHP echo $p['descPublicacao']; ?>!
                                         </p>
                                     </div>
+                                    <div class="qnt-likes">
+                                        <p>
+                                            <?PHP echo $p['quantidadeCurtidas'] . 'curtidas'; ?>!
+                                        </p>
+                                    </div>
                                     <div class="acoes-publicacao">
                                         <div class="box-btn-acoes">
-                                            <?php
-                                                if($_SESSION['curtiu'] == false){
-                                            ?>
-                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
-                                                        <input type="hidden" name="idPublicacao" value= "<?PHP echo $p['idPublicacao']; ?>">
-                                                        <button name="cc" type="submit" class="btn-acao">
-                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                        </button>
-                                                    </form>
-                                            <?php
-                                                }else{
-                                                    <img src="assets/img/icon-like-true.svg" alt="">
-                                            ?>
 
-                                            <?php
-                                                }
-                                            ?>
-                                        
-                                            
-                                            
+                                            <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                <button name="cc" type="submit" class="btn-acao">
+                                                    <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                </button>
+                                            </form>
+
+
+
+
                                             <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
                                                 <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
                                                 <img src="assets/img/icon-comentario-btn.svg" alt="">
@@ -296,10 +292,9 @@ require_once '../../../Dao/Conexao.php';
         </div>
         <div class="box-area-info">
             <div class="area-info">
-                <div class="titulo-box-tags">
-                    <h2>tags</h2>
-                </div>
+
                 <div class="box-tags">
+
                     <div class="titulo-tags">
                         <h1>Mais populares</h1>
                     </div>
@@ -348,7 +343,60 @@ require_once '../../../Dao/Conexao.php';
                 </div>
 
 
-                <div class="area-sugestao"></div>
+                <div class="area-sugestao">
+
+                    <div class="titulo-sugestao">
+                        <h1>Sugestões para seguir</h1>
+                    </div>
+
+                    <div class="box-sugestoes">
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
