@@ -1201,18 +1201,13 @@ button {
 
 }
 
-@media (min-width: 375px) {
-	.main {
-		width: 50rem !important;
+@media (max-width: 425px) {
+	.main .primeira-parte .conteudo-primeira-parte {
+		width: 123rem !important;
 	}
 
 	.main .primeira-parte .conteudo-primeira-parte h1 {
-		font-size: 150px !important;
-	}
-
-	.main .primeira-parte {
-		justify-content: space-around;
-		width: 120rem !important;
+		font-size: 94px !important;
 	}
 
 	.main .primeira-parte .btn-primeira-parte button {
@@ -1221,12 +1216,40 @@ button {
 		font-size: 22px;
 	}
 
+	.main .funcionalidades {
+		padding: 0% !important;
+		margin-left: -3px;
+	}
+
+	.main .funcionalidades .item-funcionalidade p {
+		display: none !important;
+	}
+
+	.icons {
+		width: 75% !important;
+	}
+
 	#pintora {
 		display: none;
 	}
 
+	#altofalante {
+		width: 40vh !important;
+	}
+
+	/****segunda-parte****/
+	.h1-oque-e {
+		margin: -103px !important;
+		margin-top: 50rem!important;
+	}
+
+	.h1-oque-e p{
+		font-size: 10px !important;
+		width: 15rem !important;
+	}
 
 }
+
 
 
 .main .primeira-parte {
@@ -1298,7 +1321,9 @@ button {
 	color: #53035b;
 }
 
-
+#imagem {
+	display: none;
+}
 
 /****************SEGUNDA-PARTE **************/
 .segunda-parte {

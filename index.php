@@ -8,21 +8,12 @@
     <link rel="shortcut icon" href="assets/img/logomarca.svg" type="imagem">
     <title>Conheça o Getto</title>
 
-<!-- Font Awesome -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-  rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-  rel="stylesheet"
-/>
-<!-- MDB -->
-<link
-  href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
-  rel="stylesheet"
-/>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="assets/css/gettostyle.css">
 
@@ -42,6 +33,7 @@
                         </button>
                     </div>
                 </header>
+
 
                 <div class="sidebar" id='sidebar'>
 
@@ -137,11 +129,6 @@
                 <img src="assets/img/pintora.svg" alt="" id="pintora">
             </div>
         </div>
-
-
-
-
-
 
 
         <div class="d-flex funcionalidades">
@@ -250,9 +237,8 @@
                         exemplo nossas funções de gerenciamento de eventos e sistema de doações.
                     </p>
                     <div class="btn-verifica-artista">
-                        <button type="button" class="btn btn-verificar" data-toggle="modal"
-                            data-target="#modal-artista">
-                            Verificar                      
+                        <button type="button" class="btn btn-verificar" data-toggle="modal" data-target="#modal-artista">
+                            Verificar
                         </button>
                     </div>
                 </div>
@@ -277,8 +263,7 @@
 
                                     <div class="card">
                                         <div class="img-card">
-                                            <img src="assets/img/perfil.png" class="card-img-top" alt="..."
-                                                style="width: 18%;">
+                                            <img src="assets/img/perfil.png" class="card-img-top" alt="..." style="width: 18%;">
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title">Perfil do Artista</h5>
@@ -304,8 +289,7 @@
 
                                     <div class="card">
                                         <div class="img-card">
-                                            <img src="assets/img/divulgação.png" class="card-img-top" alt="..."
-                                                style="width: 18%;">
+                                            <img src="assets/img/divulgação.png" class="card-img-top" alt="..." style="width: 18%;">
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title">Divulgações</h5>
@@ -331,8 +315,7 @@
 
                                     <div class="card">
                                         <div class="img-card">
-                                            <img src="assets/img/doações.png" class="card-img-top" alt="..."
-                                                style="width: 18%;">
+                                            <img src="assets/img/doações.png" class="card-img-top" alt="..." style="width: 18%;">
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title">área de Doações</h5>
@@ -358,8 +341,7 @@
 
                                     <div class="card">
                                         <div class="img-card">
-                                            <img src="assets/img/evento.png" class="card-img-top" alt="..."
-                                                style="width: 18%;">
+                                            <img src="assets/img/evento.png" class="card-img-top" alt="..." style="width: 18%;">
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title">Área de Eventos</h5>
@@ -482,51 +464,46 @@
         <div onclick="voltarAoTopo()" class="btn-topo">
             <img src="assets/img/topo.png" alt="">
         </div>
-        
 
-   
-       <footer class="text-center text-white" id="foot" style="background-color: #C9B8D8">
-        <!-- Grid container -->
-        <div class="container p-4 pb-0">
 
-           
 
-          <!-- Section: Social media -->
-          <section class="mb-4">
-           <div>
-            <!-- Facebook -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button" ><i class="fab fa-facebook-f"></i
-            ></a>
-      
-            <!-- Twitter -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-twitter"></i
-            ></a>
-      
-            <!-- Instagram -->
-            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-instagram"></i
-            ></a>
-      
-      
-          </section>
-          <!-- Section: Social media -->
-        </div>
-  
-        <!-- Grid container -->
-      
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <footer class="text-center text-white" id="foot" style="background-color: #C9B8D8">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
 
-     
 
-          © 2023 Copyright:
-          <a class="text-white" href="#">Getto </a>
-        </div>
-        <!-- Copyright -->
-      </footer>
 
-</div> <!--div que fecha o container  -->
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <div>
+                        <!-- Facebook -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+                        <!-- Instagram -->
+                        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+
+                </section>
+                <!-- Section: Social media -->
+            </div>
+
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+
+
+
+                © 2023 Copyright:
+                <a class="text-white" href="#">Getto </a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+    </div> <!--div que fecha o container  -->
 
 
 
@@ -534,17 +511,14 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+    </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
-        integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous">
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
