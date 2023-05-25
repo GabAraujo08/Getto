@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/feedMobile.css">
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../Evento/assets/css/eventoArtista.css">
+    <link rel="stylesheet" href="../../PerfilArtista/Evento/assets/css/eventoArtista.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
 </head>
@@ -237,7 +237,7 @@
         margin-top: 30px;
         display: flex;
         flex-direction: column;
-        margin-right: 20px;
+
     }
 
     /* #accordionFlushExample {
@@ -288,6 +288,12 @@
         line-height: 19px;
         display: flex;
         align-items: center;
+    }
+
+    @media(max-width: 980px) {
+        .box-eventos {
+            margin-left: 0;
+        }
     }
 
     @media screen and (max-width: 1550px) {
@@ -401,13 +407,13 @@
                         </a>
                     </ul>
                 </div>
-                <div class="nova-pub">
+                <div  class="nova-pub">
                     <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
                 </div>
 
                 <div class="sair">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
-                        <img src="assets/img/sair.png">Sair
+                        <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
                     </a>
                 </div>
 
@@ -554,6 +560,9 @@
                 </div>
             </div>
         </div>
+
+
+
 
 
 
