@@ -3,7 +3,6 @@
 class Publicacao{
     private $idPublicacao;
     private $horarioPublicacao;
-    private $quantidadeCurtidas;
     private $descPublicacao;
     private $tituloPublicacao;
     private $statusPublicacao;
@@ -39,16 +38,6 @@ class Publicacao{
     public function setHorarioPublicacao($horario){
         $this->horarioPublicacao = $horario;
     }
-
-
-
-    public function getQuantidadeCurtidas(){
-        return $this->quantidadeCurtidas;
-    }
-    public function setQuantidadeCurtidas($quantCurtida){
-        $this->quantidadeCurtidas = $quantCurtida;
-    }
-
 
 
     public function getDescPublicacao(){

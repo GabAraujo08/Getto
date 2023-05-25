@@ -6,16 +6,15 @@
         public static function cadastrar($publicacao){
             $conexao = Conexao::conectar();
 
-            $queryInsert = "INSERT INTO tbPublicacao(idArtista, quantidadeCurtidas, descPublicacao, statusPublicacao, idTipoArte)
-                            VALUES(?, ?, ?, ?, ?)";
+            $queryInsert = "INSERT INTO tbPublicacao(idArtista, descPublicacao, statusPublicacao, idTipoArte)
+                            VALUES(?, ?, ?, ?)";
             
             $prepareStatement = $conexao->prepare($queryInsert);
             
             $prepareStatement->bindValue(1, $publicacao->getIdArtista());
-            $prepareStatement->bindValue(2, $publicacao->getQuantidadeCurtidas());
-            $prepareStatement->bindValue(3, $publicacao->getDescPublicacao());
-            $prepareStatement->bindValue(4, $publicacao->getStatusPublicacao());
-            $prepareStatement->bindValue(5, $publicacao->getIdTipoArte());
+            $prepareStatement->bindValue(2, $publicacao->getDescPublicacao());
+            $prepareStatement->bindValue(3, $publicacao->getStatusPublicacao());
+            $prepareStatement->bindValue(4, $publicacao->getIdTipoArte());
             $prepareStatement->execute();
             return 'Cadastrou'; 
         }
@@ -76,7 +75,7 @@
             $resultado = [];
 
             for($i = 0; $i < $countResu1; $i ++){
-                $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.quantidadeCurtidas, tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
+                $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
                                 INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
                                 INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                 INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
@@ -92,18 +91,5 @@
             }
             return $resultado;
            
-        }
-        public static function Curtir($id){
-            $conexao = Conexao::conectar();
-
-            $queryInsert = "UPDATE tbPublicacao
-                            SET quantidadeCurtidas = quantidadeCurtidas + 1
-                            WHERE idPublicacao = ?";
-            
-            $prepareStatement = $conexao->prepare($queryInsert);
-            
-            $prepareStatement->bindValue(1, $id);
-            $prepareStatement->execute();
-            return 'Atualizou';
         }
 }
