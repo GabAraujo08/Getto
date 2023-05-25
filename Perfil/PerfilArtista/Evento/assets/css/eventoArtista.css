@@ -64,6 +64,13 @@ margin-right: 5px;
 }
 
 
+
+
+.accordion-item, .accordion-header, .accordion-button{
+  background: #fff!important;
+}
+
+
 /*-------------------------- MODAL SAIR DA CONTA ---------------------------------------*/
 
 .modal-dialog .modal-footer .btn-primary {
