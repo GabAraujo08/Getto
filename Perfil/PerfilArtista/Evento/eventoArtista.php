@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/feedMobile.css">
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
-    <link rel="stylesheet" href="../Evento/assets/css/eventoArtista.css">
+    <link rel="stylesheet" href="../../PerfilArtista/Evento/assets/css/eventoArtista.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
 </head>
@@ -115,12 +115,20 @@
 
     .criador-evento {
         display: flex;
+        align-items: center;
     }
 
     .criador-evento .img-criador {
         width: 53px;
         height: 53px;
+        max-width: 53px;
+        max-height: 53px;
         border-radius: 100%;
+    }
+
+
+    .criador-evento .img-criador img {
+        width: 100%;
     }
 
     .criador-evento .nome-criador p {
@@ -132,6 +140,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 0;
+        margin-left: 10px;
     }
 
     .baixo .img-evento {
@@ -148,12 +158,14 @@
         line-height: 19px;
         display: flex;
         align-items: center;
+        margin-top: 10px;
     }
 
     .conteudo-evento {
         display: flex;
         flex-direction: column;
-        padding: 50px;
+        padding: 20px;
+        padding-bottom: 0px;
     }
 
     .conteudo-evento .confirmar-evento button {
@@ -168,6 +180,14 @@
         border: none;
         width: 200px;
         height: 50px;
+        transition: 0.3s;
+    }
+
+
+    .conteudo-evento .confirmar-evento button:hover {
+
+        background: #542183;
+
     }
 
     .presenca-evento {
@@ -185,6 +205,8 @@
 
     .baixo {
         display: flex;
+        height: 400px;
+        align-items: center;
     }
 
     .card-evento {
@@ -209,13 +231,23 @@
         line-height: 29px;
     }
 
-    #accordionFlushExample {
-        width: 80%;
-        margin-left: 18%;
-        margin-top: 3%;
-        background-color: #E1E1E6;
-        margin-right: 5%;
+    .box-eventos {
+        width: 100%;
+        margin-left: 315px;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+
     }
+
+    /* #accordionFlushExample {
+        width: 100%;
+        margin-left: 315px;
+        margin-top: 30px;
+        background-color: #E1E1E6;
+        margin-right: 20px;
+    } */
+
 
     .accordion-item {
         background-color: #E1E1E6;
@@ -256,6 +288,12 @@
         line-height: 19px;
         display: flex;
         align-items: center;
+    }
+
+    @media(max-width: 980px) {
+        .box-eventos {
+            margin-left: 0;
+        }
     }
 
     @media screen and (max-width: 1550px) {
@@ -369,80 +407,151 @@
                         </a>
                     </ul>
                 </div>
-                <div class="nova-pub">
+                <div  class="nova-pub">
                     <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
                 </div>
 
                 <div class="sair">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
-                        <img src="assets/img/sair.png">Sair
+                        <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
                     </a>
                 </div>
 
             </div>
         </div>
 
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header rounded-4" id="flush-headingOne">
-                    <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="border-radius: 20px;">
-                        <div class="resumoDiv">
-                            <div class="card">
-                                <div class="front">
-                                    <p>11</p><span>Abr</span>
+        <div class="box-eventos">
+            <div class="accordion accordion-flush" id="accordionFlushExample1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header rounded-4" id="flush-heading1">
+                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1" style="border-radius: 20px;">
+                            <div class="resumoDiv">
+                                <div class="card">
+                                    <div class="front">
+                                        <p>11</p><span>Abr</span>
+                                    </div>
+                                    <div class="back">
+                                        <p>inicio: 12am</p><span>fim: 17:45pm</span>
+                                    </div>
                                 </div>
-                                <div class="back">
-                                    <p>inicio: 12am</p><span>fim: 17:45pm</span>
+                                <div class="card-evento">
+                                    <div class="titulo-evento">
+                                        <p>Batalha de rima</p>
+                                    </div>
+                                    <div class="endereco-evento">
+                                        <p>Rua Guaianases</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card-evento">
-                                <div class="titulo-evento">
-                                    <p>Batalha de rima</p>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample1">
+                        <div class="accordion-body rounded-4">
+                            <div class="baixo">
+                                <div class="img-evento">
+                                    <img src="assets/img/image 29.png">
                                 </div>
-                                <div class="endereco-evento">
-                                    <p>Rua Guaianases</p>
+                                <div class="conteudo-evento">
+                                    <div class="criador-evento">
+                                        <div class="img-criador">
+                                            <img src="../assets/img/img-perfil.svg">
+                                        </div>
+                                        <div class="nome-criador">
+                                            <p>Gabriel Araujo</p>
+                                        </div>
+                                    </div>
+                                    <div class="descricao-evento">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tellus diam,
+                                            tristique quis risus non, condimentum sollicitudin nulla. Nunc fringilla, ex eu
+                                            vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
+
+                                    <div class="horario">
+                                        <div class="horario-inicio">
+                                            <p>Horário de início: 12:00 am</p>
+                                        </div>
+                                        <div class="horario-termino">
+                                            <p>Horário de término: 15:00pm</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="presenca-evento">
+                                        <div class="confirmados-evento">
+                                            <p>138 confirmados</p>
+                                        </div>
+                                        <div class="confirmar-evento">
+                                            <button>Confirmar evento</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body rounded-4">
-                        <div class="baixo">
-                            <div class="img-evento">
-                                <img src="assets/img/image 29.png">
+                    </div>
+                </div>
+            </div>
+            <div class="accordion accordion-flush" id="accordionFlushExample2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header rounded-4" id="flush-heading2">
+                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2" style="border-radius: 20px;">
+                            <div class="resumoDiv">
+                                <div class="card">
+                                    <div class="front">
+                                        <p>11</p><span>Abr</span>
+                                    </div>
+                                    <div class="back">
+                                        <p>inicio: 12am</p><span>fim: 17:45pm</span>
+                                    </div>
+                                </div>
+                                <div class="card-evento">
+                                    <div class="titulo-evento">
+                                        <p>Batalha de rima</p>
+                                    </div>
+                                    <div class="endereco-evento">
+                                        <p>Rua Guaianases</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="conteudo-evento">
-                                <div class="criador-evento">
-                                    <div class="img-criador">
-                                        <img src="assets/img/icone-pessoa.png">
-                                    </div>
-                                    <div class="nome-criador">
-                                        <p>nome criador</p>
-                                    </div>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample2">
+                        <div class="accordion-body rounded-4">
+                            <div class="baixo">
+                                <div class="img-evento">
+                                    <img src="assets/img/image 29.png">
                                 </div>
-                                <div class="descricao-evento">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tellus diam,
-                                        tristique quis risus non, condimentum sollicitudin nulla. Nunc fringilla, ex eu
-                                        vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
+                                <div class="conteudo-evento">
+                                    <div class="criador-evento">
+                                        <div class="img-criador">
+                                            <img src="../assets/img/img-perfil.svg">
+                                        </div>
+                                        <div class="nome-criador">
+                                            <p>Gabriel Araujo</p>
+                                        </div>
+                                    </div>
+                                    <div class="descricao-evento">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tellus diam,
+                                            tristique quis risus non, condimentum sollicitudin nulla. Nunc fringilla, ex eu
+                                            vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
 
-                                <div class="horario">
-                                    <div class="horario-inicio">
-                                        <p>Horário de início: 12:00 am</p>
+                                    <div class="horario">
+                                        <div class="horario-inicio">
+                                            <p>Horário de início: 12:00 am</p>
+                                        </div>
+                                        <div class="horario-termino">
+                                            <p>Horário de término: 15:00pm</p>
+                                        </div>
                                     </div>
-                                    <div class="horario-termino">
-                                        <p>Horário de término: 15:00pm</p>
-                                    </div>
-                                </div>
 
-                                <div class="presenca-evento">
-                                    <div class="confirmados-evento">
-                                        <p>138 confirmados</p>
-                                    </div>
-                                    <div class="confirmar-evento">
-                                        <button>Confirmar evento</button>
+                                    <div class="presenca-evento">
+                                        <div class="confirmados-evento">
+                                            <p>138 confirmados</p>
+                                        </div>
+                                        <div class="confirmar-evento">
+                                            <button>Confirmar evento</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -454,7 +563,10 @@
 
 
 
-        <nav class="mobile-nav">
+
+
+
+        <nav style="background-color: #fff;" class="mobile-nav">
             <a href="#" class="bloc-icon">
                 <img src="assets/img/bottomNav/icon-home.svg" alt="">
             </a>
