@@ -60,7 +60,7 @@ require_once '../../../Dao/Conexao.php';
                         </ul>
                     </div>
                     <div class="nova-pub">
-                        <button id="nova-pub" class="btn btn-primary btn-nova-pub"  data-bs-toggle="modal" data-bs-target="#modalCriarPub" type="button">Nova
+                        <button id="nova-pub" class="btn btn-primary btn-nova-pub" data-bs-toggle="modal" data-bs-target="#modalCriarPub" type="button">Nova
                             publicação</button>
                     </div>
 
@@ -69,47 +69,6 @@ require_once '../../../Dao/Conexao.php';
                             <img src="assets/img/sair.png">Sair
                         </a>
                     </div>
-
-                    <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
-
-                    <!-- <div class="dropup-center dropup">
-                        <div class="btn-perfil-sair" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="img-perfil-btn">
-                                <a href="../perfil.php"><img src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt=""></a>
-                            </div>
-                            <div class="desc-btn">
-                                <div class="btn-perfilNomes">
-                                    <div class="nome-usuario">
-                                        <h1><?PHP echo $_SESSION['nomeUsuario']; ?></h1>
-                                    </div>
-                                    <div class="nickname">
-                                        <h3><?PHP echo $_SESSION['nicknameUsuario']; ?></h3>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary" type="button">
-                                    <img src="../assets/img/btn-dropdown.svg" alt="">
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="../perfil.php">
-                                            <div class="d-flex flex-row align-items-center btn-sair">
-                                                <i class="fas fa-user"></i>
-                                                <h1>Perfil</h1>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex flex-row  align-items-center btn-sair">
-                                                <i class="fas fa-sign-out-alt"></i>
-                                                <h1>Sair</h1>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <div class="nova-pub">
@@ -235,13 +194,25 @@ require_once '../../../Dao/Conexao.php';
                                             <?PHP echo $p['descPublicacao']; ?>!
                                         </p>
                                     </div>
+                                    <div class="qnt-likes">
+                                        <p>
+                                            <!-- 10 curtidas -->
+                                            <?PHP echo $p['quantidadeCurtidas']; ?>!
+                                        </p>
+                                    </div>
                                     <div class="acoes-publicacao">
                                         <div class="box-btn-acoes">
                                             <button class="btn-acao">
-                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                <?php
+                                                if ($_SESSION['curtiu'] === false) {
+                                                    echo '<img src="assets/img/icon-estrela-btn.svg" alt="">';
+                                                } else {
+                                                    echo '<img src="assets/img/icon-like-true.svg" alt="">';
+                                                }
+                                                ?>
                                             </button>
                                             <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
-                                                <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
+                                                <!-- <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p> -->
                                                 <img src="assets/img/icon-comentario-btn.svg" alt="">
                                             </button>
                                             <button class="btn-acao">
@@ -338,7 +309,7 @@ require_once '../../../Dao/Conexao.php';
                                     <div class="acoes-publicacao">
                                         <div class="box-btn-acoes">
                                             <form id="curtida" name="Curtida" action="../../../Controller/CurtirArtista.php" method="POST">
-                                                <input type="hidden" name="idPublicacao" value= "<?PHP echo $p['idPublicacao']; ?>">
+                                                <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
                                                 <button name="cc" type="submit" class="btn-acao">
                                                     <img src="assets/img/icon-estrela-btn.svg" alt="">
                                                 </button>
@@ -392,7 +363,7 @@ require_once '../../../Dao/Conexao.php';
 
                                     </div> -->
                                 </div>
-                                                            <!-- Modal -->
+                                <!-- Modal -->
                                 <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -465,7 +436,7 @@ require_once '../../../Dao/Conexao.php';
                                         </div>
                                     </div>
                                 </div>
-                                                        <?PHP
+                            <?PHP
                             }
                             ?>
 
@@ -480,10 +451,9 @@ require_once '../../../Dao/Conexao.php';
         </div>
         <div class="box-area-info">
             <div class="area-info">
-                <div class="titulo-box-tags">
-                    <h2>Tags</h2>
-                </div>
+                
                 <div class="box-tags">
+                
                     <div class="titulo-tags">
                         <h1>Mais populares</h1>
                     </div>
@@ -532,7 +502,60 @@ require_once '../../../Dao/Conexao.php';
                 </div>
 
 
-                <div class="area-sugestao"></div>
+                <div class="area-sugestao">
+
+                    <div class="titulo-sugestao">
+                        <h1>Sugestões para seguir</h1>
+                    </div>
+
+                    <div class="box-sugestoes">
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+
+                   
+
+                  
+
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -570,7 +593,7 @@ require_once '../../../Dao/Conexao.php';
         Launch demo modal
     </button> -->
 
-    
+
 
 
     <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -697,7 +720,7 @@ require_once '../../../Dao/Conexao.php';
     <!-- ----------------------------- MODAL CRIAR PUBLICAÇÃO ------------------------------- -->
 
 
-   
+
 
 
     <div class="div-logo-marca">
@@ -707,7 +730,7 @@ require_once '../../../Dao/Conexao.php';
     </div>
 
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 
