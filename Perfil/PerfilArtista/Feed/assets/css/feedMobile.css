@@ -1637,5 +1637,6 @@ body::-webkit-scrollbar-thumb {
 
 
 .modal-backdrop{
-  position: unset!important;
+  position: relative!important;
+  display: none;
 }

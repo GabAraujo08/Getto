@@ -200,7 +200,7 @@ require_once '../../../Dao/CurtidaDao.php';
                                             <!-- 10 curtidas -->
                                             <?php
                                                 $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
-                                                echo $cc;
+                                                echo $cc . ' curtidas';
                                             ?>
                                         </p>
                                     </div>
