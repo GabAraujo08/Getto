@@ -125,11 +125,18 @@ require_once 'GlobalPerfil.php';
                                     ?>
                                 </div>
                                 <?PHP
-                                    if($_POST['usuarioNivelConta'] == 2){
+                                if ($_POST['usuarioNivelConta'] == 2) {
+                                    $conexao = Conexao::conectar();
+                                    $consulta = $conexao->prepare('SELECT idSeguidores FROM tbSeguidores WHERE idUsuario = ? AND idArtista = ?');
+                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                    $consulta->bindValue(2, $_POST['artistaId']);
+                                    $consulta->execute();
+                                    $resultado = $consulta->fetch();
+                                    if($resultado == false){
                                 ?>
                                     <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
-                                    <input type="hidden" name="idUsuario" value= "<?PHP echo $_SESSION['idUsuario'];?>">
-                                    <input type="hidden" name="idArtista" value= "<?PHP echo $_POST['artistaId'];?>">
+                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                        <input type="hidden" name="idArtista" value="<?PHP echo $_POST['artistaId']; ?>">
                                         <div class="div-btn-editar-perfil">
                                             <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
                                                 Seguir
@@ -137,8 +144,24 @@ require_once 'GlobalPerfil.php';
                                         </div>
                                     </form>
                                 <?PHP
-                                    }
+                                    }else{
                                 ?>
+
+                                    <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
+                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                        <input type="hidden" name="idArtista" value="<?PHP echo $_POST['artistaId']; ?>">
+                                        <div class="div-btn-editar-perfil">
+                                            <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
+                                                Deixar de Seguir
+                                            </button>
+                                        </div>
+                                    </form>     
+
+                                <?php
+                                    }
+                                }
+                                ?>
+
                                 
                             </div>
 

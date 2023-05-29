@@ -3,9 +3,9 @@
     session_start();
 
     if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/Feed/descobrir.php');
+        header('Location: ../Perfil/PerfilArtista/perfilMostrar.php');
     }else{
-        header('Location: ../Perfil/PerfilVisitante/Feed/descobrir.php');
+        header('Location: ../Perfil/PerfilVisitante/perfilMostrar.php');
     }
 
     $s = new Seguidores();

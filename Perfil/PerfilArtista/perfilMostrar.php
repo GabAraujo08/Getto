@@ -1,5 +1,7 @@
 <?php include('../../Controller/VerificaLogado.php');
 require_once 'GlobalPerfil.php';
+
+            
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,46 +77,53 @@ require_once 'GlobalPerfil.php';
                     <div class="box-perfil">
                         <div class="informacao-perfil">
                             <div class="papel-parede-img-perfil">
-                                    <?PHP
-                                        if($_POST['usuarioNivelConta'] == 2){
-                                    ?>
-                                        <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo  $_POST['usuarioFotoCapa']; ?>" alt="">
-                                <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_POST['usuarioFotoPerfil']; ?>" alt="">
-                                    <?PHP
-                                        }else{
-                                    ?>
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilVisitante/assets/img/FotoCapa/<?PHP echo  $_POST['usuarioFotoCapa']; ?>" alt="">
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $_POST['usuarioFotoPerfil']; ?>" alt="">
                                 <?PHP
-                                    }
+                                if ($_SESSION['usuarioNivelConta'] == 2) {
+                                ?>
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo  $_SESSION['usuarioFotoCapa']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['usuarioFotoPerfil']; ?>" alt="">
+                                <?PHP
+                                } else {
+                                ?>
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilVisitante/assets/img/FotoCapa/<?PHP echo  $_SESSION['usuarioFotoCapa']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $_SESSION['usuarioFotoPerfil']; ?>" alt="">
+                                <?PHP
+                                }
                                 ?>
                             </div>
                             <div class="area-bio">
                                 <div class="usuario-bio">
                                     <div class="area-nick-nome">
                                         <div class="nick">
-                                            <h1> <?PHP echo $_POST['usuarioNick']; ?></h1>
+                                            <h1> <?PHP echo $_SESSION['usuarioNick']; ?></h1>
                                         </div>
                                         <div class="nome">
-                                            <h1>(<?PHP echo $_POST['usuarioNome']; ?>)</h1>
+                                            <h1>(<?PHP echo $_SESSION['usuarioNome']; ?>)</h1>
                                         </div>
                                     </div>
                                     <?PHP
-                                        if($_POST['usuarioNivelConta'] == 2){
+                                    if ($_SESSION['usuarioNivelConta'] == 2) {
                                     ?>
                                         <div class="bio">
-                                            <p><?PHP echo $_POST['bio']; ?></p>
+                                            <p><?PHP echo $_SESSION['bio']; ?></p>
                                         </div>
                                     <?PHP
-                                        }
+                                    }
                                     ?>
                                 </div>
                                 <?PHP
-                                    if($_POST['usuarioNivelConta'] == 2){
+                                if ($_POST['usuarioNivelConta'] == 2) {
+                                    $conexao = Conexao::conectar();
+                                    $consulta = $conexao->prepare('SELECT idSeguidores FROM tbSeguidores WHERE idUsuario = ? AND idArtista = ?');
+                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                    $consulta->bindValue(2, $_SESSION['artistaId']);
+                                    $consulta->execute();
+                                    $resultado = $consulta->fetch();
+                                    if($resultado == false){
                                 ?>
                                     <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
-                                    <input type="hidden" name="idUsuario" value= "<?PHP echo $_SESSION['idUsuario'];?>">
-                                    <input type="hidden" name="idArtista" value= "<?PHP echo $_POST['artistaId'];?>">
+                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                        <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
                                         <div class="div-btn-editar-perfil">
                                             <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
                                                 Seguir
@@ -122,23 +131,38 @@ require_once 'GlobalPerfil.php';
                                         </div>
                                     </form>
                                 <?PHP
-                                    }
+                                    }else{
                                 ?>
-                                
+
+                                    <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
+                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                        <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
+                                        <div class="div-btn-editar-perfil">
+                                            <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
+                                                Deixar de Seguir
+                                            </button>
+                                        </div>
+                                    </form>     
+
+                                <?php
+                                    }
+                                }
+                                ?>
+
                             </div>
 
 
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
-                                    <?PHP
-                                            
-                                            $seguindo = SeguidoresDao::consultarSeguindo($_POST['usuarioId']);
+                                        <?PHP
+
+                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['usuarioId']);
                                         ?>
                                         <div class="seguindo-numero">
-                                        <p><?PHP
-                                                        echo $seguindo; 
-                                            ?></p>
+                                            <p><?PHP
+                                                echo $seguindo;
+                                                ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>
@@ -146,21 +170,21 @@ require_once 'GlobalPerfil.php';
                                     </div>
                                     <div class="seguidores">
 
-                                        
+
                                         <?PHP
-                                            if($_POST['usuarioNivelConta'] == 2){
-                                                $seguimores = SeguidoresDao::consultarSeguidores($_POST['artistaId']);
+                                        if ($_POST['usuarioNivelConta'] == 2) {
+                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['artistaId']);
                                         ?>
                                             <div class="seguidores-numero">
-                                            <p><?PHP
-                                                        echo $seguimores; 
-                                            ?></p>
+                                                <p><?PHP
+                                                    echo $seguimores;
+                                                    ?></p>
                                             </div>
                                             <div class="seguidores-text">
                                                 <h1>Seguidores</h1>
                                             </div>
                                         <?PHP
-                                            }
+                                        }
                                         ?>
                                     </div>
                                 </div>
@@ -203,16 +227,16 @@ require_once 'GlobalPerfil.php';
                             </div>
                             <div class="criar-evento">
                                 <div class="titulo-box-evento">
-                                <?PHP
-                                        if($_POST['usuarioNivelConta'] == 2){
+                                    <?PHP
+                                    if ($_POST['usuarioNivelConta'] == 2) {
                                     ?>
                                         <h1>Eventos de </h1>
                                     <?PHP
-                                        }
+                                    }
                                     ?>
-                               
+
                                 </div>
-                                
+
                             </div>
 
                             <div class="container box-eventos">
@@ -371,24 +395,24 @@ require_once 'GlobalPerfil.php';
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Capa</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
-                    <div class="modal-body">
 
-                        <div class="div-img-capa">
-                            <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papelParedeUsuario']; ?>" alt="">
-                        </div>
+                <div class="modal-body">
 
-                        <div class="btn-mudar-capa">
-                            <input type="file" name="fotoCapa" id="input-papel-parede-modal" accept="image/*" style="display: none;">
+                    <div class="div-img-capa">
+                        <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papelParedeUsuario']; ?>" alt="">
+                    </div>
 
-                        </div>
+                    <div class="btn-mudar-capa">
+                        <input type="file" name="fotoCapa" id="input-papel-parede-modal" accept="image/*" style="display: none;">
 
-                        <!-- <div class="preview">
+                    </div>
+
+                    <!-- <div class="preview">
                             <img id="preview-img" src="" alt="">
                         </div> -->
 
-                    </div>
-                    
+                </div>
+
             </div>
         </div>
     </div>
@@ -406,22 +430,22 @@ require_once 'GlobalPerfil.php';
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ver foto de perfil</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
-                    <div class="modal-body">
-                        <div class="div-img-usuario">
-                            <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
-                        </div>
 
-                        <div class="btn-mudar-capa">
-                            <input type="file" name="fotoPerfil" id="input-perfil-modal" accept="image/*" style="display: none;">
+                <div class="modal-body">
+                    <div class="div-img-usuario">
+                        <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                    </div>
 
-                        </div>
+                    <div class="btn-mudar-capa">
+                        <input type="file" name="fotoPerfil" id="input-perfil-modal" accept="image/*" style="display: none;">
 
-                        <!-- <div class="preview">
+                    </div>
+
+                    <!-- <div class="preview">
                             <img id="preview-img" src="" alt="">
                         </div> -->
-                    </div>
-                    
+                </div>
+
             </div>
         </div>
     </div>

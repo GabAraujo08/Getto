@@ -678,6 +678,8 @@ require_once '../../../Dao/Conexao.php';
               $a = ArtistaDao::consultarArtista($row['idUsuario']);
               $html .= '<input type="hidden" name="bio" value= "' . $a['bioArtista'] . '">';
               $html .= '<input type="hidden" name="artistaId" value= "' . $a['idArtista'] . '">';
+              $_SESSION['bio'] = $a['bioArtista'];
+              $_SESSION['artistaId'] = $a['idArtista'];
             } else {
               $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">';
             }
@@ -690,12 +692,20 @@ require_once '../../../Dao/Conexao.php';
             $html .= '<button type="submit">' . $row['nicknameUsuario'] . '</button>';
             $html .= '</li>';
             $html .= '</form>';
+
+            $_SESSION['usuarioNivelConta'] = $row['nivelContaUsuario'];
+            $_SESSION['usuarioFotoPerfil'] = $row['fotoPerfilUsuario'];
+            $_SESSION['usuarioFotoCapa'] = $row['papelParedeUsuario'];
+            $_SESSION['usuarioNome'] = $row['nomeUsuario'];
+            $_SESSION['usuarioNick'] = $row['nicknameUsuario'];
+            $_SESSION['usuarioId'] = $row['idUsuario'];
           }
           echo '<ul id="results">' . $html . '</ul>';
         } else {
           echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
         }
       }
+   
       ?>
 
     </div>
