@@ -313,7 +313,7 @@ require_once 'GlobalPerfil.php';
 
                         </div>
 
-                        <div class="criar-evento">
+                        <!-- <div class="criar-evento">
                             <div class="titulo-box-evento">
                                 <h1>Seus eventos</h1>
                             </div>
@@ -322,7 +322,7 @@ require_once 'GlobalPerfil.php';
                                     Criar Evento
                                 </button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
