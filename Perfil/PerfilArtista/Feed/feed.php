@@ -662,6 +662,10 @@ require_once '../../../Dao/CurtidaDao.php';
         <div class="logo-marca">
             <img src="assets/img/logomarca.png" alt="">
         </div>
+
+        <div class="notificacoes">
+        <i style="font-size: 26px;" class="fa-solid fa-bell"></i>
+        </div>
     </div>
 
 
