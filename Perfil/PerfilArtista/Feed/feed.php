@@ -1,6 +1,7 @@
 <?php include('../../../Controller/VerificaLogado.php');
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
+require_once '../../../Dao/CurtidaDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -197,7 +198,10 @@ require_once '../../../Dao/Conexao.php';
                                     <div class="qnt-likes">
                                         <p>
                                             <!-- 10 curtidas -->
-                                            <?PHP echo $p['quantidadeCurtidas']; ?>!
+                                            <?php
+                                                $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
+                                                echo $cc;
+                                            ?>
                                         </p>
                                     </div>
                                     <div class="acoes-publicacao">
@@ -205,13 +209,45 @@ require_once '../../../Dao/Conexao.php';
                                             <button class="btn-acao">
                                                 <?php
                                                     $conexao = Conexao::conectar();
+                                                    $consulta = $conexao->prepare('SELECT idCurtida, idPublicacao FROM tbCurtida WHERE idUsuario = ?');
+                                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                                    $consulta->execute();
+                                                    $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+
+                                                    if($resultado == false){
                                                 ?>
-                                                     <form id="curtida" name="Curtida" action="../../../Controller/CurtirArtista.php" method="POST">
+
+                                                <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
                                                         <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
                                                         <button name="cc" type="submit" class="btn-acao">
                                                             <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                        </button><img src="assets/img/icon-like-true.svg" alt="">
+                                                        </button>
                                                     </form>
+
+                                                <?php
+                                                    }else if(!in_array($p['idPublicacao'], array_column($resultado, 'idPublicacao'))){
+                                                ?>
+                                                     <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                        <button name="cc" type="submit" class="btn-acao">
+                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                                    }else{
+                                                ?>
+
+                                                        <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
+                                                            <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                            <button name="cc" type="submit" class="btn-acao">
+                                                            <img src="assets/img/icon-like-true.svg" alt="">
+                                                            </button>
+                                                        </form>
+
+                                                <?php
+                                                    }
+                                                ?>
                                                 
                                             </button>
                                             <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
