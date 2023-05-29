@@ -33,7 +33,7 @@ require_once '../../../Dao/Conexao.php';
                             <a href="">
                                 <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                             </a>
-                            <a href="../../PerfilArtista/Evento/eventoArtista.php">
+                            <a href="../Evento/eventoVisitante.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
                             <a href="">
@@ -431,7 +431,7 @@ require_once '../../../Dao/Conexao.php';
 
 
     <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
@@ -573,7 +573,7 @@ require_once '../../../Dao/Conexao.php';
     </div>
 
     <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando @gabbs</h1>

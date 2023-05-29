@@ -8,369 +8,11 @@
     <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/feedMobile.css">
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="../../PerfilArtista/Evento/assets/css/eventoArtista.css">
+    <link rel="stylesheet" href="../../PerfilArtista/assets/css/preview-criar-evento.css">
+   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
 </head>
-
-<style>
-    a {
-        text-decoration: none;
-    }
-
-    @font-face {
-        font-family: 'InterRegular';
-        src: url('../fonts/Inter-Regular.ttf');
-    }
-
-    .resumoDiv {
-        display: flex;
-        margin-left: 5%;
-    }
-
-    .card {
-        position: relative;
-        width: 160px;
-        height: 100px;
-        border-radius: 20px;
-        background-color: #E1E1E6;
-        border: none;
-    }
-
-    .card .front:after {
-        position: absolute;
-        content: '';
-        right: 0;
-        top: 0;
-        border-bottom: 30px solid #9056E8;
-        border-right: 30px solid #E1E1E6;
-    }
-
-    .card div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        backface-visibility: hidden;
-        transition: 1s;
-    }
-
-    .card .front {
-        background: #664187;
-        transform: perspective(500px) rotateY(0deg);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .card .back {
-        background: #9056E8;
-        transform: perspective(500px) rotateY(180deg);
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    .card:hover .front {
-        transform: perspective(100px) rotateY(180deg);
-    }
-
-    .card:hover .back {
-        transform: perspective(100px) rotateY(360deg);
-    }
-
-    .card .front p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 26px;
-        color: #FFFFFF;
-    }
-
-    .card .front span {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 26px;
-        color: #FFFFFF;
-    }
-
-    .card .back p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        color: #FFFFFF;
-    }
-
-    .card .back span {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        color: #FFFFFF;
-    }
-
-    .criador-evento {
-        display: flex;
-        align-items: center;
-    }
-
-    .criador-evento .img-criador {
-        width: 53px;
-        height: 53px;
-        max-width: 53px;
-        max-height: 53px;
-        border-radius: 100%;
-    }
-
-
-    .criador-evento .img-criador img {
-        width: 100%;
-    }
-
-    .criador-evento .nome-criador p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 0;
-        margin-left: 10px;
-    }
-
-    .baixo .img-evento {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .conteudo-evento .descricao-evento p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    .conteudo-evento {
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        padding-bottom: 0px;
-    }
-
-    .conteudo-evento .confirmar-evento button {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 22px;
-        color: #FFFFFF;
-        background: #664187;
-        border-radius: 15px;
-        border: none;
-        width: 200px;
-        height: 50px;
-        transition: 0.3s;
-    }
-
-
-    .conteudo-evento .confirmar-evento button:hover {
-
-        background: #542183;
-
-    }
-
-    .presenca-evento {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .presenca-evento .confirmados-evento {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 15px;
-        line-height: 22px;
-    }
-
-    .baixo {
-        display: flex;
-        height: 400px;
-        align-items: center;
-    }
-
-    .card-evento {
-        width: 100%;
-        border-radius: 20px;
-        margin-left: 10%;
-    }
-
-    .card-evento .titulo-evento p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 39px;
-    }
-
-    .card-evento .endereco-evento p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 29px;
-    }
-
-    .box-eventos {
-        width: 100%;
-        margin-left: 315px;
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    /* #accordionFlushExample {
-        width: 100%;
-        margin-left: 315px;
-        margin-top: 30px;
-        background-color: #E1E1E6;
-        margin-right: 20px;
-    } */
-
-
-    .accordion-item {
-        background-color: #E1E1E6;
-        border-radius: 20px;
-    }
-
-    .accordion-button {
-        background-color: #E1E1E6;
-        border-radius: 20px;
-    }
-
-    .accordion-button:not(.collapsed) {
-        color: #664187;
-        background-color: #E1E1E6;
-        box-shadow: #9056E8;
-    }
-
-    .accordion-button:focus {
-        border-color: #9056E8;
-        box-shadow: 0 0 0 0.25rem rgba(92, 2, 128, 0.25);
-    }
-
-    .horario-inicio p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-    }
-
-    .horario-termino p {
-        font-family: 'InterRegular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 19px;
-        display: flex;
-        align-items: center;
-    }
-
-    @media(max-width: 980px) {
-        .box-eventos {
-            margin-left: 0;
-        }
-    }
-
-    @media screen and (max-width: 1550px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 21%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-            margin-right: 2%;
-        }
-    }
-
-    @media screen and (max-width: 1440px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 21%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-            margin-right: 2%;
-        }
-    }
-
-    @media screen and (max-width: 1300px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 30%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-            margin-right: 5%;
-        }
-    }
-
-    @media screen and (max-width: 1000px) {
-        #accordionFlushExample {
-            width: 80%;
-            margin-left: 35%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-            margin-right: 2%;
-        }
-    }
-
-    @media screen and (max-width: 979px) {
-        #accordionFlushExample {
-            width: 100%;
-            margin-left: 2%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-            margin-right: 2%;
-        }
-    }
-
-    @media screen and (max-width: 300px) {
-        #accordionFlushExample {
-            width: 100%;
-            margin-left: 2%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-            margin-right: 2%;
-        }
-    }
-
-    @media screen and (max-width: 730px) {
-        #accordionFlushExample {
-            width: 100%;
-            margin-left: 2%;
-            margin-top: 3%;
-            background-color: #E1E1E6;
-            margin-right: 2%;
-        }
-
-        .baixo {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-</style>
 
 <body>
 
@@ -402,12 +44,12 @@
                         <a href="../Feed/descobrir.php">
                             <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                         </a>
-                        <a href="../perfil.php">
+                        <a href="../perfil-visitante.php">
                             <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                         </a>
                     </ul>
                 </div>
-                <div style="display: none;" class="nova-pub">
+                <div class="nova-pub">
                     <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
                 </div>
 
@@ -420,7 +62,7 @@
             </div>
         </div>
 
-        <div class="box-eventos">
+        <div style="margin-top: 92px;" class="box-eventos">
             <div class="accordion accordion-flush" id="accordionFlushExample1">
                 <div class="accordion-item">
                     <h2 class="accordion-header rounded-4" id="flush-heading1">
@@ -481,7 +123,7 @@
                                             <p>138 confirmados</p>
                                         </div>
                                         <div class="confirmar-evento">
-                                            <button>Confirmar evento</button>
+                                            <button>Confirmar presença</button>
                                         </div>
                                     </div>
                                 </div>
@@ -550,7 +192,7 @@
                                             <p>138 confirmados</p>
                                         </div>
                                         <div class="confirmar-evento">
-                                            <button>Confirmar evento</button>
+                                            <button>Confirmar presença</button>
                                         </div>
                                     </div>
                                 </div>
@@ -612,6 +254,133 @@
             </div>
         </div>
 
+
+<!-- ----------------------------- MODAL CRIAR EVENTO -------------------------- -->
+
+<div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo evento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
+                        <div class="container">
+                            <div class="lado-esquerdo">
+                                <label>Inserir título: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" name="tituloEvento" class="form-control" placeholder="título">
+                                </div>
+                                <div class="hora">
+                                    <div class="inicio">
+                                        <label for="horario">Horário de início: </label>
+                                        <div class="input-group mb-3">
+                                            <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
+                                        </div>
+                                    </div>
+                                    <div class="termino">
+                                        <label>Horário de término: </label>
+                                        <div class="input-group mb-3">
+                                            <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="data">
+                                    <label for="data">Selecione uma data:</label>
+                                    <div class="input-group mb-3">
+                                        <input type="date" name="dataEvento" id="data">
+                                    </div>
+                                    <label>Número de endereço: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
+                                    </div>
+                                </div>
+                                <label>Endereço: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="logradouro" placeholder="endereço">
+                                </div>
+                                <label>Bairro: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="bairroEvento" placeholder="bairro">
+                                </div>
+                                <label>CEP: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="cepEvento" placeholder="cep">
+                                </div>
+                                <label>Cidade: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="cidEvento" placeholder="cidade">
+                                </div>
+                                <label>Estado: </label>
+                                <div class="input-group mb-3">
+                                    <select id="estado-evento" name="estadoEvento" class="select-estado">
+                                        <option value="AC">Selecionar</option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
+                                        <option value="EX">Estrangeiro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="lado-direito">
+                                <div class="input-group mb-3">
+                                    <div class="preview-img">
+                                        <label class="picture" for="picture__input" tabIndex="0">
+                                            <span class="picture__image"></span>
+                                        </label>
+                                        <input type="file" name="imagemEvento" id="picture__input">
+                                    </div>
+                                </div>
+                                <label>Descrição do evento</label>
+                                <div class="input-group mb-3">
+                                    <input type="textarea" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <button type="submit" class="btn">Concluir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="div-logo-marca">
+            <div class="logo-marca">
+                <img src="assets/img/logomarca.png" alt="">
+            </div>
+            <div class="btn-criar-evento">
+                <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalCriarEvento">Criar evento</button>
+            </div>
+        </div>
+
         <script>
             const card = document.querySelector("#card")
             card.addEventListener("mouseenter", (e) => {
@@ -622,7 +391,7 @@
                 card.classList.toggle("flip")
             })
         </script>
-
+    <script src="../../PerfilArtista/assets/js/preview.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

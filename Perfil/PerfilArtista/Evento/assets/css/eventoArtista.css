@@ -1,3 +1,411 @@
+a {
+  text-decoration:none !important;
+  
+}
+
+@font-face {
+  font-family: 'InterRegular';
+  src: url('../fonts/Inter-Regular.ttf');
+}
+
+.resumoDiv {
+  display: flex;
+  margin-left: 5%;
+}
+
+.card {
+  position: relative;
+  width: 160px;
+  height: 100px;
+  border-radius: 20px;
+  background-color: #E1E1E6;
+  border: none;
+}
+
+.card .front:after {
+  position: absolute;
+  content: '';
+  right: 0;
+  top: 0;
+  border-bottom: 30px solid #9056E8;
+  border-right: 30px solid #E1E1E6;
+}
+
+.card div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transition: 1s;
+}
+
+.card .front {
+  background: #664187;
+  transform: perspective(500px) rotateY(0deg);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .back {
+  background: #9056E8;
+  transform: perspective(500px) rotateY(180deg);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.card:hover .front {
+  transform: perspective(100px) rotateY(180deg);
+}
+
+.card:hover .back {
+  transform: perspective(100px) rotateY(360deg);
+}
+
+.card .front p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  color: #FFFFFF;
+}
+
+.card .front span {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  color: #FFFFFF;
+}
+
+.card .back p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.card .back span {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+.criador-evento {
+  display: flex;
+  align-items: center;
+}
+
+.criador-evento .img-criador {
+  width: 53px;
+  height: 53px;
+  max-width: 53px;
+  max-height: 53px;
+  border-radius: 100%;
+}
+
+
+.criador-evento .img-criador img {
+  width: 100%;
+}
+
+.criador-evento .nome-criador p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.baixo .img-evento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.conteudo-evento .descricao-evento p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.conteudo-evento {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.conteudo-evento .confirmar-evento button {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  color: #FFFFFF;
+  background: #664187;
+  border-radius: 15px;
+  border: none;
+  width: 200px;
+  height: 50px;
+  transition: 0.3s;
+}
+
+
+.conteudo-evento .confirmar-evento button:hover {
+
+  background: #542183;
+
+}
+
+.presenca-evento {
+  display: flex;
+  justify-content: space-between;
+}
+
+.presenca-evento .confirmados-evento {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.baixo {
+  display: flex;
+  height: 275px;
+  align-items: center;
+}
+
+.card-evento {
+  width: 100%;
+  border-radius: 20px;
+  margin-left: 10%;
+}
+
+.card-evento .titulo-evento p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+}
+
+.card-evento .endereco-evento p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.box-eventos {
+  width: 100%;
+  height: 100vh;
+  margin-left: 315px;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* #accordionFlushExample {
+  width: 100%;
+  margin-left: 315px;
+  margin-top: 30px;
+  background-color: #E1E1E6;
+  margin-right: 20px;
+} */
+
+
+.accordion-item {
+  background-color: #E1E1E6;
+  border-radius: 20px;
+}
+
+.accordion-button {
+  background-color: #E1E1E6;
+  border-radius: 20px;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #664187!important;
+  background-color: #E1E1E6;
+  box-shadow: #9056E8;
+}
+
+.accordion-button:focus {
+  border-color: #9056E8;
+  box-shadow: 0 0 0 0.25rem rgba(92, 2, 128, 0.25);
+}
+
+.horario-inicio p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+}
+
+.horario-termino p {
+  font-family: 'InterRegular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+}
+
+@media(max-width: 980px) {
+  .box-eventos {
+      margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1550px) {
+  #accordionFlushExample {
+      width: 80%;
+      margin-left: 21%;
+      margin-top: 3%;
+      background-color: #E1E1E6;
+      margin-right: 2%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  #accordionFlushExample {
+      width: 80%;
+      margin-left: 21%;
+      margin-top: 3%;
+      background-color: #E1E1E6;
+      margin-right: 2%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #accordionFlushExample {
+      width: 80%;
+      margin-left: 30%;
+      margin-top: 3%;
+      background-color: #E1E1E6;
+      margin-right: 5%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #accordionFlushExample {
+      width: 80%;
+      margin-left: 35%;
+      margin-top: 3%;
+      background-color: #E1E1E6;
+      margin-right: 2%;
+  }
+}
+
+@media screen and (max-width: 979px) {
+  #accordionFlushExample {
+      width: 100%;
+      margin-left: 2%;
+      margin-top: 3%;
+      background-color: #E1E1E6;
+      margin-right: 2%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  #accordionFlushExample {
+      width: 100%;
+      margin-left: 2%;
+      margin-top: 3%;
+      background-color: #E1E1E6;
+      margin-right: 2%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  #accordionFlushExample {
+      width: 100%;
+      margin-left: 2%;
+      margin-top: 3%;
+      background-color: #E1E1E6;
+      margin-right: 2%;
+  }
+
+  .baixo {
+      display: flex;
+      flex-direction: column;
+  }
+}
+
+
+
+
+.div-logo-marca {
+width: 100vw;
+height: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
+position: fixed;
+top: 0;
+background-color: #fff;
+
+}
+
+.div-logo-marca .logo-marca img {
+height: 35px;
+width: 35px;
+}
+
+.btn-criar-evento{
+position: absolute;
+right: 45px;
+}
+
+
+.btn-criar-evento button {
+  font-family: 'InterBold';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    color: #FFFFFF;
+    background: #664187;
+    border-radius: 5px;
+    border: none;
+}
+
+.btn-criar-evento button:hover{
+  background: #4e2672;
+}
+
+.btn-criar-evento button:focus{
+  background: #4e2672!important;
+  box-shadow: unset!important;
+}
+
+
 .sair {
   width: 100%;
   display: flex;
@@ -95,4 +503,120 @@ margin-right: 5px;
 
 .modal-footer {
   justify-content: space-between!important;
+}
+
+.modal {
+  --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(var(--bs-body-color-rgb), 0.075);
+
+}
+
+
+
+
+#modalCriarEvento .input-group {
+	width: 100%;
+}
+
+#modalCriarEvento .modal-body .hora {
+	display: flex;
+	justify-content: space-between;
+}
+
+#modalCriarEvento #horario {
+	width: 20%;
+}
+
+#modalCriarEvento .modal-body label {
+	font-family: 'InterBold';
+}
+
+#modalCriarEvento .modal-body .hora label {
+	display: flex;
+	flex-direction: column;
+	font-family: 'InterBold';
+}
+
+#modalCriarEvento .modal-body .container {
+	display: flex;
+}
+
+#modalCriarEvento .modal-body .container .lado-esquerdo {
+	width: 50%;
+	margin-right: 15px;
+}
+
+#modalCriarEvento .modal-body .container .lado-direito {
+	width: 50%;
+	margin-right: 5%;
+}
+
+#modalCriarEvento .modal-body .container .input-group input {
+	border: 2px solid #664187;
+	border-radius: 10px;
+	box-shadow: none;
+	font-family: 'InterRegular';
+}
+
+#modalCriarEvento .preview-img {
+	margin-top: 5%;
+}
+
+#modalCriarEvento #desc-evento placeholder {
+	display: flex;
+	flex-direction: s;
+}
+
+#modalCriarEvento .modal-body .container .input-group select {
+	border: 2px solid #664187;
+	border-radius: 10px;
+	box-shadow: none;
+	width: 100%;
+	height: 40px;
+}
+
+#modalCriarEvento .footer .btn {
+	background-color: #664187;
+	color: white;
+	border-radius: 12.3967px;
+	width: 115px;
+}
+
+#modalCriarEvento .footer {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 5%;
+}
+
+#modalCriarEvento .modal-body .container .input-group:focus {
+	border: 2px solid #150a1f !important;
+	box-shadow: none;
+}
+
+#modalCriarEvento .modal-body>input[type='date']::-webkit-calendar-picker-indicator {
+	color: #fff;
+	background-color: #007bff;
+	border-radius: 50%;
+	width: 24px;
+	height: 24px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+@media (max-width: 992px) {
+	#modalCriarEvento .modal-body .container .lado-esquerdo {
+		width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+
+	#modalCriarEvento .modal-body .container .lado-direito {
+		width: 100% !important;
+
+		margin-right: 5% !important;
+	}
+
+	#modalCriarEvento .modal-body .container {
+		display: flex !important;
+		flex-direction: column !important;
+	}
 }

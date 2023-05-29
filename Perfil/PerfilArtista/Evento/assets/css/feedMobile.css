@@ -644,6 +644,11 @@ border-radius: 15px;
   }
   }
 
-
+  .modal-backdrop {
+  position: relative!important;
+   
+    display: none;
+    
+}
 
 
