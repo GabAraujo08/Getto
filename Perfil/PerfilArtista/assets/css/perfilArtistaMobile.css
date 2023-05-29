@@ -52,6 +52,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: -100;
 }
 
 .div-logo-marca .logo-marca img {
@@ -534,6 +535,7 @@ body {
 	justify-content: center;
 	width: 100%;
 	overflow: auto;
+	margin-top: 50px;
 }
 
 .container-fluid {

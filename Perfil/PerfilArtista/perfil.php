@@ -318,7 +318,7 @@ require_once 'GlobalPerfil.php';
                                 <h1>Seus eventos</h1>
                             </div>
                             <div class="btn-criar-evento">
-                                <button class="btn-criar-evento" value="" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">
+                                <button class="btn-criar-evento" value="">
                                     Criar Evento
                                 </button>
                             </div>
