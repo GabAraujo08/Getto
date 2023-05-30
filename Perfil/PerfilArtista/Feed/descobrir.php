@@ -693,12 +693,7 @@ require_once '../../../Dao/Conexao.php';
             $html .= '</li>';
             $html .= '</form>';
 
-            $_SESSION['usuarioNivelConta'] = $row['nivelContaUsuario'];
-            $_SESSION['usuarioFotoPerfil'] = $row['fotoPerfilUsuario'];
-            $_SESSION['usuarioFotoCapa'] = $row['papelParedeUsuario'];
-            $_SESSION['usuarioNome'] = $row['nomeUsuario'];
-            $_SESSION['usuarioNick'] = $row['nicknameUsuario'];
-            $_SESSION['usuarioId'] = $row['idUsuario'];
+            
           }
           echo '<ul id="results">' . $html . '</ul>';
         } else {

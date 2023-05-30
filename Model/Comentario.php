@@ -1,10 +1,12 @@
 <?php
 
 class Comentario{
-    public $idComentario;
-    public $comentario;
-    public $statusComentario;
-    public $numCurtidaComentario;
+    private $idComentario;
+    private $comentario;
+    private $statusComentario;
+    private $numCurtidaComentario;
+    private $idPublicacao;
+    private $idUsuario;
 
 
     public function getIdComentario(){
@@ -14,13 +16,28 @@ class Comentario{
         $this->idComentario = $id;
     }
 
+    public function getIdUsuario(){
+        return $this->idUsuario;
+    }
+    public function setIdUsuario($id){
+        $this->idUsuario = $id;
+    }
+
+
+    public function getIdPublicacao(){
+        return $this->idPublicacao;
+    }
+    public function setIdPublicacao($id){
+        $this->idPublicacao = $id;
+    }
+
 
 
     public function getComentario(){
-        return $this->Comentario;
+        return $this->comentario;
     }
     public function setComentario($coment){
-        $this->Comentario = $coment;
+        $this->comentario = $coment;
     }
 
 

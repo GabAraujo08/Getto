@@ -250,7 +250,7 @@ require_once '../../../Dao/CurtidaDao.php';
                                                 ?>
                                                 
                                             </button>
-                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
+                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal<?PHP echo $p['idPublicacao']; ?>" style="position: relative;" id="btnComentario" class="btn-acao">
                                                 <!-- <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p> -->
                                                 <img src="assets/img/icon-comentario-btn.svg" alt="">
                                             </button>
@@ -299,7 +299,7 @@ require_once '../../../Dao/CurtidaDao.php';
                                     </div> -->
                                 </div>
                                 <!-- Modal -->
-                                <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="comentarioModal<?PHP echo $p['idPublicacao']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -334,12 +334,14 @@ require_once '../../../Dao/CurtidaDao.php';
                                                 <div id="divComentario" class="comentario slide-in">
 
                                                     <div class="box-text-area">
-                                                        <form action="#">
+                                                        <form method="POST" id="coment" action="../../../Controller/Comentario.php">
                                                             <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                         </textarea>
+                                                        <input type="hidden" name="idPubli" value= "<?PHP echo $p['idPublicacao']; ?>">
+                                                        <input type="hidden" name="idUsua" value= "<?PHP echo $_SESSION['idUsuario']; ?>">
                                                             <div class="box-btn-comentario">
-                                                                <button class="btn btn-primary">
+                                                                <button type="submit" class="btn btn-primary">
                                                                     <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
                                                                 </button>
                                                             </div>
