@@ -1,20 +1,23 @@
 <?php
      require_once 'GlobalDao.php';
      class ComentarioDao{
-         public static function cadastrar($artista){
-             $conexao = Conexao::conectar();
+        public static function cadastrar($c){
+            $conexao = Conexao::conectar();
  
-             $queryInsert = "INSERT INTO tbArtista(generoArtista, bioArtista, portfolio, idUsuario)
-                             VALUES(?, ?, ?, ?)";
+            $queryInsert = "INSERT INTO tbComentario(comentario, numCurtidasComentario, statusComentario, idUsuario, idPublicacao)
+                            VALUES(?, ?, ?, ?, ?)";
              
-             $prepareStatement = $conexao->prepare($queryInsert);
+            $prepareStatement = $conexao->prepare($queryInsert);
              
-             $prepareStatement->bindValue(1, $artista->getGeneroArtista());
-             $prepareStatement->bindValue(2, $artista->getBioArtista());
-             $prepareStatement->bindValue(3, $artista->getPortfolioArtista());
-             $prepareStatement->bindValue(4, $artista->getUsuario());
-             $prepareStatement->execute();
-             return 'Cadastrou';
-         }
+            $prepareStatement->bindValue(1, $c->getComentario());
+            $prepareStatement->bindValue(2, $c->getNumCurtidaComentario());
+            $prepareStatement->bindValue(3, $c->getStatusComentario());
+            $prepareStatement->bindValue(4, $c->getIdUsuario());
+            $prepareStatement->bindValue(5, $c->getIdPublicacao());
+            
+            $prepareStatement->execute();
+            
+            return 'Cadastrou';
+        }
     }
 ?>
