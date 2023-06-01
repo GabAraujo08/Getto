@@ -200,8 +200,8 @@ require_once '../../../Dao/ComentarioDao.php';
                                         <p>
                                             <!-- 10 curtidas -->
                                             <?php
-                                                $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
-                                                echo $cc . ' curtidas';
+                                            $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
+                                            echo $cc . ' curtidas';
                                             ?>
                                         </p>
                                     </div>
@@ -209,17 +209,17 @@ require_once '../../../Dao/ComentarioDao.php';
                                         <div class="box-btn-acoes">
                                             <button class="btn-acao">
                                                 <?php
-                                                    $conexao = Conexao::conectar();
-                                                    $consulta = $conexao->prepare('SELECT idCurtida, idPublicacao FROM tbCurtida WHERE idUsuario = ?');
-                                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
-                                                    $consulta->execute();
-                                                    $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+                                                $conexao = Conexao::conectar();
+                                                $consulta = $conexao->prepare('SELECT idCurtida, idPublicacao FROM tbCurtida WHERE idUsuario = ?');
+                                                $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                                $consulta->execute();
+                                                $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
 
-                                                    if($resultado == false){
+                                                if ($resultado == false) {
                                                 ?>
 
-                                                <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
                                                         <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
                                                         <button name="cc" type="submit" class="btn-acao">
                                                             <img src="assets/img/icon-estrela-btn.svg" alt="">
@@ -227,29 +227,29 @@ require_once '../../../Dao/ComentarioDao.php';
                                                     </form>
 
                                                 <?php
-                                                    }else if(!in_array($p['idPublicacao'], array_column($resultado, 'idPublicacao'))){
+                                                } else if (!in_array($p['idPublicacao'], array_column($resultado, 'idPublicacao'))) {
                                                 ?>
-                                                     <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
                                                         <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
                                                         <button name="cc" type="submit" class="btn-acao">
                                                             <img src="assets/img/icon-estrela-btn.svg" alt="">
                                                         </button>
                                                     </form>
                                                 <?php
-                                                    }else{
+                                                } else {
                                                 ?>
 
-                                                        <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
-                                                            <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                            <button name="cc" type="submit" class="btn-acao">
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
+                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                        <button name="cc" type="submit" class="btn-acao">
                                                             <img src="assets/img/icon-like-true.svg" alt="">
-                                                            </button>
-                                                        </form>
+                                                        </button>
+                                                    </form>
 
                                                 <?php
-                                                    }
+                                                }
                                                 ?>
-                                                
+
                                             </button>
                                             <button data-bs-toggle="modal" data-bs-target="#comentarioModal<?PHP echo $p['idPublicacao']; ?>" style="position: relative;" id="btnComentario" class="btn-acao">
                                                 <!-- <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p> -->
@@ -300,78 +300,81 @@ require_once '../../../Dao/ComentarioDao.php';
                                     </div> -->
                                 </div>
                                 <!-- Modal -->
-                                <div class="modal fade" id="comentarioModal<?PHP echo $p['idPublicacao']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de <?PHP echo $p['nicknameUsuario']; ?> </h1>
+                                <div class="modal-comentario">
+
+
+                                    <div class="modal fade" id="comentarioModal<?PHP echo $p['idPublicacao']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de <?PHP echo $p['nicknameUsuario']; ?> </h1>
 
 
 
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <!-- <div class="box-input-search">
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- <div class="box-input-search">
                                                     <input class="busca-comentario" type="search" placeholder="Busque um comentário">
 
                                                 </div>
                                                 <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
-                                                <?php
+                                                    <?php
                                                     $come = ComentarioDao::listarComentario($p['idPublicacao']);
-                                                    foreach($come as $c){
+                                                    foreach ($come as $c) {
 
-                                                ?>
-                                                <div class="box-comentario">
-                                                <?PHP
-                                                    if ($c['nivelContaUsuario'] == 2) {
                                                     ?>
-                                                       <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
-                                                    <?PHP
-                                                    } else {
-                                                    ?>
-                                                        <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
-                                                    <?PHP
-                                                    }
-                                                    ?>
-                                                    <div class="conteudo-comentario">
-                                                        <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
-                                                        <p><?PHP echo $c['comentario']; ?></p>
-                                                        <div class="box-btn-denuncia">
-                                                            <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                        <div class="box-comentario">
+                                                            <?PHP
+                                                            if ($c['nivelContaUsuario'] == 2) {
+                                                            ?>
+                                                                <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                            <?PHP
+                                                            } else {
+                                                            ?>
+                                                                <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                            <?PHP
+                                                            }
+                                                            ?>
+                                                            <div class="conteudo-comentario">
+                                                                <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
+                                                                <p><?PHP echo $c['comentario']; ?></p>
+                                                                <div class="box-btn-denuncia">
+                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <?php
+                                                    <?php
                                                     }
-                                                ?>
+                                                    ?>
 
 
 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <div id="divComentario" class="comentario slide-in">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div id="divComentario" class="comentario slide-in">
 
-                                                    <div class="box-text-area">
-                                                        <form method="POST" id="coment" action="../../../Controller/Comentario.php">
-                                                            <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
+                                                        <div class="box-text-area">
+                                                            <form method="POST" id="coment" action="../../../Controller/Comentario.php">
+                                                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                         </textarea>
-                                                        <input type="hidden" name="idPubli" value= "<?PHP echo $p['idPublicacao']; ?>">
-                                                        <input type="hidden" name="idUsua" value= "<?PHP echo $_SESSION['idUsuario']; ?>">
-                                                            <div class="box-btn-comentario">
-                                                                <button type="submit" class="btn btn-primary">
-                                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                                </button>
-                                                            </div>
-                                                        </form>
+                                                                <input type="hidden" name="idPubli" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                                <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                                                <div class="box-btn-comentario">
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+
+
+
+
                                                     </div>
-
-
-
-
-
-                                                </div>
-                                                <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                                                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
                                                     <div class="box-text-area">
                                                         <form action="#">
                                                             <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
@@ -387,13 +390,14 @@ require_once '../../../Dao/ComentarioDao.php';
                                                 </div> -->
 
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                <?PHP
+                            }
+                                ?>
                                 </div>
-                            <?PHP
-                                }
-                            ?>
 
 
 
@@ -406,9 +410,9 @@ require_once '../../../Dao/ComentarioDao.php';
         </div>
         <div class="box-area-info">
             <div class="area-info">
-                
+
                 <div class="box-tags">
-                
+
                     <div class="titulo-tags">
                         <h1>Mais populares</h1>
                     </div>
@@ -478,9 +482,9 @@ require_once '../../../Dao/ComentarioDao.php';
                             </div>
                         </div>
 
-                   
 
-                  
+
+
 
                         <div class="sugestao-perfil">
                             <div class="img-perfil-sugestao">
@@ -684,7 +688,7 @@ require_once '../../../Dao/ComentarioDao.php';
         </div>
 
         <div class="notificacoes">
-        <i style="font-size: 26px;" class="fa-solid fa-bell"></i>
+            <i style="font-size: 26px;" class="fa-solid fa-bell"></i>
         </div>
     </div>
 
