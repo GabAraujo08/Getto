@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="../../PerfilArtista/Evento/assets/css/eventoArtista.css">
     <link rel="stylesheet" href="../../PerfilArtista/assets/css/preview-criar-evento.css">
-   
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
 </head>
@@ -63,6 +63,36 @@
         </div>
 
         <div class="box-eventos">
+            <div class="header-eventos">
+                <div class="img">
+                    <img src="assets/img/header-evento.svg" alt="">
+                </div>
+                <div class="textos">
+                    <p style="font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+margin: 0;
+color: #664187;">
+Aqui você poderá ficar por dentro de todos os eventos!
+                    </p>
+                    <p style="font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+
+
+
+
+color: #656565;">
+Fique de olho e acompanhe seus artistas favoritos!
+                    </p>
+                    <div class="btn-criar-evento">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">Criar evento</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="accordion accordion-flush" id="accordionFlushExample1">
                 <div class="accordion-item">
                     <h2 class="accordion-header rounded-4" id="flush-heading1">
@@ -255,130 +285,128 @@
         </div>
 
 
-<!-- ----------------------------- MODAL CRIAR EVENTO -------------------------- -->
+        <!-- ----------------------------- MODAL CRIAR EVENTO -------------------------- -->
 
-<div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo evento</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
-                        <div class="container">
-                            <div class="lado-esquerdo">
-                                <label>Inserir título: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" name="tituloEvento" class="form-control" placeholder="título">
-                                </div>
-                                <div class="hora">
-                                    <div class="inicio">
-                                        <label for="horario">Horário de início: </label>
-                                        <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
+        <div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo evento</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
+                            <div class="container">
+                                <div class="lado-esquerdo">
+                                    <label>Inserir título: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="tituloEvento" class="form-control" placeholder="título">
+                                    </div>
+                                    <div class="hora">
+                                        <div class="inicio">
+                                            <label for="horario">Horário de início: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
+                                            </div>
+                                        </div>
+                                        <div class="termino">
+                                            <label>Horário de término: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="termino">
-                                        <label>Horário de término: </label>
+                                    <div class="data">
+                                        <label for="data">Selecione uma data:</label>
                                         <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
+                                            <input type="date" name="dataEvento" id="data">
+                                        </div>
+                                        <label>Número de endereço: </label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="data">
-                                    <label for="data">Selecione uma data:</label>
+                                    <label>Endereço: </label>
                                     <div class="input-group mb-3">
-                                        <input type="date" name="dataEvento" id="data">
+                                        <input type="text" class="form-control" name="logradouro" placeholder="endereço">
                                     </div>
-                                    <label>Número de endereço: </label>
+                                    <label>Bairro: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
+                                        <input type="text" class="form-control" name="bairroEvento" placeholder="bairro">
+                                    </div>
+                                    <label>CEP: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="cepEvento" placeholder="cep">
+                                    </div>
+                                    <label>Cidade: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="cidEvento" placeholder="cidade">
+                                    </div>
+                                    <label>Estado: </label>
+                                    <div class="input-group mb-3">
+                                        <select id="estado-evento" name="estadoEvento" class="select-estado">
+                                            <option value="AC">Selecionar</option>
+                                            <option value="AC">Acre</option>
+                                            <option value="AL">Alagoas</option>
+                                            <option value="AP">Amapá</option>
+                                            <option value="AM">Amazonas</option>
+                                            <option value="BA">Bahia</option>
+                                            <option value="CE">Ceará</option>
+                                            <option value="DF">Distrito Federal</option>
+                                            <option value="ES">Espírito Santo</option>
+                                            <option value="GO">Goiás</option>
+                                            <option value="MA">Maranhão</option>
+                                            <option value="MT">Mato Grosso</option>
+                                            <option value="MS">Mato Grosso do Sul</option>
+                                            <option value="MG">Minas Gerais</option>
+                                            <option value="PA">Pará</option>
+                                            <option value="PB">Paraíba</option>
+                                            <option value="PR">Paraná</option>
+                                            <option value="PE">Pernambuco</option>
+                                            <option value="PI">Piauí</option>
+                                            <option value="RJ">Rio de Janeiro</option>
+                                            <option value="RN">Rio Grande do Norte</option>
+                                            <option value="RS">Rio Grande do Sul</option>
+                                            <option value="RO">Rondônia</option>
+                                            <option value="RR">Roraima</option>
+                                            <option value="SC">Santa Catarina</option>
+                                            <option value="SP">São Paulo</option>
+                                            <option value="SE">Sergipe</option>
+                                            <option value="TO">Tocantins</option>
+                                            <option value="EX">Estrangeiro</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <label>Endereço: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="logradouro" placeholder="endereço">
-                                </div>
-                                <label>Bairro: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="bairroEvento" placeholder="bairro">
-                                </div>
-                                <label>CEP: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="cepEvento" placeholder="cep">
-                                </div>
-                                <label>Cidade: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="cidEvento" placeholder="cidade">
-                                </div>
-                                <label>Estado: </label>
-                                <div class="input-group mb-3">
-                                    <select id="estado-evento" name="estadoEvento" class="select-estado">
-                                        <option value="AC">Selecionar</option>
-                                        <option value="AC">Acre</option>
-                                        <option value="AL">Alagoas</option>
-                                        <option value="AP">Amapá</option>
-                                        <option value="AM">Amazonas</option>
-                                        <option value="BA">Bahia</option>
-                                        <option value="CE">Ceará</option>
-                                        <option value="DF">Distrito Federal</option>
-                                        <option value="ES">Espírito Santo</option>
-                                        <option value="GO">Goiás</option>
-                                        <option value="MA">Maranhão</option>
-                                        <option value="MT">Mato Grosso</option>
-                                        <option value="MS">Mato Grosso do Sul</option>
-                                        <option value="MG">Minas Gerais</option>
-                                        <option value="PA">Pará</option>
-                                        <option value="PB">Paraíba</option>
-                                        <option value="PR">Paraná</option>
-                                        <option value="PE">Pernambuco</option>
-                                        <option value="PI">Piauí</option>
-                                        <option value="RJ">Rio de Janeiro</option>
-                                        <option value="RN">Rio Grande do Norte</option>
-                                        <option value="RS">Rio Grande do Sul</option>
-                                        <option value="RO">Rondônia</option>
-                                        <option value="RR">Roraima</option>
-                                        <option value="SC">Santa Catarina</option>
-                                        <option value="SP">São Paulo</option>
-                                        <option value="SE">Sergipe</option>
-                                        <option value="TO">Tocantins</option>
-                                        <option value="EX">Estrangeiro</option>
-                                    </select>
+                                <div class="lado-direito">
+                                    <div class="input-group mb-3">
+                                        <div class="preview-img">
+                                            <label class="picture" for="picture__input" tabIndex="0">
+                                                <span class="picture__image"></span>
+                                            </label>
+                                            <input type="file" name="imagemEvento" id="picture__input">
+                                        </div>
+                                    </div>
+                                    <label>Descrição do evento</label>
+                                    <div class="input-group mb-3">
+                                        <input type="textarea" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="lado-direito">
-                                <div class="input-group mb-3">
-                                    <div class="preview-img">
-                                        <label class="picture" for="picture__input" tabIndex="0">
-                                            <span class="picture__image"></span>
-                                        </label>
-                                        <input type="file" name="imagemEvento" id="picture__input">
-                                    </div>
-                                </div>
-                                <label>Descrição do evento</label>
-                                <div class="input-group mb-3">
-                                    <input type="textarea" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição">
-                                </div>
+                            <div class="footer">
+                                <button type="submit" class="btn">Concluir</button>
                             </div>
-                        </div>
-                        <div class="footer">
-                            <button type="submit" class="btn">Concluir</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
         <div class="div-logo-marca">
             <div class="logo-marca">
                 <img src="assets/img/logomarca.png" alt="">
             </div>
-            <div class="btn-criar-evento">
-                <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modalCriarEvento">Criar evento</button>
-            </div>
+
         </div>
 
         <script>
@@ -391,7 +419,7 @@
                 card.classList.toggle("flip")
             })
         </script>
-    <script src="../../PerfilArtista/assets/js/preview.js"></script>
+        <script src="../../PerfilArtista/assets/js/preview.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

@@ -217,9 +217,24 @@ a {
   line-height: 29px;
 }
 
+.header-eventos{
+  height: 182px;
+margin-bottom: 15px;
+width: 90%;
+padding: 15px;
+background: #ECEBF3;
+box-shadow: 4px 4px 7px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+display: flex;
+}
+
+.header-eventos .textos{
+  padding: 15px;
+}
+
 .box-eventos {
   width: 100%;
-  height: 100vh;
+ 
   margin-left: 315px;
   margin-top: 70px;
   display: flex;
@@ -234,7 +249,9 @@ a {
   background-color: #E1E1E6;
   margin-right: 20px;
 } */
-
+.accordion{
+  width: 90%!important;
+}
 
 .accordion-item {
   background-color: #E1E1E6;
@@ -378,10 +395,7 @@ height: 35px;
 width: 35px;
 }
 
-.btn-criar-evento{
-position: absolute;
-right: 45px;
-}
+
 
 
 .btn-criar-evento button {
