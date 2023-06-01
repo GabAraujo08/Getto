@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<?php session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -103,12 +104,12 @@ Fique de olho e acompanhe seus artistas favoritos!
                                         <p>11</p><span>Abr</span>
                                     </div>
                                     <div class="back">
-                                        <p>inicio: 12am</p><span>fim: 17:45pm</span>
+                                        <p>inicio: <?php echo $_SESSION['horarioInicioEvento'];?></p><span>fim: <?php echo $_SESSION['horarioFinalEvento'];?></span>
                                     </div>
                                 </div>
                                 <div class="card-evento">
                                     <div class="titulo-evento">
-                                        <p>Batalha de rima</p>
+                                        <p><?php echo $_SESSION['tituloEvento'];?></p>
                                     </div>
                                     <div class="endereco-evento">
                                         <p>Rua Guaianases</p>
@@ -129,22 +130,19 @@ Fique de olho e acompanhe seus artistas favoritos!
                                             <img src="../assets/img/img-perfil.svg">
                                         </div>
                                         <div class="nome-criador">
-                                            <p>Gabriel Araujo</p>
+                                            <p><?php echo $_SESSION['nicknameUsuario'];?></p>
                                         </div>
                                     </div>
                                     <div class="descricao-evento">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tellus diam,
-                                            tristique quis risus non, condimentum sollicitudin nulla. Nunc fringilla, ex eu
-                                            vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p><?php echo $_SESSION['descEvento'];?></p>
                                     </div>
 
                                     <div class="horario">
                                         <div class="horario-inicio">
-                                            <p>Horário de início: 12:00 am</p>
+                                            <p>Horário de início: <?php echo $_SESSION['horarioInicioEvento'];?></p>
                                         </div>
                                         <div class="horario-termino">
-                                            <p>Horário de término: 15:00pm</p>
+                                            <p>Horário de término: <?php echo $_SESSION['horarioFinalEvento'];?></p>
                                         </div>
                                     </div>
 
@@ -162,6 +160,10 @@ Fique de olho e acompanhe seus artistas favoritos!
                     </div>
                 </div>
             </div>
+
+           
+
+
             <div class="accordion accordion-flush" id="accordionFlushExample2">
                 <div class="accordion-item">
                     <h2 class="accordion-header rounded-4" id="flush-heading2">
@@ -295,7 +297,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
+                        <form action="../../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
                             <div class="container">
                                 <div class="lado-esquerdo">
                                     <label>Inserir título: </label>

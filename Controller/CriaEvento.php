@@ -1,6 +1,7 @@
 <?php
 require_once 'GlobalController.php';
 session_start();
+header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');
 
 $evento = new Evento();
 
@@ -19,22 +20,24 @@ $evento->setCepEvento($_POST['cepEvento']);
 $evento->setBairroEvento($_POST['bairroEvento']);
 $evento->setCidadeEvento($_POST['cidEvento']);
 $evento->setEstadoEvento($_POST['estadoEvento']);
+
+
+$_SESSION['horarioInicioEvento'] = $evento->getHorarioInicioEvento();
+$_SESSION['horarioFinalEvento'] = $evento->getHorarioFinalEvento();
+$_SESSION['dataEvento'] = $evento->getDataEvento();
+$_SESSION['descEvento'] = $evento->getDescEvento();
+$_SESSION['tituloEvento'] = $evento->getTituloEvento();
+$_SESSION['statusEvento'] = $evento->getStatusEvento();
+$_SESSION['logradouroEvento'] = $evento->getLogradouroEvento();
+$_SESSION['numLogEvento'] = $evento->getNumLogEvento();
+$_SESSION['cepEvento'] = $evento->getCepEvento();
+$_SESSION['bairroEvento'] = $evento->getBairroEvento();
+$_SESSION['cidadeEvento'] = $evento->getCidadeEvento();
+$_SESSION['estadoEvento'] = $evento->getEstadoEvento();
+
+
 EventoDao::cadastrar($evento);
 
+header("Location:  ");
+exit();
 
-$midia = new Midia();
-$midia->setArquivoMidia(' ');
-$midia->setIdTipoMidia($_POST['idTipoMidia']);
-MidiaDao::cadastrar($midia);
-$midia->setIdMidia(MidiaDao::consultarIdMidia($midia));
-$nome = $_FILES['arquivo']['name'];
-$tipo = $_FILES['arquivo']['type'];
-$tamanho = $_FILES['arquivo']['size'];
-$arquivo = $_FILES['arquivo']['tmp_name'];
-
-$extensao = substr($nome, -4);
-$nomenovo = $midia->getIdMidia() . $extensao;
-
-move_uploaded_file($arquivo, "../Perfil/PerfilArtista/assets/img/evento" . $nomenovo);
-$midia->setArquivoMidia($nomenovo);
-MidiaDao::atualizarArquivo($midia);
