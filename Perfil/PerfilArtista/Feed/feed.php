@@ -2,6 +2,7 @@
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
+require_once '../../../Dao/ComentarioDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -315,17 +316,34 @@ require_once '../../../Dao/CurtidaDao.php';
 
                                                 </div>
                                                 <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
+                                                <?php
+                                                    $come = ComentarioDao::listarComentario($p['idPublicacao']);
+                                                    foreach($come as $c){
 
+                                                ?>
                                                 <div class="box-comentario">
-                                                    <img src="assets/img/img-perfil.svg" alt="">
+                                                <?PHP
+                                                    if ($c['nivelContaUsuario'] == 2) {
+                                                    ?>
+                                                       <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                    <?PHP
+                                                    } else {
+                                                    ?>
+                                                        <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                    <?PHP
+                                                    }
+                                                    ?>
                                                     <div class="conteudo-comentario">
-                                                        <h1>@gabbs</h1>
-                                                        <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                                                        <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
+                                                        <p><?PHP echo $c['comentario']; ?></p>
                                                         <div class="box-btn-denuncia">
                                                             <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <?php
+                                                    }
+                                                ?>
 
 
 
