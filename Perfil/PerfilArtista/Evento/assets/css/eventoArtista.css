@@ -571,6 +571,15 @@ margin-right: 5px;
 	font-family: 'InterRegular';
 }
 
+#modalCriarEvento .modal-body .container .input-group textarea {
+	border: 2px solid #664187;
+	border-radius: 10px;
+	box-shadow: none;
+	font-family: 'InterRegular';
+  resize: none;
+}
+
+
 #modalCriarEvento .preview-img {
 	margin-top: 5%;
 }

@@ -19,5 +19,35 @@
             
             return 'Cadastrou';
         }
+
+        public static function listarComentario($idPubli){
+            $conexao = Conexao::conectar();
+
+            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario, tbUsuario.nivelContaUsuario,  tbUsuario.fotoPerfilUsuario, tbComentario.comentario FROM tbPublicacao
+                                INNER JOIN tbComentario ON tbComentario.idPublicacao = tbPublicacao.idPublicacao
+                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbComentario.idUsuario
+                                WHERE tbPublicacao.idPublicacao = ?
+                                ');
+                $consulta->bindValue(1, $idPubli);
+                $consulta->execute();
+                $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
+                return $resultado2;
+        }
+        public static function consultarQuantComentario($idpub){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('SELECT COUNT(idComentario) as totalComentario FROM tbComentario WHERE idPublicacao = ?');
+            $consulta->bindValue(1, $idpub);
+            $consulta->execute();
+            $resultado = $consulta->fetch();
+            
+            if($resultado == false){
+                $nada = 0;
+                return $nada;
+            }else{
+                return $resultado['totalComentario'];
+            }
+            
+           
+        }
     }
 ?>

@@ -390,7 +390,8 @@ Fique de olho e acompanhe seus artistas favoritos!
                                     </div>
                                     <label>Descrição do evento</label>
                                     <div class="input-group mb-3">
-                                        <input type="textarea" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição">
+                                         <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição"></textarea>
+                                     
                                     </div>
                                 </div>
                             </div>

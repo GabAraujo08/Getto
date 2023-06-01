@@ -373,7 +373,11 @@ body {
 
 /* ---------------- COMENTARIO MODAL --------------------- */
 
-#comentarioModal .modal-body {
+textarea {
+  resize: none;
+}
+
+.modal-comentario .modal-body {
   max-height: 70vh;
   min-height: 70vh;
   overflow-y: auto;
@@ -382,17 +386,17 @@ body {
 
 
 
-#comentarioModal .modal-body::-webkit-scrollbar {
+.modal-comentario .modal-body::-webkit-scrollbar {
   width: 8px;
   /* width of the entire scrollbar */
 }
 
-#comentarioModal .modal-body::-webkit-scrollbar-track {
+.modal-comentario .modal-body::-webkit-scrollbar-track {
   background: #ECEBF3;
   /* color of the tracking area */
 }
 
-#comentarioModal .modal-body::-webkit-scrollbar-thumb {
+.modal-comentario .modal-body::-webkit-scrollbar-thumb {
   background-color: #664187;
   /* color of the scroll thumb */
   border-radius: 20px;
@@ -401,14 +405,14 @@ body {
   /* creates padding around scroll thumb */
 }
 
-#comentarioModal .modal-body .box-input-search {
+.modal-comentario .modal-body .box-input-search {
   top: 5px;
   position: absolute;
   right: 5px;
 }
 
 
-#comentarioModal .modal-body .btn-search {
+.modal-comentario .modal-body .btn-search {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -417,25 +421,25 @@ body {
   background-image: none;
 }
 
-#comentarioModal input[type="search"]::-webkit-search-decoration,
-#comentarioModal input[type="search"]::-webkit-search-cancel-button,
-#comentarioModal input[type="search"]::-webkit-search-results-button,
-#comentarioModal input[type="search"]::-webkit-search-results-decoration {
+.modal-comentario input[type="search"]::-webkit-search-decoration,
+.modal-comentario input[type="search"]::-webkit-search-cancel-button,
+.modal-comentario input[type="search"]::-webkit-search-results-button,
+.modal-comentario input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
 
-#comentarioModal p::-webkit-scrollbar {
+.modal-comentario p::-webkit-scrollbar {
   width: 8px;
   /* width of the entire scrollbar */
 }
 
-#comentarioModal p::-webkit-scrollbar-track {
+.modal-comentario p::-webkit-scrollbar-track {
   background: #ECEBF3;
   /* color of the tracking area */
 }
 
-#comentarioModal p::-webkit-scrollbar-thumb {
+.modal-comentario p::-webkit-scrollbar-thumb {
   background-color: #664187;
   /* color of the scroll thumb */
   border-radius: 20px;
@@ -444,7 +448,7 @@ body {
   /* creates padding around scroll thumb */
 }
 
-#comentarioModal .modal-body .box-input-search input {
+.modal-comentario .modal-body .box-input-search input {
   font-family: 'InterBold';
   /* border-bottom: 41px; */
   border-top: none !important;
@@ -454,7 +458,7 @@ body {
   background-image: none !important;
 }
 
-#comentarioModal .modal-body .box-input-search input:focus {
+.modal-comentario .modal-body .box-input-search input:focus {
 
   border-top: 0 !important;
   border-left: 0 !important;
@@ -462,7 +466,7 @@ body {
 }
 
 
-#comentarioModal .modal-body .box-comentario {
+.modal-comentario .modal-body .box-comentario {
   width: 100%;
   display: flex;
   margin-bottom: 5px;
@@ -471,7 +475,7 @@ body {
 
 }
 
-#comentarioModal .modal-body .box-comentario img {
+.modal-comentario .modal-body .box-comentario img {
   width: 60px;
   height: 60px;
   border: 2.06796px solid #FFFFFF;
@@ -483,7 +487,7 @@ body {
 
 
 
-#comentarioModal .modal-body .box-comentario .conteudo-comentario {
+.modal-comentario .modal-body .box-comentario .conteudo-comentario {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -492,14 +496,14 @@ body {
 
 }
 
-#comentarioModal .modal-body .box-comentario .conteudo-comentario h1 {
+.modal-comentario .modal-body .box-comentario .conteudo-comentario h1 {
   font-family: 'InterBold';
   font-size: 18px;
 
 
 }
 
-#comentarioModal .modal-body .box-comentario .conteudo-comentario p {
+.modal-comentario .modal-body .box-comentario .conteudo-comentario p {
   font-family: 'InterBold';
   margin-left: 5px;
   max-height: 100px;
@@ -508,7 +512,7 @@ body {
 
 }
 
-#comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia {
+.modal-comentario .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia {
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -518,7 +522,7 @@ body {
 
 }
 
-#comentarioModal .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia button {
+.modal-comentario .modal-body .box-comentario .conteudo-comentario .box-btn-denuncia button {
   width: auto;
   background: none;
   border: none;
@@ -528,13 +532,13 @@ body {
 }
 
 
-#comentarioModal .modal-footer .comentario {
+.modal-comentario .modal-footer .comentario {
   width: 100%;
 
 
 }
 
-#comentarioModal .modal-footer textarea {
+.modal-comentario .modal-footer textarea {
   font-family: 'InterBold';
   width: 100%;
 
@@ -544,17 +548,17 @@ body {
 
 }
 
-#comentarioModal .modal-footer textarea::-webkit-scrollbar {
+.modal-comentario .modal-footer textarea::-webkit-scrollbar {
   width: 8px;
   /* width of the entire scrollbar */
 }
 
-#comentarioModal .modal-footer textarea::-webkit-scrollbar-track {
+.modal-comentario .modal-footer textarea::-webkit-scrollbar-track {
   background: #ECEBF3;
   /* color of the tracking area */
 }
 
-#comentarioModal .modal-footer textarea::-webkit-scrollbar-thumb {
+.modal-comentario .modal-footer textarea::-webkit-scrollbar-thumb {
   background-color: #664187;
   /* color of the scroll thumb */
   border-radius: 20px;
@@ -564,13 +568,13 @@ body {
 }
 
 
-#comentarioModal .modal-footer .box-text-area {
+.modal-comentario .modal-footer .box-text-area {
   position: relative;
   margin-top: 5px;
 
 }
 
-#comentarioModal .modal-footer .box-btn-comentario {
+.modal-comentario .modal-footer .box-btn-comentario {
   width: auto;
   display: flex;
   position: absolute;
@@ -583,7 +587,7 @@ body {
 
 
 
-#comentarioModal .modal-footer .box-btn-comentario button {
+.modal-comentario .modal-footer .box-btn-comentario button {
   background-color: unset !important;
   border: 0 !important;
 
@@ -592,7 +596,7 @@ body {
 
 
 
-#comentarioModal .slide-in {
+.modal-comentario .slide-in {
   /*EFEITO QUE CRIA A TRANSIÇÃO DE ENTRADA DO COMENTARIO*/
   animation: slideIn 0.8s forwards;
 }
