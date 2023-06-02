@@ -34,6 +34,8 @@ $_SESSION['cepEvento'] = $evento->getCepEvento();
 $_SESSION['bairroEvento'] = $evento->getBairroEvento();
 $_SESSION['cidadeEvento'] = $evento->getCidadeEvento();
 $_SESSION['estadoEvento'] = $evento->getEstadoEvento();
+$_SESSION['imagemEvento'] = $evento->getImagemEvento();
+
 
 EventoDao::cadastrar($evento);
 

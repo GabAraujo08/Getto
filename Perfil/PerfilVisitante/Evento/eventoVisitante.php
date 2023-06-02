@@ -1,6 +1,11 @@
+<?php 
+require_once '../../../Dao/Conexao.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<?php session_start(); ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,30 +32,30 @@
                 <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                     <ul class="list-group">
                         <a href="../Feed/feed.php">
-                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
+                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">InÃ­cio</button></li>
                         </a>
-                        <a href="#">
+                        <a href="../../PerfilArtista/Amigos/amigos.php">
                             <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
                         </a>
-                        <a href="#">
+                        <a href="../../PerfilArtista/Evento/eventoArtista.php">
                             <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                         </a>
                         <a href="">
-                            <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                            <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">NotificaÃ§Ãµes</button></li>
                         </a>
                         <a href="../Configuracoes/configuracoes.php">
-                            <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
+                            <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">ConfiguraÃ§Ãµes</button></li>
                         </a>
                         <a href="../Feed/descobrir.php">
                             <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                         </a>
-                        <a href="../perfil-visitante.php">
+                        <a href="../perfil.php">
                             <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                         </a>
                     </ul>
                 </div>
                 <div class="nova-pub">
-                    <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
+                    <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicaÃ§Ã£o</button>
                 </div>
 
                 <div class="sair">
@@ -65,7 +70,7 @@
         <div class="box-eventos">
             <div class="header-eventos">
                 <div class="img">
-                    <img src="../../PerfilArtista/Evento/assets/img/header-evento.svg" alt="">
+                    <img src="assets/img/header-evento.svg" alt="">
                 </div>
                 <div class="textos">
                     <p style="font-family: 'Poppins';
@@ -74,7 +79,7 @@ font-weight: 600;
 font-size: 20px;
 margin: 0;
 color: #664187;">
-                        Aqui você poderá ficar por dentro de todos os eventos!
+Aqui vocÃª poderÃ¡ ficar por dentro de todos os eventos!
                     </p>
                     <p style="font-family: 'Poppins';
 font-style: normal;
@@ -85,30 +90,48 @@ font-size: 16px;
 
 
 color: #656565;">
-                        Fique de olho e acompanhe seus artistas favoritos!
+Fique de olho e acompanhe seus artistas favoritos!
                     </p>
+
+
                     <div class="btn-criar-evento">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">Criar evento</button>
                     </div>
                 </div>
             </div>
 
-            <div class="accordion accordion-flush" id="accordionFlushExample1">
+            <?php 
+            require_once '../../../Dao/EventoDao.php';
+
+            $eventos = EventoDao::ListaEvento();
+            foreach ($eventos as $evento ) {
+                    $horarioInicioEvento = $evento['horarioInicioEvento'];
+                    $horarioFinalEvento = $evento['horarioFinalEvento'];
+                    $dataEvento = $evento['dataEvento'];
+                    $descEvento = $evento['descEvento'];
+                    $tituloEvento = $evento['tituloEvento'];
+
+                }
+            ?>
+
+            <?php foreach ($eventos as $index => $evento) : ?>
+
+            <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
                 <div class="accordion-item">
-                    <h2 class="accordion-header rounded-4" id="flush-heading1">
-                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1" style="border-radius: 20px;">
+                    <h2 class="accordion-header rounded-4" id="flush-heading1<?php echo $index; ?>">
+                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1<?php echo $index; ?>" aria-expanded="false" aria-controls="flush-collapse1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample<?php echo $index; ?>" style="border-radius: 20px;">
                             <div class="resumoDiv">
                                 <div class="card">
                                     <div class="front">
                                         <p>11</p><span>Abr</span>
                                     </div>
                                     <div class="back">
-                                        <p>inicio: 12am</p><span>fim: 17:45pm</span>
+                                        <p>inicio: <?php echo $evento['horarioInicioEvento'];?></p><span>fim: <?php echo $evento['horarioFinalEvento'];?></span>
                                     </div>
                                 </div>
                                 <div class="card-evento">
                                     <div class="titulo-evento">
-                                        <p>Batalha de rima</p>
+                                        <p><?php echo $evento['tituloEvento'];?></p>
                                     </div>
                                     <div class="endereco-evento">
                                         <p>Rua Guaianases</p>
@@ -117,34 +140,31 @@ color: #656565;">
                             </div>
                         </button>
                     </h2>
-                    <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample1">
+                    <div id="flush-collapse1<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample1<?php echo $index; ?>">
                         <div class="accordion-body rounded-4">
                             <div class="baixo">
                                 <div class="img-evento">
-                                    <img src="assets/img/image 29.png">
+                                    <img src="assets/img/image/<?php echo $evento->getImagemEvento; ?> ">
                                 </div>
                                 <div class="conteudo-evento">
                                     <div class="criador-evento">
                                         <div class="img-criador">
-                                            <img src="../assets/img/img-perfil.svg">
+                                            <img src="assets/img/FotoPerfil/">
                                         </div>
                                         <div class="nome-criador">
-                                            <p>Gabriel Araujo</p>
+                                            <p><?php echo $_SESSION['nicknameUsuario'];?></p>
                                         </div>
                                     </div>
                                     <div class="descricao-evento">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tellus diam,
-                                            tristique quis risus non, condimentum sollicitudin nulla. Nunc fringilla, ex eu
-                                            vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <p><?php echo $evento['descEvento'];?></p>
                                     </div>
 
                                     <div class="horario">
                                         <div class="horario-inicio">
-                                            <p>Horário de início: 12:00 am</p>
+                                            <p>HorÃ¡rio de inÃ­cio: <?php echo $evento['horarioInicioEvento'];?></p>
                                         </div>
                                         <div class="horario-termino">
-                                            <p>Horário de término: 15:00pm</p>
+                                            <p>HorÃ¡rio de tÃ©rmino: <?php echo $evento['horarioFinalEvento'];?></p>
                                         </div>
                                     </div>
 
@@ -153,7 +173,7 @@ color: #656565;">
                                             <p>138 confirmados</p>
                                         </div>
                                         <div class="confirmar-evento">
-                                            <button>Confirmar presença</button>
+                                            <button>Confirmar presenÃ§a</button>
                                         </div>
                                     </div>
                                 </div>
@@ -162,81 +182,8 @@ color: #656565;">
                     </div>
                 </div>
             </div>
-            <div class="accordion accordion-flush" id="accordionFlushExample2">
-                <div class="accordion-item">
-                    <h2 class="accordion-header rounded-4" id="flush-heading2">
-                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2" style="border-radius: 20px;">
-                            <div class="resumoDiv">
-                                <div class="card">
-                                    <div class="front">
-                                        <p>11</p><span>Abr</span>
-                                    </div>
-                                    <div class="back">
-                                        <p>inicio: 12am</p><span>fim: 17:45pm</span>
-                                    </div>
-                                </div>
-                                <div class="card-evento">
-                                    <div class="titulo-evento">
-                                        <p>Batalha de rima</p>
-                                    </div>
-                                    <div class="endereco-evento">
-                                        <p>Rua Guaianases</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </h2>
-                    <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample2">
-                        <div class="accordion-body rounded-4">
-                            <div class="baixo">
-                                <div class="img-evento">
-                                    <img src="assets/img/image 29.png">
-                                </div>
-                                <div class="conteudo-evento">
-                                    <div class="criador-evento">
-                                        <div class="img-criador">
-                                            <img src="../assets/img/img-perfil.svg">
-                                        </div>
-                                        <div class="nome-criador">
-                                            <p>Gabriel Araujo</p>
-                                        </div>
-                                    </div>
-                                    <div class="descricao-evento">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tellus diam,
-                                            tristique quis risus non, condimentum sollicitudin nulla. Nunc fringilla, ex eu
-                                            vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
 
-                                    <div class="horario">
-                                        <div class="horario-inicio">
-                                            <p>Horário de início: 12:00 am</p>
-                                        </div>
-                                        <div class="horario-termino">
-                                            <p>Horário de término: 15:00pm</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="presenca-evento">
-                                        <div class="confirmados-evento">
-                                            <p>138 confirmados</p>
-                                        </div>
-                                        <div class="confirmar-evento">
-                                            <button>Confirmar presença</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
+            <?php endforeach; ?>
 
         <nav style="background-color: #fff;" class="mobile-nav">
             <a href="#" class="bloc-icon">
@@ -272,7 +219,7 @@ color: #656565;">
                         <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Você deseja sair da sua conta?</p>
+                        <p>VocÃª deseja sair da sua conta?</p>
                     </div>
                     <div class="modal-footer">
                         <form name="formExclui" action="../../../Controller/Logout.php" method="POST">
@@ -295,24 +242,24 @@ color: #656565;">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
+                        <form action="../../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
                             <div class="container">
                                 <div class="lado-esquerdo">
-                                    <label>Inserir título: </label>
+                                    <label>Inserir tÃ­tulo: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="tituloEvento" class="form-control" placeholder="título">
+                                        <input type="text" name="tituloEvento" class="form-control" placeholder="tÃ­tulo">
                                     </div>
                                     <div class="hora">
                                         <div class="inicio">
-                                            <label for="horario">Horário de início: </label>
+                                            <label for="horario">HorÃ¡rio de inÃ­cio: </label>
                                             <div class="input-group mb-3">
-                                                <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
+                                                <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="inÃ­cio">
                                             </div>
                                         </div>
                                         <div class="termino">
-                                            <label>Horário de término: </label>
+                                            <label>HorÃ¡rio de tÃ©rmino: </label>
                                             <div class="input-group mb-3">
-                                                <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
+                                                <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="tÃ©rmino">
                                             </div>
                                         </div>
                                     </div>
@@ -321,14 +268,14 @@ color: #656565;">
                                         <div class="input-group mb-3">
                                             <input type="date" name="dataEvento" id="data">
                                         </div>
-                                        <label>Número de endereço: </label>
+                                        <label>NÃºmero de endereÃ§o: </label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
+                                            <input type="text" class="form-control" name="numLog" placeholder="nÃºmero de endereÃ§o">
                                         </div>
                                     </div>
-                                    <label>Endereço: </label>
+                                    <label>EndereÃ§o: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="logradouro" placeholder="endereço">
+                                        <input type="text" class="form-control" name="logradouro" placeholder="endereÃ§o">
                                     </div>
                                     <label>Bairro: </label>
                                     <div class="input-group mb-3">
@@ -348,29 +295,29 @@ color: #656565;">
                                             <option value="AC">Selecionar</option>
                                             <option value="AC">Acre</option>
                                             <option value="AL">Alagoas</option>
-                                            <option value="AP">Amapá</option>
+                                            <option value="AP">AmapÃ¡</option>
                                             <option value="AM">Amazonas</option>
                                             <option value="BA">Bahia</option>
-                                            <option value="CE">Ceará</option>
+                                            <option value="CE">CearÃ¡</option>
                                             <option value="DF">Distrito Federal</option>
-                                            <option value="ES">Espírito Santo</option>
-                                            <option value="GO">Goiás</option>
-                                            <option value="MA">Maranhão</option>
+                                            <option value="ES">EspÃ­rito Santo</option>
+                                            <option value="GO">GoiÃ¡s</option>
+                                            <option value="MA">MaranhÃ£o</option>
                                             <option value="MT">Mato Grosso</option>
                                             <option value="MS">Mato Grosso do Sul</option>
                                             <option value="MG">Minas Gerais</option>
-                                            <option value="PA">Pará</option>
-                                            <option value="PB">Paraíba</option>
-                                            <option value="PR">Paraná</option>
+                                            <option value="PA">ParÃ¡</option>
+                                            <option value="PB">ParaÃ­ba</option>
+                                            <option value="PR">ParanÃ¡</option>
                                             <option value="PE">Pernambuco</option>
-                                            <option value="PI">Piauí</option>
+                                            <option value="PI">PiauÃ­</option>
                                             <option value="RJ">Rio de Janeiro</option>
                                             <option value="RN">Rio Grande do Norte</option>
                                             <option value="RS">Rio Grande do Sul</option>
-                                            <option value="RO">Rondônia</option>
+                                            <option value="RO">RondÃ´nia</option>
                                             <option value="RR">Roraima</option>
                                             <option value="SC">Santa Catarina</option>
-                                            <option value="SP">São Paulo</option>
+                                            <option value="SP">SÃ£o Paulo</option>
                                             <option value="SE">Sergipe</option>
                                             <option value="TO">Tocantins</option>
                                             <option value="EX">Estrangeiro</option>
@@ -386,9 +333,10 @@ color: #656565;">
                                             <input type="file" name="imagemEvento" id="picture__input">
                                         </div>
                                     </div>
-                                    <label>Descrição do evento</label>
+                                    <label>DescriÃ§Ã£o do evento</label>
                                     <div class="input-group mb-3">
-                                        <input type="textarea" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição">
+                                         <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="descriÃ§Ã£o"></textarea>
+                                     
                                     </div>
                                 </div>
                             </div>
