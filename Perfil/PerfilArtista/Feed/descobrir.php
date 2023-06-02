@@ -650,7 +650,7 @@ require_once '../../../Dao/Conexao.php';
     </div>
 
     <div class="area-buscar">
-      <form name="FormBusca" id="FormBusca" method="Post" action="descobrir.php">
+      <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/busca.php">
         <input type="search" id="search" name="busca" placeholder="Pesquisar...">
         <button class="btn-descobrir"  type="submit"><img src="assets/img/search.png"></i></button>
 
@@ -661,46 +661,36 @@ require_once '../../../Dao/Conexao.php';
 
       <?php
 
-      if (isset($_POST['busca'])) {
-        $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
-        $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
-        $consulta->execute();
-        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-        if (count($resultado) > 0) {
-          $html = '';
-          foreach ($resultado as $row) {
-            $html .= '<form action="../perfilMostrar.php" method="POST">';
-            $html .= '<li>';
-            if ($row['nivelContaUsuario'] == 2) {
-              $html .= '<img src="../assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">';
-              $a = ArtistaDao::consultarArtista($row['idUsuario']);
-              $html .= '<input type="hidden" name="bio" value= "' . $a['bioArtista'] . '">';
-              $html .= '<input type="hidden" name="artistaId" value= "' . $a['idArtista'] . '">';
-              $_SESSION['bio'] = $a['bioArtista'];
-              $_SESSION['artistaId'] = $a['idArtista'];
+      if (isset($dadosUsuario['nivel'])) {
+          foreach ($dadosUsuario as $us) {
+    ?>
+            <form action="../perfilMostrar.php" method="POST">
+            <li>
+            <?php
+            if ($us['nivel'] == 2) {
+            ?>
+              <img src="../assets/img/FotoPerfil/<?PHP echo $us['fotoP']?>" alt="Imagem de perfil">
+            <?php
             } else {
-              $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $row['fotoPerfilUsuario'] . '" alt="Imagem de perfil">';
+            ?>
+              <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $us['fotoP']?>" alt="Imagem de perfil">
+            <?php
             }
-            $html .= '<input type="hidden" name="usuarioNivelConta" value= "' . $row['nivelContaUsuario'] . '">';
-            $html .= '<input type="hidden" name="usuarioFotoPerfil" value= "' . $row['fotoPerfilUsuario'] . '">';
-            $html .= '<input type="hidden" name="usuarioFotoCapa" value= "' . $row['papelParedeUsuario'] . '">';
-            $html .= '<input type="hidden" name="usuarioNome" value= "' . $row['nomeUsuario'] . '">';
-            $html .= '<input type="hidden" name="usuarioNick" value= "' . $row['nicknameUsuario'] . '">';
-            $html .= '<input type="hidden" name="usuarioId" value= "' . $row['idUsuario'] . '">';
-            $html .= '<button type="submit">' . $row['nicknameUsuario'] . '</button>';
-            $html .= '</li>';
-            $html .= '</form>';
+            ?>
+            <button type="submit"><?PHP echo $us['nick']?></button>
+            </li>
+            </form>
 
-            
+          <?PHP  
           }
-          echo '<ul id="results">' . $html . '</ul>';
+          ?>
+          <ul id="results">
+        <?php
         } else {
-          echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
+        ?>
+        <ul id="results"><li>Nenhum resultado encontrado</li></ul>
+        <?php
         }
-      }
-   
       ?>
 
     </div>
