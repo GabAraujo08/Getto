@@ -32,5 +32,29 @@ class EventoDao
     }
 
 
-  
+    public static function consultarIdEvento($evento){
+        $conexao = Conexao::conectar();
+        $querySelect = "SELECT idEvento FROM tbEvento WHERE imagemEvento LIKE '".$evento->getImagemEvento()."'";
+        $resultado = $conexao->query($querySelect);
+        $lista = $resultado->fetchAll();
+        foreach ($lista as $evento)
+            $id = $evento['idEvento'];
+        return $id;   
+    }
+
+
+
+    public static function ListaEvento(){
+            
+        $conexao = Conexao::conectar();
+        $consulta = $conexao->prepare('SELECT  tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento, tbEvento.quantidadeCurtidas, tbEvento.descEvento, tbEvento.tituloEvento  FROM tbEvento');
+
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $resultado;
+    
+}
+
+
     }
