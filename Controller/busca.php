@@ -12,25 +12,29 @@
         $dadosUsuario = array();
 
         if ($resultado != false) {
-            $dadosUsuario['idUsuario'] = $resultado['idUsuario'];
-            $dadosUsuario['nomeUsuario'] = $resultado['nomeUsuario'];
-            $dadosUsuario['nicknameUsuario'] = $resultado['nicknameUsuario'];
-            $dadosUsuario['fotoPerfilUsuario'] = $resultado['fotoPerfilUsuario'];
-            $dadosUsuario['papelParedeUsuario'] = $resultado['papelParedeUsuario'];
-            $dadosUsuario['nivelContaUsuario'] = $resultado['nivelContaUsuario'];
-    
-            if ($dadosUsuario['nivelContaUsuario'] == 2) {
-                $a = ArtistaDao::consultarArtista($dadosUsuario['idUsuario']);
-                $dadosUsuario['idArtista'] = $a['idArtista'];
-                $dadosUsuario['bioArtista'] = $a['bioArtista']; 
-            }
+             for($i = 0; $i<= count($resultado); $i++){
+                $dadosUsuario['idUsuario'] = $resultado['idUsuario'];
+                $dadosUsuario['nomeUsuario'] = $resultado['nomeUsuario'];
+                $dadosUsuario['nicknameUsuario'] = $resultado['nicknameUsuario'];
+                $dadosUsuario['fotoPerfilUsuario'] = $resultado['fotoPerfilUsuario'];
+                $dadosUsuario['papelParedeUsuario'] = $resultado['papelParedeUsuario'];
+                $dadosUsuario['nivelContaUsuario'] = $resultado['nivelContaUsuario'];
+        
+                if ($dadosUsuario['nivelContaUsuario'] == 2) {
+                    $a = ArtistaDao::consultarArtista($dadosUsuario['idUsuario']);
+                    $dadosUsuario['idArtista'] = $a['idArtista'];
+                    $dadosUsuario['bioArtista'] = $a['bioArtista']; 
+                }
+                print_r($dadosUsuario);
+             }
+            
 
             return $dadosUsuario;
         }
-        if(isset($_SESSION['idArtista'])){
-            header('Location: ../Perfil/PerfilArtista/Feed/descobrir.php');
-        }else{
-            header('Location: ../Perfil/PerfilVisitante/Feed/descobrir.php');  
-        } 
+        //if(isset($_SESSION['idArtista'])){
+          //  header('Location: ../Perfil/PerfilArtista/Feed/descobrir.php');
+        //}else{
+         //   header('Location: ../Perfil/PerfilVisitante/Feed/descobrir.php');  
+        //} 
 
 ?>
