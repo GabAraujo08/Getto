@@ -144,9 +144,9 @@ Fique de olho e acompanhe seus artistas favoritos!
                         <div class="accordion-body rounded-4">
                             <div class="baixo">
                                 <div class="img-evento">
-                                    <img src="assets/img/image/<?php echo $evento->getImagemEvento; ?> ">
+                                    <img src="assets/img/<?php echo $evento->getImagemEvento; ?> ">
                                 </div>
-                                <div class="conteudo-evento">
+                                <div class="conteudo-evento">6'
                                     <div class="criador-evento">
                                         <div class="img-criador">
                                             <img src="assets/img/FotoPerfil/">
