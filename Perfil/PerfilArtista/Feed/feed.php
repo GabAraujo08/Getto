@@ -27,7 +27,7 @@ require_once '../../../Dao/ComentarioDao.php';
 
 <body>
 
-    <div class="d-flex">
+    <div style="overflow-x: hidden;" class="d-flex">
         <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
         <div class="area-sidebar">
             <div class="sidebar">
@@ -98,58 +98,7 @@ require_once '../../../Dao/ComentarioDao.php';
 
                 <div class="box-area-perfil">
                     <div class="area-perfil">
-                        <hr>
-                        <div class="box-momentos">
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
+                       
                         <div class="box-publicacoes">
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
