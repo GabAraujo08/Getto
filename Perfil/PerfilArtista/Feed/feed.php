@@ -267,20 +267,28 @@ require_once '../../../Dao/ComentarioDao.php';
 
                                         </div>
                                         <div class="tempo-publicacao">
-                                            <p><?PHP
-                                                if ($p['minutosPublicacao'] == 0) {
+                                            <p><?php
+                                                $minutos = $p['minutosPublicacao'];
+                                                $meses = intval($minutos / 43200);
+                                                $minutos = $minutos % 43200;
+
+                                                if ($meses > 0) {
+                                                    echo 'há ' . $meses . ' m';
+                                                } elseif ($minutos == 0) {
                                                     echo 'Agora mesmo';
-                                                } else if ($p['minutosPublicacao'] > 59) {
-                                                    $h = intval($p['minutosPublicacao'] / 60);
-                                                    echo 'há ' . $h . ' h';
-                                                } else if ($p['minutosPublicacao'] > 1440) {
-                                                    $d = intval($p['minutosPublicacao'] / 1440);
+                                                } elseif ($minutos > 1440) {
+                                                    $d = intval($minutos / 1440);
                                                     echo 'há ' . $d . ' d';
+                                                } elseif ($minutos > 59) {
+                                                    $h = intval($minutos / 60);
+                                                    echo 'há ' . $h . ' h';
                                                 } else {
-                                                    echo 'há ' . $p['minutosPublicacao'] . ' min';
+                                                    echo 'há ' . $minutos . ' min';
                                                 }
-                                                ?></p>
+                                            ?></p>
                                         </div>
+
+
                                     </div>
                                     <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
 
@@ -295,7 +303,9 @@ require_once '../../../Dao/ComentarioDao.php';
                                             </div>
                                         </div>
 
-
+                                                <?PHP
+                                                     $tc = ComentarioDao::consultarQuantComentario($p['idPublicacao']);
+                                                ?>
 
                                     </div> -->
                                 </div>
@@ -307,7 +317,7 @@ require_once '../../../Dao/ComentarioDao.php';
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de <?PHP echo $p['nicknameUsuario']; ?> </h1>
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel"> <?PHP echo $tc; ?> Comentários </h1>
 
 
 
@@ -339,6 +349,25 @@ require_once '../../../Dao/ComentarioDao.php';
                                                             <div class="conteudo-comentario">
                                                                 <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
                                                                 <p><?PHP echo $c['comentario']; ?></p>
+                                                                <?php
+                                                                    $minuto = $c['minutosComentario'];
+                                                                    $mes = intval($minuto / 43200);
+                                                                    $minuto = $minuto % 43200;
+                    
+                                                                    if ($mes > 0) {
+                                                                        echo 'há ' . $mes . ' m';
+                                                                    } elseif ($minuto == 0) {
+                                                                        echo 'Agora mesmo';
+                                                                    } elseif ($minuto > 1440) {
+                                                                        $ds = intval($minuto / 1440);
+                                                                        echo 'há ' . $ds . ' d';
+                                                                    } elseif ($minuto > 59) {
+                                                                        $hs = intval($minuto / 60);
+                                                                        echo 'há ' . $hs . ' h';
+                                                                    } else {
+                                                                        echo 'há ' . $minuto . ' min';
+                                                                    }
+                                                                ?>
                                                                 <div class="box-btn-denuncia">
                                                                     <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                                 </div>
