@@ -1,3 +1,7 @@
+<?php 
+require_once '../../../Dao/Conexao.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -88,28 +92,46 @@ font-size: 16px;
 color: #656565;">
 Fique de olho e acompanhe seus artistas favoritos!
                     </p>
+
+
                     <div class="btn-criar-evento">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">Criar evento</button>
                     </div>
                 </div>
             </div>
 
-            <div class="accordion accordion-flush" id="accordionFlushExample1">
+            <?php 
+            require_once '../../../Dao/EventoDao.php';
+
+            $eventos = EventoDao::ListaEvento();
+            foreach ($eventos as $evento ) {
+                    $horarioInicioEvento = $evento['horarioInicioEvento'];
+                    $horarioFinalEvento = $evento['horarioFinalEvento'];
+                    $dataEvento = $evento['dataEvento'];
+                    $descEvento = $evento['descEvento'];
+                    $tituloEvento = $evento['tituloEvento'];
+
+                }
+            ?>
+
+            <?php foreach ($eventos as $index => $evento) : ?>
+
+            <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
                 <div class="accordion-item">
-                    <h2 class="accordion-header rounded-4" id="flush-heading1">
-                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1" style="border-radius: 20px;">
+                    <h2 class="accordion-header rounded-4" id="flush-heading1<?php echo $index; ?>">
+                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1<?php echo $index; ?>" aria-expanded="false" aria-controls="flush-collapse1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample<?php echo $index; ?>" style="border-radius: 20px;">
                             <div class="resumoDiv">
                                 <div class="card">
                                     <div class="front">
                                         <p>11</p><span>Abr</span>
                                     </div>
                                     <div class="back">
-                                        <p>inicio: <?php echo $_SESSION['horarioInicioEvento'];?></p><span>fim: <?php echo $_SESSION['horarioFinalEvento'];?></span>
+                                        <p>inicio: <?php echo $evento['horarioInicioEvento'];?></p><span>fim: <?php echo $evento['horarioFinalEvento'];?></span>
                                     </div>
                                 </div>
                                 <div class="card-evento">
                                     <div class="titulo-evento">
-                                        <p><?php echo $_SESSION['tituloEvento'];?></p>
+                                        <p><?php echo $evento['tituloEvento'];?></p>
                                     </div>
                                     <div class="endereco-evento">
                                         <p>Rua Guaianases</p>
@@ -118,7 +140,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                             </div>
                         </button>
                     </h2>
-                    <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample1">
+                    <div id="flush-collapse1<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample1<?php echo $index; ?>">
                         <div class="accordion-body rounded-4">
                             <div class="baixo">
                                 <div class="img-evento">
@@ -127,22 +149,22 @@ Fique de olho e acompanhe seus artistas favoritos!
                                 <div class="conteudo-evento">
                                     <div class="criador-evento">
                                         <div class="img-criador">
-                                            <img src="../assets/img/img-perfil.svg">
+                                            <img src="assets/img/FotoPerfil/">
                                         </div>
                                         <div class="nome-criador">
                                             <p><?php echo $_SESSION['nicknameUsuario'];?></p>
                                         </div>
                                     </div>
                                     <div class="descricao-evento">
-                                        <p><?php echo $_SESSION['descEvento'];?></p>
+                                        <p><?php echo $evento['descEvento'];?></p>
                                     </div>
 
                                     <div class="horario">
                                         <div class="horario-inicio">
-                                            <p>Horário de início: <?php echo $_SESSION['horarioInicioEvento'];?></p>
+                                            <p>Horário de início: <?php echo $evento['horarioInicioEvento'];?></p>
                                         </div>
                                         <div class="horario-termino">
-                                            <p>Horário de término: <?php echo $_SESSION['horarioFinalEvento'];?></p>
+                                            <p>Horário de término: <?php echo $evento['horarioFinalEvento'];?></p>
                                         </div>
                                     </div>
 
@@ -161,84 +183,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                 </div>
             </div>
 
-           
-
-
-            <div class="accordion accordion-flush" id="accordionFlushExample2">
-                <div class="accordion-item">
-                    <h2 class="accordion-header rounded-4" id="flush-heading2">
-                        <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2" style="border-radius: 20px;">
-                            <div class="resumoDiv">
-                                <div class="card">
-                                    <div class="front">
-                                        <p>11</p><span>Abr</span>
-                                    </div>
-                                    <div class="back">
-                                        <p>inicio: 12am</p><span>fim: 17:45pm</span>
-                                    </div>
-                                </div>
-                                <div class="card-evento">
-                                    <div class="titulo-evento">
-                                        <p>Batalha de rima</p>
-                                    </div>
-                                    <div class="endereco-evento">
-                                        <p>Rua Guaianases</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </button>
-                    </h2>
-                    <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample2">
-                        <div class="accordion-body rounded-4">
-                            <div class="baixo">
-                                <div class="img-evento">
-                                    <img src="assets/img/image 29.png">
-                                </div>
-                                <div class="conteudo-evento">
-                                    <div class="criador-evento">
-                                        <div class="img-criador">
-                                            <img src="../assets/img/img-perfil.svg">
-                                        </div>
-                                        <div class="nome-criador">
-                                            <p>Gabriel Araujo</p>
-                                        </div>
-                                    </div>
-                                    <div class="descricao-evento">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tellus diam,
-                                            tristique quis risus non, condimentum sollicitudin nulla. Nunc fringilla, ex eu
-                                            vulputate viverra, orci sapien posuere urna, sit amet condimentum sem augue quis
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-
-                                    <div class="horario">
-                                        <div class="horario-inicio">
-                                            <p>Horário de início: 12:00 am</p>
-                                        </div>
-                                        <div class="horario-termino">
-                                            <p>Horário de término: 15:00pm</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="presenca-evento">
-                                        <div class="confirmados-evento">
-                                            <p>138 confirmados</p>
-                                        </div>
-                                        <div class="confirmar-evento">
-                                            <button>Confirmar presença</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
+            <?php endforeach; ?>
 
         <nav style="background-color: #fff;" class="mobile-nav">
             <a href="#" class="bloc-icon">

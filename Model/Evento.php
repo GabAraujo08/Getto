@@ -2,6 +2,7 @@
 
 class Evento
 {
+    private $idEvento;
     private $horarioInicioEvento;
     private $dataEvento;
     private $logradouroEvento;
@@ -18,6 +19,15 @@ class Evento
     private $estadoEvento;
     private $idArtista;
     private $idTipoArte;
+
+
+    public function getIdEvento(){
+        return $this->idEvento;
+    }
+    public function setIdEvento($id){
+        $this->idEvento = $id;
+    }
+
 
 
     public function getHorarioInicioEvento()
