@@ -31,6 +31,7 @@
             
            
         }
+        
         /*public static function consultarSeguindo($artista){
             $conexao = Conexao::conectar();
             $consulta = $conexao->prepare('SELECT COUNT(*) as total_seguindo FROM tbSeguidores WHERE idUsuario = ? GROUP BY idUsuario');

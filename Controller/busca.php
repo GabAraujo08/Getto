@@ -2,39 +2,37 @@
     require_once 'GlobalController.php';
 
     session_start();
+    if(isset($_SESSION['idArtista'])){
+        header('Location: ../Perfil/PerfilArtista/Feed/descobrir.php');
+    } else {
+        header('Location: ../Perfil/PerfilVisitante/Feed/descobrir.php');  
+    } 
 
-        $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
-        $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
-        $consulta->execute();
-        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    $conexao = Conexao::conectar();
+    $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");
+    $consulta->bindValue(1, '%' . $_POST['busca'] . '%');
+    $consulta->execute();
+    $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-        $dadosUsuario = array();
+    $dadosUsuario = array();
 
-        if ($resultado != false) {
-             for($i = 0; $i<= count($resultado); $i++){
-                $dadosUsuario['idUsuario'] = $resultado['idUsuario'];
-                $dadosUsuario['nomeUsuario'] = $resultado['nomeUsuario'];
-                $dadosUsuario['nicknameUsuario'] = $resultado['nicknameUsuario'];
-                $dadosUsuario['fotoPerfilUsuario'] = $resultado['fotoPerfilUsuario'];
-                $dadosUsuario['papelParedeUsuario'] = $resultado['papelParedeUsuario'];
-                $dadosUsuario['nivelContaUsuario'] = $resultado['nivelContaUsuario'];
-        
-                if ($dadosUsuario['nivelContaUsuario'] == 2) {
-                    $a = ArtistaDao::consultarArtista($dadosUsuario['idUsuario']);
-                    $dadosUsuario['idArtista'] = $a['idArtista'];
-                    $dadosUsuario['bioArtista'] = $a['bioArtista']; 
-                }
-                print_r($dadosUsuario);
-             }
-            
+    if ($resultado != false) {
+        foreach ($resultado as $row) {
+            $dadosUsuario['idUsuario'] = $row['idUsuario'];
+            $dadosUsuario['nomeUsuario'] = $row['nomeUsuario'];
+            $dadosUsuario['nicknameUsuario'] = $row['nicknameUsuario'];
+            $dadosUsuario['fotoPerfilUsuario'] = $row['fotoPerfilUsuario'];
+            $dadosUsuario['papelParedeUsuario'] = $row['papelParedeUsuario'];
+            $dadosUsuario['nivelContaUsuario'] = $row['nivelContaUsuario'];
 
-            return $dadosUsuario;
+            if ($dadosUsuario['nivelContaUsuario'] == 2) {
+                $a = ArtistaDao::consultarArtista($dadosUsuario['idUsuario']);
+                $dadosUsuario['idArtista'] = $a['idArtista'];
+                $dadosUsuario['bioArtista'] = $a['bioArtista']; 
+            }
         }
-        //if(isset($_SESSION['idArtista'])){
-          //  header('Location: ../Perfil/PerfilArtista/Feed/descobrir.php');
-        //}else{
-         //   header('Location: ../Perfil/PerfilVisitante/Feed/descobrir.php');  
-        //} 
 
+        return $dadosUsuario;
+    }
+     
 ?>
