@@ -192,8 +192,64 @@ require_once 'GlobalPerfil.php';
                             </div>
                         </div>
 
+                        <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
+                            Sua atividade
+                        </h1>
+                        <div class="atividade">
+                            <div class="col-8 publicacoes">
+                                <img src="assets/img/seuJorge.jpeg" alt="">
 
-                        <div class="box-atividade-eventos">
+                                <img src="assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="assets/img/seuJorge.jpeg" alt="">
+
+
+                                <img src="assets/img/seuJorge.jpeg" alt="">
+                                <img src="assets/img/seuJorge.jpeg" alt="">
+                                <img src="assets/img/seuJorge.jpeg" alt="">
+                            </div>
+                            <div class="col-4 eventos">
+                                <div class="img-evento">
+                                    <img src="assets/img/kyan-evento.jpg" alt="">
+                                    
+                                        <h1>
+                                            Batalha de rima
+                                        </h1>
+                                        <p>
+                                            Rua Quimanga, 509
+                                        </p>
+                                    
+
+                                </div>
+
+                                <div class="img-evento">
+                                    <img src="assets/img/kyan-evento.jpg" alt="">
+                                    <h1>
+                                        Batalha de rima
+                                    </h1>
+                                    <p>
+                                        Rua Quimanga, 509
+                                    </p>
+                                </div>
+
+                                <div class="img-evento">
+                                    <img src="assets/img/kyan-evento.jpg" alt="">
+                                    <h1>
+                                        Batalha de rima
+                                    </h1>
+                                    <p>
+                                        Rua Quimanga, 509
+                                    </p>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- <div class="box-atividade-eventos">
                             <hr>
                             <div style="display: none;" class="container box-eventos">
 
@@ -286,22 +342,7 @@ require_once 'GlobalPerfil.php';
                                                     ?></p>
                                             </div>
                                         </div>
-                                        <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
-
-                                        <div class="box-text-area">
-                                            <textarea name="comentario" id="" cols="30" rows="10">
-
-                                            </textarea>
-                                            <div  class="box-btn-comentario">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-
-
-
-                                    </div> -->
+                                       
                                     </div>
                                 <?PHP
                                 }
@@ -311,18 +352,9 @@ require_once 'GlobalPerfil.php';
 
 
 
-                        </div>
-
-                        <!-- <div class="criar-evento">
-                            <div class="titulo-box-evento">
-                                <h1>Seus eventos</h1>
-                            </div>
-                            <div class="btn-criar-evento">
-                                <button class="btn-criar-evento" value="">
-                                    Criar Evento
-                                </button>
-                            </div>
                         </div> -->
+
+
                     </div>
                 </div>
             </div>
@@ -736,7 +768,7 @@ require_once 'GlobalPerfil.php';
 
 
 
-                             
+
 
 
 
@@ -758,7 +790,7 @@ require_once 'GlobalPerfil.php';
                                 </select>
                             </div>
 
-        
+
                             <div style="overflow:auto;">
                                 <div style="float:right;">
                                     <button class="btn-prev btn-primary" type="button" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
@@ -1212,7 +1244,7 @@ require_once 'GlobalPerfil.php';
 
 
 
-    
+
     <!----------------------------------- MODAL SAIR DA CONTA -------------------------------- -->
 
 
@@ -1238,7 +1270,7 @@ require_once 'GlobalPerfil.php';
 
 
 
-   
+
 
 
 

@@ -1,4 +1,5 @@
-<?php include('../../../Controller/VerificaLogado.php');
+<?php
+include('../../../Controller/VerificaLogado.php');
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
@@ -13,6 +14,7 @@ require_once '../../../Dao/ComentarioDao.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getto</title>
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/feedMobile.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
@@ -28,6 +30,116 @@ require_once '../../../Dao/ComentarioDao.php';
 <body>
 
     <div style="overflow-x: hidden;" class="d-flex">
+
+        <div class="box-area-info">
+            <div class="area-info">
+
+                <div class="box-tags">
+
+                    <div class="titulo-tags">
+                        <h1>Mais populares</h1>
+                    </div>
+                    <div class="tags">
+                        <div class="column-tags">
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>1#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Musica</button>
+                            </div>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>2#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Teatro</button>
+                            </div>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>3#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Dança</button>
+                            </div>
+                        </div>
+                        <div class="column-tags">
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>4#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Desenho</button>
+                            </div>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>5#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Classicos</button>
+                            </div>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>6#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Realismo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="area-sugestao">
+
+                    <div class="titulo-sugestao">
+                        <h1>Sugestões para seguir</h1>
+                    </div>
+
+                    <div class="box-sugestoes">
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
         <div class="area-sidebar">
             <div class="sidebar">
@@ -98,7 +210,7 @@ require_once '../../../Dao/ComentarioDao.php';
 
                 <div class="box-area-perfil">
                     <div class="area-perfil">
-                       
+
                         <div class="box-publicacoes">
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
@@ -234,7 +346,7 @@ require_once '../../../Dao/ComentarioDao.php';
                                                 } else {
                                                     echo 'há ' . $minutos . ' min';
                                                 }
-                                            ?></p>
+                                                ?></p>
                                         </div>
 
 
@@ -253,7 +365,7 @@ require_once '../../../Dao/ComentarioDao.php';
                                         </div>
 
                                                 <?PHP
-                                                     $tc = ComentarioDao::consultarQuantComentario($p['idPublicacao']);
+                                                $tc = ComentarioDao::consultarQuantComentario($p['idPublicacao']);
                                                 ?>
 
                                     </div> -->
@@ -299,23 +411,23 @@ require_once '../../../Dao/ComentarioDao.php';
                                                                 <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
                                                                 <p><?PHP echo $c['comentario']; ?></p>
                                                                 <?php
-                                                                    $minuto = $c['minutosComentario'];
-                                                                    $mes = intval($minuto / 43200);
-                                                                    $minuto = $minuto % 43200;
-                    
-                                                                    if ($mes > 0) {
-                                                                        echo 'há ' . $mes . ' m';
-                                                                    } elseif ($minuto == 0) {
-                                                                        echo 'Agora mesmo';
-                                                                    } elseif ($minuto > 1440) {
-                                                                        $ds = intval($minuto / 1440);
-                                                                        echo 'há ' . $ds . ' d';
-                                                                    } elseif ($minuto > 59) {
-                                                                        $hs = intval($minuto / 60);
-                                                                        echo 'há ' . $hs . ' h';
-                                                                    } else {
-                                                                        echo 'há ' . $minuto . ' min';
-                                                                    }
+                                                                $minuto = $c['minutosComentario'];
+                                                                $mes = intval($minuto / 43200);
+                                                                $minuto = $minuto % 43200;
+
+                                                                if ($mes > 0) {
+                                                                    echo 'há ' . $mes . ' m';
+                                                                } elseif ($minuto == 0) {
+                                                                    echo 'Agora mesmo';
+                                                                } elseif ($minuto > 1440) {
+                                                                    $ds = intval($minuto / 1440);
+                                                                    echo 'há ' . $ds . ' d';
+                                                                } elseif ($minuto > 59) {
+                                                                    $hs = intval($minuto / 60);
+                                                                    echo 'há ' . $hs . ' h';
+                                                                } else {
+                                                                    echo 'há ' . $minuto . ' min';
+                                                                }
                                                                 ?>
                                                                 <div class="box-btn-denuncia">
                                                                     <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
@@ -381,120 +493,14 @@ require_once '../../../Dao/ComentarioDao.php';
 
 
 
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="box-area-info">
-            <div class="area-info">
 
-                <div class="box-tags">
-
-                    <div class="titulo-tags">
-                        <h1>Mais populares</h1>
-                    </div>
-                    <div class="tags">
-                        <div class="column-tags">
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>1#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Musica</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>2#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Teatro</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>3#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Dança</button>
-                            </div>
-                        </div>
-                        <div class="column-tags">
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>4#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Desenho</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>5#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Classicos</button>
-                            </div>
-                            <div class="tag">
-                                <div class="rank-tag">
-                                    <h2>6#</h2>
-                                </div>
-                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Realismo</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="area-sugestao">
-
-                    <div class="titulo-sugestao">
-                        <h1>Sugestões para seguir</h1>
-                    </div>
-
-                    <div class="box-sugestoes">
-                        <div class="sugestao-perfil">
-                            <div class="img-perfil-sugestao">
-                                <img src="assets/img/img-perfil.svg" alt="">
-                            </div>
-
-                            <div class="informacoes-sugestao">
-                                <h1>@gabb</h1>
-                                <p>Cantor e compositor</p>
-                            </div>
-                            <div class="btn-seguir">
-                                <button>Seguir</button>
-                            </div>
-                        </div>
-
-
-
-
-
-                        <div class="sugestao-perfil">
-                            <div class="img-perfil-sugestao">
-                                <img src="assets/img/img-perfil.svg" alt="">
-                            </div>
-
-                            <div class="informacoes-sugestao">
-                                <h1>@gabb</h1>
-                                <p>Cantor e compositor</p>
-                            </div>
-                            <div class="btn-seguir">
-                                <button>Seguir</button>
-                            </div>
-                        </div>
-
-                        <div class="sugestao-perfil">
-                            <div class="img-perfil-sugestao">
-                                <img src="assets/img/img-perfil.svg" alt="">
-                            </div>
-
-                            <div class="informacoes-sugestao">
-                                <h1>@gabb</h1>
-                                <p>Cantor e compositor</p>
-                            </div>
-                            <div class="btn-seguir">
-                                <button>Seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -525,10 +531,7 @@ require_once '../../../Dao/ComentarioDao.php';
 
     </div>
 
-    <!-- Button trigger modal -->
-    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentarioModal">
-        Launch demo modal
-    </button> -->
+
 
 
 
@@ -606,20 +609,7 @@ require_once '../../../Dao/ComentarioDao.php';
 
 
                     </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
 
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
 
 
                 </div>
@@ -671,6 +661,14 @@ require_once '../../../Dao/ComentarioDao.php';
     </div>
 
 
+
+
+
+
+
+
+
+    <script src="../../../jquery.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 

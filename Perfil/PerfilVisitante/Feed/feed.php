@@ -113,7 +113,7 @@ require_once '../../../Dao/Conexao.php';
                 </div>
             </a>
         </div>
-        <div class="box-container">
+        <div style="overflow-y: auto;" class="box-container">
             <div class="container-fluid">
                 <div class="header-feed">
                     <div class="div-logos">
@@ -133,8 +133,8 @@ require_once '../../../Dao/Conexao.php';
 
                 <div class="box-area-perfil">
                     <div class="area-perfil">
-                        <hr>
-                        <div class="box-momentos">
+                        
+                        <!-- <div class="box-momentos">
                             <div class="momento">
                                 <div class="img-momento">
                                     <img src="assets/img/img-perfil.svg" alt="">
@@ -183,8 +183,8 @@ require_once '../../../Dao/Conexao.php';
                                     <h1>@Melis</h1>
                                 </div>
                             </div>
-                        </div>
-                        <hr>
+                        </div> -->
+                        
                         <div class="box-publicacoes">
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
