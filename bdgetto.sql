@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 08:06 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Tempo de geração: 04/06/2023 às 22:08
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdgetto`
+-- Banco de dados: `bdgetto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbadministrador`
+-- Estrutura para tabela `tbadministrador`
 --
 
 CREATE TABLE `tbadministrador` (
@@ -34,10 +34,10 @@ CREATE TABLE `tbadministrador` (
   `loginAdministrador` varchar(20) NOT NULL,
   `senhaAdministrador` varchar(300) DEFAULT NULL,
   `foneAdministrador` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbadministrador`
+-- Despejando dados para a tabela `tbadministrador`
 --
 
 INSERT INTO `tbadministrador` (`idAdministrador`, `nomeAdministrador`, `emailAdministrador`, `loginAdministrador`, `senhaAdministrador`, `foneAdministrador`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `tbadministrador` (`idAdministrador`, `nomeAdministrador`, `emailAdm
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbartista`
+-- Estrutura para tabela `tbartista`
 --
 
 CREATE TABLE `tbartista` (
@@ -55,10 +55,10 @@ CREATE TABLE `tbartista` (
   `bioArtista` varchar(300) NOT NULL,
   `portfolio` varchar(300) NOT NULL,
   `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbartista`
+-- Despejando dados para a tabela `tbartista`
 --
 
 INSERT INTO `tbartista` (`idArtista`, `generoArtista`, `bioArtista`, `portfolio`, `idUsuario`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `tbartista` (`idArtista`, `generoArtista`, `bioArtista`, `portfolio`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbcomentario`
+-- Estrutura para tabela `tbcomentario`
 --
 
 CREATE TABLE `tbcomentario` (
@@ -78,13 +78,21 @@ CREATE TABLE `tbcomentario` (
   `statusComentario` varchar(80) NOT NULL,
   `numCurtidasComentario` int(11) DEFAULT NULL,
   `idPublicacao` int(11) DEFAULT NULL,
-  `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `idUsuario` int(11) DEFAULT NULL,
+  `horaComentario` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbcomentario`
+--
+
+INSERT INTO `tbcomentario` (`idComentario`, `comentario`, `statusComentario`, `numCurtidasComentario`, `idPublicacao`, `idUsuario`, `horaComentario`) VALUES
+(1, '\r\n                  desculpa\r\n                                ', 'Normal', 0, 3, 2, '2023-06-04 17:07:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbcontapixartista`
+-- Estrutura para tabela `tbcontapixartista`
 --
 
 CREATE TABLE `tbcontapixartista` (
@@ -93,24 +101,24 @@ CREATE TABLE `tbcontapixartista` (
   `tipoContaPixArtista` varchar(300) NOT NULL,
   `chaveContaPixArtista` varchar(300) NOT NULL,
   `idArtista` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbcurtida`
+-- Estrutura para tabela `tbcurtida`
 --
 
 CREATE TABLE `tbcurtida` (
   `idCurtida` int(11) NOT NULL,
   `idUsuario` int(11) DEFAULT NULL,
   `idPublicacao` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbdenuncia`
+-- Estrutura para tabela `tbdenuncia`
 --
 
 CREATE TABLE `tbdenuncia` (
@@ -120,24 +128,24 @@ CREATE TABLE `tbdenuncia` (
   `statusDenuncia` varchar(50) NOT NULL,
   `idTipoDenuncia` int(11) DEFAULT NULL,
   `idAdministrador` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbdenunciausuario`
+-- Estrutura para tabela `tbdenunciausuario`
 --
 
 CREATE TABLE `tbdenunciausuario` (
   `idDenunciaUsuario` int(11) NOT NULL,
   `idDenuncia` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbevento`
+-- Estrutura para tabela `tbevento`
 --
 
 CREATE TABLE `tbevento` (
@@ -158,22 +166,22 @@ CREATE TABLE `tbevento` (
   `dataEvento` varchar(10) NOT NULL,
   `horarioFinalEvento` varchar(10) NOT NULL,
   `horarioInicioEvento` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbmidia`
+-- Estrutura para tabela `tbmidia`
 --
 
 CREATE TABLE `tbmidia` (
   `idMidia` int(11) NOT NULL,
   `arquivoMidia` varchar(100) NOT NULL,
   `idTipoMidia` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbmidia`
+-- Despejando dados para a tabela `tbmidia`
 --
 
 INSERT INTO `tbmidia` (`idMidia`, `arquivoMidia`, `idTipoMidia`) VALUES
@@ -187,29 +195,29 @@ INSERT INTO `tbmidia` (`idMidia`, `arquivoMidia`, `idTipoMidia`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbmidiamomentos`
+-- Estrutura para tabela `tbmidiamomentos`
 --
 
 CREATE TABLE `tbmidiamomentos` (
   `idMidiaMomentos` int(11) NOT NULL,
   `idMidia` int(11) DEFAULT NULL,
   `idMomentos` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbmidiapublicacao`
+-- Estrutura para tabela `tbmidiapublicacao`
 --
 
 CREATE TABLE `tbmidiapublicacao` (
   `idMidiaPublicacao` int(11) NOT NULL,
   `idMidia` int(11) DEFAULT NULL,
   `idPublicacao` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbmidiapublicacao`
+-- Despejando dados para a tabela `tbmidiapublicacao`
 --
 
 INSERT INTO `tbmidiapublicacao` (`idMidiaPublicacao`, `idMidia`, `idPublicacao`) VALUES
@@ -223,19 +231,19 @@ INSERT INTO `tbmidiapublicacao` (`idMidiaPublicacao`, `idMidia`, `idPublicacao`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbmomentos`
+-- Estrutura para tabela `tbmomentos`
 --
 
 CREATE TABLE `tbmomentos` (
   `idMomentos` int(11) NOT NULL,
   `dataMomentos` datetime NOT NULL DEFAULT current_timestamp(),
   `idArtista` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbpublicacao`
+-- Estrutura para tabela `tbpublicacao`
 --
 
 CREATE TABLE `tbpublicacao` (
@@ -246,10 +254,10 @@ CREATE TABLE `tbpublicacao` (
   `statusPublicacao` varchar(50) DEFAULT NULL,
   `idArtista` int(11) DEFAULT NULL,
   `idTipoArte` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbpublicacao`
+-- Despejando dados para a tabela `tbpublicacao`
 --
 
 INSERT INTO `tbpublicacao` (`idPublicacao`, `horarioPublicacao`, `descPublicacao`, `tituloPublicacao`, `statusPublicacao`, `idArtista`, `idTipoArte`) VALUES
@@ -263,17 +271,17 @@ INSERT INTO `tbpublicacao` (`idPublicacao`, `horarioPublicacao`, `descPublicacao
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbseguidores`
+-- Estrutura para tabela `tbseguidores`
 --
 
 CREATE TABLE `tbseguidores` (
   `idSeguidores` int(11) NOT NULL,
   `idArtista` int(11) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbseguidores`
+-- Despejando dados para a tabela `tbseguidores`
 --
 
 INSERT INTO `tbseguidores` (`idSeguidores`, `idArtista`, `idUsuario`) VALUES
@@ -286,17 +294,17 @@ INSERT INTO `tbseguidores` (`idSeguidores`, `idArtista`, `idUsuario`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbtipoarte`
+-- Estrutura para tabela `tbtipoarte`
 --
 
 CREATE TABLE `tbtipoarte` (
   `idTipoArte` int(11) NOT NULL,
   `nomeTipoArte` varchar(20) NOT NULL,
   `imagemTipoArte` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbtipoarte`
+-- Despejando dados para a tabela `tbtipoarte`
 --
 
 INSERT INTO `tbtipoarte` (`idTipoArte`, `nomeTipoArte`, `imagemTipoArte`) VALUES
@@ -313,27 +321,27 @@ INSERT INTO `tbtipoarte` (`idTipoArte`, `nomeTipoArte`, `imagemTipoArte`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbtipodenuncia`
+-- Estrutura para tabela `tbtipodenuncia`
 --
 
 CREATE TABLE `tbtipodenuncia` (
   `idTipoDenuncia` int(11) NOT NULL,
   `nomeTipoDenuncia` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbtipomidia`
+-- Estrutura para tabela `tbtipomidia`
 --
 
 CREATE TABLE `tbtipomidia` (
   `idTipoMidia` int(11) NOT NULL,
   `nomeTipoMidia` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbtipomidia`
+-- Despejando dados para a tabela `tbtipomidia`
 --
 
 INSERT INTO `tbtipomidia` (`idTipoMidia`, `nomeTipoMidia`) VALUES
@@ -344,7 +352,7 @@ INSERT INTO `tbtipomidia` (`idTipoMidia`, `nomeTipoMidia`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbusuario`
+-- Estrutura para tabela `tbusuario`
 --
 
 CREATE TABLE `tbusuario` (
@@ -360,10 +368,10 @@ CREATE TABLE `tbusuario` (
   `nivelContaUsuario` varchar(100) DEFAULT NULL,
   `cidadeUsuario` varchar(100) DEFAULT NULL,
   `estadoUsuario` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbusuario`
+-- Despejando dados para a tabela `tbusuario`
 --
 
 INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `nicknameUsuario`, `senhaUsuario`, `foneUsuario`, `fotoPerfilUsuario`, `statusContaUsuario`, `papelParedeUsuario`, `nivelContaUsuario`, `cidadeUsuario`, `estadoUsuario`) VALUES
@@ -373,11 +381,11 @@ INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `nicknameUs
 (4, 'kendrick', 'kendrick@gmail.com', '@duckworth', '$2y$10$9xYi7C/qJ1.OH6jfi/M.i.Cvks6txAtHicljblOM5dcjAzzEiu9G2', '11123123123', '4.jpg', 'Normal', '4.png', '2', 'piai', 'PI');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `tbadministrador`
+-- Índices de tabela `tbadministrador`
 --
 ALTER TABLE `tbadministrador`
   ADD PRIMARY KEY (`idAdministrador`),
@@ -385,14 +393,14 @@ ALTER TABLE `tbadministrador`
   ADD UNIQUE KEY `loginAdministrador` (`loginAdministrador`);
 
 --
--- Indexes for table `tbartista`
+-- Índices de tabela `tbartista`
 --
 ALTER TABLE `tbartista`
   ADD PRIMARY KEY (`idArtista`),
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Indexes for table `tbcomentario`
+-- Índices de tabela `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
   ADD PRIMARY KEY (`idComentario`),
@@ -400,14 +408,14 @@ ALTER TABLE `tbcomentario`
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Indexes for table `tbcontapixartista`
+-- Índices de tabela `tbcontapixartista`
 --
 ALTER TABLE `tbcontapixartista`
   ADD PRIMARY KEY (`idContaPixArtista`),
   ADD KEY `idArtista` (`idArtista`);
 
 --
--- Indexes for table `tbcurtida`
+-- Índices de tabela `tbcurtida`
 --
 ALTER TABLE `tbcurtida`
   ADD PRIMARY KEY (`idCurtida`),
@@ -415,7 +423,7 @@ ALTER TABLE `tbcurtida`
   ADD KEY `idPublicacao` (`idPublicacao`);
 
 --
--- Indexes for table `tbdenuncia`
+-- Índices de tabela `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   ADD PRIMARY KEY (`idDenuncia`),
@@ -423,7 +431,7 @@ ALTER TABLE `tbdenuncia`
   ADD KEY `idAdministrador` (`idAdministrador`);
 
 --
--- Indexes for table `tbdenunciausuario`
+-- Índices de tabela `tbdenunciausuario`
 --
 ALTER TABLE `tbdenunciausuario`
   ADD PRIMARY KEY (`idDenunciaUsuario`),
@@ -431,7 +439,7 @@ ALTER TABLE `tbdenunciausuario`
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Indexes for table `tbevento`
+-- Índices de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD PRIMARY KEY (`idEvento`),
@@ -439,14 +447,14 @@ ALTER TABLE `tbevento`
   ADD KEY `idTipoArte` (`idTipoArte`);
 
 --
--- Indexes for table `tbmidia`
+-- Índices de tabela `tbmidia`
 --
 ALTER TABLE `tbmidia`
   ADD PRIMARY KEY (`idMidia`),
   ADD KEY `idTipoMidia` (`idTipoMidia`);
 
 --
--- Indexes for table `tbmidiamomentos`
+-- Índices de tabela `tbmidiamomentos`
 --
 ALTER TABLE `tbmidiamomentos`
   ADD PRIMARY KEY (`idMidiaMomentos`),
@@ -454,7 +462,7 @@ ALTER TABLE `tbmidiamomentos`
   ADD KEY `idMomentos` (`idMomentos`);
 
 --
--- Indexes for table `tbmidiapublicacao`
+-- Índices de tabela `tbmidiapublicacao`
 --
 ALTER TABLE `tbmidiapublicacao`
   ADD PRIMARY KEY (`idMidiaPublicacao`),
@@ -462,14 +470,14 @@ ALTER TABLE `tbmidiapublicacao`
   ADD KEY `idPublicacao` (`idPublicacao`);
 
 --
--- Indexes for table `tbmomentos`
+-- Índices de tabela `tbmomentos`
 --
 ALTER TABLE `tbmomentos`
   ADD PRIMARY KEY (`idMomentos`),
   ADD KEY `idArtista` (`idArtista`);
 
 --
--- Indexes for table `tbpublicacao`
+-- Índices de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD PRIMARY KEY (`idPublicacao`),
@@ -477,7 +485,7 @@ ALTER TABLE `tbpublicacao`
   ADD KEY `idTipoArte` (`idTipoArte`);
 
 --
--- Indexes for table `tbseguidores`
+-- Índices de tabela `tbseguidores`
 --
 ALTER TABLE `tbseguidores`
   ADD PRIMARY KEY (`idSeguidores`),
@@ -485,25 +493,25 @@ ALTER TABLE `tbseguidores`
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
--- Indexes for table `tbtipoarte`
+-- Índices de tabela `tbtipoarte`
 --
 ALTER TABLE `tbtipoarte`
   ADD PRIMARY KEY (`idTipoArte`);
 
 --
--- Indexes for table `tbtipodenuncia`
+-- Índices de tabela `tbtipodenuncia`
 --
 ALTER TABLE `tbtipodenuncia`
   ADD PRIMARY KEY (`idTipoDenuncia`);
 
 --
--- Indexes for table `tbtipomidia`
+-- Índices de tabela `tbtipomidia`
 --
 ALTER TABLE `tbtipomidia`
   ADD PRIMARY KEY (`idTipoMidia`);
 
 --
--- Indexes for table `tbusuario`
+-- Índices de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
   ADD PRIMARY KEY (`idUsuario`),
@@ -511,203 +519,203 @@ ALTER TABLE `tbusuario`
   ADD UNIQUE KEY `nicknameUsuario` (`nicknameUsuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `tbadministrador`
+-- AUTO_INCREMENT de tabela `tbadministrador`
 --
 ALTER TABLE `tbadministrador`
   MODIFY `idAdministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbartista`
+-- AUTO_INCREMENT de tabela `tbartista`
 --
 ALTER TABLE `tbartista`
   MODIFY `idArtista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbcomentario`
+-- AUTO_INCREMENT de tabela `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
-  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbcontapixartista`
+-- AUTO_INCREMENT de tabela `tbcontapixartista`
 --
 ALTER TABLE `tbcontapixartista`
   MODIFY `idContaPixArtista` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbcurtida`
+-- AUTO_INCREMENT de tabela `tbcurtida`
 --
 ALTER TABLE `tbcurtida`
   MODIFY `idCurtida` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbdenuncia`
+-- AUTO_INCREMENT de tabela `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   MODIFY `idDenuncia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbdenunciausuario`
+-- AUTO_INCREMENT de tabela `tbdenunciausuario`
 --
 ALTER TABLE `tbdenunciausuario`
   MODIFY `idDenunciaUsuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbevento`
+-- AUTO_INCREMENT de tabela `tbevento`
 --
 ALTER TABLE `tbevento`
   MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbmidia`
+-- AUTO_INCREMENT de tabela `tbmidia`
 --
 ALTER TABLE `tbmidia`
   MODIFY `idMidia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbmidiamomentos`
+-- AUTO_INCREMENT de tabela `tbmidiamomentos`
 --
 ALTER TABLE `tbmidiamomentos`
   MODIFY `idMidiaMomentos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbmidiapublicacao`
+-- AUTO_INCREMENT de tabela `tbmidiapublicacao`
 --
 ALTER TABLE `tbmidiapublicacao`
   MODIFY `idMidiaPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbmomentos`
+-- AUTO_INCREMENT de tabela `tbmomentos`
 --
 ALTER TABLE `tbmomentos`
   MODIFY `idMomentos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbpublicacao`
+-- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbseguidores`
+-- AUTO_INCREMENT de tabela `tbseguidores`
 --
 ALTER TABLE `tbseguidores`
   MODIFY `idSeguidores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbtipoarte`
+-- AUTO_INCREMENT de tabela `tbtipoarte`
 --
 ALTER TABLE `tbtipoarte`
   MODIFY `idTipoArte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tbtipodenuncia`
+-- AUTO_INCREMENT de tabela `tbtipodenuncia`
 --
 ALTER TABLE `tbtipodenuncia`
   MODIFY `idTipoDenuncia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbtipomidia`
+-- AUTO_INCREMENT de tabela `tbtipomidia`
 --
 ALTER TABLE `tbtipomidia`
   MODIFY `idTipoMidia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbusuario`
+-- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
   MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Restrições para tabelas despejadas
 --
 
 --
--- Constraints for table `tbartista`
+-- Restrições para tabelas `tbartista`
 --
 ALTER TABLE `tbartista`
   ADD CONSTRAINT `tbartista_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Constraints for table `tbcomentario`
+-- Restrições para tabelas `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
   ADD CONSTRAINT `tbcomentario_ibfk_1` FOREIGN KEY (`idPublicacao`) REFERENCES `tbpublicacao` (`idPublicacao`),
   ADD CONSTRAINT `tbcomentario_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Constraints for table `tbcontapixartista`
+-- Restrições para tabelas `tbcontapixartista`
 --
 ALTER TABLE `tbcontapixartista`
   ADD CONSTRAINT `tbcontapixartista_ibfk_1` FOREIGN KEY (`idArtista`) REFERENCES `tbartista` (`idArtista`);
 
 --
--- Constraints for table `tbcurtida`
+-- Restrições para tabelas `tbcurtida`
 --
 ALTER TABLE `tbcurtida`
   ADD CONSTRAINT `tbcurtida_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`),
   ADD CONSTRAINT `tbcurtida_ibfk_2` FOREIGN KEY (`idPublicacao`) REFERENCES `tbpublicacao` (`idPublicacao`);
 
 --
--- Constraints for table `tbdenuncia`
+-- Restrições para tabelas `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   ADD CONSTRAINT `tbdenuncia_ibfk_1` FOREIGN KEY (`idTipoDenuncia`) REFERENCES `tbtipodenuncia` (`idTipoDenuncia`),
   ADD CONSTRAINT `tbdenuncia_ibfk_2` FOREIGN KEY (`idAdministrador`) REFERENCES `tbadministrador` (`idAdministrador`);
 
 --
--- Constraints for table `tbdenunciausuario`
+-- Restrições para tabelas `tbdenunciausuario`
 --
 ALTER TABLE `tbdenunciausuario`
   ADD CONSTRAINT `tbdenunciausuario_ibfk_1` FOREIGN KEY (`idDenuncia`) REFERENCES `tbdenuncia` (`idDenuncia`),
   ADD CONSTRAINT `tbdenunciausuario_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
--- Constraints for table `tbevento`
+-- Restrições para tabelas `tbevento`
 --
 ALTER TABLE `tbevento`
   ADD CONSTRAINT `tbevento_ibfk_1` FOREIGN KEY (`idArtista`) REFERENCES `tbartista` (`idArtista`),
   ADD CONSTRAINT `tbevento_ibfk_2` FOREIGN KEY (`idTipoArte`) REFERENCES `tbtipoarte` (`idTipoArte`);
 
 --
--- Constraints for table `tbmidia`
+-- Restrições para tabelas `tbmidia`
 --
 ALTER TABLE `tbmidia`
   ADD CONSTRAINT `tbmidia_ibfk_1` FOREIGN KEY (`idTipoMidia`) REFERENCES `tbtipomidia` (`idTipoMidia`);
 
 --
--- Constraints for table `tbmidiamomentos`
+-- Restrições para tabelas `tbmidiamomentos`
 --
 ALTER TABLE `tbmidiamomentos`
   ADD CONSTRAINT `tbmidiamomentos_ibfk_1` FOREIGN KEY (`idMidia`) REFERENCES `tbmidia` (`idMidia`),
   ADD CONSTRAINT `tbmidiamomentos_ibfk_2` FOREIGN KEY (`idMomentos`) REFERENCES `tbmomentos` (`idMomentos`);
 
 --
--- Constraints for table `tbmidiapublicacao`
+-- Restrições para tabelas `tbmidiapublicacao`
 --
 ALTER TABLE `tbmidiapublicacao`
   ADD CONSTRAINT `tbmidiapublicacao_ibfk_1` FOREIGN KEY (`idMidia`) REFERENCES `tbmidia` (`idMidia`),
   ADD CONSTRAINT `tbmidiapublicacao_ibfk_2` FOREIGN KEY (`idPublicacao`) REFERENCES `tbpublicacao` (`idPublicacao`);
 
 --
--- Constraints for table `tbmomentos`
+-- Restrições para tabelas `tbmomentos`
 --
 ALTER TABLE `tbmomentos`
   ADD CONSTRAINT `tbmomentos_ibfk_1` FOREIGN KEY (`idArtista`) REFERENCES `tbartista` (`idArtista`);
 
 --
--- Constraints for table `tbpublicacao`
+-- Restrições para tabelas `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
   ADD CONSTRAINT `tbpublicacao_ibfk_1` FOREIGN KEY (`idArtista`) REFERENCES `tbartista` (`idArtista`),
   ADD CONSTRAINT `tbpublicacao_ibfk_2` FOREIGN KEY (`idTipoArte`) REFERENCES `tbtipoarte` (`idTipoArte`);
 
 --
--- Constraints for table `tbseguidores`
+-- Restrições para tabelas `tbseguidores`
 --
 ALTER TABLE `tbseguidores`
   ADD CONSTRAINT `tbseguidores_ibfk_1` FOREIGN KEY (`idArtista`) REFERENCES `tbartista` (`idArtista`),
