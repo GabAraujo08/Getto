@@ -134,77 +134,75 @@ require_once 'GlobalPerfil.php';
 
 
                         <div class="titulo-publicacoes-curtidas">
-                            <p>Publicações curtidas</p>
+                            <p style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">Publicações curtidas</p>
                         </div>
 
-                        <div class="box-atividade-eventos">
-                            <div class="box-atividade">
-                                <div class="atividade">
-                                    <div class="box-atividade-perfil-nick">
-                                        <div class="box-img-atividade">
-                                            <img class="img-fluid img-atividade" src="assets/img/img-atividade-1.svg" alt="">
-                                        </div>
-                                        <div class="fotoPerfil-nick">
-                                            <div class="fotoPerfil-atividade">
-                                                <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                            </div>
-                                            <div class="nick-atividade">
-                                                <h1>@Melis</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="atividade">
-                                    <div class="box-img-atividade">
-                                        <img class="img-fluid img-atividade" src="assets/img/img-atividade-2.svg" alt="">
-                                    </div>
-                                    <div class="fotoPerfil-nick">
-                                        <div class="fotoPerfil-atividade">
-                                            <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                        </div>
-                                        <div class="nick-atividade">
-                                            <h1>@Melis</h1>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="atividade">
+                            <div class="col-12 publicacoes">
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+
+
 
                             </div>
-                            <div class="titulo-box-evento">
-                                <h1>Eventos curtidos</h1>
-                            </div>
-                            <div class="container box-eventos">
+                            <!-- <div class="col-4 eventos">
+                                <div class="img-evento">
+                                    <img src="assets/img/kyan-evento.jpg" alt="">
+                                    
+                                        <h1>
+                                            Batalha de rima
+                                        </h1>
+                                        <p class="rua-evento">
+                                            Rua Quimanga, 509
+                                        </p>
+                                    
 
-                                <div class="evento">
-                                    <div class="img-evento">
-                                        <img class="img-fluid" src="assets/img/img-evento.svg" alt="">
-                                    </div>
-
-
-                                    <div class="box-desc-evento">
-                                        <div class="desc-evento">
-                                            <h1 class="titulo-evento">Evento musical</h1>
-                                            <h2>Dia: 13/02/2023</h2>
-                                            <h2>Horário: 17:00hrs</h2>
-                                            <h2>Local: Shopping Tatuapé</h2>
-                                        </div>
-                                    </div>
                                 </div>
 
-                                <div class="evento">
-                                    <div class="img-evento">
-                                        <img class="img-fluid" src="assets/img/img-evento.svg" alt="">
-                                    </div>
-                                    <div class="box-desc-evento">
-                                        <div class="desc-evento">
-                                            <h1 class="titulo-evento">Evento musical</h1>
-                                            <h2>Dia: 13/02/2023</h2>
-                                            <h2>Horário: 17:00hrs</h2>
-                                            <h2>Local: Shopping Tatuapé</h2>
-                                        </div>
-                                    </div>
+                                <div class="img-evento">
+                                    <img src="assets/img/kyan-evento.jpg" alt="">
+                                    <h1>
+                                        Batalha de rima
+                                    </h1>
+                                    <p>
+                                        Rua Quimanga, 509
+                                    </p>
                                 </div>
 
-                            </div>
+                                <div class="img-evento">
+                                    <img src="assets/img/kyan-evento.jpg" alt="">
+                                    <h1>
+                                        Batalha de rima
+                                    </h1>
+                                    <p>
+                                        Rua Quimanga, 509
+                                    </p>
+                                </div>
+
+
+
+                            </div> -->
                         </div>
                     </div>
                 </div>
