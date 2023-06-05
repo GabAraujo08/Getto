@@ -169,7 +169,7 @@ require_once 'GlobalPerfil.php';
                                         $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
                                         ?>
                                         <div class="seguindo-numero">
-                                            <p><?PHp
+                                            <p><?php
                                                 echo $seguindo;
                                                 ?></p>
                                         </div>

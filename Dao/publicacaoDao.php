@@ -92,4 +92,15 @@
             return $resultado;
            
         }
-}
+
+        public static function QuantPublis($id){
+            $conexao = Conexao::conectar();
+
+            $query = $conexao->prepare('SELECT COUNT(idPublicacao) as quantPubli FROM tbPublicacao WHERE idArtista = ?');
+            $query->bindValue(1, $id);
+             $query->execute();
+            $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado1;
+        }
+} 

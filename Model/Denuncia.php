@@ -1,10 +1,10 @@
 <?php
 
 class Denuncia{
-    public $idDenuncia;
-    public $dataDenuncia;
-    public $descDenuncia;
-    public $statusDenuncia;
+    private $idDenuncia;
+    private $dataDenuncia;
+    private $descDenuncia, $idAdministrador;
+    private $statusDenuncia, $idTipoDenuncia;
 
 
     public function getIdDenuncia(){
@@ -12,6 +12,20 @@ class Denuncia{
     }
     public function setIdDenuncia($id){
         $this->idDenuncia = $id;
+    }
+
+    public function getIdAdministrador(){
+        return $this->idAdministrador;
+    }
+    public function setIdAdministrador($id){
+        $this->idAdministrador = $id;
+    }
+
+    public function getIdTipoDenuncia(){
+        return $this->idTipoDenuncia;
+    }
+    public function setIdTipoDenuncia($id){
+        $this->idTipoDenuncia = $id;
     }
 
 

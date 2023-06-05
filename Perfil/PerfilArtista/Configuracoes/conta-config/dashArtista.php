@@ -1,4 +1,8 @@
-<?php include('../../../../Controller/VerificaLogado.php'); ?>
+<?php include('../../../../Controller/VerificaLogado.php'); 
+    require_once '../../../../Dao/CurtidaDao.php';
+    require_once '../../../../Dao/Conexao.php';
+    require_once '../../../../Dao/PublicacaoDao.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -369,7 +373,17 @@
                     <p>Curtidas totais</p>
                 </div>
                 <div class="curtidas-quantidade">
-                    <p>1000</p>
+                    <p><?php
+                       $quantcurtida = CurtidaDao::QuantCurtidaTotais($_SESSION['idArtista']);
+
+                       $totalCurtidas = 0;
+                       foreach ($quantcurtida as $publicacao) {
+                           $totalCurtidas += $publicacao['quantidade'];
+                       }
+                       
+                       echo $totalCurtidas;
+                       
+                    ?></p>
                 </div>
             </div>
             <div class="card-compartilhamentos">
@@ -391,7 +405,10 @@
                     <p>Publicações totais</p>
                 </div>
                 <div class="publicacoes-quantidade">
-                    <p>1000</p>
+                    <p><?php
+                        $quantPubli = PublicacaoDao::QuantPublis($_SESSION['idArtista']);
+                        echo $quantPubli[0]['quantPubli'];                        
+                    ?></p>
                 </div>
             </div>
         </div>

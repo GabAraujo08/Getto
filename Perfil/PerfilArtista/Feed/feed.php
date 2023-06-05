@@ -430,10 +430,98 @@ require_once '../../../Dao/ComentarioDao.php';
                                                                 }
                                                                 ?>
                                                                 <div class="box-btn-denuncia">
-                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal<?PHP echo $c['idcomentario']; ?>" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+
+                                                        <div class="modal fade" id="denunciaModal<?PHP echo $c['idcomentario']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando <?PHP echo $c['nicknameUsuario']; ?></h1>
+
+
+
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <h1 style="font-family: 'InterBold';
+                                                                        font-size: 18px;
+                                                                        margin-bottom: 5px;">
+                                                                        Este é o comentário que você quer denunciar?
+                                                                    </h1>
+                                                                    <div class="box-comentario ">
+                                                                        <img src="assets/img/img-perfil.svg" alt="">
+                                                                        <div class="conteudo-comentario">
+                                                                            <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
+                                                                            <p><?PHP echo $c['comentario']; ?></p>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <form action="../../../Controller/CadastraDenuncia.php" method="POST" id="denuncia" name="denuncia">
+                                                                    <h1 style="font-family: 'InterBold';
+                                                                        font-size: 18px;
+                                                                        margin-bottom: 5px;">
+                                                                        Selecione o que mais se assemelha com sua denúncia!
+                                                                    </h1>
+
+                                                                    <select name="tipoDenuncia" id="">
+                                                                        <option value="">Selecionar...</option>
+                                                                        <?PHP
+                                                                        $dd = TipoDenunciaDao::ListaTipoMidia();
+                                                                        foreach ($dd as $ddd) {
+                                                                        ?>
+                                                                            <option value="<?PHP echo $ddd['idTipoDenuncia']; ?>"><?PHP echo $ddd['nomeTipoDenuncia']; ?></option>
+                                                                        <?PHP
+                                                                        }
+                                                                        ?>
+
+                                                                    </select>
+
+                                                                    <h1 style="font-family: 'InterBold';
+                                                                        font-size: 18px;
+                                                                        margin-top: 5px;">
+                                                                        Abaixo faça uma breve descrição sobre sua denúncia!
+                                                                    </h1>
+
+
+
+                                                                    <input type="hidden" name="idUsuarioDenuciado" value="<?PHP echo $c['idUsuario']; ?>">
+                                                                    <input type="hidden" name="idUsuarioDenuciador" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <div id="divComentario" class="comentario slide-in">
+
+                                                                        <div class="box-text-area">
+                                                                            
+                                                                                <textarea placeholder="Escreva sua denúncia" name="denuncia" id="" cols="30" rows="10">
+
+                                                                            </textarea>
+                                                                                <div class="box-btn-comentario">
+                                                                                    <button type="submit" class="btn btn-primary">
+                                                                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+
+
+
+
+
+                                                                    </div>
+
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     <?php
                                                     }
                                                     ?>
@@ -536,86 +624,7 @@ require_once '../../../Dao/ComentarioDao.php';
 
 
 
-    <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando @gabbs</h1>
-
-
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-bottom: 5px;">
-                        Este é o comentário que você quer denunciar?
-                    </h1>
-                    <div class="box-comentario ">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-
-                        </div>
-                    </div>
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-bottom: 5px;">
-                        Selecione o que mais se assemelha com sua denúncia!
-                    </h1>
-
-                    <select name="tipoDenuncia" id="">
-                        <option value="#">Violência</option>
-                        <option value="#">Assédio</option>
-                        <option value="#">Preconceito</option>
-                        <option value="#">Discurso de ódio</option>
-                        <option value="#">Mensagem falsa</option>
-
-                    </select>
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-top: 5px;">
-                        Abaixo faça uma breve descrição sobre sua denúncia!
-                    </h1>
-
-
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <div id="divComentario" class="comentario slide-in">
-
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Escreva sua denúncia" name="comentario" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-
-
-
-
-                    </div>
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
 
 

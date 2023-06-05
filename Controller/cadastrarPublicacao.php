@@ -7,7 +7,6 @@
 
     $publicacao->setIdArtista($_SESSION['idArtista']);
     $publicacao->setIdTipoArte($_POST['idTipoArte']);
-    $publicacao->setQuantidadeCurtidas(0);
     $publicacao->setDescPublicacao($_POST['descPub']);
     $publicacao->setStatusPublicacao('Normal');   
     PublicacaoDao::cadastrar($publicacao);

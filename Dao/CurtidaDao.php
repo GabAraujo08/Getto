@@ -31,6 +31,34 @@
             
            
         }
+
+        public static function QuantCurtidaTotais($id){
+            
+            $conexao = Conexao::conectar();
+
+
+            $query = $conexao->prepare('SELECT idPublicacao FROM tbPublicacao WHERE idArtista =?');
+            $query->bindValue(1, $id);
+             $query->execute();
+            $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            
+            $countResu1 = count($resultado1);
+            $resultado = [];
+
+            for($i = 0; $i < $countResu1; $i ++){
+                $consulta = $conexao->prepare('SELECT COUNT(idCurtida) as quantidade FROM tbCurtida
+                                WHERE idPublicacao = ?
+                                ');
+                $consulta->bindValue(1, $resultado1[$i]['idPublicacao']);
+                $consulta->execute();
+                $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+                $resultado = array_merge($resultado, $resultado2);
+            }
+            return $resultado;
+           
+        }
         
         /*public static function consultarSeguindo($artista){
             $conexao = Conexao::conectar();

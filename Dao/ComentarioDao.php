@@ -23,7 +23,7 @@
         public static function listarComentario($idPubli){
             $conexao = Conexao::conectar();
 
-            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario, tbUsuario.nivelContaUsuario,  tbUsuario.fotoPerfilUsuario, tbComentario.comentario, TIMESTAMPDIFF(MINUTE, tbComentario.horaComentario, NOW()) as minutosComentario FROM tbPublicacao
+            $consulta = $conexao->prepare('SELECT tbUsuario.idUsuario, tbUsuario.nicknameUsuario, tbUsuario.nivelContaUsuario,  tbUsuario.fotoPerfilUsuario, tbComentario.statusComentario, tbComentario.idComentario, tbComentario.comentario, TIMESTAMPDIFF(MINUTE, tbComentario.horaComentario, NOW()) as minutosComentario FROM tbPublicacao
                                 INNER JOIN tbComentario ON tbComentario.idPublicacao = tbPublicacao.idPublicacao
                                 INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbComentario.idUsuario
                                 WHERE tbPublicacao.idPublicacao = ?
