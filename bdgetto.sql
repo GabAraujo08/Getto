@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/06/2023 às 22:08
+-- Tempo de geração: 05/06/2023 às 05:29
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -329,6 +329,17 @@ CREATE TABLE `tbtipodenuncia` (
   `nomeTipoDenuncia` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `tbtipodenuncia`
+--
+
+INSERT INTO `tbtipodenuncia` (`idTipoDenuncia`, `nomeTipoDenuncia`) VALUES
+(1, 'Violência'),
+(2, 'Racismo'),
+(3, 'Discurso de Ódio'),
+(4, 'Preconceito'),
+(5, 'Sem Sentido');
+
 -- --------------------------------------------------------
 
 --
@@ -616,7 +627,7 @@ ALTER TABLE `tbtipoarte`
 -- AUTO_INCREMENT de tabela `tbtipodenuncia`
 --
 ALTER TABLE `tbtipodenuncia`
-  MODIFY `idTipoDenuncia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTipoDenuncia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbtipomidia`
