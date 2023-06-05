@@ -197,18 +197,15 @@ require_once 'GlobalPerfil.php';
                         </h1>
                         <div class="atividade">
                             <div class="col-8 publicacoes">
-                                <img src="assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="assets/img/seuJorge.jpeg" alt="">
-
-
-                                <img src="assets/img/seuJorge.jpeg" alt="">
-                                <img src="assets/img/seuJorge.jpeg" alt="">
-                                <img src="assets/img/seuJorge.jpeg" alt="">
+                                <?php
+                                    $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                    foreach($mp as $p){
+                                ?>
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?PHP
+                                    }
+                                ?>
+                                
                             </div>
                             <div class="col-4 eventos">
                                 <div class="img-evento">
@@ -830,7 +827,7 @@ require_once 'GlobalPerfil.php';
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        1000 Pessoas estão seguindo você </h1>
+                         Pessoas que estão seguindo você </h1>
                     <div class="box-btn-fechar">
                         <div class="box-input-search">
                             <form action="">
@@ -849,13 +846,17 @@ require_once 'GlobalPerfil.php';
 
                 </div>
                 <div class="modal-body">
+                <?PHP
+                   $ss = SeguidoresDao::SeusSeguidores($_SESSION['idArtista']);
+                    foreach($ss as $sss){
+                ?>
                     <div class="box-comentario">
                         <div class="imagem-nick">
                             <img src="assets/img/img-perfil.svg" alt="">
 
                             <div class="conteudo-comentario">
-                                <h1>@Gustavo Henrique</h1>
-                                <p>@guuss</p>
+                                <h1><?PHP echo $sss['nomeUsuario'] ?></h1>
+                                <p><?PHP echo $sss['nicknameUsuario'] ?></p>
 
 
 
@@ -880,7 +881,7 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>excluir</b> @guuss</p>
+                            <p>Tem certeza que quer <b>excluir</b><?PHP echo $sss['nicknameUsuario'] ?></p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
                                     <i class="fa-solid fa-heart-crack"></i>
@@ -896,7 +897,7 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>bloquear</b> @guuss</p>
+                            <p>Tem certeza que quer <b>bloquear</b><?PHP echo $sss['nicknameUsuario'] ?></p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
                                     <i class="fa-solid fa-heart-crack"></i>
@@ -910,23 +911,10 @@ require_once 'GlobalPerfil.php';
                             </div>
                         </div>
                     </div>
-                    <div class="box-comentario">
-                        <div class="imagem-nick">
-                            <img src="assets/img/img-perfil.svg" alt="">
-                            <div class="conteudo-comentario">
-                                <h1>@Gustavo Henrique</h1>
-                                <p>@guuss</p>
-                            </div>
-                        </div>
-                        <div class="opcoes">
-                            <button>
-                                <i class="fa-solid fa-ban"></i>
-                            </button>
-                            <button>
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-
+                    <?PHP
+                    }
+                    ?>
+                   
                         <!-- <div class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>
                             <div class="btn-confirmacao-excluir">
@@ -952,7 +940,7 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
-
+            <?PHP   ?>
 
 
     <!-- ---------------------------- MODAL SEGUINDO ------------------------- -->
@@ -962,7 +950,7 @@ require_once 'GlobalPerfil.php';
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        Você está seguindo 1000 pessoas </h1>
+                        Você está seguindo... </h1>
                     <div class="box-btn-fechar">
                         <div class="box-input-search">
                             <form action="">
@@ -981,12 +969,17 @@ require_once 'GlobalPerfil.php';
 
                 </div>
                 <div class="modal-body">
+
+                <?PHP
+                   $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
+                    foreach($es as $ess){
+                ?>
                     <div class="box-comentario">
                         <div class="imagem-nick">
-                            <img src="assets/img/img-perfil.svg" alt="">
+                            <img src="assets/img/FotoPerfil/<?PHP echo $ess['fotoPerfilUsuario'] ?>" alt="">
                             <div class="conteudo-comentario">
-                                <h1>@Gustavo Henrique</h1>
-                                <p>@guuss</p>
+                                <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
+                                <p><?PHP echo $ess['nicknameUsuario'] ?></p>
                             </div>
                         </div>
                         <div class="opcoes">
@@ -999,7 +992,7 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>excluir</b> @guuss</p>
+                            <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
                                     <i class="fa-solid fa-heart-crack"></i>
@@ -1015,7 +1008,7 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>bloquear</b> @guuss</p>
+                            <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
                                     <i class="fa-solid fa-heart-crack"></i>
@@ -1029,22 +1022,11 @@ require_once 'GlobalPerfil.php';
                             </div>
                         </div>
                     </div>
-                    <div class="box-comentario">
-                        <div class="imagem-nick">
-                            <img src="assets/img/img-perfil.svg" alt="">
-                            <div class="conteudo-comentario">
-                                <h1>@Gustavo Henrique</h1>
-                                <p>@guuss</p>
-                            </div>
-                        </div>
-                        <div class="opcoes">
-                            <button>
-                                <i class="fa-solid fa-ban"></i>
-                            </button>
-                            <button>
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
+
+                    <?PHP
+                    }
+                    ?>
+
 
                         <!-- <div class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>

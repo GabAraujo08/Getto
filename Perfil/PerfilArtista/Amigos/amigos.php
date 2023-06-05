@@ -1,5 +1,6 @@
 <?php include('../../../Controller/VerificaLogado.php');
 require_once '../../../Dao/publicacaoDao.php';
+require_once '../../../Dao/SeguidoresDao.php';
 require_once '../../../Dao/Conexao.php';
 ?>
 <!DOCTYPE html>
@@ -190,6 +191,11 @@ require_once '../../../Dao/Conexao.php';
                                 <div class="titulo-amigos">
                                     <p>Seguidores</p>
                                 </div>
+
+                                <?PHP
+                                    $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
+                                        foreach($es as $ess){
+                                    ?>
                                 <div class="box-amigos">
                                     <div class="sugestao-amigos">
                                         <div class="img-amigos">
@@ -217,6 +223,10 @@ require_once '../../../Dao/Conexao.php';
                                     </div>
                                 </div>
                             </div>
+                        <?PHP
+                        }
+                        ?>
+
                             <div class="sugestoes-amizade">
                                 <div class="titulo-amizade">
                                     <p>Sugestões para seguir</p>

@@ -46,5 +46,32 @@
             }
             
         }
+        public static function EstouSeguindo($id){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('SELECT tbArtista.idArtista, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbUsuario.nomeUsuario, tbUsuario.idUsuario FROM tbSeguidores
+                                                INNER JOIN tbArtista ON tbArtista.idArtista = tbSeguidores.idArtista
+                                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                                 WHERE tbSeguidores.idUsuario = ?');
+            $consulta->bindValue(1, $id);
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado;
+        }
+
+        public static function SeusSeguidores($idArtista){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('SELECT tbUsuario.idUsuario, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbUsuario.nomeUsuario
+                                            FROM tbSeguidores
+                                            INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbSeguidores.idUsuario
+                                            WHERE tbSeguidores.idArtista = ?');
+            $consulta->bindValue(1, $idArtista);
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        
+            return $resultado;
+        }
+        
+        
     }
 ?>
