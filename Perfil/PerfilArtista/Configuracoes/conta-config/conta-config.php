@@ -29,9 +29,7 @@
                     <a href="../../Feed/feed.php">
                         <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                     </a>
-                    <a href="../../Amigos/amigos.php">
-                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
-                    </a>
+                    
                     <a href="../../Evento/eventoArtista.php">
                         <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                     </a>
@@ -44,6 +42,9 @@
                     <a href="../../Feed/descobrir.php">
                         <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                     </a>
+                    <a href="../../perfil.php">
+                        <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
+                    </a>
                 </ul>
             </div>
             <div class="nova-pub">
@@ -51,7 +52,7 @@
             </div>
 
             <div class="sair">
-                <a href="../../../Controller/Logout.php"><img src="assets/img/sair.png">Sair</a>
+                <a href="../../../Controller/Logout.php"><img src="../assets/img/sair.png">Sair</a>
             </div>
 
 
