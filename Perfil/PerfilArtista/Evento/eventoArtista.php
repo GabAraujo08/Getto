@@ -338,20 +338,13 @@ color: #656565;">
                                             <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição"></textarea>
 
                                         </div>
-                                        <div class="tab">
-                                            <h1 class="title-form">Qual o tipo da sua publicação?</h1>
-                                            <select style="margin-bottom: 10px;" name="idTipoArte" class="form-select" aria-label="Default select example">
-                                                <option value="#">Selecionar...</option>
-                                                <?php
-                                                $t = TipoArteDao::ListaTag();
-                                                foreach ($t as $tag) {
-                                                ?>
-                                                    <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
-                                                <?php
-                                                }
-                                                ?>
-
+                                        <label>Descrição do evento</label>
+                                        <div class="input-group mb-3">
+                                            <select name="" id="">
+                                                <option value="">Música</option>
+                                                <option value="">Dança</option>
                                             </select>
+
                                         </div>
                                     </div>
                                 </div>
