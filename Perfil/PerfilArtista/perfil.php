@@ -217,7 +217,7 @@ require_once 'GlobalPerfil.php';
                                         <h1>
                                             Batalha de rima
                                         </h1>
-                                        <p>
+                                        <p class="rua-evento">
                                             Rua Quimanga, 509
                                         </p>
                                     

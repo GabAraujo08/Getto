@@ -833,7 +833,7 @@ body {
 
   
 
-  .eventos .img-evento h1,p{
+  .eventos .img-evento  h1, .rua-evento{
 	color: #fff;
 	font-family: 'InterBold';
 	opacity: 0;

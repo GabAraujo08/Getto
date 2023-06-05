@@ -255,6 +255,12 @@ ul li button {
 
 
 
+.div-logo-marca {
+  z-index: unset!important;
+}
 
+.box-container{
+  overflow-y: auto!important;
+}
 
 
