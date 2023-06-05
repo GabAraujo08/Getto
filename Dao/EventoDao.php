@@ -54,7 +54,19 @@ class EventoDao
         
         return $resultado;
     
-}
+    }
+
+    public static function QuantEvento($id){
+        $conexao = Conexao::conectar();
+
+            $query = $conexao->prepare('SELECT COUNT(idEvento) as quantEvent FROM tbEvento WHERE idArtista = ?');
+            $query->bindValue(1, $id);
+             $query->execute();
+            $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            return $resultado1;
+        
+    }
 
 
     }

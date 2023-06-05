@@ -2,6 +2,7 @@
     require_once '../../../../Dao/CurtidaDao.php';
     require_once '../../../../Dao/Conexao.php';
     require_once '../../../../Dao/PublicacaoDao.php';
+    require_once '../../../../Dao/EventoDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -359,10 +360,13 @@
                     <img src="../assets/img/olho-vermelho (2).png" alt="">
                 </div>
                 <div class="visitas-titulo">
-                    <p>Visitas totais ao perfil</p>
+                    <p>Eventos Totais</p>
                 </div>
                 <div class="visitas-quantidade">
-                    <p>1000</p>
+                    <p><?php
+                        $quantEvent = EventoDao::QuantEvento($_SESSION['idArtista']);
+                        echo $quantEvent[0]['quantEvent'];                        
+                    ?></p>
                 </div>
             </div>
             <div class="card-curtidas">
@@ -391,7 +395,7 @@
                     <img src="../assets/img/compartilhar.png" alt="">
                 </div>
                 <div class="compartilhamentos-titulo">
-                    <p>Compartilhamentos totais</p>
+                    <p>Confirmações totais do evento</p>
                 </div>
                 <div class="compartilhamentos-quantidade">
                     <p>1000</p>
