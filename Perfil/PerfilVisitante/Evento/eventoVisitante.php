@@ -110,6 +110,10 @@ Fique de olho e acompanhe seus artistas favoritos!
                     $dataEvento = $evento['dataEvento'];
                     $descEvento = $evento['descEvento'];
                     $tituloEvento = $evento['tituloEvento'];
+                    $bairroEvento = $evento['bairroEvento'];
+                    $logEvento = $evento['logradouro'];
+                    $numLogEvento = $evento['numLog'];
+                    $imagemEvento = $evento['imagemEvento'];
 
                 }
             ?>
@@ -134,7 +138,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                                         <p><?php echo $evento['tituloEvento'];?></p>
                                     </div>
                                     <div class="endereco-evento">
-                                        <p>Rua Guaianases</p>
+                                        <p><?php echo $evento['bairroEvento'];?>, <?php echo $evento['logradouro'];?> <?php echo $evento['numLog'];?></p>
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +148,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                         <div class="accordion-body rounded-4">
                             <div class="baixo">
                                 <div class="img-evento">
-                                    <img src="assets/img/<?php echo $evento->getImagemEvento; ?> ">
+                                    <img src="assets/img/<?php echo $evento['imagemEvento'] ?> ">
                                 </div>
                                 <div class="conteudo-evento">6'
                                     <div class="criador-evento">
@@ -335,7 +339,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                                     </div>
                                     <label>DescriÃ§Ã£o do evento</label>
                                     <div class="input-group mb-3">
-                                         <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="descriÃ§Ã£o"></textarea>
+                                         <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="link do campra do ingresso "></textarea>
                                      
                                     </div>
                                 </div>

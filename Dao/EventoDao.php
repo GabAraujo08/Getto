@@ -8,8 +8,8 @@ class EventoDao
     {
         $conexao = Conexao::conectar();
 
-        $queryInsert = "INSERT INTO tbEvento(horarioInicioEvento, horarioFinalEvento, dataEvento, quantidadeCurtidas, descEvento, tituloEvento, statusEvento, logradouroEvento, imagemEvento, numLogEvento, cepEvento, bairroEvento, cidadeEvento, estadoEvento)
-                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $queryInsert = "INSERT INTO tbEvento(horarioInicioEvento, horarioFinalEvento, dataEvento, quantidadeCurtidas, descEvento, tituloEvento, statusEvento, logradouroEvento, imagemEvento, numLogEvento, cepEvento, bairroEvento, cidadeEvento, estadoEvento, idArtista)
+                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $prepareStatement = $conexao->prepare($queryInsert);
 
@@ -27,6 +27,7 @@ class EventoDao
         $prepareStatement->bindValue(12, $evento->getBairroEvento());
         $prepareStatement->bindValue(13, $evento->getCidadeEvento());
         $prepareStatement->bindValue(14, $evento->getEstadoEvento());
+        $prepareStatement->bindValue(15, $evento->getIdArtista());
         $prepareStatement->execute();
         return 'Cadastrou';
     }
