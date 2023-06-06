@@ -108,7 +108,7 @@ a {
   align-items: center;
 }
 
-.criador-evento .img-criador {
+.criador-evento .img-criador img {
   width: 53px;
   height: 53px;
   max-width: 53px;
@@ -117,8 +117,8 @@ a {
 }
 
 
-.criador-evento .img-criador img {
-  width: 100%;
+.confirmar-evento{
+  margin-left: 10px;
 }
 
 .criador-evento .nome-criador p {

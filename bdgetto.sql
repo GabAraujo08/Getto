@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/06/2023 às 05:01
+-- Tempo de geração: 06/06/2023 às 19:28
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -150,7 +150,6 @@ CREATE TABLE `tbdenunciausuario` (
 
 CREATE TABLE `tbevento` (
   `idEvento` int(11) NOT NULL,
-  `quantidadeCurtidas` int(11) DEFAULT NULL,
   `descEvento` varchar(300) DEFAULT NULL,
   `tituloEvento` varchar(50) DEFAULT NULL,
   `statusEvento` varchar(50) DEFAULT NULL,
