@@ -39,9 +39,6 @@ require_once '../../../Dao/PresencaDao.php';
                         <a href="../Feed/feed.php">
                             <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                         </a>
-                        <a href="../../PerfilArtista/Amigos/amigos.php">
-                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
-                        </a>
                         <a href="../../PerfilArtista/Evento/eventoArtista.php">
                             <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                         </a>
@@ -84,7 +81,7 @@ font-weight: 600;
 font-size: 20px;
 margin: 0;
 color: #664187;">
-                        Aqui vocês poderam ficar por dentro de todos os eventos!
+                        Aqui vocês poderão ficar por dentro de todos os eventos!
                     </p>
                     <p style="font-family: 'Poppins';
 font-style: normal;
@@ -356,29 +353,29 @@ color: #656565;">
                                                 <option value="AC">Selecionar</option>
                                                 <option value="AC">Acre</option>
                                                 <option value="AL">Alagoas</option>
-                                                <option value="AP">AmapÃ¡</option>
+                                                <option value="AP">Amapa</option>
                                                 <option value="AM">Amazonas</option>
                                                 <option value="BA">Bahia</option>
-                                                <option value="CE">CearÃ¡</option>
+                                                <option value="CE">Ceará</option>
                                                 <option value="DF">Distrito Federal</option>
-                                                <option value="ES">EspÃ­rito Santo</option>
-                                                <option value="GO">GoiÃ¡s</option>
-                                                <option value="MA">MaranhÃ£o</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
                                                 <option value="MT">Mato Grosso</option>
                                                 <option value="MS">Mato Grosso do Sul</option>
                                                 <option value="MG">Minas Gerais</option>
-                                                <option value="PA">ParÃ¡</option>
-                                                <option value="PB">ParaÃ­ba</option>
-                                                <option value="PR">ParanÃ¡</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
                                                 <option value="PE">Pernambuco</option>
-                                                <option value="PI">PiauÃ­</option>
+                                                <option value="PI">Piauí­</option>
                                                 <option value="RJ">Rio de Janeiro</option>
                                                 <option value="RN">Rio Grande do Norte</option>
                                                 <option value="RS">Rio Grande do Sul</option>
-                                                <option value="RO">RondÃ´nia</option>
+                                                <option value="RO">Rondônia</option>
                                                 <option value="RR">Roraima</option>
                                                 <option value="SC">Santa Catarina</option>
-                                                <option value="SP">SÃ£o Paulo</option>
+                                                <option value="SP">São Paulo</option>
                                                 <option value="SE">Sergipe</option>
                                                 <option value="TO">Tocantins</option>
                                                 <option value="EX">Estrangeiro</option>

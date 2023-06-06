@@ -33,9 +33,6 @@ require_once '../../../Dao/ComentarioDao.php';
                             <a href="../Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
-                            <a href="">
-                                <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
-                            </a>
                             <a href="../Evento/eventoVisitante.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>

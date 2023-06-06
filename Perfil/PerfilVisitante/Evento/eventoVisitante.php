@@ -36,19 +36,16 @@ require_once '../../../Dao/PresencaDao.php';
                 <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                     <ul class="list-group">
                         <a href="../Feed/feed.php">
-                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">InÃ­cio</button></li>
-                        </a>
-                        <a href="../../PerfilArtista/Amigos/amigos.php">
-                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+                            <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Iní­cio</button></li>
                         </a>
                         <a href="../../PerfilArtista/Evento/eventoArtista.php">
                             <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                         </a>
                         <a href="">
-                            <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">NotificaÃ§Ãµes</button></li>
+                            <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                         </a>
                         <a href="../Configuracoes/configuracoes.php">
-                            <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">ConfiguraÃ§Ãµes</button></li>
+                            <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                         </a>
                         <a href="../Feed/descobrir.php">
                             <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
@@ -81,7 +78,7 @@ font-weight: 600;
 font-size: 20px;
 margin: 0;
 color: #664187;">
-Aqui vocÃª poderÃ¡ ficar por dentro de todos os eventos!
+Aqui vocês poderão ficar por dentro de todos os eventos!
                     </p>
                     <p style="font-family: 'Poppins';
 font-style: normal;
@@ -254,7 +251,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                         <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>VocÃª deseja sair da sua conta?</p>
+                        <p>Você deseja sair da sua conta?</p>
                     </div>
                     <div class="modal-footer">
                         <form name="formExclui" action="../../../Controller/Logout.php" method="POST">

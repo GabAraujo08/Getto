@@ -10,7 +10,11 @@ a {
 
 .resumoDiv {
   display: flex;
-  margin-left: 5%;
+}
+
+.accordion-button::focus{
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .card {
@@ -19,7 +23,7 @@ a {
   height: 100px;
   border-radius: 20px;
   background-color: #E1E1E6;
-  border: none;
+  border: none !important;
 }
 
 .card .front:after {
@@ -28,7 +32,6 @@ a {
   right: 0;
   top: 0;
   border-bottom: 30px solid #9056E8;
-  border-right: 30px solid #E1E1E6;
 }
 
 .card div {
@@ -40,6 +43,7 @@ a {
   justify-content: center;
   backface-visibility: hidden;
   transition: 1s;
+  border: none;
 }
 
 .card .front {
@@ -239,7 +243,7 @@ display: flex;
   margin-top: 70px;
   display: flex;
   flex-direction: column;
-  max-height: 440px;
+  max-height: 100vh;
   overflow-y: auto;
 }
 
@@ -252,6 +256,8 @@ display: flex;
 
 .img-evento img{
   width: 100%;
+    max-width: 350px;
+    max-height: 350px
 }
 
 .box-eventos::-webkit-scrollbar-track {
@@ -416,6 +422,14 @@ top: 0;
 background-color: #fff;
 
 }
+
+.div-logo-marca .logo-marca {
+  position: absolute;
+  left: 33%;
+  }
+  
+
+
 
 .div-logo-marca .logo-marca img {
 height: 35px;
