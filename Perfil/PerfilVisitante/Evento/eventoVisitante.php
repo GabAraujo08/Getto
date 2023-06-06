@@ -1,5 +1,9 @@
 <?php 
 require_once '../../../Dao/Conexao.php';
+require_once '../../../Dao/EventoDao.php';
+require_once '../../../Dao/TipoArteDao.php';
+require_once '../../../Dao/EventoDao.php';
+require_once '../../../Dao/PresencaDao.php';
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +58,7 @@ require_once '../../../Dao/Conexao.php';
                         </a>
                     </ul>
                 </div>
-                <div class="nova-pub">
-                    <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicaÃ§Ã£o</button>
-                </div>
+                
 
                 <div class="sair">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
@@ -94,9 +96,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                     </p>
 
 
-                    <div class="btn-criar-evento">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCriarEvento">Criar evento</button>
-                    </div>
+                    
                 </div>
             </div>
 
@@ -104,7 +104,7 @@ Fique de olho e acompanhe seus artistas favoritos!
             require_once '../../../Dao/EventoDao.php';
 
             $eventos = EventoDao::ListaEvento();
-            foreach ($eventos as $index => $evento) : ?>
+            foreach ($eventos as $index => $evento) { ?>
 
             <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
                 <div class="accordion-item">
@@ -136,13 +136,13 @@ Fique de olho e acompanhe seus artistas favoritos!
                                 <div class="img-evento">
                                     <img src="assets/img/<?php echo $evento['imagemEvento'] ?> ">
                                 </div>
-                                <div class="conteudo-evento">6'
+                                <div class="conteudo-evento">
                                     <div class="criador-evento">
                                         <div class="img-criador">
-                                            <img src="assets/img/FotoPerfil/<?php echo $_SESSION[''] ?>">
+                                            <img src="../assets/img/FotoPerfil/ " alt="">
                                         </div>
                                         <div class="nome-criador">
-                                            <p><?php echo $_SESSION['nicknameUsuario'];?></p>
+                                            <p> </p>
                                         </div>
                                     </div>
                                     <div class="descricao-evento">
@@ -151,33 +151,62 @@ Fique de olho e acompanhe seus artistas favoritos!
 
                                     <div class="horario">
                                         <div class="horario-inicio">
-                                            <p>HorÃ¡rio de inÃ­cio: <?php echo $evento['horarioInicioEvento'];?></p>
+                                            <p>Horario de ini­cio: <?php echo $evento['horarioInicioEvento'];?></p>
                                         </div>
                                         <div class="horario-termino">
-                                            <p>HorÃ¡rio de tÃ©rmino: <?php echo $evento['horarioFinalEvento'];?></p>
+                                            <p>Horario de termino: <?php echo $evento['horarioFinalEvento'];?></p>
                                         </div>
                                     </div>
 
+                                    
+                                                
                                     <div class="presenca-evento">
                                         <div class="confirmados-evento">
-                                            <p>
-                                            <?php
-                                                $presenc = PresencaDao::consultar($p['idPresenca']);
-                                                echo $presenc . ' ';
-                                            ?>
-                                            </p>
+                                            <p><?php
+                                            $prec = PresencaDao::consultar($evento['idEvento']);
+                                            echo $prec . ' Presenças confirmadas';?></p>
                                         </div>
                                         <div class="confirmar-evento">
-                                            <button>Confirmar presenÃ§a
-                                                <?php
+                                                    <?php
                                                     $conexao = Conexao::conectar();
                                                     $consulta = $conexao->prepare('SELECT idPresenca, idEvento FROM tbPresenca WHERE idUsuario = ?');
                                                     $consulta->bindValue(1, $_SESSION['idUsuario']);
                                                     $consulta->execute();
                                                     $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    if ($resultado == false) {
+                                                        ?>
+        
+                                                        <form id="Presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                            <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
+                                                            <button name="pp" type="submit" class="btn">
+                                                                Confirmar Presença 
+                                                            </button>
+                                                        </form>
+
+                                                    <?php
+                                                    } else if (!in_array($evento['idEvento'], array_column($resultado, 'idEvento'))) {
+                                                    ?>
+                                                    <form id="presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                        <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
+                                                        <button name="pp" type="submit" class="btn">
+                                                            Confirmar Presença 
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                                } else {
                                                 ?>
 
-                                            </button>
+                                                    <form id="presenca" name="Presenca" action="../../../Controller/DesPresenca.php" method="POST">
+                                                        <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
+                                                        <button name="pp" type="submit" class="btn">
+                                                            tirar Presença
+                                                        </button>
+                                                    </form>
+
+                                                <?php
+                                                    }
+                                                ?>
                                         </div>
                                     </div>
                                 </div>
@@ -187,7 +216,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                 </div>
             </div>
 
-            <?php endforeach; ?>
+                <?php } ?>
 
         <nav style="background-color: #fff;" class="mobile-nav">
             <a href="#" class="bloc-icon">
@@ -214,7 +243,7 @@ Fique de olho e acompanhe seus artistas favoritos!
 
         </nav>
 
-        <!-- Modal -->0
+        <!-- Modal -->
         <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered justify-content-center">
                 <div class="modal-content">
@@ -236,122 +265,7 @@ Fique de olho e acompanhe seus artistas favoritos!
         </div>
 
 
-        <!-- ----------------------------- MODAL CRIAR EVENTO -------------------------- -->
-
-        <div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo evento</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="../../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
-                            <div class="container">
-                                <div class="lado-esquerdo">
-                                    <label>Inserir tÃ­tulo: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="tituloEvento" class="form-control" placeholder="tÃ­tulo">
-                                    </div>
-                                    <div class="hora">
-                                        <div class="inicio">
-                                            <label for="horario">HorÃ¡rio de inÃ­cio: </label>
-                                            <div class="input-group mb-3">
-                                                <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="inÃ­cio">
-                                            </div>
-                                        </div>
-                                        <div class="termino">
-                                            <label>HorÃ¡rio de tÃ©rmino: </label>
-                                            <div class="input-group mb-3">
-                                                <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="tÃ©rmino">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="data">
-                                        <label for="data">Selecione uma data:</label>
-                                        <div class="input-group mb-3">
-                                            <input type="date" name="dataEvento" id="data">
-                                        </div>
-                                        <label>NÃºmero de endereÃ§o: </label>
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="numLog" placeholder="nÃºmero de endereÃ§o">
-                                        </div>
-                                    </div>
-                                    <label>EndereÃ§o: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="logradouro" placeholder="endereÃ§o">
-                                    </div>
-                                    <label>Bairro: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="bairroEvento" placeholder="bairro">
-                                    </div>
-                                    <label>CEP: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="cepEvento" placeholder="cep">
-                                    </div>
-                                    <label>Cidade: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="cidEvento" placeholder="cidade">
-                                    </div>
-                                    <label>Estado: </label>
-                                    <div class="input-group mb-3">
-                                        <select id="estado-evento" name="estadoEvento" class="select-estado">
-                                            <option value="AC">Selecionar</option>
-                                            <option value="AC">Acre</option>
-                                            <option value="AL">Alagoas</option>
-                                            <option value="AP">AmapÃ¡</option>
-                                            <option value="AM">Amazonas</option>
-                                            <option value="BA">Bahia</option>
-                                            <option value="CE">CearÃ¡</option>
-                                            <option value="DF">Distrito Federal</option>
-                                            <option value="ES">EspÃ­rito Santo</option>
-                                            <option value="GO">GoiÃ¡s</option>
-                                            <option value="MA">MaranhÃ£o</option>
-                                            <option value="MT">Mato Grosso</option>
-                                            <option value="MS">Mato Grosso do Sul</option>
-                                            <option value="MG">Minas Gerais</option>
-                                            <option value="PA">ParÃ¡</option>
-                                            <option value="PB">ParaÃ­ba</option>
-                                            <option value="PR">ParanÃ¡</option>
-                                            <option value="PE">Pernambuco</option>
-                                            <option value="PI">PiauÃ­</option>
-                                            <option value="RJ">Rio de Janeiro</option>
-                                            <option value="RN">Rio Grande do Norte</option>
-                                            <option value="RS">Rio Grande do Sul</option>
-                                            <option value="RO">RondÃ´nia</option>
-                                            <option value="RR">Roraima</option>
-                                            <option value="SC">Santa Catarina</option>
-                                            <option value="SP">SÃ£o Paulo</option>
-                                            <option value="SE">Sergipe</option>
-                                            <option value="TO">Tocantins</option>
-                                            <option value="EX">Estrangeiro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="lado-direito">
-                                    <div class="input-group mb-3">
-                                        <div class="preview-img">
-                                            <label class="picture" for="picture__input" tabIndex="0">
-                                                <span class="picture__image"></span>
-                                            </label>
-                                            <input type="file" name="imagemEvento" id="picture__input">
-                                        </div>
-                                    </div>
-                                    <label>DescriÃ§Ã£o do evento</label>
-                                    <div class="input-group mb-3">
-                                         <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="link do campra do ingresso "></textarea>
-                                     
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="footer">
-                                <button type="submit" class="btn">Concluir</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
 
 
         <div class="div-logo-marca">

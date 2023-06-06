@@ -107,7 +107,7 @@ Fique de olho e acompanhe seus artistas favoritos!
             <?php 
             require_once '../../../Dao/EventoDao.php';
 
-            $eventos = EventoDao::ListaEvento();
+            $eventos = EventoDao::ListaEvento($_SESSION['idUsuario']);
             foreach ($eventos as $index => $evento) { ?>
 
             <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
@@ -143,10 +143,10 @@ Fique de olho e acompanhe seus artistas favoritos!
                                 <div class="conteudo-evento">
                                     <div class="criador-evento">
                                         <div class="img-criador">
-                                            <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                            <img src="../assets/img/FotoPerfil/" alt="">
                                         </div>
                                         <div class="nome-criador">
-                                            <p><?php echo $_SESSION['nicknameUsuario'];?></p>
+                                            <p> tem que colocar ainda </p>
                                         </div>
                                     </div>
                                     <div class="descricao-evento">
@@ -168,7 +168,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                                         <div class="confirmados-evento">
                                             <p><?php
                                             $prec = PresencaDao::consultar($evento['idEvento']);
-                                            echo $prec . ' Confirmaram presença';?></p>
+                                            echo $prec . ' Presenças confirmadas';?></p>
                                         </div>
                                         <div class="confirmar-evento">
                                                     <?php
@@ -282,44 +282,35 @@ Fique de olho e acompanhe seus artistas favoritos!
                         <form action="../../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
                             <div class="container">
                                 <div class="lado-esquerdo">
-                                    <label>Inserir tÃ­tulo: </label>
+                                    <label>Inserir tí­tulo: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" name="tituloEvento" class="form-control" placeholder="tÃ­tulo">
+                                        <input type="text" name="tituloEvento" class="form-control" placeholder="tí­tulo">
                                     </div>
                                     <div class="hora">
                                         <div class="inicio">
-                                            <label for="horario">HorÃ¡rio de inÃ­cio: </label>
+                                            <label for="horario">Horário de iní­cio: </label>
                                             <div class="input-group mb-3">
-                                                <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="inÃ­cio">
+                                                <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="iní­cio">
                                             </div>
                                         </div>
                                         <div class="termino">
-                                            <label>HorÃ¡rio de tÃ©rmino: </label>
+                                            <label>Horário de término: </label>
                                             <div class="input-group mb-3">
-                                                <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="tÃ©rmino">
+                                                <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="data">
                                         <label for="data">Selecione uma data:</label>
                                         <div class="input-group mb-3">
-<<<<<<< HEAD
+
                                             <input type="date" name="dataEvento" id="data">
-=======
-                                            <div class="preview-img">
-                                                <label class="picture" for="picture__input" tabIndex="0">
-                                                    <span class="picture__image"></span>
-                                                </label>
-                                                <input type="file" accept="image/*" name="imagemEvento" id="picture__input">
-                                            </div>
->>>>>>> 5722aa796015f6d4e44eac047f563018ba0e5409
+
                                         </div>
-                                        <label>NÃºmero de endereÃ§o: </label>
+                                        <label>Número de endereço: </label>
                                         <div class="input-group mb-3">
-<<<<<<< HEAD
-                                            <input type="text" class="form-control" name="numLog" placeholder="nÃºmero de endereÃ§o">
-=======
-                                            <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição"></textarea>
+
+                                            <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
 
                                         </div>
                                         <label>Tipo de Arte</label>
@@ -335,13 +326,11 @@ Fique de olho e acompanhe seus artistas favoritos!
                                                 }
                                                 ?>
                                             </select>
-
->>>>>>> 5722aa796015f6d4e44eac047f563018ba0e5409
                                         </div>
                                     </div>
-                                    <label>EndereÃ§o: </label>
+                                    <label>Endereço: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="logradouro" placeholder="endereÃ§o">
+                                        <input type="text" class="form-control" name="logradouro" placeholder="endereço">
                                     </div>
                                     <label>Bairro: </label>
                                     <div class="input-group mb-3">
@@ -399,9 +388,9 @@ Fique de olho e acompanhe seus artistas favoritos!
                                             <input type="file" name="imagemEvento" id="picture__input">
                                         </div>
                                     </div>
-                                    <label>DescriÃ§Ã£o do evento</label>
+                                    <label>Descrição do evento</label>
                                     <div class="input-group mb-3">
-                                         <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="link do campra do ingresso "></textarea>
+                                         <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="por favor não esqueça de colocar o link da compra do ingresso "></textarea>
                                      
                                     </div>
                                 </div>
