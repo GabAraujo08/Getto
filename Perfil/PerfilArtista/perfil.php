@@ -711,17 +711,17 @@ require_once 'GlobalPerfil.php';
                                     <input type="radio" name="select" id="option-2">
                                     <input type="radio" name="select" id="option-3">
                                     <label for="option-1" class="option option-1">
-                                        <div class="dot"></div>
-                                        <span>Imagem</span>
+                                        <!-- <div class="dot"></div> -->
+                                        <span>Envie o arquivo</span>
                                     </label>
-                                    <label for="option-2" class="option option-2">
+                                    <!-- <label for="option-2" class="option option-2">
                                         <div class="dot"></div>
                                         <span>Vídeo</span>
                                     </label>
                                     <label for="option-3" class="option option-3">
                                         <div class="dot"></div>
                                         <span>Música</span>
-                                    </label>
+                                    </label> -->
 
                                 </div>
                                 <input type="file" name="arquivo" id="inputFile" style="display:none;">
@@ -768,7 +768,7 @@ require_once 'GlobalPerfil.php';
                             </div>
 
 
-                            <div style="overflow:auto;">
+                            <div style="overflow:auto; margin-top: 10px;">
                                 <div style="float:right;">
                                     <button class="btn-prev btn-primary" type="button" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
                                     <button class="btn-next btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Avançar</button>

@@ -239,15 +239,13 @@ display: flex;
   margin-top: 70px;
   display: flex;
   flex-direction: column;
-
-}
-
-.eventos-main {
-  max-height: 660px;
+  max-height: 440px;
   overflow-y: auto;
 }
 
-.eventos-main::-webkit-scrollbar {
+
+
+.box-eventos::-webkit-scrollbar {
   width: 9px;
   /* width of the entire scrollbar */
 }
@@ -256,12 +254,12 @@ display: flex;
   width: 100%;
 }
 
-.eventos-main::-webkit-scrollbar-track {
+.box-eventos::-webkit-scrollbar-track {
   background: #ECEBF3;
   /* color of the tracking area */
 }
 
-.eventos-main::-webkit-scrollbar-thumb {
+.box-eventos::-webkit-scrollbar-thumb {
   background-color: #664187;
   /* color of the scroll thumb */
   border-radius: 20px;
