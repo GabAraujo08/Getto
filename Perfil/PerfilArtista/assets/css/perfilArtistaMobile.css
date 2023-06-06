@@ -763,6 +763,7 @@ body {
 	object-fit: cover;
 	border-radius: 0;
 	margin: 1px;
+	height: 70%;
 }
 
 .publicacoes img:hover {
