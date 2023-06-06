@@ -2,6 +2,7 @@
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/Conexao.php';
+$_SESSION['go'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

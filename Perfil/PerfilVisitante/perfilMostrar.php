@@ -93,13 +93,13 @@ require_once 'GlobalPerfil.php';
                             <?PHP
                                         if($_SESSION['nivel'] == 2){
                                     ?>
-                                        <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilArtista/assets/img/FotoCapa/<?PHP echo $_POST['papel']; ?>" alt="">
-                                <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $_POST['fotoP']; ?>" alt="">
+                                        <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilArtista/assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
+                                <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
                                     <?PHP
                                         }else{
                                     ?>
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo $_POST['papel']; ?>" alt="">
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_POST['fotoP']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
                                 <?PHP
                                     }
                                 ?>
@@ -219,7 +219,7 @@ require_once 'GlobalPerfil.php';
                                                 <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
                                             </div>
                                             <div class="nick-atividade">
-                                                <h1>@Melis</h1>
+                                                <h1><?PHP echo $_SESSION['nick']; ?></h1>
                                             </div>
                                         </div>
                                     </div>
@@ -233,7 +233,7 @@ require_once 'GlobalPerfil.php';
                                             <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
                                         </div>
                                         <div class="nick-atividade">
-                                            <h1>@Melis</h1>
+                                            <h1><?PHP echo $_SESSION['nick']; ?></h1>
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +242,7 @@ require_once 'GlobalPerfil.php';
                             <div class="criar-evento">
                                 <div class="titulo-box-evento">
                                 <?PHP
-                                        if($_POST['usuarioNivelConta'] == 2){
+                                        if($_SESSION['nivel'] == 2){
                                     ?>
                                         <h1>Eventos de </h1>
                                     <?PHP
@@ -343,13 +343,13 @@ require_once 'GlobalPerfil.php';
                         <label>Nome:</label>
                         <div class="input-group mb-3">
 
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="nomeUsuario" value="<?PHP echo $_SESSION['nomeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" name="nomeUsuario" value="<?PHP echo $_SESSION['nome']; ?>" aria-describedby="inputGroup-sizing-default">
 
                         </div>
                         <label>Nickname:</label>
                         <div class="input-group mb-3">
 
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="nicknameUsuario" value="<?PHP echo $_SESSION['nicknameUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+                            <input type="text" class="form-control" aria-label="Sizing example input" name="nicknameUsuario" value="<?PHP echo $_SESSION['nick']; ?>" aria-describedby="inputGroup-sizing-default">
 
                         </div>
 
@@ -413,7 +413,7 @@ require_once 'GlobalPerfil.php';
                     <div class="modal-body">
 
                         <div class="div-img-capa">
-                            <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papelParedeUsuario']; ?>" alt="">
+                            <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
                         </div>
 
                         <div class="btn-mudar-capa">
@@ -447,7 +447,17 @@ require_once 'GlobalPerfil.php';
                 
                     <div class="modal-body">
                         <div class="div-img-usuario">
-                            <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                            <?php
+                                if($_SESSION['nivel'] == 2){
+                            ?>
+                            <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
+                            <?php
+                                }else{
+                                ?>
+                                <img class="img-usuario" src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $_SESSION['fotoP']; ?>" alt="">
+                            <?php
+                                }
+                            ?>
                         </div>
 
                         <div class="btn-mudar-capa">
