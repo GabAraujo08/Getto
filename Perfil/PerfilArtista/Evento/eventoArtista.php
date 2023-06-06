@@ -1,5 +1,7 @@
 <?php 
 require_once '../../../Dao/Conexao.php';
+require_once '../../../Dao/EventoDao.php';
+require_once '../../../Dao/TipoArteDao.php';
 ?>
 
 <!DOCTYPE html>
@@ -159,8 +161,8 @@ Fique de olho e acompanhe seus artistas favoritos!
                                     </div>
 
                                     <?php 
-                                        require_once '../../../Dao/EventoDao.php';
-                                        $eventos = EventoDao::ConfirmarEvento($_SESSION['idUsuario']);?>
+                                        require_once '../../../Dao/PresencaDao.php';
+                                        $prec = PresencaDao::Con($_SESSION['idUsuario']);?>
                                                 
                                     <div class="presenca-evento">
                                         <div class="confirmados-evento">
@@ -260,11 +262,40 @@ Fique de olho e acompanhe seus artistas favoritos!
                                     <div class="data">
                                         <label for="data">Selecione uma data:</label>
                                         <div class="input-group mb-3">
+<<<<<<< HEAD
                                             <input type="date" name="dataEvento" id="data">
+=======
+                                            <div class="preview-img">
+                                                <label class="picture" for="picture__input" tabIndex="0">
+                                                    <span class="picture__image"></span>
+                                                </label>
+                                                <input type="file" accept="image/*" name="imagemEvento" id="picture__input">
+                                            </div>
+>>>>>>> 5722aa796015f6d4e44eac047f563018ba0e5409
                                         </div>
                                         <label>NÃºmero de endereÃ§o: </label>
                                         <div class="input-group mb-3">
+<<<<<<< HEAD
                                             <input type="text" class="form-control" name="numLog" placeholder="nÃºmero de endereÃ§o">
+=======
+                                            <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição"></textarea>
+
+                                        </div>
+                                        <label>Tipo de Arte</label>
+                                        <div class="input-group mb-3">
+                                            <select name="tipoArte" id="">
+                                            <option value="#">Selecionar...</option>
+                                                <?php
+                                                $t = TipoArteDao::ListaTag();
+                                                foreach ($t as $tag) {
+                                                ?>
+                                                    <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+
+>>>>>>> 5722aa796015f6d4e44eac047f563018ba0e5409
                                         </div>
                                     </div>
                                     <label>EndereÃ§o: </label>

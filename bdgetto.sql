@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/06/2023 às 05:29
+-- Tempo de geração: 06/06/2023 às 05:01
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -238,6 +238,18 @@ CREATE TABLE `tbmomentos` (
   `idMomentos` int(11) NOT NULL,
   `dataMomentos` datetime NOT NULL DEFAULT current_timestamp(),
   `idArtista` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbpresenca`
+--
+
+CREATE TABLE `tbpresenca` (
+  `idPresenca` int(11) NOT NULL,
+  `idEvento` int(11) DEFAULT NULL,
+  `idUsuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -488,6 +500,14 @@ ALTER TABLE `tbmomentos`
   ADD KEY `idArtista` (`idArtista`);
 
 --
+-- Índices de tabela `tbpresenca`
+--
+ALTER TABLE `tbpresenca`
+  ADD PRIMARY KEY (`idPresenca`),
+  ADD KEY `idEvento` (`idEvento`),
+  ADD KEY `idUsuario` (`idUsuario`);
+
+--
 -- Índices de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
@@ -606,6 +626,12 @@ ALTER TABLE `tbmomentos`
   MODIFY `idMomentos` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `tbpresenca`
+--
+ALTER TABLE `tbpresenca`
+  MODIFY `idPresenca` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
@@ -717,6 +743,13 @@ ALTER TABLE `tbmidiapublicacao`
 --
 ALTER TABLE `tbmomentos`
   ADD CONSTRAINT `tbmomentos_ibfk_1` FOREIGN KEY (`idArtista`) REFERENCES `tbartista` (`idArtista`);
+
+--
+-- Restrições para tabelas `tbpresenca`
+--
+ALTER TABLE `tbpresenca`
+  ADD CONSTRAINT `tbpresenca_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `tbevento` (`idEvento`),
+  ADD CONSTRAINT `tbpresenca_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `tbusuario` (`idUsuario`);
 
 --
 -- Restrições para tabelas `tbpublicacao`
