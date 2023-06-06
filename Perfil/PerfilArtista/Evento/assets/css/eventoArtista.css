@@ -242,6 +242,35 @@ display: flex;
 
 }
 
+.eventos-main {
+  max-height: 660px;
+  overflow-y: auto;
+}
+
+.eventos-main::-webkit-scrollbar {
+  width: 9px;
+  /* width of the entire scrollbar */
+}
+
+.img-evento img{
+  width: 100%;
+}
+
+.eventos-main::-webkit-scrollbar-track {
+  background: #ECEBF3;
+  /* color of the tracking area */
+}
+
+.eventos-main::-webkit-scrollbar-thumb {
+  background-color: #664187;
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #664187;
+  /* creates padding around scroll thumb */
+}
+
+
 /* #accordionFlushExample {
   width: 100%;
   margin-left: 315px;
