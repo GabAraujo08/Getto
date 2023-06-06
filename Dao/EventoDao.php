@@ -69,5 +69,4 @@ class EventoDao
         
     }
 
-
     }

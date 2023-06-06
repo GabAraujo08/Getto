@@ -174,10 +174,24 @@ Fique de olho e acompanhe seus artistas favoritos!
 
                                     <div class="presenca-evento">
                                         <div class="confirmados-evento">
-                                            <p>138 confirmados</p>
+                                            <p>
+                                            <?php
+                                                $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
+                                                echo $cc . ' curtidas';
+                                            ?>
+                                            </p>
                                         </div>
                                         <div class="confirmar-evento">
-                                            <button>Confirmar presenÃ§a</button>
+                                            <button>Confirmar presenÃ§a
+                                                <?php
+                                                    $conexao = Conexao::conectar();
+                                                    $consulta = $conexao->prepare('SELECT idPresenca, idEvento FROM tbPresenca WHERE idUsuario = ?');
+                                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                                    $consulta->execute();
+                                                    $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+                                                ?>
+
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -214,7 +228,7 @@ Fique de olho e acompanhe seus artistas favoritos!
 
         </nav>
 
-        <!-- Modal -->
+        <!-- Modal -->0
         <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered justify-content-center">
                 <div class="modal-content">
@@ -371,6 +385,9 @@ Fique de olho e acompanhe seus artistas favoritos!
                 card.classList.toggle("flip")
             })
         </script>
+
+   
+    
         <script src="../../PerfilArtista/assets/js/preview.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
