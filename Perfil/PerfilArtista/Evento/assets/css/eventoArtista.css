@@ -10,7 +10,11 @@ a {
 
 .resumoDiv {
   display: flex;
-  margin-left: 5%;
+}
+
+.accordion-button::focus{
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .card {
@@ -19,7 +23,7 @@ a {
   height: 100px;
   border-radius: 20px;
   background-color: #E1E1E6;
-  border: none;
+  border: none !important;
 }
 
 .card .front:after {
@@ -28,7 +32,6 @@ a {
   right: 0;
   top: 0;
   border-bottom: 30px solid #9056E8;
-  border-right: 30px solid #E1E1E6;
 }
 
 .card div {
@@ -40,6 +43,7 @@ a {
   justify-content: center;
   backface-visibility: hidden;
   transition: 1s;
+  border: none;
 }
 
 .card .front {

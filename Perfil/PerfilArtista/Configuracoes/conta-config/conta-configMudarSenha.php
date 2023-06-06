@@ -37,9 +37,6 @@
                     <a href="../../Feed/descobrir.php">
                         <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                     </a>
-                    <a href="../../perfil.php">
-                        <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
-                    </a>
                 </ul>
             </div>
             <div class="nova-pub">
