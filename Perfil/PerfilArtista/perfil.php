@@ -208,11 +208,12 @@ require_once 'GlobalPerfil.php';
                                 
                             </div>
 
+                            
+                            <div class="col-4 eventos">
                             <?php require_once '../../Dao/EventoDao.php';
 
-                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
-                                    foreach ($eventos as $evento ): ?>
-                            <div class="col-4 eventos">
+                            $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                foreach ($eventos as $evento ): ?>
                                 <div class="img-evento">
                                     <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
                                         <h1>
@@ -222,9 +223,10 @@ require_once 'GlobalPerfil.php';
                                         <?PHP echo $evento['logradouroEvento']; ?>
                                         </p>
                                 </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                        <?php endforeach; ?>
+                        
 
                         <!-- <div class="box-atividade-eventos">
                             <hr>

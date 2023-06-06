@@ -48,7 +48,7 @@ class EventoDao
     public static function ListaEvento(){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare('SELECT tbEvento.idEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento,  tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento.bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento');
+        $consulta = $conexao->prepare('SELECT tbEvento.idEvento, tbEvento.dataEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento,  tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento.bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento  ORDER BY tbEvento.dataEvento DESC');
 
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
@@ -60,7 +60,7 @@ class EventoDao
     public static function QuantEvento($id){
         $conexao = Conexao::conectar();
 
-            $query = $conexao->prepare('SELECT COUNT(idEvento) as quantEvent FROM tbEvento WHERE idArtista = ?');
+            $query = $conexao->prepare('SELECT COUNT(idEvento) as quantEvent FROM tbEvento WHERE idArtista = ? ORDER BY tbEvento.dataEvento DESC');
             $query->bindValue(1, $id);
              $query->execute();
             $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -87,7 +87,7 @@ class EventoDao
     public static function ListaMeusEventos($id){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare(' SELECT tbEvento.tituloEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento FROM tbEvento
+        $consulta = $conexao->prepare(' SELECT tbEvento.tituloEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento FROM tbEvento
                                         WHERE tbEvento.idArtista = ?');
         $consulta->bindValue(1, $id);
         $consulta->execute();
