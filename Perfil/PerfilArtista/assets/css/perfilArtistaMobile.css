@@ -760,7 +760,7 @@ body {
 	width: 49%;
 	transition: transform 0.3s, box-shadow 0.3s; /* Adiciona transições suaves para os efeitos */
 	cursor: pointer;
-	object-fit: cover;
+	
 	border-radius: 0;
 	margin: 1px;
 	height: 70%;
