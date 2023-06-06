@@ -8,7 +8,6 @@ $evento = new Evento();
 $evento->setHorarioInicioEvento($_POST['horarioInicio']);
 $evento->setHorarioFinalEvento($_POST['horarioFim']);
 $evento->setDataEvento($_POST['dataEvento']);
-$evento->setConfirmarEvento(0);
 $evento->setDescEvento($_POST['descEvento']);
 $evento->setTituloEvento($_POST['tituloEvento']);
 $evento->setStatusEvento('Normal');
@@ -20,6 +19,7 @@ $evento->setCidadeEvento($_POST['cidEvento']);
 $evento->setEstadoEvento($_POST['estadoEvento']);
 $evento->setImagemEvento(' 0.png ');
 $evento->setIdArtista($_SESSION['idArtista']);
+$evento->setIdTipoArte($_POST['tipoArte']);
 
 EventoDao::cadastrar($evento);
 
@@ -35,6 +35,8 @@ $nomenovo = $evento->getIdEvento().$extensao;
 
 move_uploaded_file($imagemEvento, "../Perfil/PerfilArtista/Evento/assets/img/".$nomenovo);
 $evento->setImagemEvento($nomenovo);
+
+EventoDao::AtualizaFoto($evento);
 
 
 

@@ -10,7 +10,6 @@ class Evento
     private $imagemEvento;
     private $statusEvento;
     private $horarioFinalEvento;
-    private $confirmarEvento;
     private $tituloEvento;
     private $numLogEvento;
     private $cepEvento;
@@ -103,17 +102,6 @@ class Evento
     public function setHorarioFinalEvento($horarioFinal)
     {
         $this->horarioFinalEvento = $horarioFinal;
-    }
-
-
-
-    public function getConfirmarEvento()
-    {
-        return $this->confirmarEvento;
-    }
-    public function setConfirmarEvento($confirmar)
-    {
-        $this->confirmarEvento = $confirmar;
     }
 
 

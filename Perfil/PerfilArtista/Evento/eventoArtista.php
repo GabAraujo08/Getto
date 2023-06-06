@@ -1,5 +1,7 @@
 <?php
 require_once '../../../Dao/Conexao.php';
+require_once '../../../Dao/EventoDao.php';
+require_once '../../../Dao/TipoArteDao.php';
 ?>
 
 <!DOCTYPE html>
@@ -330,7 +332,7 @@ color: #656565;">
                                                 <label class="picture" for="picture__input" tabIndex="0">
                                                     <span class="picture__image"></span>
                                                 </label>
-                                                <input type="file" name="imagemEvento" id="picture__input">
+                                                <input type="file" accept="image/*" name="imagemEvento" id="picture__input">
                                             </div>
                                         </div>
                                         <label>Descrição do evento</label>
@@ -338,11 +340,18 @@ color: #656565;">
                                             <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição"></textarea>
 
                                         </div>
-                                        <label>Descrição do evento</label>
+                                        <label>Tipo de Arte</label>
                                         <div class="input-group mb-3">
-                                            <select name="" id="">
-                                                <option value="">Música</option>
-                                                <option value="">Dança</option>
+                                            <select name="tipoArte" id="">
+                                            <option value="#">Selecionar...</option>
+                                                <?php
+                                                $t = TipoArteDao::ListaTag();
+                                                foreach ($t as $tag) {
+                                                ?>
+                                                    <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
+                                                <?php
+                                                }
+                                                ?>
                                             </select>
 
                                         </div>
