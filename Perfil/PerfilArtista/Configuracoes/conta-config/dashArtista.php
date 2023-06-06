@@ -3,6 +3,7 @@
     require_once '../../../../Dao/Conexao.php';
     require_once '../../../../Dao/PublicacaoDao.php';
     require_once '../../../../Dao/EventoDao.php';
+    require_once '../../../../Dao/PresencaDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -396,7 +397,17 @@
                     <p>Confirmações totais do evento</p>
                 </div>
                 <div class="compartilhamentos-quantidade">
-                    <p>1000</p>
+                <p><?php
+                       $quantpresenca = PresencaDao::QuantPresencaTotais($_SESSION['idArtista']);
+
+                       $totalPresenca = 0;
+                       foreach ($quantpresenca as $evento) {
+                           $totalPresenca += $evento['quantidade'];
+                       }
+                       
+                       echo $totalPresenca;
+                       
+                    ?></p>
                 </div>
             </div>
             <div class="card-publicacoes">

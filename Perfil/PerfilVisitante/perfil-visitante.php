@@ -63,9 +63,7 @@ require_once 'GlobalPerfil.php';
                     </a>
                 </div>
             </div>
-            <div class="nova-pub">
-                <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
-            </div>
+            
             <a href="">
                 <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
                     <img src="assets/img/icon-logout.svg" alt="Sair">
@@ -386,7 +384,7 @@ require_once 'GlobalPerfil.php';
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        Você está seguindo 1000 pessoas </h1>
+                        Você está seguindo... </h1>
                     <div class="box-btn-fechar">
                         <div class="box-input-search">
                             <form action="">
@@ -405,13 +403,17 @@ require_once 'GlobalPerfil.php';
 
                 </div>
                 <div class="modal-body">
+                <?PHP
+                   $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
+                    foreach($es as $ess){
+                ?>
                     <div class="box-comentario">
                         <div class="imagem-nick">
-                            <img src="assets/img/img-perfil.svg" alt="">
+                            <img src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $ess['fotoPerfilUsuario'] ?>" alt="">
 
                             <div class="conteudo-comentario">
-                                <h1>@Gustavo Henrique</h1>
-                                <p>@guuss</p>
+                            <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
+                                <p><?PHP echo $ess['nicknameUsuario'] ?></p>
 
 
 
@@ -431,7 +433,7 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-excluirSeguindo" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>excluir</b> @guuss</p>
+                            <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
                                     <i class="fa-solid fa-heart-crack"></i>
@@ -447,7 +449,7 @@ require_once 'GlobalPerfil.php';
                         </div>
 
                         <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>bloquear</b> @guuss</p>
+                            <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
                                     <i class="fa-solid fa-heart-crack"></i>
@@ -461,22 +463,9 @@ require_once 'GlobalPerfil.php';
                             </div>
                         </div>
                     </div>
-                    <div class="box-comentario">
-                        <div class="imagem-nick">
-                            <img src="assets/img/img-perfil.svg" alt="">
-                            <div class="conteudo-comentario">
-                                <h1>@Gustavo Henrique</h1>
-                                <p>@guuss</p>
-                            </div>
-                        </div>
-                        <div class="opcoes">
-                            <button>
-                                <i class="fa-solid fa-ban"></i>
-                            </button>
-                            <button>
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
+                    <?PHP
+                    }
+                    ?>
 
                         <!-- <div class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>
