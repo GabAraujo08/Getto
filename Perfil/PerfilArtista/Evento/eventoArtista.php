@@ -162,11 +162,11 @@ Fique de olho e acompanhe seus artistas favoritos!
 
                                     <?php 
                                         require_once '../../../Dao/PresencaDao.php';
-                                        $prec = PresencaDao::Con($_SESSION['idUsuario']);?>
+                                        $prec = PresencaDao::consultar($_SESSION['idUsuario']);?>
                                                 
                                     <div class="presenca-evento">
                                         <div class="confirmados-evento">
-                                            <p><?php echo $evento['quantidadesCurtidas'];?></p>
+                                            <p><?php echo $prec['quantidadesCurtidas'];?></p>
                                         </div>
                                         <div class="confirmar-evento">
                                             <button>Confirmar presença</button>
