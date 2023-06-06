@@ -146,10 +146,10 @@ color: #656565;">
                                         <div class="conteudo-evento">
                                             <div class="criador-evento">
                                                 <div class="img-criador">
-                                                    <img src="../assets/img/FotoPerfil/" alt="">
+                                                    <img src="../assets/img/FotoPerfil/<?php echo $evento['fotoPerfilUsuario'] ?> " alt="">
                                                 </div>
                                                 <div class="nome-criador">
-                                                    <p> tem que colocar ainda </p>
+                                                    <p><?php echo $evento['nicknameUsuario'] ?> </p>
                                                 </div>
                                             </div>
                                             <div class="descricao-evento">

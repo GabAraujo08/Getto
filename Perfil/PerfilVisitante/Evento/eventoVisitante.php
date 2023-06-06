@@ -137,12 +137,12 @@ Fique de olho e acompanhe seus artistas favoritos!
                                 </div>
                                 <div class="conteudo-evento">
                                     <div class="criador-evento">
-                                        <div class="img-criador">
-                                            <img src="../assets/img/FotoPerfil/ " alt="">
-                                        </div>
-                                        <div class="nome-criador">
-                                            <p> </p>
-                                        </div>
+                                    <div class="img-criador">
+                                                    <img src="../assets/img/FotoPerfil/<?php echo $evento['fotoPerfilUsuario'] ?> " alt="">
+                                                </div>
+                                                <div class="nome-criador">
+                                                    <p><?php echo $evento['nicknameUsuario'] ?> </p>
+                                                </div>
                                     </div>
                                     <div class="descricao-evento">
                                         <p><?php echo $evento['descEvento'];?></p>

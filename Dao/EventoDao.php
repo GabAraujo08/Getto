@@ -48,7 +48,10 @@ class EventoDao
     public static function ListaEvento(){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare('SELECT tbEvento.idEvento, tbEvento.dataEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento,  tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento.bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento  ORDER BY tbEvento.dataEvento DESC');
+        $consulta = $conexao->prepare('SELECT  tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbEvento.idEvento, tbEvento.dataEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento,  tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento.bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento
+                                            INNER JOIN tbArtista ON tbArtista.idArtista = tbEvento.idArtista
+                                               INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                                 ORDER BY tbEvento.dataEvento DESC');
 
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
@@ -87,7 +90,9 @@ class EventoDao
     public static function ListaMeusEventos($id){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare(' SELECT tbEvento.tituloEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento FROM tbEvento
+        $consulta = $conexao->prepare(' SELECT tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbEvento.tituloEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento FROM tbEvento
+                                        INNER JOIN tbArtista ON tbArtista.idArtista = tbEvento.idArtista
+                                               INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                         WHERE tbEvento.idArtista = ?');
         $consulta->bindValue(1, $id);
         $consulta->execute();
