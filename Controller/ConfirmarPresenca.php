@@ -7,11 +7,11 @@
     $presenca->setIdEvento($_POST['idEvento']);
     $presenca->setIdUsuario($_SESSION['idUsuario']);
 
-    PresencaDao::cadastrar($ConPresenca);
+    PresencaDao::cadastrar($presenca);
     if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/Feed/feed.php');
+        header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');
     }else{
-        header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');  
+        header('Location: ../Perfil/PerfilVisitante/Evento/eventoArtista.php');  
     }
     
     

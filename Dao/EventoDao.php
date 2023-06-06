@@ -48,7 +48,7 @@ class EventoDao
     public static function ListaEvento(){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare('SELECT  tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento, tbEvento.quantidadeCurtidas, tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento. bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento');
+        $consulta = $conexao->prepare('SELECT tbEvento.idEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento, tbEvento.quantidadeCurtidas, tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento. bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento');
 
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);

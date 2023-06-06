@@ -15,6 +15,7 @@
             $prepareStatement->execute();
             return 'Cadastrou';
         }
+
         public static function consultarCurtida($idpub){
             $conexao = Conexao::conectar();
             $consulta = $conexao->prepare('SELECT COUNT(*) as totalCurtida FROM tbCurtida WHERE idPublicacao = ?');

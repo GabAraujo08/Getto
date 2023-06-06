@@ -5,6 +5,7 @@ header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');
 
 $evento = new Evento();
 
+
 $evento->setHorarioInicioEvento($_POST['horarioInicio']);
 $evento->setHorarioFinalEvento($_POST['horarioFim']);
 $evento->setDataEvento($_POST['dataEvento']);

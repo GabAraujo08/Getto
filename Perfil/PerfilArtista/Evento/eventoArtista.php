@@ -2,6 +2,8 @@
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/EventoDao.php';
 require_once '../../../Dao/TipoArteDao.php';
+require_once '../../../Dao/EventoDao.php';
+require_once '../../../Dao/PresencaDao.php';
 ?>
 
 <!DOCTYPE html>
@@ -106,7 +108,7 @@ Fique de olho e acompanhe seus artistas favoritos!
             require_once '../../../Dao/EventoDao.php';
 
             $eventos = EventoDao::ListaEvento();
-            foreach ($eventos as $index => $evento) : ?>
+            foreach ($eventos as $index => $evento) { ?>
 
             <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
                 <div class="accordion-item">
@@ -141,7 +143,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                                 <div class="conteudo-evento">
                                     <div class="criador-evento">
                                         <div class="img-criador">
-                                            <img src="assets/img/FotoPerfil/">
+                                            <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
                                         </div>
                                         <div class="nome-criador">
                                             <p><?php echo $_SESSION['nicknameUsuario'];?></p>
@@ -160,16 +162,55 @@ Fique de olho e acompanhe seus artistas favoritos!
                                         </div>
                                     </div>
 
-                                    <?php 
-                                        require_once '../../../Dao/PresencaDao.php';
-                                        $prec = PresencaDao::consultar($_SESSION['idUsuario']);?>
+                                    
                                                 
                                     <div class="presenca-evento">
                                         <div class="confirmados-evento">
-                                            <p><?php echo $prec['quantidadesCurtidas'];?></p>
+                                            <p><?php
+                                            $prec = PresencaDao::consultar($evento['idEvento']);
+                                            echo $prec . ' Confirmaram presença';?></p>
                                         </div>
                                         <div class="confirmar-evento">
-                                            <button>Confirmar presença</button>
+                                                    <?php
+                                                    $conexao = Conexao::conectar();
+                                                    $consulta = $conexao->prepare('SELECT idPresenca, idEvento FROM tbPresenca WHERE idUsuario = ?');
+                                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                                    $consulta->execute();
+                                                    $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+                                                    if ($resultado == false) {
+                                                        ?>
+        
+                                                        <form id="Presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                            <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
+                                                            <button name="pp" type="submit" class="btn">
+                                                                Confirmar Presença 
+                                                            </button>
+                                                        </form>
+
+                                                    <?php
+                                                    } else if (!in_array($evento['idEvento'], array_column($resultado, 'idEvento'))) {
+                                                    ?>
+                                                    <form id="presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                        <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
+                                                        <button name="pp" type="submit" class="btn">
+                                                            Confirmar Presença 
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                                } else {
+                                                ?>
+
+                                                    <form id="presenca" name="Presenca" action="../../../Controller/DesPresenca.php" method="POST">
+                                                        <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
+                                                        <button name="pp" type="submit" class="btn">
+                                                            tirar Presença
+                                                        </button>
+                                                    </form>
+
+                                                <?php
+                                                    }
+                                                ?>
                                         </div>
                                     </div>
                                 </div>
@@ -179,7 +220,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                 </div>
             </div>
 
-            <?php endforeach; ?>
+                <?php } ?>
 
         <nav style="background-color: #fff;" class="mobile-nav">
             <a href="#" class="bloc-icon">

@@ -16,6 +16,9 @@
             return 'Cadastrou';
         }
 
+
+
+
         public static function consultar($idEve){
             $conexao = Conexao::conectar();
             $consulta = $conexao->prepare('SELECT COUNT(*) as totalConfirmarPresenca FROM tbPresenca WHERE idEvento = ?');
@@ -32,6 +35,7 @@
             
            
         }
+
 
         public static function QuantPresencaTotais($id){
             
