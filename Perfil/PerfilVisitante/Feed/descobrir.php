@@ -52,7 +52,7 @@ require_once '../../../Dao/Conexao.php';
                             <a href="../Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
-                            <a target="../Descobrir/descobrir.php" href="../Feed/descobrir.php">
+                            <a target="../Descobrir/descobrir.php" href="">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
                             <a href="../perfil-visitante.php">
