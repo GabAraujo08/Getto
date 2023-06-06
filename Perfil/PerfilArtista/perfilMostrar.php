@@ -1,6 +1,6 @@
 <?php include('../../Controller/VerificaLogado.php');
 require_once 'GlobalPerfil.php';
-          
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,30 +118,30 @@ require_once 'GlobalPerfil.php';
                                     $consulta->bindValue(2, $_SESSION['artistaId']);
                                     $consulta->execute();
                                     $resultado = $consulta->fetch();
-                                    if($resultado == false){
+                                    if ($resultado == false) {
                                 ?>
-                                    <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
-                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                        <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
-                                        <div class="div-btn-editar-perfil">
-                                            <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
-                                                Seguir
-                                            </button>
-                                        </div>
-                                    </form>
-                                <?PHP
-                                    }else{
-                                ?>
+                                        <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
+                                            <div class="div-btn-editar-perfil">
+                                                <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
+                                                    Seguir
+                                                </button>
+                                            </div>
+                                        </form>
+                                    <?PHP
+                                    } else {
+                                    ?>
 
-                                    <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
-                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                        <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
-                                        <div class="div-btn-editar-perfil">
-                                            <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
-                                                Deixar de Seguir
-                                            </button>
-                                        </div>
-                                    </form>     
+                                        <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
+                                            <div class="div-btn-editar-perfil">
+                                                <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
+                                                    Deixar de Seguir
+                                                </button>
+                                            </div>
+                                        </form>
 
                                 <?php
                                     }
@@ -191,87 +191,39 @@ require_once 'GlobalPerfil.php';
                         </div>
 
 
-                        <div class="box-atividade-eventos">
-                            <hr>
-                            <div class="box-atividade">
-                                <div class="atividade">
-                                    <div class="box-atividade-perfil-nick">
-                                        <div class="box-img-atividade">
-                                            <img class="img-fluid img-atividade" src="assets/img/img-atividade-1.svg" alt="">
-                                        </div>
-                                        <div class="fotoPerfil-nick">
-                                            <div class="fotoPerfil-atividade">
-                                                <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                            </div>
-                                            <div class="nick-atividade">
-                                                <h1>@Melis</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="atividade">
-                                    <div class="box-img-atividade">
-                                        <img class="img-fluid img-atividade" src="assets/img/img-atividade-2.svg" alt="">
-                                    </div>
-                                    <div class="fotoPerfil-nick">
-                                        <div class="fotoPerfil-atividade">
-                                            <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                        </div>
-                                        <div class="nick-atividade">
-                                            <h1>@Melis</h1>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="criar-evento">
-                                <div class="titulo-box-evento">
-                                    <?PHP
-                                    if ($_POST['usuarioNivelConta'] == 2) {
-                                    ?>
-                                        <h1>Eventos de </h1>
-                                    <?PHP
-                                    }
-                                    ?>
-
-                                </div>
+                        <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
+                            Sua atividade
+                        </h1>
+                        <div class="atividade">
+                            <div class="col-8 publicacoes">
+                                <?php
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                foreach ($mp as $p) {
+                                ?>
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?PHP
+                                }
+                                ?>
 
                             </div>
 
-                            <div class="container box-eventos">
+                            <?php require_once '../../Dao/EventoDao.php';
 
-                                <div class="evento">
+                            $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                            foreach ($eventos as $evento) : ?>
+                                <div class="col-4 eventos">
                                     <div class="img-evento">
-                                        <img class="img-fluid" src="assets/img/img-evento.svg" alt="">
-                                    </div>
-
-
-                                    <div class="box-desc-evento">
-                                        <div class="desc-evento">
-                                            <h1 class="titulo-evento">Evento musical</h1>
-                                            <h2>Dia: 13/02/2023</h2>
-                                            <h2>Horário: 17:00hrs</h2>
-                                            <h2>Local: Shopping Tatuapé</h2>
-                                        </div>
+                                        <img src="assets/img/kyan-evento.jpg" alt="">
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
+                                        <p class="rua-evento">
+                                            <?PHP echo $evento['logradouroEvento']; ?>
+                                        </p>
                                     </div>
                                 </div>
-
-                                <div class="evento">
-                                    <div class="img-evento">
-                                        <img class="img-fluid" src="assets/img/img-evento.svg" alt="">
-                                    </div>
-                                    <div class="box-desc-evento">
-                                        <div class="desc-evento">
-                                            <h1 class="titulo-evento">Evento musical</h1>
-                                            <h2>Dia: 13/02/2023</h2>
-                                            <h2>Horário: 17:00hrs</h2>
-                                            <h2>Local: Shopping Tatuapé</h2>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
+                    <?php endforeach; ?>
                     </div>
                 </div>
             </div>
