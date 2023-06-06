@@ -225,26 +225,23 @@ require_once 'GlobalPerfil.php';
                                 foreach ($eventos as $evento) : ?>
                                     <div class="img-evento">
                                         <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
->>>>>>> ca18fae3a230d3eaf27baa69097997fb809bc6d4
+
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
                                         <p class="rua-evento">
                                             <?PHP echo $evento['logradouroEvento']; ?>
-                                        </p>
-<<<<<<< HEAD
-                                </div>
+                                        </p>                                </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
                         
-=======
                                     </div>
                                     <?php endforeach; ?>
                             </div>
                         </div>
                     
->>>>>>> ca18fae3a230d3eaf27baa69097997fb809bc6d4
+
 
                     <!-- <div class="box-atividade-eventos">
                             <hr>

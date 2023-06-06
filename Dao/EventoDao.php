@@ -90,9 +90,7 @@ class EventoDao
     public static function ListaMeusEventos($id){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare(' SELECT tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbEvento.tituloEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento FROM tbEvento
-                                        INNER JOIN tbArtista ON tbArtista.idArtista = tbEvento.idArtista
-                                               INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+        $consulta = $conexao->prepare(' SELECT DISTINCT tbEvento.tituloEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento FROM tbEvento
                                         WHERE tbEvento.idArtista = ?');
         $consulta->bindValue(1, $id);
         $consulta->execute();
