@@ -832,7 +832,18 @@ require_once 'GlobalPerfil.php';
                 ?>
                     <div class="box-comentario">
                         <div class="imagem-nick">
-                            <img src="assets/img/img-perfil.svg" alt="">
+                            <?PHP
+                                if ($sss['nivelContaUsuario'] == 2) {
+                                ?>
+                                    <img src="assets/img/FotoPerfil/<?PHP echo $sss['fotoPerfilUsuario']; ?>" alt="">
+                                <?PHP
+                                } else {
+                                ?>
+                                    <img  src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $sss['fotoPerfilUsuario']; ?>" alt="">
+                                <?PHP
+                                }
+                                ?>
+                            
 
                             <div class="conteudo-comentario">
                                 <h1><?PHP echo $sss['nomeUsuario'] ?></h1>

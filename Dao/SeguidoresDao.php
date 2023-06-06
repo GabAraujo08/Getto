@@ -61,7 +61,7 @@
 
         public static function SeusSeguidores($idArtista){
             $conexao = Conexao::conectar();
-            $consulta = $conexao->prepare('SELECT tbUsuario.idUsuario, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbUsuario.nomeUsuario
+            $consulta = $conexao->prepare('SELECT tbUsuario.idUsuario, tbUsuario.nivelContaUsuario, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbUsuario.nomeUsuario
                                             FROM tbSeguidores
                                             INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbSeguidores.idUsuario
                                             WHERE tbSeguidores.idArtista = ?');
