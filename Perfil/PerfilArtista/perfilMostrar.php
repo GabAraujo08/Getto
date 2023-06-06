@@ -77,15 +77,15 @@ require_once 'GlobalPerfil.php';
                         <div class="informacao-perfil">
                             <div class="papel-parede-img-perfil">
                                 <?PHP
-                                if ($_SESSION['usuarioNivelConta'] == 2) {
+                                if ($_SESSION['nivel']== 2) {
                                 ?>
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo  $_SESSION['usuarioFotoCapa']; ?>" alt="">
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['usuarioFotoPerfil']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo  $_SESSION['papel']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
                                 <?PHP
                                 } else {
                                 ?>
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilVisitante/assets/img/FotoCapa/<?PHP echo  $_SESSION['usuarioFotoCapa']; ?>" alt="">
-                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $_SESSION['usuarioFotoPerfil']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilVisitante/assets/img/FotoCapa/<?PHP echo  $_SESSION['papel']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
                                 <?PHP
                                 }
                                 ?>
@@ -94,14 +94,14 @@ require_once 'GlobalPerfil.php';
                                 <div class="usuario-bio">
                                     <div class="area-nick-nome">
                                         <div class="nick">
-                                            <h1> <?PHP echo $_SESSION['usuarioNick']; ?></h1>
+                                            <h1> <?PHP echo $_SESSION['nick']; ?></h1>
                                         </div>
                                         <div class="nome">
-                                            <h1>(<?PHP echo $_SESSION['usuarioNome']; ?>)</h1>
+                                            <h1>(<?PHP echo $_SESSION['nome']; ?>)</h1>
                                         </div>
                                     </div>
                                     <?PHP
-                                    if ($_SESSION['usuarioNivelConta'] == 2) {
+                                    if ($_SESSION['nivel'] == 2) {
                                     ?>
                                         <div class="bio">
                                             <p><?PHP echo $_SESSION['bio']; ?></p>
@@ -111,18 +111,18 @@ require_once 'GlobalPerfil.php';
                                     ?>
                                 </div>
                                 <?PHP
-                                if ($_POST['usuarioNivelConta'] == 2) {
+                                if ($_SESSION['nivel'] == 2) {
                                     $conexao = Conexao::conectar();
                                     $consulta = $conexao->prepare('SELECT idSeguidores FROM tbSeguidores WHERE idUsuario = ? AND idArtista = ?');
                                     $consulta->bindValue(1, $_SESSION['idUsuario']);
-                                    $consulta->bindValue(2, $_SESSION['artistaId']);
+                                    $consulta->bindValue(2, $_SESSION['idA']);
                                     $consulta->execute();
                                     $resultado = $consulta->fetch();
                                     if ($resultado == false) {
                                 ?>
                                         <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
                                                 <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
                                                     Seguir
@@ -135,7 +135,7 @@ require_once 'GlobalPerfil.php';
 
                                         <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['artistaId']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
                                                 <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
                                                     Deixar de Seguir
@@ -156,7 +156,7 @@ require_once 'GlobalPerfil.php';
                                     <div class="seguindo">
                                         <?PHP
 
-                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['usuarioId']);
+                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
                                         ?>
                                         <div class="seguindo-numero">
                                             <p><?PHP
@@ -171,8 +171,8 @@ require_once 'GlobalPerfil.php';
 
 
                                         <?PHP
-                                        if ($_POST['usuarioNivelConta'] == 2) {
-                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['artistaId']);
+                                        if ($_SESSION['nivel'] == 2) {
+                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
                                         ?>
                                             <div class="seguidores-numero">
                                                 <p><?PHP
@@ -197,10 +197,10 @@ require_once 'GlobalPerfil.php';
                         <div class="atividade">
                             <div class="col-8 publicacoes">
                                 <?php
-                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
                                 foreach ($mp as $p) {
                                 ?>
-                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                    <img src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>" alt="">
                                 <?PHP
                                 }
                                 ?>
@@ -209,11 +209,11 @@ require_once 'GlobalPerfil.php';
 
                             <?php require_once '../../Dao/EventoDao.php';
 
-                            $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                            $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
                             foreach ($eventos as $evento) : ?>
                                 <div class="col-4 eventos">
                                     <div class="img-evento">
-                                        <img src="assets/img/kyan-evento.jpg" alt="">
+                                        <img src="Evento/assets/img/<?PHP echo $evento['tituloEvento']; ?>" alt="">
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>

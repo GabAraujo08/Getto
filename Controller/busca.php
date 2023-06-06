@@ -25,7 +25,7 @@
             $_SESSION['papel'] = $row['papelParedeUsuario'];
             $_SESSION['nivel'] = $row['nivelContaUsuario'];
 
-            if ($dadosUsuario['nivelContaUsuario'] == 2) {
+            if ($_SESSION['nivel'] == 2) {
                 $a = ArtistaDao::consultarArtista($_SESSION['idU']);
                 $_SESSION['idA'] = $a['idArtista'];
                 $_SESSION['bio'] = $a['bioArtista']; 
