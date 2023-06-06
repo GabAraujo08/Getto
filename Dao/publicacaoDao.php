@@ -103,4 +103,37 @@
 
             return $resultado1;
         }
+
+        public static function ListaPublicacaoCurti($id){
+            
+            $conexao = Conexao::conectar();
+
+
+            $query = $conexao->prepare('SELECT idArtista FROM tbSeguidores WHERE idUsuario =?');
+            $query->bindValue(1, $id);
+             $query->execute();
+            $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            
+            $countResu1 = count($resultado1);
+            $resultado = [];
+
+            for($i = 0; $i < $countResu1; $i ++){
+                $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
+                                INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
+                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
+                                INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                WHERE tbPublicacao.idArtista = ?
+                                ORDER BY tbPublicacao.horarioPublicacao DESC
+                                ');
+                $consulta->bindValue(1, $resultado1[$i]['idArtista']);
+                $consulta->execute();
+                $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+                $resultado = array_merge($resultado, $resultado2);
+            }
+            return $resultado;
+           
+        }
 } 
