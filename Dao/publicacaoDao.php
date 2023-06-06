@@ -109,7 +109,7 @@
             $conexao = Conexao::conectar();
 
 
-            $query = $conexao->prepare('SELECT idArtista FROM tbSeguidores WHERE idUsuario =?');
+            $query = $conexao->prepare('SELECT idPublicacao FROM tbCurtida WHERE idUsuario =?');
             $query->bindValue(1, $id);
              $query->execute();
             $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -124,10 +124,10 @@
                                 INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                 INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
                                 INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
-                                WHERE tbPublicacao.idArtista = ?
+                                WHERE tbPublicacao.idPublicacao = ?
                                 ORDER BY tbPublicacao.horarioPublicacao DESC
                                 ');
-                $consulta->bindValue(1, $resultado1[$i]['idArtista']);
+                $consulta->bindValue(1, $resultado1[$i]['idPublicacao']);
                 $consulta->execute();
                 $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
