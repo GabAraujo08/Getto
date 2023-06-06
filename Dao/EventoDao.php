@@ -48,7 +48,8 @@ class EventoDao
     public static function ListaEvento(){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare('SELECT  tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento, tbEvento.quantidadeCurtidas, tbEvento.descEvento, tbEvento.tituloEvento  FROM tbEvento');
+        $consulta = $conexao->prepare('SELECT  tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento, tbEvento.quantidadeCurtidas, tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento. bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento
+                                        ');
 
         $consulta->execute();
         $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
@@ -69,4 +70,29 @@ class EventoDao
         
     }
 
+    public static function ListaMeusEventos($id){
+            
+        $conexao = Conexao::conectar();
+        $consulta = $conexao->prepare(' SELECT tbEvento.tituloEvento, tbEvento.logradouroEvento FROM tbEvento
+                                        WHERE tbEvento.idArtista = ?');
+        $consulta->bindValue(1, $id);
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $resultado;
     }
+
+
+    public static function ConfirmarEvento(){
+            
+        $conexao = Conexao::conectar();
+        $consulta = $conexao->prepare('SELECT idPresenca, idEvento FROM tbPresenca 
+                                        WHERE idUsuario = ?');
+
+        $consulta->bindValue(1, $_SESSION['idUsuario']);
+        $consulta->execute();
+        $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        
+        return $resultado;
+    }
+}
