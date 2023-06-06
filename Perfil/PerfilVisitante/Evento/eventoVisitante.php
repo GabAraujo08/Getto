@@ -104,21 +104,7 @@ Fique de olho e acompanhe seus artistas favoritos!
             require_once '../../../Dao/EventoDao.php';
 
             $eventos = EventoDao::ListaEvento();
-            foreach ($eventos as $evento ) {
-                    $horarioInicioEvento = $evento['horarioInicioEvento'];
-                    $horarioFinalEvento = $evento['horarioFinalEvento'];
-                    $dataEvento = $evento['dataEvento'];
-                    $descEvento = $evento['descEvento'];
-                    $tituloEvento = $evento['tituloEvento'];
-                    $bairroEvento = $evento['bairroEvento'];
-                    $logEvento = $evento['logradouro'];
-                    $numLogEvento = $evento['numLog'];
-                    $imagemEvento = $evento['imagemEvento'];
-
-                }
-            ?>
-
-            <?php foreach ($eventos as $index => $evento) : ?>
+            foreach ($eventos as $index => $evento) : ?>
 
             <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
                 <div class="accordion-item">
@@ -138,7 +124,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                                         <p><?php echo $evento['tituloEvento'];?></p>
                                     </div>
                                     <div class="endereco-evento">
-                                        <p><?php echo $evento['bairroEvento'];?>, <?php echo $evento['logradouro'];?> <?php echo $evento['numLog'];?></p>
+                                        <p><?php echo $evento['logradouroEvento'];?> <?php echo $evento['numLogEvento'];?></p>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +139,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                                 <div class="conteudo-evento">6'
                                     <div class="criador-evento">
                                         <div class="img-criador">
-                                            <img src="assets/img/FotoPerfil/">
+                                            <img src="assets/img/FotoPerfil/<?php echo $_SESSION[''] ?>">
                                         </div>
                                         <div class="nome-criador">
                                             <p><?php echo $_SESSION['nicknameUsuario'];?></p>
@@ -176,8 +162,8 @@ Fique de olho e acompanhe seus artistas favoritos!
                                         <div class="confirmados-evento">
                                             <p>
                                             <?php
-                                                $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
-                                                echo $cc . ' curtidas';
+                                                $presenc = PresencaDao::consultar($p['idPresenca']);
+                                                echo $presenc . ' ';
                                             ?>
                                             </p>
                                         </div>

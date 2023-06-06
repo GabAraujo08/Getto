@@ -207,44 +207,24 @@ require_once 'GlobalPerfil.php';
                                 ?>
                                 
                             </div>
+
+                            <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                    foreach ($eventos as $evento ): ?>
                             <div class="col-4 eventos">
                                 <div class="img-evento">
                                     <img src="assets/img/kyan-evento.jpg" alt="">
-                                    
                                         <h1>
-                                            Batalha de rima
+                                            <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
                                         <p class="rua-evento">
-                                            Rua Quimanga, 509
+                                        <?PHP echo $evento['logradouroEvento']; ?>
                                         </p>
-                                    
-
                                 </div>
-
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    <h1>
-                                        Batalha de rima
-                                    </h1>
-                                    <p>
-                                        Rua Quimanga, 509
-                                    </p>
-                                </div>
-
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    <h1>
-                                        Batalha de rima
-                                    </h1>
-                                    <p>
-                                        Rua Quimanga, 509
-                                    </p>
-                                </div>
-
-
-
                             </div>
                         </div>
+                        <?php endforeach; ?>
 
                         <!-- <div class="box-atividade-eventos">
                             <hr>
