@@ -105,35 +105,18 @@
         }
 
         public static function ListaPublicacaoCurti($id){
-            
             $conexao = Conexao::conectar();
-
-
-            $query = $conexao->prepare('SELECT idPublicacao FROM tbCurtida WHERE idUsuario =?');
+            $query = $conexao->prepare('SELECT tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbCurtida
+                INNER JOIN tbPublicacao ON tbCurtida.idPublicacao = tbPublicacao.idPublicacao
+                INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
+                INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                WHERE tbCurtida.idUsuario = ?
+                ORDER BY tbPublicacao.horarioPublicacao DESC');
             $query->bindValue(1, $id);
-             $query->execute();
-            $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            
-            $countResu1 = count($resultado1);
-            $resultado = [];
-
-            for($i = 0; $i < $countResu1; $i ++){
-                $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
-                                INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
-                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
-                                INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
-                                INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
-                                WHERE tbPublicacao.idPublicacao = ?
-                                ORDER BY tbPublicacao.horarioPublicacao DESC
-                                ');
-                $consulta->bindValue(1, $resultado1[$i]['idPublicacao']);
-                $consulta->execute();
-                $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-                $resultado = array_merge($resultado, $resultado2);
-            }
+            $query->execute();
+            $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+        
             return $resultado;
-           
         }
+        
 } 

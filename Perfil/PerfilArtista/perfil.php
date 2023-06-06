@@ -214,7 +214,7 @@ require_once 'GlobalPerfil.php';
                                     foreach ($eventos as $evento ): ?>
                             <div class="col-4 eventos">
                                 <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
+                                    <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>

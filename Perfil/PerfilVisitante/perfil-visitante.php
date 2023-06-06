@@ -137,32 +137,16 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
                             <div class="col-12 publicacoes">
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
 
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-                                <img src="../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-
-
-
+                            <?php
+                                    $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idUsuario']);
+                                    foreach($pc as $pcc){
+                                ?>
+                                    <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
+                                <?PHP
+                                    }
+                                ?>
+                                
                             </div>
                             <!-- <div class="col-4 eventos">
                                 <div class="img-evento">
