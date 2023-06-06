@@ -660,38 +660,26 @@ require_once '../../../Dao/Conexao.php';
 
 
       <?php
+        if ($_SESSION['go'] == true && isset($_SESSION['quantLinhas'])) {
+            $html = '';
+            for ($i = 0; $i < $_SESSION['quantLinhas']; $i++) {
+                $html .= '<form action="../perfilMostrar.php?$_SESSION" method="POST">';
+                $html .= '<li>';
+                if ($_SESSION['nivel'] == 2) {
+                    $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                } else {
+                    $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                }
 
-      if (isset($dadosUsuario['nivel'])) {
-          foreach ($dadosUsuario as $us) {
-    ?>
-            <form action="../perfilMostrar.php" method="POST">
-            <li>
-            <?php
-            if ($us['nivel'] == 2) {
-            ?>
-              <img src="../assets/img/FotoPerfil/<?PHP echo $us['fotoP']?>" alt="Imagem de perfil">
-            <?php
-            } else {
-            ?>
-              <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $us['fotoP']?>" alt="Imagem de perfil">
-            <?php
+                $html .= '<button type="submit">' . $_SESSION['nick'] . '</button>';
+                $html .= '</li>';
+                $html .= '</form>';
             }
-            ?>
-            <button type="submit"><?PHP echo $us['nick']?></button>
-            </li>
-            </form>
-
-          <?PHP  
-          }
-          ?>
-          <ul id="results">
-        <?php
+            echo '<ul id="results">' . $html . '</ul>';
         } else {
-        ?>
-        <ul id="results"><li>Nenhum resultado encontrado</li></ul>
-        <?php
+            echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
         }
-      ?>
+        ?>
 
     </div>
 

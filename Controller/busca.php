@@ -14,25 +14,29 @@
     $consulta->execute();
     $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-    $dadosUsuario = array();
+   
 
     if ($resultado != false) {
         foreach ($resultado as $row) {
-            $dadosUsuario['idUsuario'] = $row['idUsuario'];
-            $dadosUsuario['nomeUsuario'] = $row['nomeUsuario'];
-            $dadosUsuario['nicknameUsuario'] = $row['nicknameUsuario'];
-            $dadosUsuario['fotoPerfilUsuario'] = $row['fotoPerfilUsuario'];
-            $dadosUsuario['papelParedeUsuario'] = $row['papelParedeUsuario'];
-            $dadosUsuario['nivelContaUsuario'] = $row['nivelContaUsuario'];
+            $_SESSION['idU'] = $row['idUsuario'];
+            $_SESSION['nome'] = $row['nomeUsuario'];
+            $_SESSION['nick'] = $row['nicknameUsuario'];
+            $_SESSION['fotoP'] = $row['fotoPerfilUsuario'];
+            $_SESSION['papel'] = $row['papelParedeUsuario'];
+            $_SESSION['nivel'] = $row['nivelContaUsuario'];
 
             if ($dadosUsuario['nivelContaUsuario'] == 2) {
-                $a = ArtistaDao::consultarArtista($dadosUsuario['idUsuario']);
-                $dadosUsuario['idArtista'] = $a['idArtista'];
-                $dadosUsuario['bioArtista'] = $a['bioArtista']; 
+                $a = ArtistaDao::consultarArtista($_SESSION['idU']);
+                $_SESSION['idA'] = $a['idArtista'];
+                $_SESSION['bio'] = $a['bioArtista']; 
             }
+            $_SESSION['quantLinhas'] = count($resultado);
+            $_SESSION['go'] = true;
         }
 
-        return $dadosUsuario;
+      
+    }else{
+        $_SESSION['go']  = false;
     }
-     
+    return $_SESSION;
 ?>

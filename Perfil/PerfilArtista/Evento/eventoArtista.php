@@ -121,7 +121,9 @@ color: #656565;">
                                     <div class="resumoDiv">
                                         <div class="card">
                                             <div class="front">
-                                                <p>11</p><span>Abr</span>
+                                            <p><?php  $dia = date('d', strtotime($evento['dataEvento']));
+                                                    echo $dia; ?></p><span><?php  $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                                    echo $mes; ?></span>
                                             </div>
                                             <div class="back">
                                                 <p>inicio: <?php echo $evento['horarioInicioEvento']; ?></p><span>fim: <?php echo $evento['horarioFinalEvento']; ?></span>

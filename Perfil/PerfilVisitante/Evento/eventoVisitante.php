@@ -113,7 +113,9 @@ Fique de olho e acompanhe seus artistas favoritos!
                             <div class="resumoDiv">
                                 <div class="card">
                                     <div class="front">
-                                        <p>11</p><span>Abr</span>
+                                        <p><?php  $dia = date('d', strtotime($evento['dataEvento']));
+                                                    echo $dia; ?></p><span><?php  $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                                    echo $mes; ?></span>
                                     </div>
                                     <div class="back">
                                         <p>inicio: <?php echo $evento['horarioInicioEvento'];?></p><span>fim: <?php echo $evento['horarioFinalEvento'];?></span>
@@ -134,7 +136,7 @@ Fique de olho e acompanhe seus artistas favoritos!
                         <div class="accordion-body rounded-4">
                             <div class="baixo">
                                 <div class="img-evento">
-                                    <img src="assets/img/<?php echo $evento['imagemEvento'] ?> ">
+                                    <img src="../../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento'] ?> ">
                                 </div>
                                 <div class="conteudo-evento">
                                     <div class="criador-evento">
