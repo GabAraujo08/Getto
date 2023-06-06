@@ -196,17 +196,20 @@ require_once 'GlobalPerfil.php';
                             Sua atividade
                         </h1>
                         <div class="atividade">
+
                             <div class="col-8 publicacoes">
+
                                 <?php
-                                    $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
-                                    foreach($mp as $p){
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                foreach ($mp as $p) {
                                 ?>
                                     <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
                                 <?PHP
-                                    }
+                                }
                                 ?>
-                                
+
                             </div>
+
 
                             
                             <div class="col-4 eventos">
@@ -216,19 +219,37 @@ require_once 'GlobalPerfil.php';
                                 foreach ($eventos as $evento ): ?>
                                 <div class="img-evento">
                                     <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+
+
+                            <div class="col-4 eventos">
+                                <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                foreach ($eventos as $evento) : ?>
+                                    <div class="img-evento">
+                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+>>>>>>> ca18fae3a230d3eaf27baa69097997fb809bc6d4
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
                                         <p class="rua-evento">
-                                        <?PHP echo $evento['logradouroEvento']; ?>
+                                            <?PHP echo $evento['logradouroEvento']; ?>
                                         </p>
+<<<<<<< HEAD
                                 </div>
                                 <?php endforeach; ?>
                             </div>
                         </div>
                         
+=======
+                                    </div>
+                                    <?php endforeach; ?>
+                            </div>
+                        </div>
+                    
+>>>>>>> ca18fae3a230d3eaf27baa69097997fb809bc6d4
 
-                        <!-- <div class="box-atividade-eventos">
+                    <!-- <div class="box-atividade-eventos">
                             <hr>
                             <div style="display: none;" class="container box-eventos">
 
@@ -809,7 +830,7 @@ require_once 'GlobalPerfil.php';
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">
-                         Pessoas que estão seguindo você </h1>
+                        Pessoas que estão seguindo você </h1>
                     <div class="box-btn-fechar">
                         <div class="box-input-search">
                             <form action="">
@@ -828,87 +849,87 @@ require_once 'GlobalPerfil.php';
 
                 </div>
                 <div class="modal-body">
-                <?PHP
-                   $ss = SeguidoresDao::SeusSeguidores($_SESSION['idArtista']);
-                    foreach($ss as $sss){
-                ?>
-                    <div class="box-comentario">
-                        <div class="imagem-nick">
-                            <?PHP
+                    <?PHP
+                    $ss = SeguidoresDao::SeusSeguidores($_SESSION['idArtista']);
+                    foreach ($ss as $sss) {
+                    ?>
+                        <div class="box-comentario">
+                            <div class="imagem-nick">
+                                <?PHP
                                 if ($sss['nivelContaUsuario'] == 2) {
                                 ?>
                                     <img src="assets/img/FotoPerfil/<?PHP echo $sss['fotoPerfilUsuario']; ?>" alt="">
                                 <?PHP
                                 } else {
                                 ?>
-                                    <img  src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $sss['fotoPerfilUsuario']; ?>" alt="">
+                                    <img src="../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $sss['fotoPerfilUsuario']; ?>" alt="">
                                 <?PHP
                                 }
                                 ?>
-                            
-
-                            <div class="conteudo-comentario">
-                                <h1><?PHP echo $sss['nomeUsuario'] ?></h1>
-                                <p><?PHP echo $sss['nicknameUsuario'] ?></p>
 
 
+                                <div class="conteudo-comentario">
+                                    <h1><?PHP echo $sss['nomeUsuario'] ?></h1>
+                                    <p><?PHP echo $sss['nicknameUsuario'] ?></p>
 
 
+
+
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="opcoes">
+                            <div class="opcoes">
 
-                            <button>
-                                <i class="fa-solid fa-user-plus"></i>
-                            </button>
-
-                            <button id="btn-bloquear">
-                                <i class="fa-solid fa-ban"></i>
-                            </button>
-                            <button id="btn-excluir">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-
-
-                        </div>
-
-                        <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>excluir</b><?PHP echo $sss['nicknameUsuario'] ?></p>
-                            <div class="btn-confirmacao-excluir">
                                 <button>
-                                    <i class="fa-solid fa-heart-crack"></i>
-                                    <p>Sim</p>
+                                    <i class="fa-solid fa-user-plus"></i>
                                 </button>
 
-                                <button id="btn-confirmar">
-                                    <i class="fa-solid fa-face-smile-beam"></i>
-                                    <p>Não</p>
+                                <button id="btn-bloquear">
+                                    <i class="fa-solid fa-ban"></i>
                                 </button>
+                                <button id="btn-excluir">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+
+
                             </div>
 
-                        </div>
+                            <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
+                                <p>Tem certeza que quer <b>excluir</b><?PHP echo $sss['nicknameUsuario'] ?></p>
+                                <div class="btn-confirmacao-excluir">
+                                    <button>
+                                        <i class="fa-solid fa-heart-crack"></i>
+                                        <p>Sim</p>
+                                    </button>
 
-                        <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>bloquear</b><?PHP echo $sss['nicknameUsuario'] ?></p>
-                            <div class="btn-confirmacao-excluir">
-                                <button>
-                                    <i class="fa-solid fa-heart-crack"></i>
-                                    <p>Sim</p>
-                                </button>
+                                    <button id="btn-confirmar">
+                                        <i class="fa-solid fa-face-smile-beam"></i>
+                                        <p>Não</p>
+                                    </button>
+                                </div>
 
-                                <button id="btn-confirmarBloqueio">
-                                    <i class="fa-solid fa-face-smile-beam"></i>
-                                    <p>Não</p>
-                                </button>
+                            </div>
+
+                            <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
+                                <p>Tem certeza que quer <b>bloquear</b><?PHP echo $sss['nicknameUsuario'] ?></p>
+                                <div class="btn-confirmacao-excluir">
+                                    <button>
+                                        <i class="fa-solid fa-heart-crack"></i>
+                                        <p>Sim</p>
+                                    </button>
+
+                                    <button id="btn-confirmarBloqueio">
+                                        <i class="fa-solid fa-face-smile-beam"></i>
+                                        <p>Não</p>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <?PHP
                     }
                     ?>
-                   
-                        <!-- <div class="confirmacao-excluir">
+
+                    <!-- <div class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
@@ -923,17 +944,17 @@ require_once 'GlobalPerfil.php';
                             </div>
 
                         </div> -->
-                    </div>
                 </div>
-                <div class="modal-footer">
+            </div>
+            <div class="modal-footer">
 
-                </div>
             </div>
         </div>
     </div>
+    </div>
 
 
-            <?PHP   ?>
+    <?PHP   ?>
 
 
     <!-- ---------------------------- MODAL SEGUINDO ------------------------- -->
@@ -963,65 +984,65 @@ require_once 'GlobalPerfil.php';
                 </div>
                 <div class="modal-body">
 
-                <?PHP
-                   $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
-                    foreach($es as $ess){
-                ?>
-                    <div class="box-comentario">
-                        <div class="imagem-nick">
-                            <img src="assets/img/FotoPerfil/<?PHP echo $ess['fotoPerfilUsuario'] ?>" alt="">
-                            <div class="conteudo-comentario">
-                                <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
-                                <p><?PHP echo $ess['nicknameUsuario'] ?></p>
+                    <?PHP
+                    $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
+                    foreach ($es as $ess) {
+                    ?>
+                        <div class="box-comentario">
+                            <div class="imagem-nick">
+                                <img src="assets/img/FotoPerfil/<?PHP echo $ess['fotoPerfilUsuario'] ?>" alt="">
+                                <div class="conteudo-comentario">
+                                    <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
+                                    <p><?PHP echo $ess['nicknameUsuario'] ?></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="opcoes">
-                            <button id="btn-bloquear">
-                                <i class="fa-solid fa-ban"></i>
-                            </button>
-                            <button id="btn-excluir">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                        </div>
-
-                        <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
-                            <div class="btn-confirmacao-excluir">
-                                <button>
-                                    <i class="fa-solid fa-heart-crack"></i>
-                                    <p>Sim</p>
+                            <div class="opcoes">
+                                <button id="btn-bloquear">
+                                    <i class="fa-solid fa-ban"></i>
                                 </button>
-
-                                <button id="btn-confirmar">
-                                    <i class="fa-solid fa-face-smile-beam"></i>
-                                    <p>Não</p>
+                                <button id="btn-excluir">
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                             </div>
 
-                        </div>
+                            <div id="confirmacao-excluir" style="display: none;" class="confirmacao-excluir">
+                                <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
+                                <div class="btn-confirmacao-excluir">
+                                    <button>
+                                        <i class="fa-solid fa-heart-crack"></i>
+                                        <p>Sim</p>
+                                    </button>
 
-                        <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
-                            <div class="btn-confirmacao-excluir">
-                                <button>
-                                    <i class="fa-solid fa-heart-crack"></i>
-                                    <p>Sim</p>
-                                </button>
+                                    <button id="btn-confirmar">
+                                        <i class="fa-solid fa-face-smile-beam"></i>
+                                        <p>Não</p>
+                                    </button>
+                                </div>
 
-                                <button id="btn-confirmarBloqueio">
-                                    <i class="fa-solid fa-face-smile-beam"></i>
-                                    <p>Não</p>
-                                </button>
+                            </div>
+
+                            <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
+                                <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
+                                <div class="btn-confirmacao-excluir">
+                                    <button>
+                                        <i class="fa-solid fa-heart-crack"></i>
+                                        <p>Sim</p>
+                                    </button>
+
+                                    <button id="btn-confirmarBloqueio">
+                                        <i class="fa-solid fa-face-smile-beam"></i>
+                                        <p>Não</p>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     <?PHP
                     }
                     ?>
 
 
-                        <!-- <div class="confirmacao-excluir">
+                    <!-- <div class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
@@ -1036,13 +1057,13 @@ require_once 'GlobalPerfil.php';
                             </div>
 
                         </div> -->
-                    </div>
-                </div>
-                <div class="modal-footer">
-
                 </div>
             </div>
+            <div class="modal-footer">
+
+            </div>
         </div>
+    </div>
     </div>
 
 

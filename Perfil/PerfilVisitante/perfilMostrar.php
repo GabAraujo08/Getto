@@ -1,5 +1,6 @@
 <?php include('../../Controller/VerificaLogado.php');
 require_once 'GlobalPerfil.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
