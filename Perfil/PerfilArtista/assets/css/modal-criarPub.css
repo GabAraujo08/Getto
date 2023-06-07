@@ -140,6 +140,7 @@
     margin-top: 10px !important;
     font-family: 'Roboto';
     padding: 10px;
+    width: 100%;
 }
 
 #modalCriarPub .modal-body textarea:focus {
