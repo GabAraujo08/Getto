@@ -767,7 +767,7 @@ body {
 }
 
 .publicacoes img:hover {
-	transform: scale(1.08); /* Aumenta o tamanho da imagem em 20% */
+	transform: scale(1.05); /* Aumenta o tamanho da imagem em 20% */
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona um efeito de box shadow */
   }
 
@@ -839,8 +839,8 @@ body {
 	font-family: 'InterBold';
 	opacity: 0;
 	position: absolute;
-	right: 0;
-	top: 40%;
+	left: 50%;
+	top: 50%;
 	pointer-events: none;
   }
 
@@ -848,8 +848,7 @@ body {
   .img-evento h1,
   .img-evento p {
 	position: absolute;
-	top: 80%;
-	left: 50%;
+	
 	transform: translate(-50%, -50%);
 	opacity: 0;
 	cursor: pointer;

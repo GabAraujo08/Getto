@@ -208,15 +208,6 @@ require_once 'GlobalPerfil.php';
                             </div>
 
 
-                            
-                            <div class="col-4 eventos">
-                            <?php require_once '../../Dao/EventoDao.php';
-
-                            $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
-                                foreach ($eventos as $evento ): ?>
-                                <div class="img-evento">
-                                    <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
-
 
                             <div class="col-4 eventos">
                                 <?php require_once '../../Dao/EventoDao.php';
@@ -226,24 +217,28 @@ require_once 'GlobalPerfil.php';
                                     <div class="img-evento">
                                         <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
 
+
+
+
+
+
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
-                                        <p class="rua-evento">
-                                            <?PHP echo $evento['logradouroEvento']; ?>
-                                        </p>                                </div>
+                                       
+
+                                    </div>
                                 <?php endforeach; ?>
                             </div>
+
                         </div>
-                        
-                                    </div>
-                                    <?php endforeach; ?>
-                            </div>
-                        </div>
-                    
+
+                    </div>
+                </div>
 
 
-                    <!-- <div class="box-atividade-eventos">
+
+                <!-- <div class="box-atividade-eventos">
                             <hr>
                             <div style="display: none;" class="container box-eventos">
 
@@ -349,10 +344,10 @@ require_once 'GlobalPerfil.php';
                         </div> -->
 
 
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
 
