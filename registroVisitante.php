@@ -7,26 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="assets/img/logomarca.png" type="image/png">
   <title>Cadastre-se!</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/registroArtista.css">
 </head>
 
 <body>
   <style>
-    .btn-visitante{
-        color: white!important;
-background-color: #664187!important;
-font-weight: 500;
+    .btn-visitante {
+      color: white !important;
+      background-color: #664187 !important;
+      font-weight: 500;
     }
 
-    .btn-visitante:hover{
-        
-background-color: #4e1e79!important;
+    .btn-visitante:hover {
+
+      background-color: #4e1e79 !important;
 
     }
-
-</style>
+  </style>
   <div class="container">
     <div class="div-form">
       <!-- BOOTSTRAP CLASS = A DIV QUE POSSUI ESSA CLASSE TEM UMA PRÉ DEFINICAO
@@ -58,14 +56,10 @@ background-color: #4e1e79!important;
                   <div class="selecao-tipo-conta">
                     <div class="artista-convidado-btns">
                       <div class="div-artista-btn">
-                        <a href="registroArtista.php"><button
-                            class="btn btn-primary btn-artista text-uppercase fw-bold btn-entrar" id="btn-artista"
-                            type="button">Artista</button>
+                        <a href="registroArtista.php"><button class="btn btn-primary btn-artista text-uppercase fw-bold btn-entrar" id="btn-artista" type="button">Artista</button>
                       </div></a>
                       <div class="div-visitante-btn">
-                        <a href="registroVisitante.php"><button
-                            class="btn btn-primary btn-visitante text-uppercase fw-bold btn-entrar" id="btn-visitante"
-                            type="button">Visitante</button></a>
+                        <a href="registroVisitante.php"><button class="btn btn-primary btn-visitante text-uppercase fw-bold btn-entrar" id="btn-visitante" type="button">Visitante</button></a>
                       </div>
                     </div>
                   </div>
@@ -73,20 +67,17 @@ background-color: #4e1e79!important;
                 <div class="form-floating mb-3" style="display: flex;
                   flex-direction: column;">
                   <span class="span-input">Nome</span>
-                  <input type="text" class="input-nome" name="nomeVisitante" id="floatingInput"
-                    placeholder="Digite seu nome...">
+                  <input type="text" class="input-nome" name="nomeVisitante" id="floatingInput" placeholder="Digite seu nome...">
                 </div>
                 <div class="form-floating mb-3" style="display: flex;
                   flex-direction: column;">
                   <span class="span-input">Nome de usuário</span>
-                  <input type="text" class="input-nickname" name="nicknameVisitante" id="floatingPassword"
-                    placeholder="Digite seu nickname...">
+                  <input type="text" class="input-nickname" name="nicknameVisitante" id="floatingPassword" oninput="handleEmail(event)" placeholder="Digite seu nickname...">
                 </div>
                 <div class="form-floating mb-3 " style="display: flex;
                   flex-direction: column;">
                   <span class="span-input">Endereço de e-mail</span>
-                  <input type="email" class="input-email" name="emailVisitante" id="email"
-                    placeholder="Digite seu email...">
+                  <input type="email" class="input-email" name="emailVisitante" id="email" placeholder="Digite seu email...">
                 </div>
               </div>
               <div class="tab">
@@ -127,16 +118,14 @@ background-color: #4e1e79!important;
                 </div>
                 <div class="form-floating mb-3 ">
                   <span class="span-input">Cidade</span>
-                  <input type="text" class="input-cidade" name="cidadeVisitante" id="email"
-                    placeholder="Digite sua cidade...">
+                  <input type="text" class="input-cidade" name="cidadeVisitante" id="email" placeholder="Digite sua cidade...">
                 </div>
 
                 <div class="form-floating mb-3 " style="display: flex;
                                 flex-direction: column;">
-                                                  <span class="span-input">Número de telefone</span>
-                                                  <input type="text" class="input-numero" name="foneVisitante" id="numeroArtista"
-                                                      placeholder="Digite seu número...">
-                                              </div>
+                  <span class="span-input">Número de telefone</span>
+                  <input type="text" class="input-numero" name="foneVisitante" id="numeroArtista" placeholder="Digite seu número...">
+                </div>
 
               </div>
 
@@ -146,15 +135,13 @@ background-color: #4e1e79!important;
                   <div class="form-floating mb-3 " style="display: flex;
                             flex-direction: column;">
                     <span class="span-input">Sua senha</span>
-                    <input type="password" class="input-senha" name="senhaVisitante" id="password"
-                      placeholder="Digite sua senha...">
+                    <input type="password" class="input-senha" name="senhaVisitante" id="password" placeholder="Digite sua senha...">
                   </div>
 
                   <div class="form-floating mb-3 " style="display: flex;
                             flex-direction: column;">
                     <span class="span-input">Confirme a senha</span>
-                    <input type="password" class="input-confirmarSenha" name="confirmarSenhaVisitante"
-                      id="confirmPassword" placeholder="Digite sua senha...">
+                    <input type="password" class="input-confirmarSenha" name="confirmarSenhaVisitante" id="confirmPassword" placeholder="Digite sua senha...">
                   </div>
                 </div>
               </div>
@@ -163,8 +150,7 @@ background-color: #4e1e79!important;
                 <div style="float:right;">
                   <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
                   <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
-                  <button style="display: none;" type="submit" id="enviarBtn"
-                                        onclick="nextPrev(1)">Enviar</button>
+                  <button style="display: none;" type="submit" id="enviarBtn" onclick="nextPrev(1)">Enviar</button>
                 </div>
               </div>
 
@@ -183,14 +169,14 @@ background-color: #4e1e79!important;
     </div>
 
     <div class="background">
-            <div class="titulo-background">
-                <p>Conheça</p><span>Getto</span>
-            </div>
-            <div class="conteudo-background">
-                <p>celebre a diversidade criativa na nossa rede social de artistas negros!</p>
-            </div>
-            <img src="assets/img/punhoCerrado.png" alt="">
-        </div>
+      <div class="titulo-background">
+        <p>Conheça</p><span>Getto</span>
+      </div>
+      <div class="conteudo-background">
+        <p>celebre a diversidade criativa na nossa rede social de artistas negros!</p>
+      </div>
+      <img src="assets/img/punhoCerrado.png" alt="">
+    </div>
   </div>
 
   <div class="modal-overlay" id="overlay">
@@ -224,14 +210,36 @@ background-color: #4e1e79!important;
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+  </script>
+
+  <script>
+    const card = document.querySelector("#card")
+    card.addEventListener("mouseenter", (e) => {
+      card.classList.toggle("flip")
+    })
+    const card2 = document.querySelector("#card")
+    card.addEventListener("mouseleave", (e) => {
+      card.classList.toggle("flip")
+    })
+  </script>
+
+  <script>
+    const handleEmail = (event) => {
+      let input = event.target
+      input.value = addAtSymbol(input.value)
+    }
+
+    const addAtSymbol = (value) => {
+      if (!value) return ""
+      value = value.replace(/@/g, '') // Remove todos os "@" existentes
+      value = "@" + value
+      return value
+    }
   </script>
 
 
