@@ -190,7 +190,7 @@
                                                 <p>Link repositório:</p>
                                             </div>
                                             <div class="link">
-                                                <p><?php echo $usuario['portfolio']; ?></p>
+                                                <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio'];?></a>
                                             </div>
                                             
                                         </div>

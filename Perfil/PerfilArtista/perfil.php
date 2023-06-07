@@ -148,6 +148,12 @@ require_once 'GlobalPerfil.php';
                                         <p><?PHP echo $_SESSION['bioArtista']; ?></p>
                                     </div>
                                 </div>
+                                
+                                <div class="bio-direita">
+                                    <div class="doacao">
+                                        <button>Doe</button>
+                                    </div>
+                                </div>
 
 
                                 <div class="div-btn-editar-perfil">
