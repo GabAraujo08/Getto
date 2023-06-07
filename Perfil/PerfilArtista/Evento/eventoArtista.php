@@ -22,6 +22,74 @@ require_once '../../../Dao/PresencaDao.php';
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Evento</title>
+
+    <script>
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+    </script>
+
 </head>
 
 <body>
@@ -118,9 +186,9 @@ color: #656565;">
                                     <div class="resumoDiv">
                                         <div class="card">
                                             <div class="front">
-                                            <p><?php  $dia = date('d', strtotime($evento['dataEvento']));
-                                                    echo $dia; ?></p><span><?php  $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
-                                                    echo $mes; ?></span>
+                                                <p><?php $dia = date('d', strtotime($evento['dataEvento']));
+                                                    echo $dia; ?></p><span><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                                                            echo $mes; ?></span>
                                             </div>
                                             <div class="back">
                                                 <p>inicio: <?php echo $evento['horarioInicioEvento']; ?></p><span>fim: <?php echo $evento['horarioFinalEvento']; ?></span>
@@ -285,15 +353,15 @@ color: #656565;">
                             <form action="../../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
                                 <div class="container">
                                     <div class="lado-esquerdo">
-                                        <label>Inserir tí­tulo: </label>
+                                        <label>Inserir título: </label>
                                         <div class="input-group mb-3">
-                                            <input type="text" name="tituloEvento" class="form-control" placeholder="tí­tulo">
+                                            <input type="text" name="tituloEvento" class="form-control" placeholder="título">
                                         </div>
                                         <div class="hora">
                                             <div class="inicio">
-                                                <label for="horario">Horário de iní­cio: </label>
+                                                <label for="horario">Horário de início: </label>
                                                 <div class="input-group mb-3">
-                                                    <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="iní­cio">
+                                                    <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
                                                 </div>
                                             </div>
                                             <div class="termino">
@@ -306,16 +374,9 @@ color: #656565;">
                                         <div class="data">
                                             <label for="data">Selecione uma data:</label>
                                             <div class="input-group mb-3">
-
                                                 <input type="date" name="dataEvento" id="data">
-
                                             </div>
-                                            <label>Número de endereço: </label>
-                                            <div class="input-group mb-3">
 
-                                                <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
-
-                                            </div>
                                             <label>Tipo de Arte</label>
                                             <div class="input-group mb-3">
                                                 <select name="tipoArte" id="">
@@ -331,55 +392,30 @@ color: #656565;">
                                                 </select>
                                             </div>
                                         </div>
-                                        <label>Endereço: </label>
+                                        <label>CEP: </label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="logradouro" placeholder="endereço">
+                                            <input type="text" class="form-control" name="cepEvento" id="cep" placeholder="cep" onkeyup="handleZipCode(event)" maxlength="9" onblur="pesquisacep(this.value);">
+                                        </div>
+                                        <label>Rua: </label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" id="rua" class="form-control" name="logradouro" placeholder="endereço">
+                                        </div>
+                                        <label>Número de endereço: </label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
                                         </div>
                                         <label>Bairro: </label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="bairroEvento" placeholder="bairro">
+                                            <input type="text" id="bairro" class="form-control" name="bairroEvento" placeholder="bairro">
                                         </div>
-                                        <label>CEP: </label>
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="cepEvento" placeholder="cep">
-                                        </div>
+
                                         <label>Cidade: </label>
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" name="cidEvento" placeholder="cidade">
+                                            <input type="text" id="cidade" class="form-control" name="cidEvento" placeholder="cidade">
                                         </div>
                                         <label>Estado: </label>
                                         <div class="input-group mb-3">
-                                            <select id="estado-evento" name="estadoEvento" class="select-estado">
-                                                <option value="AC">Selecionar</option>
-                                                <option value="AC">Acre</option>
-                                                <option value="AL">Alagoas</option>
-                                                <option value="AP">Amapa</option>
-                                                <option value="AM">Amazonas</option>
-                                                <option value="BA">Bahia</option>
-                                                <option value="CE">Ceará</option>
-                                                <option value="DF">Distrito Federal</option>
-                                                <option value="ES">Espírito Santo</option>
-                                                <option value="GO">Goiás</option>
-                                                <option value="MA">Maranhão</option>
-                                                <option value="MT">Mato Grosso</option>
-                                                <option value="MS">Mato Grosso do Sul</option>
-                                                <option value="MG">Minas Gerais</option>
-                                                <option value="PA">Pará</option>
-                                                <option value="PB">Paraíba</option>
-                                                <option value="PR">Paraná</option>
-                                                <option value="PE">Pernambuco</option>
-                                                <option value="PI">Piauí­</option>
-                                                <option value="RJ">Rio de Janeiro</option>
-                                                <option value="RN">Rio Grande do Norte</option>
-                                                <option value="RS">Rio Grande do Sul</option>
-                                                <option value="RO">Rondônia</option>
-                                                <option value="RR">Roraima</option>
-                                                <option value="SC">Santa Catarina</option>
-                                                <option value="SP">São Paulo</option>
-                                                <option value="SE">Sergipe</option>
-                                                <option value="TO">Tocantins</option>
-                                                <option value="EX">Estrangeiro</option>
-                                            </select>
+                                            <input type="text" id="uf" class="form-control" name="cidEvento" placeholder="estado">
                                         </div>
                                     </div>
                                     <div class="lado-direito">
@@ -393,16 +429,20 @@ color: #656565;">
                                         </div>
                                         <label>Descrição do evento</label>
                                         <div class="input-group mb-3">
-                                            <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="por favor não esqueça de colocar o link da compra do ingresso "></textarea>
-
+                                            <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="Escreva aqui... "></textarea>
+                                        </div>
+                                        <label>Link dos Ingressos: </label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" name="ingressoEvento" placeholder="link dos ingressos...">
+                                        </div>
+                                        <div class="footer">
+                                            <button type="submit" class="btn">Concluir</button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="footer">
-                                    <button type="submit" class="btn">Concluir</button>
-                                </div>
+
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -426,10 +466,26 @@ color: #656565;">
                 })
             </script>
 
+            <script>
+                const handleZipCode = (event) => {
+                    let input = event.target
+                    input.value = zipCodeMask(input.value)
+                }
+
+                const zipCodeMask = (value) => {
+                    if (!value) return ""
+                    value = value.replace(/\D/g, '')
+                    value = value.replace(/(\d{5})(\d)/, '$1-$2')
+                    return value
+                }
+            </script>
+
 
 
             <script src="../../PerfilArtista/assets/js/preview.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+            <script src="../../../jquery.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/jquery.inputmask.min.js"></script>
 </body>
 
 </html>

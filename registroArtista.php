@@ -69,7 +69,7 @@
                                 <div class="form-floating mb-3" style="display: flex;
                   flex-direction: column;">
                                     <span class="span-input">Nome de usuário</span>
-                                    <input type="text" class="input-nickname" name="nicknameVisitante" id="floatingPassword" placeholder="Digite seu nickname...">
+                                    <input type="text" class="input-nickname" name="nicknameVisitante" id="floatingPassword" oninput="handleEmail(event)" placeholder="Digite seu nickname...">
                                 </div>
                                 <div class="form-floating mb-3 " style="display: flex;
                   flex-direction: column;">
@@ -82,7 +82,7 @@
                                 <div class="form-floating mb-3 " style="display: flex;
                                 flex-direction: column;">
                                     <span class="span-input">Número de telefone</span>
-                                    <input type="text" class="input-numero" name="foneVisitante" id="numeroArtista" placeholder="Digite seu número...">
+                                    <input type="text" class="input-numero" name="foneVisitante" id="numeroArtista" oninput="handleTelefone(event)" placeholder="Digite seu número...">
                                 </div>
 
 
@@ -250,6 +250,46 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
 
+    <script>
+        const handleEmail = (event) => {
+            let input = event.target
+            input.value = addAtSymbol(input.value)
+        }
+
+        const addAtSymbol = (value) => {
+            if (!value) return ""
+            value = value.replace(/@/g, '') // Remove todos os "@" existentes
+            value = "@" + value
+            return value
+        }
+    </script>
+
+    <script>
+        const handleTelefone = (event) => {
+            let input = event.target
+            let value = event.value
+            input.value = formatTelefone(input.value)
+        }
+
+        const formatTelefone = (value) => {
+            if (!value) return ""
+
+            // Remove todos os caracteres não numéricos
+            value = value.replace(/\D/g, '')
+
+             // Limita o valor a 14 caracteres
+            value = value.substring(0, 11)
+            // Aplica a formatação do telefone
+            if (value.length >= 2) {
+                value = "(" + value.substring(0, 2) + ")" + value.substring(2)
+            }
+            if (value.length >= 9) {
+                value = value.substring(0, 9) + "-" + value.substring(9)
+            }
+
+            return value
+        }
+    </script>
 
 
 

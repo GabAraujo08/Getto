@@ -75,8 +75,14 @@
     color: white;
   }
 form {
-    width: 280px;
+    width: 100%;
     display: inherit;
+}
+
+form:hover{
+  background-color: #caa4eb!important;
+  transition: 0.2s;
+  opacity: initial;
 }
 
 
@@ -94,13 +100,23 @@ form {
 }
 
 #results{
-  margin-top: 15px;
-  
+  display: flex;
+  border-radius: 15px;
+  display: flex;
+  flex-direction:column;
+  width: 100%;
+  padding: 0;
+}
+
+#results form{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 30px;
 }
 
 #results form li{
   display: flex;
-  margin-bottom: 15px;
+
 }
 
 .search-bar {
@@ -204,11 +220,7 @@ button img{
     height: 15px;
 }
 
-#results{
-    display: flex;
-    flex-direction:column;
-    width: 100%;
-}
+
 
 .ul marker{
     display: none;
@@ -233,7 +245,7 @@ ul li button {
     border: none;
     justify-content: flex-start;
     height: 50px;
-    
+    background-color: transparent
 }
 
  ul li img{
