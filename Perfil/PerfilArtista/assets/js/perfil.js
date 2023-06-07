@@ -361,3 +361,8 @@ btnConfirmarBloqueioSeguindo.addEventListener("click", () => {
     divConfirmacaoBloqueioSeguindo.style.display = "none";
 
 });
+
+
+
+
+

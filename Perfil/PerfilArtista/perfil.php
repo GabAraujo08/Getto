@@ -192,9 +192,19 @@ require_once 'GlobalPerfil.php';
                         <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
                             Sua atividade
                         </h1>
+                        <div class="btn-mudarExibicao">
+                            <button id="btn-exibirPublicacoes" class="btn btn-primary">
+                                Publicações
+                            </button>
+
+                            <button id="btn-exibirEventos" class="btn btn-primary">
+                                Eventos
+                            </button>
+                        </div>
+
                         <div class="atividade">
 
-                            <div class="col-8 publicacoes">
+                            <div id="publicacoes-web" class="col-8 publicacoes">
 
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
@@ -209,7 +219,9 @@ require_once 'GlobalPerfil.php';
 
 
 
-                            <div class="col-4 eventos">
+                            <div id="eventos-web" class="col-4 eventos">
+
+
                                 <?php require_once '../../Dao/EventoDao.php';
 
                                 $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
@@ -225,11 +237,56 @@ require_once 'GlobalPerfil.php';
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
-                                       
+
 
                                     </div>
                                 <?php endforeach; ?>
                             </div>
+
+                            <div id="publicacoes-mobile" class="col-8 publicacoes">
+
+                                <?php
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                foreach ($mp as $p) {
+                                ?>
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?PHP
+                                }
+                                ?>
+
+                            </div>
+
+
+
+                            <div id="eventos-mobile" style="display: none;" class="col-4 eventos">
+
+
+                                <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                foreach ($eventos as $evento) : ?>
+                                    <div class="img-evento">
+                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+
+
+
+
+
+
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
+
+
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+
+
+                           
+
+
 
                         </div>
 
@@ -1271,7 +1328,7 @@ require_once 'GlobalPerfil.php';
 
     <script src="assets/js/perfil.js"></script>
     <script src="assets/js/jquery-3.6.4.min.js"></script>
-
+    <script src="assets/js/exibicaoPerfil.js"></script>
     <script src="assets/js/preview.js"></script>
 
 

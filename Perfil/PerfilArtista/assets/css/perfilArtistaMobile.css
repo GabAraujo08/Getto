@@ -862,6 +862,107 @@ body {
 
 
 
+
+  .btn-mudarExibicao{
+	display: flex;
+    justify-content: center;
+	margin-bottom: 20px;
+  }
+
+  .btn-mudarExibicao button{
+	display: flex;
+    justify-content: center;
+	margin-bottom: 20px;
+	background-color: #664187;
+	width: 50%;
+    border: 0;
+    color: #fff;
+	font-family: 'InterBold';
+	font-size: 16px;
+  }
+
+  .btn-mudarExibicao #btn-exibirPublicacoes{
+	
+    
+    
+	background-image: url('../img/icon-calendario-branco.svg');
+	background-repeat: no-repeat;
+	background-position-y: 50%;
+	background-position-x: 5px;
+	padding-left: 20px;
+  }
+
+
+  .btn-mudarExibicao #btn-exibirEventos{
+	
+	background-image: url('../img/icon-calendario-branco.svg');
+	background-repeat: no-repeat;
+	background-position-y: 5px;
+	background-position-x: 5px;
+	
+  }
+
+
+
+ 
+ 
+
+
+/* ------------------------- RESPONSIVIDADE DA ATIVIDADE ------------------------------------ */
+
+@media (max-width: 425px){
+	#eventos-web,
+	#publicacoes-web{
+		display: none!important;
+	}
+	.container-fluid .area-perfil {
+		overflow-y: hidden!important;
+	}
+	#publicacoes-mobile {
+		width: 100%!important;
+		padding-bottom: 65px!important;
+		padding-top: unset!important;
+		padding-left: unset!important;
+		padding-right: 10px!important;
+		
+	}
+
+	#publicacoes-mobile img {
+		width: 100%!important;
+	}
+
+	#eventos-mobile {
+		width: 100%!important;
+		padding-bottom: 90px!important;
+		padding-top: unset!important;
+		padding-left: unset!important;
+		padding-right: 10px!important;
+		
+	}
+
+	#eventos-mobile img {
+		width: 100%!important;
+	}
+	
+}
+
+
+@media (min-width: 425px){
+	#eventos-mobile,
+	#publicacoes-mobile{
+		display: none!important;
+	}
+	.btn-mudarExibicao {
+		display: none!important;
+	}
+
+	
+	
+}
+
+
+
+
 /*---------------------------------MODAL EVENTO----------------------------*/
 
 .container-fluid .area-perfil .box-perfil .box-atividade-eventos .box-eventos .evento .box-desc-evento .desc-evento>h1 {
