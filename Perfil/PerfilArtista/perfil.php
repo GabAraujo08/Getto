@@ -194,11 +194,11 @@ require_once 'GlobalPerfil.php';
                         </h1>
                         <div class="btn-mudarExibicao">
                             <button id="btn-exibirPublicacoes" class="btn btn-primary">
-                                Publicações
+                                <img src="assets/img/publicacao.png" alt="">
                             </button>
 
                             <button id="btn-exibirEventos" class="btn btn-primary">
-                                Eventos
+                                <img src="assets/img/icone-calendario.png" alt="">
                             </button>
                         </div>
 
@@ -284,7 +284,7 @@ require_once 'GlobalPerfil.php';
 
 
 
-                           
+
 
 
 

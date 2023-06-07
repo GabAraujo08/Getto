@@ -865,41 +865,59 @@ body {
 
   .btn-mudarExibicao{
 	display: flex;
-    justify-content: center;
-	margin-bottom: 20px;
+    justify-content: flex-end;
+	margin-bottom: 10px;
   }
 
   .btn-mudarExibicao button{
-	display: flex;
+    display: flex;
     justify-content: center;
-	margin-bottom: 20px;
-	background-color: #664187;
-	width: 50%;
-    border: 0;
-    color: #fff;
-	font-family: 'InterBold';
-	font-size: 16px;
-  }
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    width: 20%;
+	border-color: #000;
+    border: 2;
+    color: #000;
+    font-family: 'InterBold';
+    font-size: 16px;
+}
+.btn-mudarExibicao button:hover {
+    color: unset !important;
+    background-color: unset !important;
+    border-color: unset !important;
+}
+.btn-mudarExibicao button:focus {
+    background-color: #5c2b86;
+
+}
+#btn-exibirPublicacoes img{
+	width: 26px;
+	height: 26px;
+}
+
 
   .btn-mudarExibicao #btn-exibirPublicacoes{
 	
     
     
-	background-image: url('../img/icon-calendario-branco.svg');
+
 	background-repeat: no-repeat;
 	background-position-y: 50%;
 	background-position-x: 5px;
 	padding-left: 20px;
-  }
+	border-radius: 20px 0px 0px 20px;
+	border-right: 0px;
+}
 
 
   .btn-mudarExibicao #btn-exibirEventos{
 	
-	background-image: url('../img/icon-calendario-branco.svg');
+
 	background-repeat: no-repeat;
 	background-position-y: 5px;
 	background-position-x: 5px;
-	
+	border-radius: 0px 20px 20px 0px;
+    border-left: 0px;
   }
 
 
@@ -910,20 +928,41 @@ body {
 
 /* ------------------------- RESPONSIVIDADE DA ATIVIDADE ------------------------------------ */
 
-@media (max-width: 425px){
+@media (max-width: 426px){
 	#eventos-web,
 	#publicacoes-web{
 		display: none!important;
 	}
+
+	.area-perfil::-webkit-scrollbar {
+		width: 8px!important;
+		/* width of the entire scrollbar */
+	}
+	
+	.area-perfil::-webkit-scrollbar-track {
+		background: #ECEBF3;
+		/* color of the tracking area */
+	}
+	
+	.area-perfil::-webkit-scrollbar-thumb {
+		background-color: #664187;
+		/* color of the scroll thumb */
+		border-radius: 20px;
+		/* roundness of the scroll thumb */
+		border: 3px solid #664187;
+		/* creates padding around scroll thumb */
+	}
+	
 	.container-fluid .area-perfil {
-		overflow-y: hidden!important;
+		overflow-y: auto!important;
 	}
 	#publicacoes-mobile {
 		width: 100%!important;
-		padding-bottom: 65px!important;
+		padding-bottom: 130px!important;
 		padding-top: unset!important;
 		padding-left: unset!important;
 		padding-right: 10px!important;
+		overflow-y: hidden!important;
 		
 	}
 
@@ -933,11 +972,12 @@ body {
 
 	#eventos-mobile {
 		width: 100%!important;
-		padding-bottom: 90px!important;
+		/* padding-bottom: 90px!important; */
 		padding-top: unset!important;
 		padding-left: unset!important;
 		padding-right: 10px!important;
-		
+		overflow-y: hidden!important;
+		max-height: unset!important;
 	}
 
 	#eventos-mobile img {
@@ -947,10 +987,11 @@ body {
 }
 
 
-@media (min-width: 425px){
+@media (min-width: 427px){
 	#eventos-mobile,
 	#publicacoes-mobile{
 		display: none!important;
+		
 	}
 	.btn-mudarExibicao {
 		display: none!important;
