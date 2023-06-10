@@ -9,6 +9,7 @@
   <title>Entre agora!</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/login.css">
+  <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
 
 <body>
 
@@ -42,12 +43,23 @@
                 <input type="email" class="input-email" id="floatingInput" name="email" placeholder="Digite seu email...">
 
               </div>
-              <div class="form-floating mb-3" style="display: flex;
+              <!-- <div class="form-floating mb-3" style="display: flex;
                   flex-direction: column;">
                 <span class="senha-label">Sua senha</span>
                 <input type="password" class="input-senha" id="floatingPassword" name="senha" placeholder="Digite sua senha...">
 
+              </div> -->
+
+              <div class="form-floating mb-3" style="display: flex; flex-direction: column;">
+                <span class="senha-label">Sua senha</span>
+                <div style="position: relative;"  class="senha-input-wrapper">
+                  <input type="password" class="input-senha" id="floatingPassword" name="senha" placeholder="Digite sua senha...">
+                  <span style="position: absolute;
+    right: 10px;
+    top: 30%;" class="toggle-senha" onclick="toggleSenhaVisibility()"><i class="fa-regular fa-eye-slash"></i></span>
+                </div>
               </div>
+
 
               <div class="form-check mb-3 check-box">
                 <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
@@ -81,6 +93,21 @@
     </div>
   </div>
 
+
+  <script>
+    function toggleSenhaVisibility() {
+      var senhaInput = document.getElementById('floatingPassword');
+      var toggleButton = document.querySelector('.toggle-senha');
+
+      if (senhaInput.type === 'password') {
+        senhaInput.type = 'text';
+        toggleButton.innerHTML = '<i class="fa fa-eye-slash"></i>';
+      } else {
+        senhaInput.type = 'password';
+        toggleButton.innerHTML = '<i class="fa fa-eye"></i>';
+      }
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
   </script>
