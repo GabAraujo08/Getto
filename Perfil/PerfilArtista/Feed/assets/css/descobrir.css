@@ -79,11 +79,11 @@ form {
     display: inherit;
 }
 
-form:hover{
+/* form:hover{
   background-color: #caa4eb!important;
   transition: 0.2s;
   opacity: initial;
-}
+} */
 
 
 .area-buscar {
