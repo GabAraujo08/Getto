@@ -56,7 +56,7 @@
                   <input type="password" class="input-senha" id="floatingPassword" name="senha" placeholder="Digite sua senha...">
                   <span style="position: absolute;
     right: 10px;
-    top: 30%;" class="toggle-senha" onclick="toggleSenhaVisibility()"><i class="fa-regular fa-eye-slash"></i></span>
+    top: 30%; cursor: pointer;" class="toggle-senha" onclick="toggleSenhaVisibility()"><i class="fa-regular fa-eye-slash"></i></span>
                 </div>
               </div>
 
