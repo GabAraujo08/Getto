@@ -29,7 +29,7 @@ require_once 'GlobalPerfil.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img style="display:none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -124,7 +124,7 @@ require_once 'GlobalPerfil.php';
             <div class="container-fluid">
                 <div class="div-logo-marca">
                     <div class="logo-marca">
-                        <img src="assets/img/logomarca.png" alt="">
+                        <img style="display: none" src="assets/img/logomarca.png" alt="">
                     </div>
                 </div>
                 <div class="area-perfil">
@@ -148,15 +148,12 @@ require_once 'GlobalPerfil.php';
                                         <p><?PHP echo $_SESSION['bioArtista']; ?></p>
                                     </div>
                                 </div>
-                                
-                                <div class="bio-direita">
-                                    <div class="doacao">
-                                        <button>Doe</button>
-                                    </div>
-                                </div>
 
 
                                 <div class="div-btn-editar-perfil">
+                                    <button class="btn btn-primary btn-doacao">
+                                        <img src="assets/img/dollar.png" alt="" srcset="">
+                                    </button>
                                     <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Editar perfil
                                     </button>

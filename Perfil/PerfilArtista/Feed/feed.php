@@ -145,7 +145,7 @@ require_once '../../../Dao/ComentarioDao.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img style="display: none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -573,13 +573,15 @@ require_once '../../../Dao/ComentarioDao.php';
 
 
     <div class="div-logo-marca">
-        <div class="logo-marca">
-            <img src="assets/img/logomarca.png" alt="">
-        </div>
 
         <div class="notificacoes">
             <i style="font-size: 26px;" class="fa-solid fa-bell"></i>
         </div>
+
+        <div class="icone-perfil">
+            <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+        </div>
+
     </div>
 
 

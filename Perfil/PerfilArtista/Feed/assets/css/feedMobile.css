@@ -38,12 +38,10 @@
   top: 0;
   background-color: #fff;
   z-index: 100;
-
 }
 
 .div-logo-marca .notificacoes{
   position: absolute;
-  right: 45px;
 }
 
 .div-logo-marca .logo-marca img {
@@ -51,6 +49,11 @@
   width: 35px;
 }
 
+.div-logo-marca  .icone-perfil img{
+  margin-right: 80px;
+  height: 50px;
+  width: 50px;
+}
 
 a {
   text-decoration: none;

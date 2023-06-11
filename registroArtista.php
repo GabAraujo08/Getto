@@ -9,6 +9,7 @@
     <title>Cadastre-se!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/registroArtista.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 
 <body>
@@ -41,7 +42,7 @@
 
                 <div class="card border-0 shadow rounded-3 my-5 form-container">
                     <div class="card-body p-4 p-sm-5 form-box">
-                        <form id="formArtista" name="formArtista" enctype="multipart/form-data" action="Controller/Usuario.php" method="POST">
+                        <form id="formArtista" name="formArtista" enctype="multipart/form-data" action="Controller/Usuario.php" method="POST" onsubmit="event.preventDefault();">
                             <!-- One "tab" for each step in the form: -->
                             <div class="tab">
                                 <div class="header-form">
@@ -183,7 +184,9 @@
                                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
                                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 
-                                    <button style="display: none;" type="submit" id="enviarBtn" onclick="nextPrev(1)">Enviar</button>
+                                    <button style="display: none;" type="submit" id="enviarBtn" data-bs-toggle="modal" data-bs-target="#envio-concluido" onclick="nextPrev(1)">Enviar</button>
+
+
                                 </div>
                             </div>
 
@@ -243,11 +246,40 @@
         </div>
     </div>
 
+    <div class="modal" id="envio-concluido" tabindex="-1">
+        <div class="modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+    </script>
+
+    <script>
+        document.getElementById("formArtista").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio automático do formulário
+            // Define um atraso de 3 segundos antes de enviar o formulário
+            setTimeout(function() {
+                document.getElementById("formArtista").submit();
+            }, 8000);
+        });
     </script>
 
     <script>
@@ -277,7 +309,7 @@
             // Remove todos os caracteres não numéricos
             value = value.replace(/\D/g, '')
 
-             // Limita o valor a 14 caracteres
+            // Limita o valor a 14 caracteres
             value = value.substring(0, 11)
             // Aplica a formatação do telefone
             if (value.length >= 2) {
@@ -291,8 +323,7 @@
         }
     </script>
 
-
-
+    <script type="text/javascript" src="./teste2.js"></script>
     <script type="text/javascript" src="./assets/js/registro.js"></script>
 </body>
 
