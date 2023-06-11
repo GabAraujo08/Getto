@@ -121,7 +121,7 @@
 
         public static function ListaVerificação(){
             $conexao = Conexao::conectar();
-            $consulta = $conexao->prepare('SELECT tbArtista.idUsuario, tbUsuario.nomeUsuario,  tbUsuario.fotoPerfilUsuario, tbArtista.portfolio FROM tbUsuario 
+            $consulta = $conexao->prepare('SELECT tbArtista.idUsuario, tbUsuario.nomeUsuario, tbUsuario.emailUsuario,  tbUsuario.fotoPerfilUsuario, tbArtista.portfolio FROM tbUsuario 
                                             INNER JOIN tbArtista ON tbArtista.idUsuario = tbUsuario.idUsuario
                                             WHERE statusContaUsuario = ?');
             $consulta->bindValue(1, 'em Verificação');

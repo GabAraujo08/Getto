@@ -213,7 +213,7 @@
                     Você realmente deseja excluir sua conta? Esta é uma ação <b>permanente</b> e <b>irreversível</b>.
                 </div>
                 <div class="modal-footer">
-                    <form name="formExclui" action="../../../Controller/DeletarContaUsuario.php" method="POST">
+                    <form name="formExclui" action="../../../../Controller/DeletarContaUsuario.php" method="POST">
                         <button type="submit" class="btn btn-secondary">Excluir conta</button>
                     </form>
                     <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>

@@ -1625,6 +1625,7 @@ overflow-x: hidden;
 
 .modal-footer {
   justify-content: space-between !important;
+  flex-wrap: unset!important;
 }
 
 

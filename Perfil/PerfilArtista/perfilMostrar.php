@@ -42,12 +42,11 @@ require_once 'GlobalPerfil.php';
                         <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
                             publicação</button>
                     </div>
-                    <a href="../Controller/Logout.php">
-                        <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
-                            <img src="assets/img/icon-logout.svg" alt="Sair">
-                            <h1>Sair</h1>
-                        </div>
-                    </a>
+                    <div class="sair">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                            <img src="../PerfilArtista/Feed/assets/img/sair.png">Sair
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="nova-pub">
@@ -67,11 +66,11 @@ require_once 'GlobalPerfil.php';
 
         <div class="box-container">
             <div class="container-fluid">
-                <div class="div-logo-marca">
+                <!-- <div class="div-logo-marca">
                     <div class="logo-marca">
                         <img src="assets/img/logomarca.png" alt="">
                     </div>
-                </div>
+                </div> -->
                 <div class="area-perfil">
                     <div class="box-perfil">
                         <div class="informacao-perfil">
@@ -194,36 +193,103 @@ require_once 'GlobalPerfil.php';
                         <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
                             Sua atividade
                         </h1>
+                        <div class="btn-mudarExibicao">
+                            <button id="btn-exibirPublicacoes" class="btn btn-primary">
+                                <img src="assets/img/publicacao.png" alt="">
+                            </button>
+
+                            <button id="btn-exibirEventos" class="btn btn-primary">
+                                <img src="assets/img/icone-calendario.png" alt="">
+                            </button>
+                        </div>
+
                         <div class="atividade">
-                            <div class="col-8 publicacoes">
+
+                            <div id="publicacoes-web" class="col-8 publicacoes">
+
                                 <?php
-                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                $mp = PublicacaoDao::ListaPublicacao($_SESSION['idArtista']);
                                 foreach ($mp as $p) {
                                 ?>
-                                    <img src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>" alt="">
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
                                 <?PHP
                                 }
                                 ?>
 
                             </div>
 
-                            <?php require_once '../../Dao/EventoDao.php';
 
-                            $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
-                            foreach ($eventos as $evento) : ?>
-                                <div class="col-4 eventos">
+
+                            <div id="eventos-web" class="col-4 eventos">
+
+
+                                <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                foreach ($eventos as $evento) : ?>
                                     <div class="img-evento">
-                                        <img src="Evento/assets/img/<?PHP echo $evento['tituloEvento']; ?>" alt="">
+                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+
+
+
+
+
+
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
-                                        <p class="rua-evento">
-                                            <?PHP echo $evento['logradouroEvento']; ?>
-                                        </p>
+
+
                                     </div>
-                                </div>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <div id="publicacoes-mobile" class="col-8 publicacoes">
+
+                                <?php
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                foreach ($mp as $p) {
+                                ?>
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?PHP
+                                }
+                                ?>
+
+                            </div>
+
+
+
+                            <div id="eventos-mobile" style="display: none;" class="col-4 eventos">
+
+
+                                <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                foreach ($eventos as $evento) : ?>
+                                    <div class="img-evento">
+                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+
+
+
+
+
+
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
+
+
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+
+
+
+
+
+
                         </div>
-                    <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -656,6 +722,28 @@ require_once 'GlobalPerfil.php';
 
 
 
+    <!----------------------------------- MODAL SAIR DA CONTA -------------------------------- -->
+
+
+    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você deseja sair da sua conta?
+                </div>
+                <div class="modal-footer">
+                    <form name="formExclui" action="../../Controller/Logout.php" method="POST">
+                        <button type="submit" class="btn btn-secondary">Sair</button>
+                    </form>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

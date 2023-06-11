@@ -10,7 +10,7 @@ require_once 'GlobalPerfil.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/perfil-visitante.css">
+    <link rel="stylesheet" href="../PerfilArtista/assets/css/perfilArtistaMobile.css">
     <link rel="stylesheet" href="assets/css/preview-criar-evento.css" />
     <link rel="stylesheet" href="assets/css/modal-criarPub.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
@@ -28,19 +28,15 @@ require_once 'GlobalPerfil.php';
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-                    <ul class="list-group">
+                        <ul class="list-group">
                             <a href="../PerfilVisitante/Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
-                            <a href="">
-                                <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
-                            </a>
+                            
                             <a href="../PerfilArtista/Evento/eventoArtista.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
-                            <a href="">
-                                <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
-                            </a>
+                            
                             <a href="Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
@@ -52,16 +48,12 @@ require_once 'GlobalPerfil.php';
                             </a>
                         </ul>
                     </div>
-                    <div class="nova-pub">
-                        <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button" data-bs-toggle="modal" data-bs-target="#modalCriarPub">Nova
-                            publicação</button>
+                   
+                    <div class="sair">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                            <img src="../PerfilArtista/Feed/assets/img/sair.png">Sair
+                        </a>
                     </div>
-                    <a href="../Controller/Logout.php">
-                        <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
-                            <img src="assets/img/icon-logout.svg" alt="Sair">
-                            <h1>Sair</h1>
-                        </div>
-                    </a>
                 </div>
             </div>
             <div class="nova-pub">
@@ -81,27 +73,23 @@ require_once 'GlobalPerfil.php';
 
         <div class="box-container">
             <div class="container-fluid">
-                <div class="div-logo-marca">
-                    <div class="logo-marca">
-                        <img src="assets/img/logomarca.png" alt="">
-                    </div>
-                </div>
+              
                 <div class="area-perfil">
                     <div class="box-perfil">
                         <div class="informacao-perfil">
                             <div class="papel-parede-img-perfil">
-                            <?PHP
-                                        if($_SESSION['nivel'] == 2){
-                                    ?>
-                                        <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilArtista/assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
-                                <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
-                                    <?PHP
-                                        }else{
-                                    ?>
+                                <?PHP
+                                if ($_SESSION['nivel'] == 2) {
+                                ?>
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="../PerfilArtista/assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
+                                    <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
+                                <?PHP
+                                } else {
+                                ?>
                                     <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
                                     <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
                                 <?PHP
-                                    }
+                                }
                                 ?>
                             </div>
                             <div class="area-bio">
@@ -115,13 +103,13 @@ require_once 'GlobalPerfil.php';
                                         </div>
                                     </div>
                                     <?PHP
-                                        if($_SESSION['nivel'] == 2){
+                                    if ($_SESSION['nivel'] == 2) {
                                     ?>
                                         <div class="bio">
                                             <p><?PHP echo $_SESSION['bio']; ?></p>
                                         </div>
                                     <?PHP
-                                        }
+                                    }
                                     ?>
                                 </div>
                                 <?PHP
@@ -132,51 +120,51 @@ require_once 'GlobalPerfil.php';
                                     $consulta->bindValue(2, $_SESSION['idA']);
                                     $consulta->execute();
                                     $resultado = $consulta->fetch();
-                                    if($resultado == false){
+                                    if ($resultado == false) {
                                 ?>
-                                    <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
-                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                        <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
-                                        <div class="div-btn-editar-perfil">
-                                            <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
-                                                Seguir
-                                            </button>
-                                        </div>
-                                    </form>
-                                <?PHP
-                                    }else{
-                                ?>
+                                        <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
+                                            <div class="div-btn-editar-perfil">
+                                                <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
+                                                    Seguir
+                                                </button>
+                                            </div>
+                                        </form>
+                                    <?PHP
+                                    } else {
+                                    ?>
 
-                                    <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
-                                        <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                        <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
-                                        <div class="div-btn-editar-perfil">
-                                            <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
-                                                Deixar de Seguir
-                                            </button>
-                                        </div>
-                                    </form>     
+                                        <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
+                                            <div class="div-btn-editar-perfil">
+                                                <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
+                                                    Deixar de Seguir
+                                                </button>
+                                            </div>
+                                        </form>
 
                                 <?php
                                     }
                                 }
                                 ?>
 
-                                
+
                             </div>
 
 
                             <div class="desc-perfil">
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
-                                    <?PHP
-                                            
-                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
+                                        <?PHP
+
+                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
                                         ?>
                                         <div class="seguindo-numero">
-                                        <p><?PHP
-                                                        echo $seguindo; 
-                                            ?></p>
+                                            <p><?PHP
+                                                echo $seguindo;
+                                                ?></p>
                                         </div>
                                         <div class="seguindo-text">
                                             <h1>Seguindo</h1>
@@ -184,21 +172,21 @@ require_once 'GlobalPerfil.php';
                                     </div>
                                     <div class="seguidores">
 
-                                        
+
                                         <?PHP
-                                            if($_SESSION['nivel'] == 2){
-                                                $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
+                                        if ($_SESSION['nivel'] == 2) {
+                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
                                         ?>
                                             <div class="seguidores-numero">
-                                            <p><?PHP
-                                                        echo $seguimores; 
-                                            ?></p>
+                                                <p><?PHP
+                                                    echo $seguimores;
+                                                    ?></p>
                                             </div>
                                             <div class="seguidores-text">
                                                 <h1>Seguidores</h1>
                                             </div>
                                         <?PHP
-                                            }
+                                        }
                                         ?>
                                     </div>
                                 </div>
@@ -206,86 +194,102 @@ require_once 'GlobalPerfil.php';
                         </div>
 
 
-                        <div class="box-atividade-eventos">
-                            <hr>
-                            <div class="box-atividade">
-                                <div class="atividade">
-                                    <div class="box-atividade-perfil-nick">
-                                        <div class="box-img-atividade">
-                                            <img class="img-fluid img-atividade" src="assets/img/img-atividade-1.svg" alt="">
-                                        </div>
-                                        <div class="fotoPerfil-nick">
-                                            <div class="fotoPerfil-atividade">
-                                                <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                            </div>
-                                            <div class="nick-atividade">
-                                                <h1><?PHP echo $_SESSION['nick']; ?></h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="atividade">
-                                    <div class="box-img-atividade">
-                                        <img class="img-fluid img-atividade" src="assets/img/img-atividade-2.svg" alt="">
-                                    </div>
-                                    <div class="fotoPerfil-nick">
-                                        <div class="fotoPerfil-atividade">
-                                            <img class="img-fluid img-perfil-atividade" src="assets/img/img-perfil.svg" alt="">
-                                        </div>
-                                        <div class="nick-atividade">
-                                            <h1><?PHP echo $_SESSION['nick']; ?></h1>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="btn-mudarExibicao">
+                            <button id="btn-exibirPublicacoes" class="btn btn-primary">
+                                <img src="assets/img/publicacao.png" alt="">
+                            </button>
 
-                            </div>
-                            <div class="criar-evento">
-                                <div class="titulo-box-evento">
+                            <button id="btn-exibirEventos" class="btn btn-primary">
+                                <img src="assets/img/icone-calendario.png" alt="">
+                            </button>
+                        </div>
+
+                        <div class="atividade">
+
+                            <div id="publicacoes-web" class="col-8 publicacoes">
+
+                                <?php
+                                $mp = PublicacaoDao::ListaPublicacao($_SESSION['idArtista']);
+                                foreach ($mp as $p) {
+                                ?>
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
                                 <?PHP
-                                        if($_SESSION['nivel'] == 2){
-                                    ?>
-                                        <h1>Eventos de </h1>
-                                    <?PHP
-                                        }
-                                    ?>
-                               
-                                </div>
-                                
-                            </div>
-
-                            <div class="container box-eventos">
-
-                                <div class="evento">
-                                    <div class="img-evento">
-                                        <img class="img-fluid" src="assets/img/img-evento.svg" alt="">
-                                    </div>
-
-
-                                    <div class="box-desc-evento">
-                                        <div class="desc-evento">
-                                            <h1 class="titulo-evento">Evento musical</h1>
-                                            <h2>Dia: 13/02/2023</h2>
-                                            <h2>Horário: 17:00hrs</h2>
-                                            <h2>Local: Shopping Tatuapé</h2>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="evento">
-                                    <div class="img-evento">
-                                        <img class="img-fluid" src="assets/img/img-evento.svg" alt="">
-                                    </div>
-                                    <div class="box-desc-evento">
-                                        <div class="desc-evento">
-                                            <h1 class="titulo-evento">Evento musical</h1>
-                                            <h2>Dia: 13/02/2023</h2>
-                                            <h2>Horário: 17:00hrs</h2>
-                                            <h2>Local: Shopping Tatuapé</h2>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
+                                ?>
 
                             </div>
+
+
+
+                            <div id="eventos-web" class="col-4 eventos">
+
+
+                                <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                foreach ($eventos as $evento) : ?>
+                                    <div class="img-evento">
+                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+
+
+
+
+
+
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
+
+
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+                            <div id="publicacoes-mobile" class="col-8 publicacoes">
+
+                                <?php
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                foreach ($mp as $p) {
+                                ?>
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?PHP
+                                }
+                                ?>
+
+                            </div>
+
+
+
+                            <div id="eventos-mobile" style="display: none;" class="col-4 eventos">
+
+
+                                <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
+                                foreach ($eventos as $evento) : ?>
+                                    <div class="img-evento">
+                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+
+
+
+
+
+
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
+
+
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+
+
+
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -409,24 +413,24 @@ require_once 'GlobalPerfil.php';
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Capa</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
-                    <div class="modal-body">
 
-                        <div class="div-img-capa">
-                            <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
-                        </div>
+                <div class="modal-body">
 
-                        <div class="btn-mudar-capa">
-                            <input type="file" name="fotoCapa" id="input-papel-parede-modal" accept="image/*" style="display: none;">
+                    <div class="div-img-capa">
+                        <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
+                    </div>
 
-                        </div>
+                    <div class="btn-mudar-capa">
+                        <input type="file" name="fotoCapa" id="input-papel-parede-modal" accept="image/*" style="display: none;">
 
-                        <!-- <div class="preview">
+                    </div>
+
+                    <!-- <div class="preview">
                             <img id="preview-img" src="" alt="">
                         </div> -->
 
-                    </div>
-                    
+                </div>
+
             </div>
         </div>
     </div>
@@ -444,32 +448,32 @@ require_once 'GlobalPerfil.php';
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ver foto de perfil</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
-                    <div class="modal-body">
-                        <div class="div-img-usuario">
-                            <?php
-                                if($_SESSION['nivel'] == 2){
-                            ?>
+
+                <div class="modal-body">
+                    <div class="div-img-usuario">
+                        <?php
+                        if ($_SESSION['nivel'] == 2) {
+                        ?>
                             <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
-                            <?php
-                                }else{
-                                ?>
-                                <img class="img-usuario" src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $_SESSION['fotoP']; ?>" alt="">
-                            <?php
-                                }
-                            ?>
-                        </div>
+                        <?php
+                        } else {
+                        ?>
+                            <img class="img-usuario" src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $_SESSION['fotoP']; ?>" alt="">
+                        <?php
+                        }
+                        ?>
+                    </div>
 
-                        <div class="btn-mudar-capa">
-                            <input type="file" name="fotoPerfil" id="input-perfil-modal" accept="image/*" style="display: none;">
+                    <div class="btn-mudar-capa">
+                        <input type="file" name="fotoPerfil" id="input-perfil-modal" accept="image/*" style="display: none;">
 
-                        </div>
+                    </div>
 
-                        <!-- <div class="preview">
+                    <!-- <div class="preview">
                             <img id="preview-img" src="" alt="">
                         </div> -->
-                    </div>
-                    
+                </div>
+
             </div>
         </div>
     </div>
@@ -728,6 +732,29 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
+
+    <!----------------------------------- MODAL SAIR DA CONTA -------------------------------- -->
+
+
+    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você deseja sair da sua conta?
+                </div>
+                <div class="modal-footer">
+                    <form name="formExclui" action="../../Controller/Logout.php" method="POST">
+                        <button type="submit" class="btn btn-secondary">Sair</button>
+                    </form>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

@@ -17,8 +17,8 @@ error_reporting(0);
     <title>Getto</title>
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/feedMobile.css">
-    <link rel="stylesheet" href="assets/css/descobrir.css">
+    <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/feedMobile.css">
+    <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/descobrir.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
 
@@ -50,9 +50,7 @@ error_reporting(0);
                             <a href="../../PerfilVisitante/Evento/eventoVisitante.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
-                            <a href="">
-                                <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
-                            </a>
+                          
                             <a href="../Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
@@ -68,7 +66,7 @@ error_reporting(0);
 
                     <div class="sair">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
-                            <img src="assets/img/sair.png">Sair
+                            <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
                         </a>
                     </div>
 

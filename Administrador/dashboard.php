@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="shortcut icon" href="assets/img/logomarca.svg" type="imagem">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                             <a href="addTags.php" id="tutorial">Tags</a>
                         </li>
 
-                         
+
                     </ul>
                 </div>
                 <div class="sair">
@@ -56,7 +56,7 @@
         <div class="box-dashboard">
             <div class="header-adm">
                 <div class="texto-adm">
-                    <p>Olá, <?php echo($_SESSION['nomeAdministrador']) ?> </p>
+                    <p>Olá, <?php echo ($_SESSION['nomeAdministrador']) ?> </p>
 
                 </div>
                 <div class="notificacao-perfil">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             </div>
-        <!--BOX DA DENúNCIA COMEÇA AQUI-->
+            <!--BOX DA DENúNCIA COMEÇA AQUI-->
             <div class="box-denuncia-verificacao">
 
 
@@ -78,7 +78,7 @@
                             Denúncias recentes
                         </h1>
                     </div>
-                    
+
                     <div class="denuncia">
                         <div class="img-denuncia">
                             <img src="assets/img/img-denuncia.svg" alt="">
@@ -88,7 +88,7 @@
                                 <h1>TIPO DE DENÚNCIA: RACISMO</h1>
                             </div>
                             <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p> 
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
                             </div>
                         </div>
                         <div class="box-btn-denuncia">
@@ -97,63 +97,63 @@
                             </button>
                         </div>
                     </div>
-                        <div class="denuncia">
-                            <div class="img-denuncia">
-                                <img src="assets/img/img-denuncia.svg" alt="">
+                    <div class="denuncia">
+                        <div class="img-denuncia">
+                            <img src="assets/img/img-denuncia.svg" alt="">
+                        </div>
+                        <div class="textos-denuncia">
+                            <div class="titulo-denuncia">
+                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
                             </div>
-                            <div class="textos-denuncia">
-                                <div class="titulo-denuncia">
-                                    <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                                </div>
-                                <div class="desc-denuncia">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p> 
-                                </div>
-                            </div>
-                            <div class="box-btn-denuncia">
-                                <button class="btn-denuncia">
-                                    Ver comentário
-                                </button>
+                            <div class="desc-denuncia">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
                             </div>
                         </div>
-                        <div class="denuncia">
-                            <div class="img-denuncia">
-                                <img src="assets/img/img-denuncia.svg" alt="">
+                        <div class="box-btn-denuncia">
+                            <button class="btn-denuncia">
+                                Ver comentário
+                            </button>
+                        </div>
+                    </div>
+                    <div class="denuncia">
+                        <div class="img-denuncia">
+                            <img src="assets/img/img-denuncia.svg" alt="">
+                        </div>
+                        <div class="textos-denuncia">
+                            <div class="titulo-denuncia">
+                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
                             </div>
-                            <div class="textos-denuncia">
-                                <div class="titulo-denuncia">
-                                    <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                                </div>
-                                <div class="desc-denuncia">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p> 
-                                </div>
-                            </div>
-                            <div class="box-btn-denuncia">
-                                <button class="btn-denuncia">
-                                    Ver comentário
-                                </button>
+                            <div class="desc-denuncia">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
                             </div>
                         </div>
-                        <div class="denuncia">
-                            <div class="img-denuncia">
-                                <img src="assets/img/img-denuncia.svg" alt="">
+                        <div class="box-btn-denuncia">
+                            <button class="btn-denuncia">
+                                Ver comentário
+                            </button>
+                        </div>
+                    </div>
+                    <div class="denuncia">
+                        <div class="img-denuncia">
+                            <img src="assets/img/img-denuncia.svg" alt="">
+                        </div>
+                        <div class="textos-denuncia">
+                            <div class="titulo-denuncia">
+                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
                             </div>
-                            <div class="textos-denuncia">
-                                <div class="titulo-denuncia">
-                                    <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                                </div>
-                                <div class="desc-denuncia">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p> 
-                                </div>
-                            </div>
-                            <div class="box-btn-denuncia">
-                                <button class="btn-denuncia">
-                                    Ver comentário
-                                </button>
+                            <div class="desc-denuncia">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
                             </div>
                         </div>
-                    
+                        <div class="box-btn-denuncia">
+                            <button class="btn-denuncia">
+                                Ver comentário
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
-            <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
+                <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
                 <div class="container-verificacao">
                     <div class="box-verificacao">
                         <div class="titulo-container-verificacao">
@@ -161,59 +161,70 @@
                         </div>
 
                         <?php
-                            require_once 'GlobalAdm.php';
-                            $u = UsuarioDao::ListaVerificação(); 
-                            foreach($u as  $chave => $usuario):
+                        require_once 'GlobalAdm.php';
+                        $u = UsuarioDao::ListaVerificação();
+                        foreach ($u as  $chave => $usuario) :
                         ?>
-                        <div class="verificacao">
-                            <div class="titulo-verificacao">
-                                <h2> <?PHP echo $usuario['nomeUsuario']; ?> </h2>
+                            <div class="verificacao">
+                                <div class="titulo-verificacao">
+                                    <h2> <?PHP echo $usuario['nomeUsuario']; ?> </h2>
+                                </div>
+                                <div class="box-btn-verificacao">
+                                    <button class="btn-verificacao" data-bs-toggle="modal" data-bs-target="#modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>"></button>
+                                </div>
                             </div>
-                            <div class="box-btn-verificacao">
-                                <button class="btn-verificacao" data-bs-toggle="modal" data-bs-target="#modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>"></button>
-                            </div>
-                        </div>
 
-                        <div class="modal fade" id="modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered justify-content-center modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $usuario['nomeUsuario']; ?></h1>
-                                        <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="modal-body-img">
-                                            <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
+                            <div class="modal fade" id="modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered justify-content-center modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $usuario['nomeUsuario']; ?></h1>
+                                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
-                                        <div class="modal-body-link">
-                                            <div class="link-titulo">
-                                                <p>Link repositório:</p>
+                                        <div class="modal-body">
+                                            <div class="modal-body-img">
+                                                <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
                                             </div>
-                                            <div class="link">
-                                                <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio'];?></a>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <form name="btnaprova" id="btnaprova" action="../Controller/AprovaArtista.php" method="Post">
-                                                         
-                                            <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                             <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
-                                            
-                                            <button type="submit" id="btn-aprovar" data-bs-dismiss="modal" name="botao" class="btn btn-secondary">Aprovar</button>
-                                        </form>
-                                        <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Recusar</button>
+                                            <div class="modal-body-link">
+                                                <div class="link-titulo">
+                                                    <p>Link repositório:</p>
+                                                </div>
+                                                <div class="link">
+                                                    <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio']; ?></a>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form name="btnaprova" id="btnaprova" action="../Controller/AprovaArtista.php" method="Post">
+
+                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
+                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                                <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
+
+
+                                                <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="botao" class="btn btn-secondary">Aprovar</button>
+                                            </form>
+                                            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Recusar</button>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <div style="display: none;" id="alert" class="alert">
+                                <div class="img">
+                                    <i class="fa-regular fa-circle-check" style="color: #fff;"></i>
+                                </div>
+                                <div class="text">
+                                    <p>Você aprovou <?PHP echo $usuario['nomeUsuario']; ?>.
+                                        </p>
+                                </div>
+                            </div>
 
                         <?PHP
-                           endforeach;
+                        endforeach;
                         ?>
-                        
+
                     </div>
                 </div>
             </div>
@@ -225,21 +236,19 @@
 
     </main>
 
-    
-
-<!-- ----------------------- ALERTA QUANDO APROVAR UM ARTISTA ---------------------- -->
-
-    
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    <!-- ----------------------- ALERTA QUANDO APROVAR UM ARTISTA ---------------------- -->
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
 
     <script>
@@ -257,20 +266,14 @@
         }
 
         // Seleciona o botão "Aprovar" pelo id
-var btnAprovar = document.getElementById("btn-aprovar");
+        var btnAprovar = document.getElementById("btn-aprovar");
+        var divAlert = document.getElementById("alert");
 
-// Adiciona um evento de clique ao botão
-btnAprovar.addEventListener("click", function() {
-  // Cria um elemento "div" para o alerta
-  var divAlert = document.createElement("div");
-  divAlert.classList.add("alert");
-  
-  // Adiciona o conteúdo do alerta
-  divAlert.innerHTML = '<span class="closebtn" onclick="this.parentElement.style.display=\'none\';">&times;</span><strong>Aprovado</strong> Você aprovou um novo artista!';
-
-  // Adiciona o elemento "div" ao corpo do documento
-  document.body.appendChild(divAlert);
-});
+        // Adiciona um evento de clique ao botão
+        btnAprovar.addEventListener("click", function() {
+            // Cria um elemento "div" para o alerta
+            divAlert.style.display = 'flex';
+        });
     </script>
 </body>
 
