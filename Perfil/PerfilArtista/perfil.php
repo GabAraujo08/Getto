@@ -152,6 +152,7 @@ require_once 'GlobalPerfil.php';
 
                                 <div class="div-btn-editar-perfil">
                                     <button class="btn btn-primary btn-doacao">
+                                        <i class="fa-solid fa-exclamation fa-bounce" style="color: #ff0505; font-size: 24px;"></i>
                                         <img src="assets/img/dollar.png" alt="" srcset="">
                                     </button>
                                     <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -443,9 +444,7 @@ require_once 'GlobalPerfil.php';
 
     <!-- --------------------------- MODAL EDITAR PERFIL ----------------------------------- -->
 
-    <!-- Button trigger modal -->
 
-    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -528,6 +527,12 @@ require_once 'GlobalPerfil.php';
                         <div class="input-group mb-3">
 
                             <input type="text" class="form-control" aria-label="Sizing example input" name="cidadeUsuario" value="<?PHP echo $_SESSION['cidadeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+
+                        </div>
+                        <label >Chave PIX</label>
+                        <div class="input-group mb-3">
+
+                            <input type="text" class="form-control" aria-label="Sizing example input" name="chavePix" value="#" aria-describedby="inputGroup-sizing-default">
 
                         </div>
 
@@ -1314,7 +1319,25 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
+    <!-- ------------------------- MODAL ADICIONAR CONTA BANCARIA ----------------------------- -->
 
+    <!-- <div class="modal fade" id="modalDoacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
 
 
 
