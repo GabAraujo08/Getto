@@ -9,7 +9,7 @@
     <title>Cadastre-se!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/registroArtista.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
 </head>
 
 <body>
@@ -67,7 +67,7 @@
                                     <span class="span-input">Nome</span>
                                     <input type="text" class="input-nome" name="nomeVisitante" id="floatingInput" placeholder="Digite seu nome...">
                                 </div>
-                                <div  class="form-floating mb-3" style="display: flex;
+                                <div class="form-floating mb-3" style="display: flex;
                   flex-direction: column;">
                                     <span class="span-input">Nome de usuário</span>
                                     <input type="text" class="input-nickname" name="nicknameVisitante" id="floatingPassword" oninput="handleEmail(event)" placeholder="Digite seu nickname...">
@@ -165,16 +165,21 @@
 
                             <div class="tab">
                                 <div>
-                                    <div class="form-floating mb-3 " style="display: flex;
-                            flex-direction: column;">
+                                    <div class="form-floating mb-3" style="display: flex; flex-direction: column;">
                                         <span class="span-input">Sua senha</span>
-                                        <input type="password" class="input-senha" name="senhaVisitante" id="password" placeholder="Digite sua senha...">
+                                        <div style="position: relative;">
+                                            <input style="position: relative;" type="password" class="input-senha" name="senhaVisitante" id="password" placeholder="Digite sua senha...">
+                                            <i style="position: absolute; right: 10px; top: 36%;" class="toggle-password fas fa-eye-slash" onclick="togglePasswordVisibility('password')"></i>
+                                        </div>
                                     </div>
 
-                                    <div class="form-floating mb-3 " style="display: flex;
-                            flex-direction: column;">
+                                    <div class="form-floating mb-3" style="display: flex; flex-direction: column;">
                                         <span class="span-input">Confirme a senha</span>
-                                        <input type="password" class="input-confirmarSenha" name="confirmarSenhaVisitante" id="confirmPassword" placeholder="Digite sua senha...">
+                                        <div style="position: relative;">
+                                            <input style="position: relative;" type="password" class="input-confirmarSenha" name="confirmarSenhaVisitante" id="confirmPassword" placeholder="Digite sua senha...">
+                                            <i style="position: absolute; right: 10px; top: 36%;" class="toggle-password fas fa-eye-slash" onclick="togglePasswordVisibility('confirmPassword')"></i>
+                                        </div>
+                                        <span id="senhaIncompativel" style="color: red; display: none;">As senhas não são compatíveis.</span>
                                     </div>
                                 </div>
                             </div>
@@ -262,7 +267,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
-                    
+
                 </div>
             </div>
         </div>
@@ -324,6 +329,37 @@
             }
 
             return value
+        }
+    </script>
+
+    <script>
+        function togglePasswordVisibility(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const eyeIcon = passwordInput.nextElementSibling;
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            }
+        }
+
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+        const senhaIncompativelMsg = document.getElementById("senhaIncompativel");
+
+        confirmPasswordInput.addEventListener("input", checkPasswordEquality);
+
+        function checkPasswordEquality() {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                senhaIncompativelMsg.style.display = "block";
+            } else {
+                senhaIncompativelMsg.style.display = "none";
+            }
         }
     </script>
 
