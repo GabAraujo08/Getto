@@ -336,15 +336,7 @@ const btnExcluirSeguindo = document.getElementById("btn-excluirSeguindo");
 const btnConfirmarSeguindo = document.getElementById("btn-confirmarSeguindo");
 const divConfirmacaoSeguindo = document.getElementById("confirmacao-excluirSeguindo");
 
-btnExcluirSeguindo.addEventListener("click", () => {
-    divConfirmacaoSeguindo.style.display = "block";
 
-});
-
-btnConfirmarSeguindo.addEventListener("click", () => {
-    divConfirmacaoSeguindo.style.display = "none";
-
-});
 
 
 
@@ -352,15 +344,7 @@ const btnBloquearSeguindo = document.getElementById("btn-bloquearSeguindo");
 const btnConfirmarBloqueioSeguindo = document.getElementById("btn-confirmarBloqueioSeguindo");
 const divConfirmacaoBloqueioSeguindo = document.getElementById("confirmacao-bloqueioSeguindo");
 
-btnBloquearSeguindo.addEventListener("click", () => {
-    divConfirmacaoBloqueioSeguindo.style.display = "block";
 
-});
-
-btnConfirmarBloqueioSeguindo.addEventListener("click", () => {
-    divConfirmacaoBloqueioSeguindo.style.display = "none";
-
-});
 
 
 

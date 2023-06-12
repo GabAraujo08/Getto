@@ -703,6 +703,24 @@ body {
 	width: 40px;
 }
 
+.slide-in {
+	position: relative;
+	animation: slide-in 1s ease;
+  }
+  
+  @keyframes slide-in {
+	0% {
+	  opacity: 0;
+	  transform: translateX(100%);
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
+  
+  
+
 .container-fluid .area-perfil .informacao-perfil .div-btn-editar-perfil .btn-doacao{
 	background: transparent;
 	border: none;

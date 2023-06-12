@@ -151,10 +151,18 @@ require_once 'GlobalPerfil.php';
 
 
                                 <div class="div-btn-editar-perfil">
-                                    <button class="btn btn-primary btn-doacao">
-                                        <i class="fa-solid fa-exclamation fa-bounce" style="color: #ff0505; font-size: 24px;"></i>
+                                    <button style="position: relative;" class="btn btn-primary btn-doacao">
+                                        <i id="icone" class="fa-solid fa-exclamation fa-bounce" style="color: #ff0505; font-size: 24px;"></i>
                                         <img src="assets/img/dollar.png" alt="" srcset="">
+                                        <p class="slide-in" id="pix-info" style="color: #000;
+                          position: absolute;
+                          top: 30%;
+                          left: -250px;
+                          font-family: 'InterBold';
+                          display: none;
+                          ">Sua chave pix é <strong>827.374.873-90</strong></p>
                                     </button>
+
                                     <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Editar perfil
                                     </button>
@@ -529,7 +537,7 @@ require_once 'GlobalPerfil.php';
                             <input type="text" class="form-control" aria-label="Sizing example input" name="cidadeUsuario" value="<?PHP echo $_SESSION['cidadeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
 
                         </div>
-                        <label >Chave PIX</label>
+                        <label>Chave PIX</label>
                         <div class="input-group mb-3">
 
                             <input type="text" class="form-control" aria-label="Sizing example input" name="chavePix" value="#" aria-describedby="inputGroup-sizing-default">
@@ -1340,7 +1348,12 @@ require_once 'GlobalPerfil.php';
     </div> -->
 
 
-
+    <script>
+        document.getElementById('icone').addEventListener('click', function() {
+            var pixInfo = document.getElementById('pix-info');
+            pixInfo.style.display = 'block';
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b8f56ddd91.js" crossorigin="anonymous"></script>
