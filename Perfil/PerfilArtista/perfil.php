@@ -151,21 +151,21 @@ require_once 'GlobalPerfil.php';
 
 
                                 <div class="div-btn-editar-perfil">
-                                    <button style="position: relative;" class="btn btn-primary btn-doacao">
-                                        <i id="icone" class="fa-solid fa-exclamation fa-bounce" style="color: #ff0505; font-size: 24px;"></i>
-                                        <img src="assets/img/dollar.png" alt="" srcset="">
-                                        <p class="slide-in" id="pix-info" style="color: #000;
-                          position: absolute;
-                          top: 30%;
-                          left: -250px;
-                          font-family: 'InterBold';
-                          display: none;
-                          ">Sua chave pix é <strong>827.374.873-90</strong></p>
-                                    </button>
+                                    <div class="area-doacao">
+                                        <p class="alerta-pix">Você ainda não tem uma chave pix cadastrada.</p>
+                                        <button class="btn btn-primary btn-doacao">
 
-                                    <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Editar perfil
-                                    </button>
+                                            <!-- <i  class="fa-solid fa-exclamation fa-bounce" style="color: #ff0505; font-size: 24px;"></i> -->
+                                            <img id="icone" src="assets/img/dollar.png" alt="" srcset="">
+                                            <p class="slide-in" id="pix-info" >Sua chave pix é <strong>827.374.873-90</strong></p>
+                                        </button>
+                                        <button class=" btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                Editar perfil
+                                        </button>
+                                    </div>
+
+
+
                                 </div>
                             </div>
 
@@ -1349,7 +1349,9 @@ require_once 'GlobalPerfil.php';
 
 
     <script>
-        document.getElementById('icone').addEventListener('click', function() {
+        var icone = document.getElementById('icone');
+
+        icone.addEventListener('click', function() {
             var pixInfo = document.getElementById('pix-info');
             pixInfo.style.display = 'block';
         });

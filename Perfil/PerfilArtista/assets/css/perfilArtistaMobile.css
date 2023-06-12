@@ -719,6 +719,31 @@ body {
 	}
   }
   
+
+  .area-doacao {
+	display: flex;
+	align-items: center;
+  }
+
+  .area-doacao .alerta-pix {
+	color: #ff0505;
+    font-size: 1rem;
+    font-family: 'InterBold';
+    margin: 0;
+  }
+
+  .area-doacao .alerta-pix .btn-doacao {
+	position: relative;
+  }
+
+  #pix-info{
+	color: #000;
+    position: absolute;
+    top: 47%;
+    right: 225px;
+    font-family: 'InterBold';
+    display: none;
+  }
   
 
 .container-fluid .area-perfil .informacao-perfil .div-btn-editar-perfil .btn-doacao{
