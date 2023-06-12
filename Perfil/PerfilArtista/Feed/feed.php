@@ -4,6 +4,11 @@ require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
 require_once '../../../Dao/ComentarioDao.php';
+    
+    if(!isset($_SESSION['quantVezesLog'])){
+        // button para modal aqui!
+        $_SESSION['quantVezesLog'] = 1;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

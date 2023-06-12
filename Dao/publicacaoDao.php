@@ -28,20 +28,26 @@
             return $id;   
         }
         public static function ListaPublicacao(){
+            $conexao = Conexao::conectar();
             
-                $conexao = Conexao::conectar();
-                $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
-                                                   INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
-                                                   INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
-                                                   INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
-                                                   INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
-                                                   ORDER BY tbPublicacao.horarioPublicacao DESC');
-                $consulta->execute();
-                $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-                
-                return $resultado;
+            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao
+                                           FROM tbPublicacao
+                                           INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
+                                           INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                           INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
+                                           INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                           ORDER BY (
+                                              SELECT COUNT(tbPublicacao.idPublicacao)
+                                              FROM tbPublicacao
+                                              WHERE tbPublicacao.idArtista = tbArtista.idArtista
+                                           ) DESC, tbPublicacao.horarioPublicacao DESC');
             
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $resultado;
         }
+        
         public static function ListaMinhasPublicacao($id){
             
             $conexao = Conexao::conectar();
@@ -116,6 +122,22 @@
             $query->execute();
             $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
         
+            return $resultado;
+        }
+        public static function ListaPublicacaoPorTipoArte($idTipoArte){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, tbTipoArte.idTipoArte, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
+                                           INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
+                                           INNER JOIN tbTipoArte ON tbTipoArte.idTipoArte = tbPublicacao.idTipoArte
+                                           INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                           INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
+                                           INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                           WHERE tbTipoArte.idTipoArte = ?
+                                           ORDER BY tbPublicacao.horarioPublicacao DESC');
+            $consulta->bindParam(1, $idTipoArte);
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            
             return $resultado;
         }
         

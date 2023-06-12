@@ -208,7 +208,9 @@ require_once 'GlobalPerfil.php';
                             <div id="publicacoes-web" class="col-8 publicacoes">
 
                                 <?php
-                                $mp = PublicacaoDao::ListaPublicacao($_SESSION['idArtista']);
+                                require_once  '../../Dao/publicacaoDao.php';
+
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
                                 foreach ($mp as $p) {
                                 ?>
                                     <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
@@ -225,8 +227,8 @@ require_once 'GlobalPerfil.php';
 
                                 <?php require_once '../../Dao/EventoDao.php';
 
-                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
-                                foreach ($eventos as $evento) : ?>
+                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
+                                foreach ($eventos as $evento){ ?>
                                     <div class="img-evento">
                                         <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
 
@@ -241,19 +243,12 @@ require_once 'GlobalPerfil.php';
 
 
                                     </div>
-                                <?php endforeach; ?>
+                                <?php } ?>
                             </div>
 
                             <div id="publicacoes-mobile" class="col-8 publicacoes">
 
-                                <?php
-                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
-                                foreach ($mp as $p) {
-                                ?>
-                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?PHP
-                                }
-                                ?>
+                               
 
                             </div>
 
@@ -262,25 +257,7 @@ require_once 'GlobalPerfil.php';
                             <div id="eventos-mobile" style="display: none;" class="col-4 eventos">
 
 
-                                <?php require_once '../../Dao/EventoDao.php';
-
-                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
-                                foreach ($eventos as $evento) : ?>
-                                    <div class="img-evento">
-                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
-
-
-
-
-
-
-                                        <h1>
-                                            <?PHP echo $evento['tituloEvento']; ?>
-                                        </h1>
-
-
-                                    </div>
-                                <?php endforeach; ?>
+                              
                             </div>
 
 
