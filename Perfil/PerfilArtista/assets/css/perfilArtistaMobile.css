@@ -705,20 +705,10 @@ body {
 
 .slide-in {
 	position: relative;
-	animation: slide-in 1s ease;
+	
   }
   
-  @keyframes slide-in {
-	0% {
-	  opacity: 0;
-	  transform: translateX(100%);
-	}
-	100% {
-	  opacity: 1;
-	  transform: translateX(0);
-	}
-  }
-  
+
 
   .area-doacao {
 	display: flex;
