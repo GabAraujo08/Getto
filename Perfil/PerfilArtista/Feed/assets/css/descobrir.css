@@ -69,11 +69,7 @@
     border-radius: var(--bs-list-group-border-radius);
   }
 
-  #descobrir {
-    background-image: url('../img/icon-pesquisar-branco.svg');
-    background-color: #664187;
-    color: white;
-  }
+ 
 form {
     width: 100%;
     display: inherit;

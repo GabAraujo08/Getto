@@ -29,30 +29,47 @@
 }
 
 .div-logo-marca {
-  width: 99vw;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  background-color: #fff;
-  z-index: 100;
+  width: 99vw; 
+ 
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    
+    z-index: 100;
+    width: 120px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
-.div-logo-marca .notificacoes{
-  position: absolute;
+.div-logo-marca .notificacoes i {
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.div-logo-marca .notificacoes i:hover {
+  transform: scale(1.3);
 }
 
 .div-logo-marca .logo-marca img {
   height: 35px;
   width: 35px;
+  
 }
 
 .div-logo-marca  .icone-perfil img{
-  margin-right: 80px;
+  border-radius: 50%;
+  object-fit: cover;
   height: 50px;
   width: 50px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.div-logo-marca  .icone-perfil img:hover{
+  transform: scale(1.2);
 }
 
 a {
