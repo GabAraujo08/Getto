@@ -706,6 +706,10 @@ body {
 .slide-in {
 	position: relative;
 }
+
+.slide-in p{
+	color: none;
+}
   
 
 .container-fluid .area-perfil .informacao-perfil .div-btn-editar-perfil .btn-doacao{

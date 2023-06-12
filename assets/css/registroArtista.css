@@ -175,13 +175,17 @@ form .header-form .selecao-tipo-conta .artista-convidado-btns button:focus{
   background-color: #664187!important;
   color: white;
 }
-form .header-form .selecao-tipo-conta .artista-convidado-btns .div-artista-btn .btn-artista{
+form .header-form .selecao-tipo-conta .artista-convidado-btns .div-artista-btn .btn-artista {
   border-top-left-radius: 25px!important;
   border-bottom-left-radius: 25px!important;
+  border-top-right-radius: 0px!important;
+  border-bottom-right-radius: 0px!important;
 }
 form .header-form .selecao-tipo-conta .artista-convidado-btns .div-visitante-btn  .btn-visitante{
   border-top-right-radius: 25px!important;
   border-bottom-right-radius: 25px!important;
+  border-top-left-radius: 0px!important;
+  border-bottom-left-radius: 0px!important;
 }
 
 
