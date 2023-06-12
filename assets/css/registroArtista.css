@@ -319,64 +319,7 @@ form #preview-image{ /*PREVIEW DA IMAGEM*/
 }
 
 
-.modal_wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  visibility: hidden;
-}
 
-.modal_wrapper .shadow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  transition: 0.2s ease;
-}
-
-.modal_wrapper .success_wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -800px);
-  background: var(--white);
-  padding: 50px;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  transition: 0.5s ease;
-}
-
-.modal_wrapper .success_wrap .modal_icon {
-  margin-right: 20px;
-  width: 50px;
-  height: 50px;
-  background: var(--primary);
-  color: var(--white);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.modal_wrapper.active {
-  visibility: visible;
-}
-
-.modal_wrapper.active .shadow {
-  opacity: 1;
-}
-
-.modal_wrapper.active .success_wrap {
-  transform: translate(-50%, -50%);
-}
 
 
 /* ---------------------- FORMULARIO DE ETAPAS ----------------------*/
@@ -479,63 +422,6 @@ color: #664187;
 }
 
 
-/* --------------------- MODAL ---------------------*/
-
-.modal-overlay {
-background-color: rgba(0, 0, 0, 0.342);
-width: 100vw;
-height: 100vh;
-position: fixed;
-top: 0;
-left: 0;
-z-index: 1;
-display: none;
-align-items: center;
-justify-content: center;
-overflow-y: auto;
-}
-
-.modal {
-margin: 16rem 16rem 16rem 16rem;
-width: 100%;
-max-width: 600px;
-height: auto;
-min-height: 300px;
-background-color: white;
-border-radius: 11px;
-display: none;
-flex-direction: column;
-overflow: hidden;
--webkit-animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-@media only screen and (max-width: 600px) {
-.modal {
-  height: 50%;
-  width: 100vw;
-
-}
-}
-
-.modal-header {
-background-color: rgba(0, 0, 0, 0.041);
-padding: 1rem;
-text-align: center;
-display: flex;
-justify-content: center;
-font-weight: 600;
-font-size: 18px;
-}
-.modal-content {
-padding: 0.5rem 1rem;
-flex: 1;
-text-align: center;
-display: flex;
-justify-content: center;
-font-size: 15px;
-font-weight: 400;
-}
 
 
 
@@ -548,4 +434,87 @@ font-weight: 400;
   justify-content: center;
 }
 }
+
+
+
+/*-------------------- MODAL ACEITO -------------------------*/
+
+
+#envio-concluido .modal-content {
+  border-radius: 20px;
+}
+
+#envio-concluido .modal-header, .modal-footer {
+  border: 0!important;
+}
+
+
+#envio-concluido .modal-header {
+  position: relative;
+}
+
+#envio-concluido .modal-title{
+  position: absolute;
+    top: -40px;
+    right: 42%;
+}
+
+#envio-concluido .modal-title img{
+ width: 100%;
+}
+
+#envio-conluido .modal-body {
+  display: flex;
+    justify-content: center;
+}
+
+#envio-concluido .modal-body .textos{
+  width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#envio-concluido .modal-body .textos h1{
+  position: unset;
+  font-size: 20px;
+  font-family: 'InterBold';
+  text-align: center;
+}
+
+#envio-concluido .modal-body .textos p{
+  width: 70%;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#envio-concluido .modal-footer{
+  justify-content: center;
+
+}
+
+
+#envio-concluido .modal-footer button{
+  width: 90px;
+    background-color: #4BAE4F;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-family: 'InterBold';
+}
+
+
+#envio-concluido .modal-footer button:hover{
+
+    background-color: #328a35;
+    
+}
+
+
+
 

@@ -67,7 +67,7 @@
                                     <span class="span-input">Nome</span>
                                     <input type="text" class="input-nome" name="nomeVisitante" id="floatingInput" placeholder="Digite seu nome...">
                                 </div>
-                                <div class="form-floating mb-3" style="display: flex;
+                                <div  class="form-floating mb-3" style="display: flex;
                   flex-direction: column;">
                                     <span class="span-input">Nome de usuário</span>
                                     <input type="text" class="input-nickname" name="nicknameVisitante" id="floatingPassword" oninput="handleEmail(event)" placeholder="Digite seu nickname...">
@@ -184,7 +184,7 @@
                                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
                                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 
-                                    <button style="display: none;" type="submit" id="enviarBtn" data-bs-toggle="modal" data-bs-target="#envio-concluido" onclick="nextPrev(1)">Enviar</button>
+                                    <button data-bs-toggle="modal" data-bs-target="#envio-concluido" style="display: none;" type="submit" id="enviarBtn" onclick="nextPrev(1)">Enviar</button>
 
 
                                 </div>
@@ -246,19 +246,23 @@
         </div>
     </div>
 
-    <div class="modal" id="envio-concluido" tabindex="-1">
-        <div class="modal-dialog-centered">
+    <div class="modal fade" id="envio-concluido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="assets/img/aceito.svg" alt=""></h1>
+
                 </div>
                 <div class="modal-body">
-                    <p>Modal body text goes here.</p>
+                    <div class="textos">
+                        <h1>Obrigado por concluir seu cadastro!</h1>
+                        <p>Sua conta está sendo analisada, fique de olho no seu email.</p>
+                    </div>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                    
                 </div>
             </div>
         </div>
