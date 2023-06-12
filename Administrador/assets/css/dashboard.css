@@ -210,6 +210,14 @@ main .box-sidebar {
   border-radius: 50%;
 }
 
+.textos-denuncia{
+  display: flex;
+    height: 93px;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* ============================= DASHBOARD ==================================*/
 
 .box-dashboard {
@@ -267,7 +275,6 @@ main .box-sidebar {
   width: 45%;
   margin-left: 25px;
   height: auto;
-  background-color: #d9d9d9;
   padding: 10px;
   border-radius: 15px;
 }
@@ -288,8 +295,11 @@ main .box-sidebar {
   align-items: center;
   background-color: #f7f6f9;
   margin: 15px;
-  border: 3px solid #d9d9d9;
+  /* border: 3px solid #d9d9d9; */
   border-radius: 15px;
+  background-color: #d9d9d9;
+  width: 100%;
+  height: 96%;
 }
 
 .box-dashboard .box-denuncia-verificacao .box-denuncias .denuncia .textos-denuncia .titulo-denuncia h1 {
@@ -329,7 +339,7 @@ main .box-sidebar {
   background: #664187;
   border-radius: 15px;
   color: white;
-  width: 100%;
+  width: 84%;
   border: none;
   height: 40px;
   transition: 0.30s;
@@ -343,13 +353,13 @@ transform: translateY(-0.25em);
 }
 
 .container-verificacao .box-verificacao {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background: #d9d9d9;
+  background: #ffffff;
+  /* border: 3px solid #d9d9d9; */
   border-radius: 15px;
-  padding: 10px;
-  margin-left: 25px;
+
+  width: 303px;
+  height: 69px;
+  margin: 15px;
 }
 
 .container-verificacao .box-verificacao .titulo-container-verificacao h1 {
@@ -364,8 +374,7 @@ transform: translateY(-0.25em);
 }
 
 .container-verificacao .box-verificacao .verificacao {
-  background: #ffffff;
-  border: 3px solid #d9d9d9;
+  background: #d9d9d9;
   border-radius: 15px;
   display: flex;
   width: 303px;

@@ -703,6 +703,29 @@ body {
 	width: 40px;
 }
 
+.slide-in {
+	position: relative;
+}
+
+.area-doacao {
+	display: flex;
+	align-items: center;
+}
+
+.area-doacao {
+	display: flex;
+	align-items: center;
+}
+
+.area-doacao .alerta-pix {
+	margin: 0;
+font-family: 'InterBold';
+color: #e10c0c;
+font-size: 1rem;
+
+}
+
+
 .container-fluid .area-perfil .informacao-perfil .div-btn-editar-perfil .btn-doacao{
 	background: transparent;
 	border: none;

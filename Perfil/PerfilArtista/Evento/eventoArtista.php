@@ -415,7 +415,7 @@ color: #656565;">
                                         </div>
                                         <label>Estado: </label>
                                         <div class="input-group mb-3">
-                                            <input type="text" id="uf" class="form-control" name="cidEvento" placeholder="estado">
+                                            <input type="text" id="uf" class="form-control" name="estadoEvento" placeholder="estado">
                                         </div>
                                     </div>
                                     <div class="lado-direito">

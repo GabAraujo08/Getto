@@ -76,7 +76,7 @@ require_once 'GlobalPerfil.php';
                         <div class="informacao-perfil">
                             <div class="papel-parede-img-perfil">
                                 <?PHP
-                                if ($_SESSION['nivel']== 2) {
+                                if ($_SESSION['nivel'] == 2) {
                                 ?>
                                     <img data-bs-toggle="modal" data-bs-target="#modalEditarPapelParede" class="img papel-parede-img" src="assets/img/FotoCapa/<?PHP echo  $_SESSION['papel']; ?>" alt="">
                                     <img data-bs-toggle="modal" data-bs-target="#modalEditarFotoPerfil" class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
@@ -123,9 +123,23 @@ require_once 'GlobalPerfil.php';
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
-                                                <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
-                                                    Seguir
-                                                </button>
+                                                <div class="area-doacao">
+                                                     <p class="alerta-pix">Sem chave pix cadastrada.</p> 
+
+                                                    <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
+                                                        <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
+                                                        <p class="slide-in" id="pix-info" style="color: #000;
+                          position: absolute;
+                          top: 30%;
+                          left: -250px;
+                          font-family: 'InterBold';
+                          display: none;
+                          ">A chave pix é <strong>827.374.873-90</strong></p>
+                                                    </button>
+                                                    <button class="btn btn-primary btn-editar-perfil" value="" >
+                                                        Editar perfil
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
                                     <?PHP
@@ -136,9 +150,23 @@ require_once 'GlobalPerfil.php';
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
-                                                <button type="submit" class="btn btn-primary btn-editar-perfil" value="">
-                                                    Deixar de Seguir
-                                                </button>
+                                                <div class="area-doacao">
+                                                    <p class="alerta-pix">Sem chave pix cadastrada</p>
+
+                                                    <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
+                                                        <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
+                                                        <p class="slide-in" id="pix-info" style="color: #000;
+                          position: absolute;
+                          top: 30%;
+                          left: -250px;
+                          font-family: 'InterBold';
+                          display: none;
+                          ">A chave pix é <strong>827.374.873-90</strong></p>
+                                                    </button>
+                                                    <button class="btn btn-primary btn-editar-perfil" value="" >
+                                                        Deixar de seguir
+                                                    </button>
+                                                </div>
                                             </div>
                                         </form>
 
@@ -743,7 +771,19 @@ require_once 'GlobalPerfil.php';
             document.getElementById("main").style.marginLeft = "0";
         }
     </script>
+    <script>
+        document.getElementById('icone').addEventListener('click', function() {
+            var pixInfo = document.getElementById('pix-info');
 
+            // Verifica se o elemento está atualmente visível
+            if (pixInfo.style.display === 'block') {
+                pixInfo.style.display = 'none'; // Oculta o elemento
+                // Modifica informações de estilo CSS
+            } else {
+                pixInfo.style.display = 'block'; // Exibe o elemento
+            }
+        });
+    </script>
     <script src="assets/js/perfil.js"></script>
     <script src="assets/js/jquery-3.6.4.min.js"></script>
     <script src="assets/js/extrator"></script>
