@@ -151,20 +151,26 @@ require_once 'GlobalPerfil.php';
 
 
                                 <div class="div-btn-editar-perfil">
-                                    <button style="position: relative;" class="btn btn-primary btn-doacao">
-                                        <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
-                                        <p class="slide-in" id="pix-info" style="color: #000;
+                                    <div class="area-doacao">
+                                        <p class="alerta-pix">Você ainda não tem chave pix cadastrada.</p>
+
+                                        <button style="position: relative;" class="btn btn-primary btn-doacao">
+                                            <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
+                                            <p class="slide-in" id="pix-info" style="color: #000;
                           position: absolute;
                           top: 30%;
                           left: -250px;
                           font-family: 'InterBold';
                           display: none;
                           ">Sua chave pix é <strong>827.374.873-90</strong></p>
-                                    </button>
+                                        </button>
+                                        <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            Editar perfil
+                                        </button>
+                                    </div>
 
-                                    <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Editar perfil
-                                    </button>
+
+
                                 </div>
                             </div>
 
@@ -1348,20 +1354,20 @@ require_once 'GlobalPerfil.php';
 
 
     <script>
-    document.getElementById('icone').addEventListener('click', function() {
-        var pixInfo = document.getElementById('pix-info');
-        
-        // Verifica se o elemento está atualmente visível
-        if (pixInfo.style.display === 'block') {
-            pixInfo.style.display = 'none'; // Oculta o elemento
-             // Modifica informações de estilo CSS
-        } else {
-            pixInfo.style.display = 'block'; // Exibe o elemento
-        }
-    });
-</script>
+        document.getElementById('icone').addEventListener('click', function() {
+            var pixInfo = document.getElementById('pix-info');
 
-    
+            // Verifica se o elemento está atualmente visível
+            if (pixInfo.style.display === 'block') {
+                pixInfo.style.display = 'none'; // Oculta o elemento
+                // Modifica informações de estilo CSS
+            } else {
+                pixInfo.style.display = 'block'; // Exibe o elemento
+            }
+        });
+    </script>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b8f56ddd91.js" crossorigin="anonymous"></script>
