@@ -1,6 +1,8 @@
 <?php
 if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
-    echo '<script>alert("Senha incorreta. Por favor, tente novamente.");</script>';
+  echo '<div class="alert">
+  <span class="ms erro"><i class="icon icon-hand-paper-o"></i><p> Senha incorreta! Por favor tente novamente.</p> </span>
+  </div>';
 }
 ?>
 
@@ -59,7 +61,7 @@ if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
 
               <div class="form-floating mb-3" style="display: flex; flex-direction: column;">
                 <span class="senha-label">Sua senha</span>
-                <div style="position: relative;"  class="senha-input-wrapper">
+                <div style="position: relative;" class="senha-input-wrapper">
                   <input type="password" class="input-senha" id="floatingPassword" name="senha" placeholder="Digite sua senha...">
                   <span style="position: absolute;
     right: 10px;
