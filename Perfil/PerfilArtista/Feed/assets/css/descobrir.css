@@ -1879,6 +1879,40 @@ overflow-x: hidden;
 }
 
 
+
+
+
+
+
+/* ------------------------ NOVO FEED ------------------------------- */
+
+.container-fluid {
+  overflow: auto;
+    max-height: 100vh;
+}
+
+.main-publicacao {
+  
+  padding: 25px;
+  padding-left: 25px;
+    padding-right: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+.main-publicacao .publicacao{
+  width: 23%;
+  margin: 1px;
+}
+
+
+
+.main-publicacao .publicacao img{
+  width: 100%;
+}
+
 /*-------------------------- MODAL SAIR DA CONTA ---------------------------------------*/
 
 .modal-dialog .modal-footer .btn-primary {
