@@ -2,7 +2,7 @@
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/Conexao.php';
- error_reporting(0);
+// error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@ require_once '../../../Dao/Conexao.php';
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/descobrir.css">
+    <link rel="stylesheet" href="assets/css/descobrir.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
 

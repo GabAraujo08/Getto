@@ -2,7 +2,7 @@
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/Conexao.php';
-error_reporting(0);
+ error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,321 +120,184 @@ error_reporting(0);
 
         </div>
         <div style="position: relative;" class="box-container">
-        <div style="z-index: 101;" class="area-buscar">
-        <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/busca.php">
-            <input type="search" id="search" name="busca" placeholder="Pesquisar...">
-            <button class="btn-descobrir" type="submit"><img src="assets/img/search.png"></i></button>
+            <div style="z-index: 101;" class="area-buscar">
+                <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/busca.php">
+                    <input type="search" id="search" name="busca" placeholder="Pesquisar...">
+                    <button class="btn-descobrir" type="submit"><img src="assets/img/search.png"></i></button>
 
-        </form>
-
-
+                </form>
 
 
-        <?php
-        if ($_SESSION['go'] == true && isset($_SESSION['quantLinhas'])) {
-            $html = '';
-            for ($i = 0; $i < $_SESSION['quantLinhas']; $i++) {
-                $html .= '<form action="../perfilMostrar.php?$_SESSION" method="POST">';
-                $html .= '<li>';
-                if ($_SESSION['nivel'] == 2) {
-                    $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+
+
+                <?php
+                if ($_SESSION['go'] == true && isset($_SESSION['quantLinhas'])) {
+                    $html = '';
+                    for ($i = 0; $i < $_SESSION['quantLinhas']; $i++) {
+                        $html .= '<form action="../perfilMostrar.php?$_SESSION" method="POST">';
+                        $html .= '<li>';
+                        if ($_SESSION['nivel'] == 2) {
+                            $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                        } else {
+                            $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                        }
+
+                        $html .= '<button type="submit">' . $_SESSION['nick'] . '</button>';
+                        $html .= '</li>';
+                        $html .= '</form>';
+                    }
+                    echo '<ul id="results">' . $html . '</ul>';
                 } else {
-                    $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                    echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
                 }
+                ?>
 
-                $html .= '<button type="submit">' . $_SESSION['nick'] . '</button>';
-                $html .= '</li>';
-                $html .= '</form>';
-            }
-            echo '<ul id="results">' . $html . '</ul>';
-        } else {
-            echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
-        }
-        ?>
-
-    </div>
+            </div>
             <div class="container-fluid">
-                <div class="header-feed">
-                    <div class="div-logos">
-                        <div class="logo-marca">
-                            <img src="assets/img/logomarca.png" alt="">
-                        </div>
-                        <div class="logo-tipo">
-                            <h1>Getto</h1>
-                        </div>
+                <div class="main-publicacao">
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
                     </div>
-                    <div class="feed-perfil">
-                        <div class="box-img-perfil-feed">
-                            <img src="assets/img/img-perfil.svg" alt="">
-                        </div>
+
+                    <div class="publicacao">
+                        <img src="../assets/img/kyan-evento.jpg" alt="">
                     </div>
-                </div>
 
-                <div class="box-area-perfil">
-                    <div class="area-perfil">
-                        <hr>
-                        <div class="box-momentos">
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="box-publicacoes">
-                            <div class="titulo-box-publicacao">
-                                <h1>Publicações</h1>
-                            </div>
+                    <div class="publicacao">
+                        <img src="../assets/img/FotoPerfil/10.png" alt="">
+                    </div>
 
+                    <div class="publicacao">
+                        <img src="../../../assets/img/as.jpg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                            <?PHP
-                            $pub = PublicacaoDao::ListaPublicacaoSegui($_SESSION['idUsuario']);
-                            foreach ($pub as $p) {
-                                $texto_compartilhamento = $p['descPublicacao'];
-                            ?>
-                                <div class="publicacao">
-                                    <div class="header-publicacao">
-                                        <div class="informacoes-perfil-publicacao">
-                                            <div class="img-perfil-publicacao">
-                                                <img src="../assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
-                                            </div>
-                                            <div class="nick-e-bio-perfil-publicacao">
-                                                <div class="nick">
-                                                    <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
-                                                </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="box-btn-configuracao-publicacao">
-                                            <div class="btn-group dropend">
-                                                <button class="btn-configuracao-publicacao" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="fa-solid fa-bars"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    Denunciar
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                <div id="publicacoes-web" class="col-4 publicacoes">
-                                    <div class="box-img-publicacao">
-                                        <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
-                                    </div>
-                                </div>
-                                    <div class="legenda-publicacao">
-                                        <p>
-                                            <?PHP echo $p['descPublicacao']; ?>!
-                                        </p>
-                                    </div>
-                                    <div class="acoes-publicacao">
-                                        <div class="box-btn-acoes">
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                            </button>
-                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
-                                                
-                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                            </button>
-                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode("Confira essa publicação em Getto: " . $p['descPublicacao'] . " - " . $p['arquivoMidia'] . " Para saber mais acesse: Getto.com"); ?>&media=<?php echo urlencode($media_url); ?>">
-                                                <button class="btn-acao">
-                                                    <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                                </button>
-                                            </a>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                        </div>
-                                        <div class="tempo-publicacao">
-                                            <p><?PHP
-                                                if ($p['minutosPublicacao'] == 0) {
-                                                    echo 'Agora mesmo';
-                                                } else if ($p['minutosPublicacao'] > 59) {
-                                                    $h = intval($p['minutosPublicacao'] / 60);
-                                                    echo 'há ' . $h . ' h';
-                                                } else if ($p['minutosPublicacao'] > 1440) {
-                                                    $d = intval($p['minutosPublicacao'] / 1440);
-                                                    echo 'há ' . $d . ' d';
-                                                } else {
-                                                    echo 'há ' . $p['minutosPublicacao'] . ' min';
-                                                }
-                                                ?></p>
-                                        </div>
-                                    </div>
-                                    <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                        <div class="box-text-area">
-                                            <textarea name="comentario" id="" cols="30" rows="10">
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            </textarea>
-                                            <div  class="box-btn-comentario">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                    </div> -->
-                                </div>
-                            <?PHP
-                            }
-                            ?>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                            <?PHP
-                            $pb = PublicacaoDao::ListaPublicacao();
-                            foreach ($pb as $pp) {
-                                $texto_compartilhamento = $p['descPublicacao'];
-                            ?>
-                                <div class="publicacao">
-                                    <div class="header-publicacao">
-                                        <div class="informacoes-perfil-publicacao">
-                                            <div class="img-perfil-publicacao">
-                                                <img src="../assets/img/FotoPerfil/<?PHP echo $pp['fotoPerfilUsuario']; ?>" alt="">
-                                            </div>
-                                            <div class="nick-e-bio-perfil-publicacao">
-                                                <div class="nick">
-                                                    <h1><?PHP echo $pp['nicknameUsuario']; ?></h1>
-                                                </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="box-btn-configuracao-publicacao">
-                                            <div class="btn-group dropend">
-                                                <button class="btn-configuracao-publicacao" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="fa-solid fa-bars"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    Denunciar
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                    <div class="box-img-publicacao">
-                                        <img src="../assets/img/Pubs/<?PHP echo $pp['arquivoMidia']; ?>" alt="" class="img-publicacao">
-                                    </div>
-                                    <div class="legenda-publicacao">
-                                        <p>
-                                            <?PHP echo $pp['descPublicacao']; ?>!
-                                        </p>
-                                    </div>
-                                    <div class="acoes-publicacao">
-                                        <div class="box-btn-acoes">
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                            </button>
-                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal" style="position: relative;" id="btnComentario" class="btn-acao">
-                                                <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>
-                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                            </button>
-                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode("Confira essa publicação em Getto: " . $pp['descPublicacao'] . " - " . $pp['arquivoMidia'] . " Para saber mais acesse: Getto.com"); ?>&media=<?php echo urlencode($media_url); ?>">
-                                                <button class="btn-acao">
-                                                    <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                                </button>
-                                            </a>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                        </div>
-                                        <div class="tempo-publicacao">
-                                            <p><?PHP
-                                                if ($pp['minutosPublicacao'] == 0) {
-                                                    echo 'Agora mesmo';
-                                                } else if ($pp['minutosPublicacao'] > 59) {
-                                                    $h = intval($pp['minutosPublicacao'] / 60);
-                                                    echo 'há ' . $h . ' h';
-                                                } else if ($pp['minutosPublicacao'] > 1440) {
-                                                    $d = intval($pp['minutosPublicacao'] / 1440);
-                                                    echo 'há ' . $d . ' d';
-                                                } else {
-                                                    echo 'há ' . $pp['minutosPublicacao'] . ' min';
-                                                }
-                                                ?></p>
-                                        </div>
-                                    </div>
-                                    <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                        <div class="box-text-area">
-                                            <textarea name="comentario" id="" cols="30" rows="10">
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            </textarea>
-                                            <div  class="box-btn-comentario">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-
-                                    </div> -->
-                                </div>
-                            <?PHP
-                            }
-                            ?>
-
-
-
-
-
-                        </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
                     </div>
                 </div>
+
+
             </div>
         </div>
 
@@ -687,7 +550,7 @@ error_reporting(0);
         </div>
     </div>
 
-   
+
 
 
     <script>

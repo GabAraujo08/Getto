@@ -91,8 +91,9 @@ form {
   /* margin-left: 25%; */
   margin-right: 25px;
   position: absolute;
-  right: 0;
+  right: -20px;
   top: 0;
+  padding: 25px;
 }
 
 #results{
@@ -1878,6 +1879,42 @@ overflow-x: hidden;
   /* creates padding around scroll thumb */
 }
 
+
+
+
+
+
+
+/* ------------------------ NOVO FEED ------------------------------- */
+
+.container-fluid {
+  overflow: auto;
+    max-height: 100vh;
+}
+
+.main-publicacao {
+  
+  padding: 25px;
+  padding-left: 25px;
+    padding-right: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+.main-publicacao .publicacao{
+  width: 23%;
+  margin: 1px;
+}
+
+
+
+.main-publicacao .publicacao img{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
 
 /*-------------------------- MODAL SAIR DA CONTA ---------------------------------------*/
 

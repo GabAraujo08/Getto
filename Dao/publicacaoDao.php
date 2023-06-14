@@ -124,21 +124,25 @@
         
             return $resultado;
         }
-        public static function ListaPublicacaoPorTipoArte($idTipoArte){
+        public static function TipoArteComMaisPublicacoes(){
             $conexao = Conexao::conectar();
-            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, tbTipoArte.idTipoArte, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
-                                           INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
-                                           INNER JOIN tbTipoArte ON tbTipoArte.idTipoArte = tbPublicacao.idTipoArte
-                                           INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
-                                           INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
-                                           INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
-                                           WHERE tbTipoArte.idTipoArte = ?
-                                           ORDER BY tbPublicacao.horarioPublicacao DESC');
-            $consulta->bindParam(1, $idTipoArte);
+            $consulta = $conexao->prepare('SELECT DISTINCT tbPublicacao.idPublicacao, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, tbTipoArte.idTipoArte, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao 
+                                          FROM tbPublicacao
+                                          INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
+                                          INNER JOIN tbTipoArte ON tbTipoArte.idTipoArte = tbPublicacao.idTipoArte
+                                          INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
+                                          INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
+                                          INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                          INNER JOIN (
+                                              SELECT tbPublicacao.idTipoArte, COUNT(tbPublicacao.idPublicacao) AS numPublicacoes
+                                              FROM tbPublicacao
+                                              GROUP BY tbPublicacao.idTipoArte
+                                              ORDER BY numPublicacoes DESC
+                                          ) AS tbPublicacoesContagem ON tbPublicacoesContagem.idTipoArte = tbTipoArte.idTipoArte
+                                          ORDER BY tbPublicacoesContagem.numPublicacoes DESC, tbPublicacao.horarioPublicacao DESC');
             $consulta->execute();
             $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
             
             return $resultado;
-        }
-        
+        }              
 } 
