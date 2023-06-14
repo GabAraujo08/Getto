@@ -579,10 +579,6 @@ require_once '../../../Dao/ComentarioDao.php';
 
     <div class="div-logo-marca">
 
-        <div class="notificacoes">
-            <i style="font-size: 26px;" class="fa-solid fa-bell"></i>
-        </div>
-
         <div class="icone-perfil">
             <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
         </div>

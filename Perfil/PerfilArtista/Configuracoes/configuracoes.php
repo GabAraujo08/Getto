@@ -18,6 +18,7 @@
     <div class="sidebar">
         <div class="d-flex justify-center align-items-center flex-column sidebar-box">
             <div class="d-flex justify-center align-items-center logos">
+            <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                 <h1 class="logo-tipo">Getto</h1>
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">

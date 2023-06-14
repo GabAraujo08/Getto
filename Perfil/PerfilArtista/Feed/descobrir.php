@@ -16,7 +16,6 @@ error_reporting(0);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
     <link rel="stylesheet" href="assets/css/descobrir.css">
-    <link rel="stylesheet" href="assets/css/feedMobile.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
 
@@ -37,7 +36,7 @@ error_reporting(0);
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img style="display: none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -262,10 +261,11 @@ error_reporting(0);
                                         </div>
                                     </div>
 
-
+                                <div id="publicacoes-web" class="col-4 publicacoes">
                                     <div class="box-img-publicacao">
                                         <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
                                     </div>
+                                </div>
                                     <div class="legenda-publicacao">
                                         <p>
                                             <?PHP echo $p['descPublicacao']; ?>!
