@@ -1,3 +1,6 @@
+<?php include('../../Controller/VerificaLogado.php'); 
+    require_once 'GlobalPerfil.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,93 +29,23 @@
         </div>
         <div class="main">
 
-            <form action="#">
+            <form  method="Post" action="../../Controller/TagsEscolhidas.php">
                 <div class="categorias">
 
-
+                <?php
+                    $ta = TipoArteDao::ListaTag();
+                    foreach($ta as $taa){
+                ?>
                     <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
+                        <?php
+                            echo $taa['nomeTipoArte'];
+                        ?>
+                        <input type="checkbox" name="idTipo[]" value="<?php echo $taa['idTipoArte']; ?>">
                     </div>
 
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    <div class="categoria" tabindex="0">
-                        Hip hop
-                        <input type="checkbox" value="hiphop">
-                    </div>
-
-                    
-
-                   
+                    <?php
+                    }                    
+                    ?>
 
                    
 

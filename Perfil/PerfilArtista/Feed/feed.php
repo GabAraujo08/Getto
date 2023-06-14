@@ -5,9 +5,12 @@ require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
 require_once '../../../Dao/ComentarioDao.php';
     
-    if(!isset($_SESSION['quantVezesLog'])){
-        // button para modal aqui!
-        $_SESSION['quantVezesLog'] = 1;
+    if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idU'] == $_SESSION['idUsuario']) {
+        $dataExpiracao = strtotime('22-06-2023');
+        setcookie('primeiroLogin', 'true', $dataExpiracao, '/');
+        setcookie('idU', $_SESSION['idUsuario'], $dataExpiracao, '/');
+        header('Location: ../escolhaTags.php');
+        exit;
     }
 ?>
 <!DOCTYPE html>
@@ -496,6 +499,283 @@ require_once '../../../Dao/ComentarioDao.php';
                                 </div>
 
 
+
+                            <!-- publicacoes por tipo arte -->
+
+                            <?PHP
+                            $pubs = PublicacaoDao::TipoArteComMaisPublicacoes();
+                            foreach ($pubs as $ps) {
+                                $texto_compartilhamento = $ps['descPublicacao'];
+                            ?>
+                                <div class="publicacao">
+                                    <div class="header-publicacao">
+                                        <div class="informacoes-perfil-publicacao">
+                                            <div class="img-perfil-publicacao">
+                                                <img src="../assets/img/FotoPerfil/<?PHP echo $ps['fotoPerfilUsuario']; ?>" alt="">
+                                            </div>
+                                            <div class="nick-e-bio-perfil-publicacao">
+                                                <div class="nick">
+                                                    <h1><?PHP echo $ps['nicknameUsuario']; ?></h1>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="box-btn-configuracao-publicacao">
+                                            <div class="btn-group dropend">
+                                                <button class="btn-configuracao-publicacao" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fa-solid fa-bars"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    Denunciar
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="box-img-publicacao">
+                                        <img src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                    </div>
+                                    <div class="legenda-publicacao">
+                                        <p>
+                                            <?PHP echo $ps['descPublicacao']; ?>!
+                                        </p>
+                                    </div>
+                                    <div class="qnt-likes">
+                                        <p>
+                                            <!-- 10 curtidas -->
+                                            <?php
+                                            $ccc = CurtidaDao::consultarCurtida($ps['idPublicacao']);
+                                            echo $ccc . ' curtidas';
+                                            ?>
+                                        </p>
+                                    </div>
+                                    <div class="acoes-publicacao">
+                                        <div class="box-btn-acoes">
+                                            <button class="btn-acao">
+                                                <?php
+                                                $conexao = Conexao::conectar();
+                                                $consulta = $conexao->prepare('SELECT idCurtida, idPublicacao FROM tbCurtida WHERE idUsuario = ?');
+                                                $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                                $consulta->execute();
+                                                $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+
+                                                if ($resultado2 == false) {
+                                                ?>
+
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $ps['idPublicacao']; ?>">
+                                                        <button name="cc" type="submit" class="btn-acao">
+                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                        </button>
+                                                    </form>
+
+                                                <?php
+                                                } else if (!in_array($ps['idPublicacao'], array_column($resultado2, 'idPublicacao'))) {
+                                                ?>
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $ps['idPublicacao']; ?>">
+                                                        <button name="cc" type="submit" class="btn-acao">
+                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                        </button>
+                                                    </form>
+                                                <?php
+                                                } else {
+                                                ?>
+
+                                                    <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
+                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $ps['idPublicacao']; ?>">
+                                                        <button name="cc" type="submit" class="btn-acao">
+                                                            <img src="assets/img/icon-like-true.svg" alt="">
+                                                        </button>
+                                                    </form>
+
+                                                <?php
+                                                }
+                                                ?>
+
+                                            </button>
+                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal<?PHP echo $ps['idPublicacao']; ?>" style="position: relative;" id="btnComentario" class="btn-acao">
+                                                <!-- <p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p> -->
+                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
+                                            </button>
+                                            <button class="btn-acao">
+                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
+                                            </button>
+                                            <a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo urlencode("Confira essa publicação em Getto: " . $ps['descPublicacao'] . " - " . $ps['arquivoMidia'] . " Para saber mais acesse: Getto.com"); ?>&media=<?php echo urlencode($media_url); ?>">
+                                                <button class="btn-acao">
+                                                    <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                                </button>
+                                            </a>
+
+
+                                        </div>
+                                        <div class="tempo-publicacao">
+                                            <p><?php
+                                                $minutoss = $ps['minutosPublicacao'];
+                                                $mesess = intval($minutoss / 43200);
+                                                $minutoss = $minutoss % 43200;
+
+                                                if ($mesess > 0) {
+                                                    echo 'há ' . $mesess . ' m';
+                                                } elseif ($minutoss == 0) {
+                                                    echo 'Agora mesmo';
+                                                } elseif ($minutoss > 1440) {
+                                                    $ds = intval($minutoss / 1440);
+                                                    echo 'há ' . $ds . ' d';
+                                                } elseif ($minutoss > 59) {
+                                                    $hs = intval($minutoss / 60);
+                                                    echo 'há ' . $hs . ' h';
+                                                } else {
+                                                    echo 'há ' . $minutoss . ' min';
+                                                }
+                                                ?></p>
+                                        </div>
+
+
+                                    </div>
+                                    <!-- <div id="divComentario" class="comentario slide-in" style="display: none;">
+
+                                        <div class="box-text-area">
+                                            <textarea name="comentario" id="" cols="30" rows="10">
+
+                                            </textarea>
+                                            <div  class="box-btn-comentario">
+                                                <button class="btn btn-primary">
+                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                                <?PHP
+                                                $tcc = ComentarioDao::consultarQuantComentario($ps['idPublicacao']);
+                                                ?>
+
+                                    </div> -->
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal-comentario">
+
+
+                                    <div class="modal fade" id="comentarioModal<?PHP echo $ps['idPublicacao']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel"> <?PHP echo $tcc; ?> Comentários </h1>
+
+
+
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- <div class="box-input-search">
+                                                    <input class="busca-comentario" type="search" placeholder="Busque um comentário">
+
+                                                </div>
+                                                <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
+                                                    <?php
+                                                    $comes = ComentarioDao::listarComentario($ps['idPublicacao']);
+                                                    foreach ($comes as $cs) {
+
+                                                    ?>
+                                                        <div class="box-comentario">
+                                                            <?PHP
+                                                            if ($cs['nivelContaUsuario'] == 2) {
+                                                            ?>
+                                                                <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                                            <?PHP
+                                                            } else {
+                                                            ?>
+                                                                <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                                            <?PHP
+                                                            }
+                                                            ?>
+                                                            <div class="conteudo-comentario">
+                                                                <h1><?PHP echo $cs['nicknameUsuario']; ?></h1>
+                                                                <p><?PHP echo $cs['comentario']; ?></p>
+                                                                <?php
+                                                                $min = $cs['minutosComentario'];
+                                                                $mess = intval($minuto / 43200);
+                                                                $min = $min % 43200;
+
+                                                                if ($mess > 0) {
+                                                                    echo 'há ' . $mess . ' m';
+                                                                } elseif ($min == 0) {
+                                                                    echo 'Agora mesmo';
+                                                                } elseif ($min > 1440) {
+                                                                    $dss = intval($min / 1440);
+                                                                    echo 'há ' . $dss . ' d';
+                                                                } elseif ($min > 59) {
+                                                                    $hss = intval($min / 60);
+                                                                    echo 'há ' . $hss . ' h';
+                                                                } else {
+                                                                    echo 'há ' . $min . ' min';
+                                                                }
+                                                                ?>
+                                                                <div class="box-btn-denuncia">
+                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        
+
+                                                    <?php
+                                                    }
+                                                    ?>
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <div id="divComentario" class="comentario slide-in">
+
+                                                        <div class="box-text-area">
+                                                            <form method="POST" id="coment" action="../../../Controller/Comentario.php">
+                                                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
+
+                                                        </textarea>
+                                                                <input type="hidden" name="idPubli" value="<?PHP echo $ps['idPublicacao']; ?>">
+                                                                <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                                                <div class="box-btn-comentario">
+                                                                    <button type="submit" class="btn btn-primary">
+                                                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+
+
+
+
+
+                                                    </div>
+                                                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                                                    <div class="box-text-area">
+                                                        <form action="#">
+                                                            <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
+
+                                                        </textarea>
+                                                            <div class="box-btn-comentario">
+                                                                <button class="btn btn-primary">
+                                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div> -->
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?PHP
+                            }
+                                ?>
+                                </div>
 
 
 
