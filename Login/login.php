@@ -1,3 +1,10 @@
+<?php
+if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
+    echo '<script>alert("Senha incorreta. Por favor, tente novamente.");</script>';
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="">
 
