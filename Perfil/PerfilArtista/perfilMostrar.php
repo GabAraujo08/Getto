@@ -137,7 +137,7 @@ require_once 'GlobalPerfil.php';
                           ">A chave pix é <strong>827.374.873-90</strong></p>
                                                     </button>
                                                     <button class="btn btn-primary btn-editar-perfil" value="" >
-                                                        Editar perfil
+                                                        Seguir
                                                     </button>
                                                 </div>
                                             </div>

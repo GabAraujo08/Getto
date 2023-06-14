@@ -1,12 +1,9 @@
-<?php
-include('../../../Controller/VerificaLogado.php');
+<?php include('../../../Controller/VerificaLogado.php');
 require_once '../../../Dao/publicacaoDao.php';
+require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/Conexao.php';
-require_once '../../../Dao/CurtidaDao.php';
-require_once '../../../Dao/ComentarioDao.php';
-error_reporting(0);
+ error_reporting(0);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +14,7 @@ error_reporting(0);
     <title>Getto</title>
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/feedMobile.css">
+
     <link rel="stylesheet" href="../../PerfilArtista/Feed/assets/css/descobrir.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
@@ -31,7 +28,7 @@ error_reporting(0);
 
 <body>
 
-   
+
 
     <div class="d-flex">
         <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
@@ -39,7 +36,7 @@ error_reporting(0);
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img style="display: none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -47,26 +44,31 @@ error_reporting(0);
                             <a href="../Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
-                            <a href="../../PerfilVisitante/Evento/eventoVisitante.php">
+                            <a href="../../PerfilArtista/Evento/eventoArtista.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
-                          
+                            <a href="">
+                                <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
+                            </a>
                             <a href="../Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
-                            <a target="../Descobrir/descobrir.php" href="">
+                            <a target="../Descobrir/descobrir.php" href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
-                            <a href="../perfil-visitante.php">
+                            <a href="../perfil.php">
                                 <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                             </a>
                         </ul>
                     </div>
-                    
+                    <div class="nova-pub">
+                        <button id="nova-pub" class="btn btn-primary btn-nova-pub" data-bs-toggle="modal" data-bs-target="#modalCriarPub" type="button">Nova
+                            publicação</button>
+                    </div>
 
                     <div class="sair">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
-                            <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
+                            <img src="assets/img/sair.png">Sair
                         </a>
                     </div>
 
@@ -117,351 +119,188 @@ error_reporting(0);
             </div>
 
         </div>
-        <div class="box-container">
+        <div style="position: relative;" class="box-container">
+            <div style="z-index: 101;" class="area-buscar">
+                <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/busca.php">
+                    <input type="search" id="search" name="busca" placeholder="Pesquisar...">
+                    <button class="btn-descobrir" type="submit"><img src="assets/img/search.png"></i></button>
+
+                </form>
+
+
+
+
+                <?php
+                if ($_SESSION['go'] == true && isset($_SESSION['quantLinhas'])) {
+                    $html = '';
+                    for ($i = 0; $i < $_SESSION['quantLinhas']; $i++) {
+                        $html .= '<form action="../perfilMostrar.php?$_SESSION" method="POST">';
+                        $html .= '<li>';
+                        if ($_SESSION['nivel'] == 2) {
+                            $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                        } else {
+                            $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                        }
+
+                        $html .= '<button type="submit">' . $_SESSION['nick'] . '</button>';
+                        $html .= '</li>';
+                        $html .= '</form>';
+                    }
+                    echo '<ul id="results">' . $html . '</ul>';
+                } else {
+                    echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
+                }
+                ?>
+
+            </div>
             <div class="container-fluid">
-                <div class="header-feed">
-                    <div class="div-logos">
-                        <div class="logo-marca">
-                            <img src="assets/img/logomarca.png" alt="">
-                        </div>
-                        <div class="logo-tipo">
-                            <h1>Getto</h1>
-                        </div>
+                <div class="main-publicacao">
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
                     </div>
-                    <div class="feed-perfil">
-                        <div class="box-img-perfil-feed">
-                            <img src="assets/img/img-perfil.svg" alt="">
-                        </div>
+
+                    <div class="publicacao">
+                        <img src="../assets/img/kyan-evento.jpg" alt="">
                     </div>
-                </div>
 
-                <div class="box-area-perfil">
-                    <div class="area-perfil">
-                        <hr>
-                        <div class="box-momentos">
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="box-publicacoes">
-                            <div class="titulo-box-publicacao">
-                                <h1>Publicações</h1>
-                            </div>
+                    <div class="publicacao">
+                        <img src="../assets/img/FotoPerfil/10.png" alt="">
+                    </div>
 
+                    <div class="publicacao">
+                        <img src="../../../assets/img/as.jpg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                            <?PHP
-                            $pub = PublicacaoDao::ListaPublicacaoSegui($_SESSION['idUsuario']);
-                            foreach ($pub as $p) {
-                            ?>
-                                <div class="publicacao">
-                                    <div class="header-publicacao">
-                                        <div class="informacoes-perfil-publicacao">
-                                            <div class="img-perfil-publicacao">
-                                                <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
-                                            </div>
-                                            <div class="nick-e-bio-perfil-publicacao">
-                                                <div class="nick">
-                                                    <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
-                                                </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="box-btn-configuracao-publicacao">
-                                            <button class="btn-configuracao-publicacao">
-                                                <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                            </button>
-                                        </div>
-                                    </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                    <div class="box-img-publicacao">
-                                        <img src="../../PerfilArtista/assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
-                                    </div>
-                                    <div class="legenda-publicacao">
-                                        <p>
-                                            <?PHP echo $p['descPublicacao']; ?>!
-                                        </p>
-                                    </div>
-                                    <div class="qnt-likes">
-                                        <p>
-                                            <!-- 10 curtidas -->
-                                            <?php
-                                            $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
-                                            echo $cc . ' curtidas';
-                                            ?>
-                                        </p>
-                                    </div>
-                                    <div class="acoes-publicacao">
-                                        <div class="box-btn-acoes">
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            <?php
-                                            $conexao = Conexao::conectar();
-                                            $consulta = $conexao->prepare('SELECT idCurtida, idPublicacao FROM tbCurtida WHERE idUsuario = ?');
-                                            $consulta->bindValue(1, $_SESSION['idUsuario']);
-                                            $consulta->execute();
-                                            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            if ($resultado == false) {
-                                            ?>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                                <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
-                                                    <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                    <button name="cc" type="submit" class="btn-acao">
-                                                        <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                    </button>
-                                                </form>
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            <?php
-                                            } else if (!in_array($p['idPublicacao'], array_column($resultado, 'idPublicacao'))) {
-                                            ?>
-                                                <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
-                                                    <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                    <button name="cc" type="submit" class="btn-acao">
-                                                        <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                    </button>
-                                                </form>
-                                            <?php
-                                            } else {
-                                            ?>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                                <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
-                                                    <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                    <button name="cc" type="submit" class="btn-acao">
-                                                        <img src="assets/img/icon-like-true.svg" alt="">
-                                                    </button>
-                                                </form>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            <?php
-                                            }
-                                            ?>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal<?PHP echo $p['idPublicacao']; ?>" style="position: relative;" id="btnComentario" class="btn-acao">
-                                                <!--<p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>-->
-                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                            </button>
-                                        </div>
-                                        <div class="tempo-publicacao">
-                                            <p><?php
-                                                $minutos = $p['minutosPublicacao'];
-                                                $meses = intval($minutos / 43200);
-                                                $minutos = $minutos % 43200;
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                                if ($meses > 0) {
-                                                    echo 'há ' . $meses . ' m';
-                                                } elseif ($minutos == 0) {
-                                                    echo 'Agora mesmo';
-                                                } elseif ($minutos > 1440) {
-                                                    $d = intval($minutos / 1440);
-                                                    echo 'há ' . $d . ' d';
-                                                } elseif ($minutos > 59) {
-                                                    $h = intval($minutos / 60);
-                                                    echo 'há ' . $h . ' h';
-                                                } else {
-                                                    echo 'há ' . $minutos . ' min';
-                                                }
-                                                ?></p>
-                                        </div>
-                                    </div>
-                                    <div id="divComentario" class="comentario slide-in" style="display: none;">
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                        <div class="box-text-area">
-                                            <textarea name="comentario" id="" cols="30" rows="10">
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                                                        </textarea>
-                                            <div class="box-btn-comentario">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?PHP
-                                $tc = ComentarioDao::consultarQuantComentario($p['idPublicacao']);
-                                ?>
-                                <div class="modal-comentario">
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                    <div class="modal fade" id="comentarioModal<?PHP echo $p['idPublicacao']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $tc; ?> Comentários </h1>
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
 
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <!-- <div class="box-input-search">
-                                                                <input class="busca-comentario" type="search" placeholder="Busque um comentário">
-
-                                                            </div>
-                                                            <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
-                                                    <?php
-                                                    $come = ComentarioDao::listarComentario($p['idPublicacao']);
-                                                    foreach ($come as $c) {
-
-                                                    ?>
-                                                        <div class="box-comentario">
-                                                            <?PHP
-                                                            if ($c['nivelContaUsuario'] == 2) {
-                                                            ?>
-                                                                <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
-                                                            <?PHP
-                                                            } else {
-                                                            ?>
-                                                                <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
-                                                            <?PHP
-                                                            }
-                                                            ?>
-                                                            <div class="conteudo-comentario">
-                                                                <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
-                                                                <p><?PHP echo $c['comentario']; ?></p>
-                                                                <?php
-                                                                $minuto = $c['minutosComentario'];
-                                                                $mes = intval($minuto / 43200);
-                                                                $minuto = $minuto % 43200;
-
-                                                                if ($mes > 0) {
-                                                                    echo 'há ' . $mes . ' m';
-                                                                } elseif ($minuto == 0) {
-                                                                    echo 'Agora mesmo';
-                                                                } elseif ($minuto > 1440) {
-                                                                    $ds = intval($minuto / 1440);
-                                                                    echo 'há ' . $ds . ' d';
-                                                                } elseif ($minuto > 59) {
-                                                                    $hs = intval($minuto / 60);
-                                                                    echo 'há ' . $hs . ' h';
-                                                                } else {
-                                                                    echo 'há ' . $minuto . ' min';
-                                                                }
-                                                                ?>
-                                                                <div class="box-btn-denuncia">
-                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    <?php
-                                                    }
-                                                    ?>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div id="divComentario" class="comentario slide-in">
-
-                                                        <div class="box-text-area">
-                                                            <form method="POST" action="../../../Controller/Comentario.php">
-                                                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
-
-                                                                    </textarea>
-                                                                <input type="hidden" name="idPubli" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                                <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                                                <div class="box-btn-comentario">
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-
-
-
-
-                                                    </div>
-                                                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
-                                                                <div class="box-text-area">
-                                                                    <form action="#">
-                                                                        <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
-
-                                                                    </textarea>
-                                                                        <div class="box-btn-comentario">
-                                                                            <button class="btn btn-primary">
-                                                                                <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div> -->
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?PHP
-                            }
-                                ?>
-
-
-
-
-
-                        </div>
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
                     </div>
                 </div>
+
+
             </div>
         </div>
-      
+
     </div>
 
 
@@ -497,13 +336,64 @@ error_reporting(0);
         Launch demo modal
     </button> -->
 
+    <!-- Modal -->
+
+    <div class="modal-comentario">
 
 
+        <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
+
+
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div class="box-input-search">
+                        <input class="busca-comentario" type="search" placeholder="Busque um comentário">
+
+                    </div>
+                    <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
+
+                        <div class="box-comentario">
+                            <img src="assets/img/img-perfil.svg" alt="">
+                            <div class="conteudo-comentario">
+                                <h1>@gabbs</h1>
+                                <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                                <div class="box-btn-denuncia">
+                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                </div>
+                            </div>
+                        </div>
 
 
 
                     </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                    <div class="modal-footer">
+                        <div id="divComentario" class="comentario slide-in">
+
+                            <div class="box-text-area">
+                                <form action="#">
+                                    <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
+
+                            </textarea>
+                                    <div class="box-btn-comentario">
+                                        <button class="btn btn-primary">
+                                            <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+
+
+
+
+                        </div>
+                        <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
                         <div class="box-text-area">
                             <form action="#">
                                 <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
@@ -519,9 +409,11 @@ error_reporting(0);
                     </div> -->
 
 
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 
@@ -649,78 +541,44 @@ error_reporting(0);
     <!-- ----------------------------- MODAL CRIAR PUBLICAÇÃO ------------------------------- -->
 
 
-   
 
 
-    <div class="div-logo-marca">
+
+    <div style="display:none;" class="div-logo-marca">
         <div class="logo-marca">
             <img src="assets/img/logomarca.png" alt="">
         </div>
     </div>
 
-    <div class="area-buscar">
-      <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/busca.php">
-        <input type="search" id="search" name="busca" placeholder="Pesquisar...">
-        <button class="btn-descobrir"  type="submit"><img src="assets/img/search.png"></i></button>
 
-      </form>
-
-
-
-
-      <?php
-        if ($_SESSION['go'] == true && isset($_SESSION['quantLinhas'])) {
-            $html = '';
-            for ($i = 0; $i < $_SESSION['quantLinhas']; $i++) {
-                $html .= '<form action="../perfilMostrar.php?$_SESSION" method="POST">';
-                $html .= '<li>';
-                if ($_SESSION['nivel'] == 2) {
-                    $html .= '<img src="../../PerfilArtista/assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
-                    
-                } else {
-                    $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
-                }
-
-                $html .= '<button type="submit">' . $_SESSION['nick'] . '</button>';
-                $html .= '</li>';
-                $html .= '</form>';
-            }
-            echo '<ul id="results">' . $html . '</ul>';
-        } else {
-            echo '<ul id="results"><li>Nenhum resultado encontrado</li></ul>';
-        }
-        ?>
-
-
-    </div>
 
 
     <script>
-      $(document).ready(function() {
-        $('#search').keyup(function() {
-          var query = $(this).val();
-          if (query != '') {
-            $.ajax({
-              url: 'search.php',
-              method: 'POST',
-              data: {
-                query: query
-              },
-              success: function(data) {
-                $('#results').html(data);
-              }
+        $(document).ready(function() {
+            $('#search').keyup(function() {
+                var query = $(this).val();
+                if (query != '') {
+                    $.ajax({
+                        url: 'search.php',
+                        method: 'POST',
+                        data: {
+                            query: query
+                        },
+                        success: function(data) {
+                            $('#results').html(data);
+                        }
+                    });
+                } else {
+                    $('#results').html('');
+                }
             });
-          } else {
-            $('#results').html('');
-          }
         });
-      });
     </script>
 
-   
 
 
-    
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 
