@@ -154,104 +154,150 @@ require_once '../../../Dao/Conexao.php';
 
             </div>
             <div class="container-fluid">
-                <div class="header-feed">
-                    <div class="div-logos">
-                        <div class="logo-marca">
-                            <img src="assets/img/logomarca.png" alt="">
-                        </div>
-                        <div class="logo-tipo">
-                            <h1>Getto</h1>
-                        </div>
+                <div class="main-publicacao">
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
                     </div>
-                    <div class="feed-perfil">
-                        <div class="box-img-perfil-feed">
-                            <img src="assets/img/img-perfil.svg" alt="">
-                        </div>
+
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                      
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                    </div>
+
+                    
+                    <div class="publicacao">
+                        <img src="../assets/img/seuJorge.jpeg" alt="">
                     </div>
                 </div>
 
-                <div class="box-area-perfil">
-                    <div class="area-perfil">
-                        <hr>
-                        <div class="box-momentos">
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                            <div class="momento">
-                                <div class="img-momento">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-                                <div class="nick-momento">
-                                    <h1>@Melis</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
 
-
-
-
-
-                        <div class="d-flex main-publicacao">
-                            <div class="publicacao">
-                                <img src="assets/img/img-publicacao.svg" alt="">
-                            </div>
-
-                            <div class="publicacao">
-                                <img src="assets/img/img-publicacao.svg" alt="">
-                            </div>
-
-                            <div class="publicacao">
-                                <img src="assets/img/img-publicacao.svg" alt="">
-                            </div>
-
-                            <div class="publicacao">
-                                <img src="assets/img/img-publicacao.svg" alt="">
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                </div>
             </div>
         </div>
 
