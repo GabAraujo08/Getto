@@ -137,7 +137,7 @@ require_once 'GlobalPerfil.php';
                           ">A chave pix é <strong>827.374.873-90</strong></p>
                                                     </button>
                                                     <button class="btn btn-primary btn-editar-perfil" value="" >
-                                                        Editar perfil
+                                                        Seguir
                                                     </button>
                                                 </div>
                                             </div>
@@ -234,10 +234,21 @@ require_once 'GlobalPerfil.php';
                         <div class="atividade">
 
                             <div id="publicacoes-web" class="col-8 publicacoes">
-
                                
                                     <img src="assets/img/Pubs/1.jpg" alt="">
                                
+                                <?php
+                                require_once  '../../Dao/publicacaoDao.php';
+
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                echo $_SESSION['idA'];
+                                foreach ($mp as $p) {
+                                ?>
+                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?PHP
+                                }
+                                ?>
+
 
                             </div>
 

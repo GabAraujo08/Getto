@@ -160,15 +160,15 @@ require_once '../../../Dao/Conexao.php';
                     </div>
 
                     <div class="publicacao">
-                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                        <img src="../assets/img/kyan-evento.jpg" alt="">
                     </div>
 
                     <div class="publicacao">
-                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                        <img src="../assets/img/FotoPerfil/10.png" alt="">
                     </div>
 
                     <div class="publicacao">
-                        <img src="../assets/img/seuJorge.jpeg" alt="">
+                        <img src="../../../assets/img/as.jpg" alt="">
                     </div>
 
                     
