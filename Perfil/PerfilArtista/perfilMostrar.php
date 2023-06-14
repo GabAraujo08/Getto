@@ -239,6 +239,7 @@ require_once 'GlobalPerfil.php';
                                 require_once  '../../Dao/publicacaoDao.php';
 
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                echo $_SESSION['idA'];
                                 foreach ($mp as $p) {
                                 ?>
                                     <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
