@@ -86,6 +86,7 @@ if (isset($_POST['btnAprovar'])) {
 
 if (isset($_POST['btnRecusar'])) {
     $usuario_id = $_POST['usuario_id'];
+    $usuario_email = $_POST['usuario_email'];
 
     $conexao = Conexao::conectar();
 
@@ -99,20 +100,60 @@ if (isset($_POST['btnRecusar'])) {
     $deleteUsuario->bindValue(1, $usuario_id);
     $deleteUsuario->execute();
 
-    
+    $mail = new PHPMailer(true);
 
-    if ($deleteUsuario->rowCount() > 0) {
-        header('Location: ../Administrador/dashboard.php');
-        
-        echo '<script>alert("Usuário excluído com sucesso.");</script>';
-        exit; // Encerrar o script após o redirecionamento
-    } else {
-        header('Location: ../Administrador/dashboard.php');
-        
-        echo '<script>alert("Falha ao excluir o usuário.");</script>';
-        exit; // Encerrar o script após o redirecionamento
+    try {
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'specttrumtech@gmail.com';
+        $mail->Password = 'xwpgtcgbuetqbpnk';
+        $mail->Port = 587;
+
+        $mail->setFrom('specttrumtech@gmail.com');
+        $mail->addAddress($usuario_email);
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Mensagem de Getto';
+
+        // Corpo do email com a imagem incorporada
+        $mail->Body = '
+            <!DOCTYPE html>
+            <html>
+            <body>
+                <h1>Infelizmente sua conta foi recusada!</h1>
+                <p>Sua conta não atende aos requisitos para o uso da nossa plataforma.</p>
+                <img src="cid:imagem" alt="Imagem incorporada">
+            </body>
+            </html>
+        ';
+
+        $mail->AltBody = 'Infelizmente sua conta foi recusada. Sua conta não atende aos requisitos para o uso da nossa plataforma.';
+
+        // Caminho para a imagem que deseja incorporar
+        $imagePath = 'shrek.jpeg';
+        $mail->addStringEmbeddedImage(file_get_contents($imagePath), 'imagem', 'imagem.jpg', 'base64', 'image/jpeg');
+
+        // Iniciar o buffer de saída
+        ob_start();
+
+        if ($mail->send()) {
+            // Descartar a saída gerada até o momento
+            ob_end_clean();
+            header('Location: ../Administrador/dashboard.php');
+            exit; // Encerrar o script após o redirecionamento
+        } else {
+            // Descartar a saída gerada até o momento
+            ob_end_clean();
+            // Lógica de tratamento de erro
+        }
+    } catch (Exception $e) {
+        // Descartar a saída gerada até o momento
+        ob_end_clean();
+        echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
     }
 }
-
+?>
 
 
