@@ -387,6 +387,8 @@ body {
 }
 
 
+
+
 .slide-in {  /*EFEITO QUE CRIA A TRANSIÇÃO DE ENTRADA DO COMENTARIO*/
   animation: slideIn 0.8s forwards;
 }

@@ -87,7 +87,7 @@ class PublicacaoDao
         $resultado = [];
 
         for ($i = 0; $i < $countResu1; $i++) {
-            $consulta = $conexao->prepare('SELECT tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
+            $consulta = $conexao->prepare('SELECT tbMidia.idTipoMidia, tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
                                 INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
                                 INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                 INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
@@ -135,7 +135,7 @@ class PublicacaoDao
     public static function TipoArteComMaisPublicacoes()
     {
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare('SELECT DISTINCT tbPublicacao.idPublicacao, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, tbTipoArte.idTipoArte, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao 
+        $consulta = $conexao->prepare('SELECT  tbMidia.idTipoMidia, tbPublicacao.idPublicacao, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, tbTipoArte.idTipoArte, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao 
                                           FROM tbPublicacao
                                           INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
                                           INNER JOIN tbTipoArte ON tbTipoArte.idTipoArte = tbPublicacao.idTipoArte
