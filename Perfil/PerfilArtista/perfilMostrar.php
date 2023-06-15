@@ -124,19 +124,19 @@ require_once 'GlobalPerfil.php';
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
                                                 <div class="area-doacao">
-                                                     <p class="alerta-pix">Sem chave pix cadastrada.</p> 
+                                                    <p class="alerta-pix">Sem chave pix cadastrada.</p>
 
                                                     <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
                                                         <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
                                                         <p class="slide-in" id="pix-info" style="color: #000;
-                          position: absolute;
-                          top: 30%;
-                          left: -250px;
-                          font-family: 'InterBold';
-                          display: none;
-                          ">A chave pix é <strong>827.374.873-90</strong></p>
+                                                        position: absolute;
+                                                        top: 30%;
+                                                        left: -250px;
+                                                        font-family: 'InterBold';
+                                                        display: none;
+                                                        ">A chave pix é <strong>827.374.873-90</strong></p>
                                                     </button>
-                                                    <button class="btn btn-primary btn-editar-perfil" value="" >
+                                                    <button class="btn btn-primary btn-editar-perfil" value="">
                                                         Seguir
                                                     </button>
                                                 </div>
@@ -145,7 +145,6 @@ require_once 'GlobalPerfil.php';
                                     <?PHP
                                     } else {
                                     ?>
-
                                         <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
@@ -156,14 +155,14 @@ require_once 'GlobalPerfil.php';
                                                     <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
                                                         <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
                                                         <p class="slide-in" id="pix-info" style="color: #000;
-                          position: absolute;
-                          top: 30%;
-                          left: -250px;
-                          font-family: 'InterBold';
-                          display: none;
-                          ">A chave pix é <strong>827.374.873-90</strong></p>
+                                                        position: absolute;
+                                                        top: 30%;
+                                                        left: -250px;
+                                                        font-family: 'InterBold';
+                                                        display: none;
+                                                        ">A chave pix é <strong>827.374.873-90</strong></p>
                                                     </button>
-                                                    <button class="btn btn-primary btn-editar-perfil" value="" >
+                                                    <button class="btn btn-primary btn-editar-perfil" value="">
                                                         Deixar de seguir
                                                     </button>
                                                 </div>
@@ -234,9 +233,9 @@ require_once 'GlobalPerfil.php';
                         <div class="atividade">
 
                             <div id="publicacoes-web" class="col-8 publicacoes">
-                               
-                                    <img src="assets/img/Pubs/1.jpg" alt="">
-                               
+
+                                <img src="assets/img/Pubs/1.jpg" alt="">
+
                                 <?php
                                 require_once  '../../Dao/publicacaoDao.php';
 
@@ -257,27 +256,27 @@ require_once 'GlobalPerfil.php';
                             <div id="eventos-web" class="col-4 eventos">
 
 
-                              
-                                    <div class="img-evento">
-                                        <img src="Evento/assets/img/1.jpg" alt="">
+
+                                <div class="img-evento">
+                                    <img src="Evento/assets/img/1.jpg" alt="">
 
 
 
 
 
 
-                                        <h1>
-                                            tituloEvento
-                                        </h1>
+                                    <h1>
+                                        tituloEvento
+                                    </h1>
 
 
-                                    </div>
-                                
+                                </div>
+
                             </div>
 
                             <div id="publicacoes-mobile" class="col-8 publicacoes">
 
-                               
+
 
                             </div>
 
@@ -286,7 +285,7 @@ require_once 'GlobalPerfil.php';
                             <div id="eventos-mobile" style="display: none;" class="col-4 eventos">
 
 
-                              
+
                             </div>
 
 

@@ -72,6 +72,11 @@
             return $resultado;
         }
         
-        
+        public static function buscarSuguestoes($idUsuario){
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare('
+            
+            ');
+        }
     }
 ?>

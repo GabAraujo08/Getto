@@ -4,6 +4,7 @@ require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
 require_once '../../../Dao/ComentarioDao.php';
+require_once '../../../Dao/ArtistaDao.php';
 
 if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsuario']) {
     $dataExpiracao = strtotime('22-06-2023');
@@ -12,6 +13,7 @@ if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsua
     header('Location: ../escolhaTags.php');
     exit;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +26,7 @@ if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsua
     <link rel="shortcut icon" href="assets/img/logomarca.png" type="image/x-icon" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/feedMobile.css">
+    <link rel="stylesheet" href="./assets/css/feedMobile.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
 
 
@@ -35,7 +37,9 @@ if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsua
 
 </head>
 
-<body>olha
+<body>
+
+
     <div style="overflow-x: hidden;" class="d-flex">
 
         <div class="box-area-info">
@@ -117,61 +121,162 @@ if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsua
                     </div>
                 </div>
 
+                <?php
+                $sugestoes = ArtistaDao::buscaArtistasAtivos();
 
-                <div class="area-sugestao">
+                if ($_SESSION['nivel'] == 2) {
+                ?>
 
-                    <div class="titulo-sugestao">
-                        <h1>Sugestões para seguir</h1>
+                    <div class="area-sugestao">
+                        <div class="titulo-sugestao">
+                            <h1>Sugestões para seguir</h1>
+                        </div>
+
+                        <div class="box-sugestoes">
+                            <div class="sugestao-perfil">
+                                <div class="img-perfil-sugestao">
+                                    <img style='border-radius: 50%;' src="../../PerfilArtista/assets/img/FotoPerfil/<?php echo $sugestoes[0]['fotoPerfilUsuario']; ?>" alt="">
+                                </div>
+
+                                <div class="informacoes-sugestao">
+                                    <h1>
+                                        <?php
+                                        echo $sugestoes[0]['nicknameUsuario'];
+                                        ?>
+                                    </h1>
+                                    <p>
+                                        <?php
+                                        echo $sugestoes[0]['bioArtista'];
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="btn-seguir">
+                                    <?php
+                                    $conexao = Conexao::conectar();
+                                    $consulta = $conexao->prepare('SELECT idSeguidores FROM tbSeguidores WHERE idUsuario = ? AND idArtista = ?');
+                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                    $consulta->bindValue(2, $sugestoes[0]['idArtista']);
+                                    $consulta->execute();
+                                    $resultado = $consulta->fetch();
+
+                                    if ($resultado == false) {
+                                    ?>
+                                        <form action="../../../Controller/Seguir.php" method="post">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $sugestoes[0]['idArtista']; ?>">
+                                            <button>Seguir</button>
+                                        </form>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <form action="../../../Controller/Deseguir.php" method="post">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $sugestoes[0]['idArtista']; ?>">
+                                            <button>Deseguir</button>
+                                        </form>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="sugestao-perfil">
+                                <div class="img-perfil-sugestao">
+                                    <img style='border-radius: 50%;' src="../../PerfilArtista/assets/img/FotoPerfil/<?php echo $sugestoes[1]['fotoPerfilUsuario']; ?>" alt="">
+                                </div>
+
+                                <div class="informacoes-sugestao">
+                                    <h1>
+                                        <?php
+                                        echo $sugestoes[1]['nicknameUsuario'];
+                                        ?>
+                                    </h1>
+                                    <p>
+                                        <?php
+                                        echo $sugestoes[1]['bioArtista'];
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="btn-seguir">
+                                <?php
+                                    $conexao = Conexao::conectar();
+                                    $consulta = $conexao->prepare('SELECT idSeguidores FROM tbSeguidores WHERE idUsuario = ? AND idArtista = ?');
+                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                    $consulta->bindValue(2, $sugestoes[1]['idArtista']);
+                                    $consulta->execute();
+                                    $resultado = $consulta->fetch();
+
+                                    if ($resultado == false) {
+                                    ?>
+                                        <form action="../../../Controller/Seguir.php" method="post">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $sugestoes[1]['idArtista']; ?>">
+                                            <button>Seguir</button>
+                                        </form>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <form action="../../../Controller/Deseguir.php" method="post">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $sugestoes[1]['idArtista']; ?>">
+                                            <button>Deseguir</button>
+                                        </form>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
+                            <div class="sugestao-perfil">
+                                <div class="img-perfil-sugestao">
+                                    <img style='border-radius: 50%;' src="../../PerfilArtista/assets/img/FotoPerfil/<?php echo $sugestoes[2]['fotoPerfilUsuario']; ?>" alt="">
+                                </div>
+
+                                <div class="informacoes-sugestao">
+                                    <h1>
+                                        <?php
+                                        echo $sugestoes[2]['nicknameUsuario'];
+                                        ?>
+                                    </h1>
+                                    <p>
+                                        <?php
+                                        echo $sugestoes[2]['bioArtista'];
+                                        ?>
+                                    </p>
+                                </div>
+                                <div class="btn-seguir">
+                                <?php
+                                    $conexao = Conexao::conectar();
+                                    $consulta = $conexao->prepare('SELECT idSeguidores FROM tbSeguidores WHERE idUsuario = ? AND idArtista = ?');
+                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                    $consulta->bindValue(2, $sugestoes[2]['idArtista']);
+                                    $consulta->execute();
+                                    $resultado = $consulta->fetch();
+
+                                    if ($resultado == false) {
+                                    ?>
+                                        <form action="../../../Controller/Seguir.php" method="post">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $sugestoes[2]['idArtista']; ?>">
+                                            <button>Seguir</button>
+                                        </form>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <form action="../../../Controller/Deseguir.php" method="post">
+                                            <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                            <input type="hidden" name="idArtista" value="<?PHP echo $sugestoes[2]['idArtista']; ?>">
+                                            <button>Deseguir</button>
+                                        </form>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="box-sugestoes">
-                        <div class="sugestao-perfil">
-                            <div class="img-perfil-sugestao">
-                                <img src="assets/img/img-perfil.svg" alt="">
-                            </div>
-
-                            <div class="informacoes-sugestao">
-                                <h1>@gabb</h1>
-                                <p>Cantor e compositor</p>
-                            </div>
-                            <div class="btn-seguir">
-                                <button>Seguir</button>
-                            </div>
-                        </div>
-
-
-
-
-
-                        <div class="sugestao-perfil">
-                            <div class="img-perfil-sugestao">
-                                <img src="assets/img/img-perfil.svg" alt="">
-                            </div>
-
-                            <div class="informacoes-sugestao">
-                                <h1>@gabb</h1>
-                                <p>Cantor e compositor</p>
-                            </div>
-                            <div class="btn-seguir">
-                                <button>Seguir</button>
-                            </div>
-                        </div>
-
-                        <div class="sugestao-perfil">
-                            <div class="img-perfil-sugestao">
-                                <img src="assets/img/img-perfil.svg" alt="">
-                            </div>
-
-                            <div class="informacoes-sugestao">
-                                <h1>@gabb</h1>
-                                <p>Cantor e compositor</p>
-                            </div>
-                            <div class="btn-seguir">
-                                <button>Seguir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </div>
         <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
@@ -246,8 +351,6 @@ if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsua
                             <div class="titulo-box-publicacao">
                                 <h1>Publicações</h1>
                             </div>
-
-
 
                             <?PHP
                             $pub = PublicacaoDao::ListaPublicacaoSegui($_SESSION['idUsuario']);
