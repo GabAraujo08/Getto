@@ -234,83 +234,51 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="col-8 publicacoes">
+                             <div id="publicacoes-web" class="col-8 publicacoes">
+
+
+                             <div id="publicacoes-web" class="col-8 publicacoes">
+
 
                                 <?php
-                                $mp = PublicacaoDao::ListaPublicacao($_SESSION['idArtista']);
-                                foreach ($mp as $p) {
-                                ?>
-                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?PHP
-                                }
-                                ?>
+                                require_once  '../../Dao/publicacaoDao.php';
 
-                            </div>
-
-
-
-                            <div id="eventos-web" class="col-4 eventos">
+                                if (isset($_SESSION['idA'])){
+                                    $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                    foreach ($mp as $p) :
+                                    ?>
+                                        <img src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>" alt="">
+                                <?php endforeach; 
+                                } ?>
 
 
-                                <?php require_once '../../Dao/EventoDao.php';
-
-                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
-                                foreach ($eventos as $evento) : ?>
-                                    <div class="img-evento">
-                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                                </div>
 
 
 
+                                <div id="eventos-web" class="col-4 eventos">
 
 
+
+                                <div class="img-evento">
+
+                                    <?php 
+                                    require_once '../../Dao/EventoDao.php';
+
+                                    if (isset($_SESSION['idA'])) {
+                                        $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
+                                        foreach ($eventos as $evento) : ?>
+
+                                    <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
 
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
 
+                                    <?php endforeach; 
+                                    }?>
 
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-
-                            <div id="publicacoes-mobile" class="col-8 publicacoes">
-
-                                <?php
-                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
-                                foreach ($mp as $p) {
-                                ?>
-                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?PHP
-                                }
-                                ?>
-
-                            </div>
-
-
-
-                            <div id="eventos-mobile" style="display: none;" class="col-4 eventos">
-
-
-                                <?php require_once '../../Dao/EventoDao.php';
-
-                                $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
-                                foreach ($eventos as $evento) : ?>
-                                    <div class="img-evento">
-                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
-
-
-
-
-
-
-                                        <h1>
-                                            <?PHP echo $evento['tituloEvento']; ?>
-                                        </h1>
-
-
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
+                                </div>
 
 
 

@@ -234,18 +234,17 @@ require_once 'GlobalPerfil.php';
 
                             <div id="publicacoes-web" class="col-8 publicacoes">
 
-                                <img src="assets/img/Pubs/1.jpg" alt="">
 
                                 <?php
                                 require_once  '../../Dao/publicacaoDao.php';
 
-                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
-                                foreach ($mp as $p) {
-                                ?>
-                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?PHP
-                                }
-                                ?>
+                                if (isset($_SESSION['idA'])){
+                                    $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                    foreach ($mp as $p) :
+                                    ?>
+                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?php endforeach; 
+                                } ?>
 
 
                             </div>
@@ -257,17 +256,22 @@ require_once 'GlobalPerfil.php';
 
 
                                 <div class="img-evento">
-                                    <img src="Evento/assets/img/1.jpg" alt="">
 
+                                    <?php 
+                                    require_once '../../Dao/EventoDao.php';
 
+                                    if (isset($_SESSION['idA'])) {
+                                        $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
+                                        foreach ($eventos as $evento) : ?>
 
+                                    <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
 
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
 
-
-                                    <h1>
-                                        tituloEvento
-                                    </h1>
-
+                                    <?php endforeach; 
+                                    }?>
 
                                 </div>
 
