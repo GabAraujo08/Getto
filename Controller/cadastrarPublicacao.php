@@ -23,7 +23,7 @@
     $arquivo = $_FILES['arquivo']['tmp_name'];
 
     $extensao = substr($nome, -4);
-    $nomenovo = $midia->getIdMidia().$extensao;
+    $nomenovo = uniqid().$extensao;
 
     move_uploaded_file($arquivo, "../Perfil/PerfilArtista/assets/img/Pubs/".$nomenovo);
     $midia->setArquivoMidia($nomenovo);
