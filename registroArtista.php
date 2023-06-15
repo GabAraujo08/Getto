@@ -193,7 +193,7 @@
                                         <label class="picture" for="picture__input" tabIndex="0">
                                             <span class="picture__image"></span>
                                         </label>
-                                        <input type="file" name="imagemEvento" id="picture__input">
+                                        <input type="file" name="fotoPerfil" id="picture__input">
                                     </div>
                                 </div>
 
