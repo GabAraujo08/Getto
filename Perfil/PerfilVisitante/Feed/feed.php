@@ -25,7 +25,7 @@ require_once '../../../Dao/ComentarioDao.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img style="display: none;" src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
@@ -117,9 +117,6 @@ require_once '../../../Dao/ComentarioDao.php';
             <div class="container-fluid">
                 <div class="header-feed">
                     <div class="div-logos">
-                        <div class="logo-marca">
-                            <img src="assets/img/logomarca.png" alt="">
-                        </div>
                         <div class="logo-tipo">
                             <h1>Getto</h1>
                         </div>
@@ -690,11 +687,7 @@ require_once '../../../Dao/ComentarioDao.php';
             </div>
         </div>
     </div>
-    <div class="div-logo-marca">
-        <div class="logo-marca">
-            <img src="assets/img/logomarca.png" alt="">
-        </div>
-    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 

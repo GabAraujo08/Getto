@@ -27,6 +27,7 @@ require_once 'GlobalPerfil.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
+                    <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <!-- <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca"> -->
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
@@ -77,7 +78,6 @@ require_once 'GlobalPerfil.php';
             <div class="container-fluid">
                 <div class="div-logo-marca">
                     <div class="logo-marca">
-                        <img src="assets/img/logomarca.png" alt="">
                     </div>
                 </div>
                 <div class="area-perfil">
