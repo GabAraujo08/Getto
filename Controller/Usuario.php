@@ -1,6 +1,6 @@
 <?PHP
     require_once 'GlobalController.php';
-    header('Location: ../Login/login.php');
+ 
 
     $a = $_POST['senhaVisitante'];
     $b = $_POST['confirmarSenhaVisitante'];
@@ -53,4 +53,5 @@
     
         }
 
-?>
+        header('Location: ../Login/login.php?registro_concluido=true');
+exit();

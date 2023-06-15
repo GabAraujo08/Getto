@@ -103,6 +103,45 @@ if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
   </div>
 
 
+
+
+  <div class="modal fade" id="envio-concluido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="../assets/img/aceito.svg" alt=""></h1>
+
+                </div>
+                <div class="modal-body">
+                    <div class="textos">
+                        <h1>Obrigado por concluir seu cadastro!</h1>
+                        <p>Sua conta está sendo analisada, fique de olho no seu email.</p>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../jquery.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Verificar se o parâmetro 'registro_concluido' está presente na URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const registroConcluido = urlParams.get('registro_concluido');
+
+      // Se o parâmetro estiver presente, abrir o modal
+      if (registroConcluido === 'true') {
+        $('#envio-concluido').modal('show');
+      }
+    });
+  </script>
+
+
   <script>
     function toggleSenhaVisibility() {
       var senhaInput = document.getElementById('floatingPassword');
@@ -117,6 +156,9 @@ if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
       }
     }
   </script>
+
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
   </script>

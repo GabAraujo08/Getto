@@ -370,6 +370,86 @@ form .captions a{
 
 
 
+#envio-concluido .modal-content {
+  border-radius: 20px;
+}
+
+#envio-concluido .modal-header, .modal-footer {
+  border: 0!important;
+}
+
+
+#envio-concluido .modal-header {
+  position: relative;
+}
+
+#envio-concluido .modal-title{
+  position: absolute;
+    top: -40px;
+    right: 42%;
+}
+
+#envio-concluido .modal-title img{
+ width: 100%;
+}
+
+#envio-conluido .modal-body {
+  display: flex;
+    justify-content: center;
+}
+
+#envio-concluido .modal-body .textos{
+  width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#envio-concluido .modal-body .textos h1{
+  position: unset;
+  font-size: 20px;
+  font-family: 'InterBold';
+  text-align: center;
+}
+
+#envio-concluido .modal-body .textos p{
+  width: 70%;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-align: center;
+    font-family: 'InterRegular';
+}
+
+#envio-concluido .modal-footer{
+  justify-content: center;
+
+}
+
+
+#envio-concluido .modal-footer button{
+  width: 90px;
+    background-color: #4BAE4F;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-family: 'InterBold';
+}
+
+
+#envio-concluido .modal-footer button:hover{
+
+    background-color: #328a35;
+    
+}
+
+
+
+
+
 
 @media (max-width: 996px){
     .background {
