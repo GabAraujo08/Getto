@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-if (isset($_POST['botao'])) {
+if (isset($_POST['btnAprovar'])) {
     $usuario_id = $_POST['usuario_id'];
     $usuario_indice = $_POST['usuario_indice'];
     $usuario_email = $_POST['usuario_email'];
@@ -83,3 +83,36 @@ if (isset($_POST['botao'])) {
         echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
     }
 }
+
+if (isset($_POST['btnRecusar'])) {
+    $usuario_id = $_POST['usuario_id'];
+
+    $conexao = Conexao::conectar();
+
+    // Excluir registros relacionados na tabela tbartista
+    $deleteArtista = $conexao->prepare("DELETE FROM tbartista WHERE idUsuario = ?");
+    $deleteArtista->bindValue(1, $usuario_id);
+    $deleteArtista->execute();
+
+    // Excluir o usuário na tabela tbUsuario
+    $deleteUsuario = $conexao->prepare("DELETE FROM tbUsuario WHERE idUsuario = ?");
+    $deleteUsuario->bindValue(1, $usuario_id);
+    $deleteUsuario->execute();
+
+    
+
+    if ($deleteUsuario->rowCount() > 0) {
+        header('Location: ../Administrador/dashboard.php');
+        
+        echo '<script>alert("Usuário excluído com sucesso.");</script>';
+        exit; // Encerrar o script após o redirecionamento
+    } else {
+        header('Location: ../Administrador/dashboard.php');
+        
+        echo '<script>alert("Falha ao excluir o usuário.");</script>';
+        exit; // Encerrar o script após o redirecionamento
+    }
+}
+
+
+

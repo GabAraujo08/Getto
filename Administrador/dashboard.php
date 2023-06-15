@@ -196,18 +196,21 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <form name="btnaprova" id="btnaprova" action="../Controller/AprovaArtista.php" method="Post">
-
+                                            <form name="btnaprova" id="btnaprova" action="../Controller/AprovaArtista.php" method="post">
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
                                                 <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
-
-
-                                                <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="botao" class="btn btn-secondary">Aprovar</button>
+                                                <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnAprovar" class="btn btn-secondary">Aprovar</button>
                                             </form>
-                                            <button type="submit" data-bs-dismiss="modal" class="btn btn-primary">Recusar</button>
 
+                                            <form method="post" action="../Controller/AprovaArtista.php">
+                                            <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                            <p><?php echo $usuario['emailUsuario']; ?></p>
+                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
+                                                <button type="submit" name="btnRecusar" data-bs-dismiss="modal" class="btn btn-primary">Recusar</button>
+                                            </form>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +220,7 @@
                                 </div>
                                 <div class="text">
                                     <p>Você aprovou <?PHP echo $usuario['nomeUsuario']; ?>.
-                                        </p>
+                                    </p>
                                 </div>
                             </div>
 
