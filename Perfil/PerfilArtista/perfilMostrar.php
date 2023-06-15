@@ -61,9 +61,6 @@ require_once 'GlobalPerfil.php';
         </div>
 
 
-
-
-
         <div class="box-container">
             <div class="container-fluid">
                 <!-- <div class="div-logo-marca">

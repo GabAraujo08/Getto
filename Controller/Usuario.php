@@ -29,7 +29,7 @@
             $tamanho = $_FILES['fotoPerfil']['size'];
             $arquivo = $_FILES['fotoPerfil']['tmp_name'];
     
-            $extensao = substr($nome, -4);
+            $extensao = pathinfo($nome, PATHINFO_EXTENSION);
             $nomenovo = uniqid().$extensao; 
     
             move_uploaded_file($arquivo, "../Perfil/PerfilArtista/assets/img/FotoPerfil/".$nomenovo);
