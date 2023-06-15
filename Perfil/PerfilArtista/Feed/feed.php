@@ -125,7 +125,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                 <?php
                 $sugestoes = ArtistaDao::buscaArtistasAtivos();
 
-                if ($_SESSION['nivel'] == 2) {
+                if ($_SESSION['nivelContaUsuario'] == 2) {
                 ?>
 
                     <div class="area-sugestao">
@@ -674,10 +674,10 @@ require_once '../../../Dao/SeguidoresDao.php';
 
                                         <div class="box-img-publicacao">
                                             <?php
-                                                if($ps['idTipoMidia'] == 3){
+                                                if($p['idTipoMidia'] == 3){
                                             ?>
                                                 <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">                                            <?PHP
-                                                }else if($ps['idTipoMidia'] == 2){
+                                                }else if($p['idTipoMidia'] == 2){
                                             ?>
                                                     <video id="player-video" controls>
                                                     <source src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>"></video>
