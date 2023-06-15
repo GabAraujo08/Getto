@@ -390,17 +390,17 @@ require_once '../../../Dao/SeguidoresDao.php';
                                         <?php
                                                 if($ps['idTipoMidia'] == 3){
                                             ?>
-                                                <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">                                            <?PHP
+                                                <img src="../assets/img/Pubs/<?PHP echo $pss['arquivoMidia']; ?>" alt="" class="img-publicacao">                                            <?PHP
                                                 }else if($ps['idTipoMidia'] == 2){
                                             ?>
                                                     <video id="player-video" controls>
-                                                    <source src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>"></video>
+                                                    <source src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>"></video>
                                             <?PHP
                                                 }else{
                                             ?>
 
                                                     <audio id="player-audio" controls>
-                                                    <source src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                                    <source src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>">
                                                     </audio>
                                             <?PHP
                                                 }
