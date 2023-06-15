@@ -21,6 +21,7 @@ $evento->setEstadoEvento($_POST['estadoEvento']);
 $evento->setImagemEvento(' 0.png ');
 $evento->setIdArtista($_SESSION['idArtista']);
 $evento->setIdTipoArte($_POST['tipoArte']);
+$evento->setLinkIng($_POST['ingressoEvento']);
 
 EventoDao::cadastrar($evento);
 
@@ -32,7 +33,7 @@ $tamanho = $_FILES['imagemEvento']['size'];
 $imagemEvento = $_FILES['imagemEvento']['tmp_name'];
 
 $extensao = substr($nome, -4);
-$nomenovo = $evento->getIdEvento().$extensao;
+$nomenovo = uniqid().$extensao; 
 
 move_uploaded_file($imagemEvento, "../Perfil/PerfilArtista/Evento/assets/img/".$nomenovo);
 $evento->setImagemEvento($nomenovo);

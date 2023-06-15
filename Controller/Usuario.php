@@ -30,7 +30,7 @@
             $arquivo = $_FILES['fotoPerfil']['tmp_name'];
     
             $extensao = substr($nome, -4);
-            $nomenovo = $usuario->getIdUsuario().$extensao;
+            $nomenovo = uniqid().$extensao; 
     
             move_uploaded_file($arquivo, "../Perfil/PerfilArtista/assets/img/FotoPerfil/".$nomenovo);
             $usuario->setFotoPerfilUsuario($nomenovo);

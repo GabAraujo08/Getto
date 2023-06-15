@@ -224,6 +224,10 @@ color: #656565;">
                                                 <p><?php echo $evento['descEvento']; ?></p>
                                             </div>
 
+                                            <div class="link-ingresso">
+                                                    <p>link do ingresso: <?php echo $evento['linkIng']; ?></p>
+                                                </div>
+
                                             <div class="horario">
                                                 <div class="horario-inicio">
                                                     <p>Horario de ini­cio: <?php echo $evento['horarioInicioEvento']; ?></p>

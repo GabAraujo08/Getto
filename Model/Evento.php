@@ -18,6 +18,7 @@ class Evento
     private $estadoEvento;
     private $idArtista;
     private $idTipoArte;
+    private $linkIng;
 
 
     public function getIdEvento(){
@@ -190,5 +191,14 @@ class Evento
     public function setIdTipoArte($idTipoArte)
     {
         $this->idTipoArte = $idTipoArte;
+    }
+
+
+
+    public function getLinkIng(){
+        return $this->linkIng;
+    }
+    public function setLinkIng($link){
+        $this->linkIng = $link;
     }
 }
