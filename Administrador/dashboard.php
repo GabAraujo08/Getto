@@ -186,7 +186,7 @@
                                                 <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
                                             </div>
                                             <div class="modal-body-info">
-                                            <div class="modal-body-link">
+                                                <div class="modal-body-link">
                                                     <div class="link-titulo">
                                                         <p>Nickname</p>
                                                     </div>
@@ -194,7 +194,7 @@
                                                         <p><?php echo $usuario['nicknameUsuario']; ?></p>
                                                     </div>
                                                 </div>
-                                            
+
                                                 <div class="modal-body-link">
                                                     <div class="link-titulo">
                                                         <p>Nome:</p>
@@ -232,12 +232,17 @@
                                                 <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnAprovar" class="btn btn-secondary">Aprovar</button>
                                             </form>
 
-                                            <form method="post" action="../Controller/AprovaArtista.php">
+
+
+                                            <button id="btnRecusar" type="button" name="btnRecusar" class="btn btn-primary">Recusar</button>
+
+                                            <form id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <button type="submit" name="btnRecusar" data-bs-dismiss="modal" class="btn btn-primary">Recusar</button>
+                                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                                <button type="submit" class="btn btn-primary">Enviar</button>
                                             </form>
+
                                         </div>
 
                                     </div>
@@ -274,7 +279,17 @@
 
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnRecusar = document.getElementById('btnRecusar');
+            const formRecusar = document.getElementById('formRecusar');
 
+            btnRecusar.addEventListener('click', function() {
+                formRecusar.style.display = 'block';
+                alert('Formulário de recusa exibido!');
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
@@ -282,6 +297,10 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
+
+
+   
+
 
     <script>
         /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
