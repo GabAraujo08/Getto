@@ -71,7 +71,7 @@
             <div class="add-tags">
                 <form name="FormcadTag" id="FormcadTag" enctype="multipart/form-data" action="../Controller/CadastraTag.php" method="Post">
 
-                    <div class="input-group" style="margin-bottom: 10px;">
+                    <di v class="input-group" style="margin-bottom: 10px;">
                         <span class="input-group-text" id="inputGroup-sizing-lg">Insira o icone da tag</span>
                         <div class="preview-img">
                             <label class="picture" for="picture__input" tabIndex="0">
