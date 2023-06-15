@@ -6,13 +6,13 @@ require_once '../../../Dao/CurtidaDao.php';
 require_once '../../../Dao/ComentarioDao.php';
 require_once '../../../Dao/ArtistaDao.php';
 
-if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsuario']) {
+/*if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsuario']) {
     $dataExpiracao = strtotime('22-06-2023');
     setcookie('primeiroLogin', 'true', $dataExpiracao, '/');
     setcookie('idU', $_SESSION['idUsuario'], $dataExpiracao, '/');
     header('Location: ../escolhaTags.php');
     exit;
-}
+}*/
 
 ?>
 <!DOCTYPE html>
