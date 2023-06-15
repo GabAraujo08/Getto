@@ -1264,7 +1264,6 @@ require_once 'GlobalPerfil.php';
     <script src="assets/js/perfil.js"></script>
     <script src="assets/js/jquery-3.6.4.min.js"></script>
     <script src="assets/js/exibicaoPerfil.js"></script>
-    <script src="assets/js/preview.js"></script>
 
 
 </body>
