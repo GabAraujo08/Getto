@@ -124,6 +124,7 @@
         
             return $resultado;
         }
+
         public static function TipoArteComMaisPublicacoes(){
             $conexao = Conexao::conectar();
             $consulta = $conexao->prepare('SELECT DISTINCT tbPublicacao.idPublicacao, tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, tbTipoArte.idTipoArte, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao 
@@ -144,5 +145,20 @@
             $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
             
             return $resultado;
-        }              
+        }
+        public static function buscaTopCategorias(){
+            $conexao = Conexao::conectar();
+ 
+            $consulta = $conexao->prepare('
+            select ta.nomeTipoArte as nomeTipoArte, count(p.idTipoArte) as contagemCaregorias from tbpublicacao p
+            join tbtipoarte ta on p.idTipoArte = ta.idTipoArte
+            group by ta.nomeTipoArte
+            order by count(p.idTipoArte) desc
+            ');
+
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $resultado;
+        }
 } 

@@ -420,7 +420,7 @@
                 <div class="publicacoes-quantidade">
                     <p><?php
                         $quantPubli = PublicacaoDao::QuantPublis($_SESSION['idArtista']);
-                        echo $quantPubli[0]['quantPubli'];                        
+                        echo $quantPubli[0]['quantPubli'];
                     ?></p>
                 </div>
             </div>
