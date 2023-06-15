@@ -154,7 +154,7 @@ require_once '../../../Dao/Conexao.php';
 
             </div>
             <div class="container-fluid">
-                <div class="main-publicacao">
+                <div class="in-publicacaoma">
                     <div class="publicacao">
                         <img src="../assets/img/seuJorge.jpeg" alt="">
                     </div>
