@@ -188,16 +188,16 @@
                                             <div class="modal-body-info">
                                             <div class="modal-body-link">
                                                     <div class="link-titulo">
-                                                        <p>ID:</p>
+                                                        <p>Nickname</p>
                                                     </div>
                                                     <div class="link">
-                                                        <p><?php echo $usuario['idUsuario']; ?></p>
+                                                        <p><?php echo $usuario['nicknameUsuario']; ?></p>
                                                     </div>
                                                 </div>
                                             
                                                 <div class="modal-body-link">
                                                     <div class="link-titulo">
-                                                        <p>nome:</p>
+                                                        <p>Nome:</p>
                                                     </div>
                                                     <div class="link">
                                                         <p><?PHP echo $usuario['nomeUsuario']; ?></p>
