@@ -3,6 +3,7 @@ require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/Conexao.php';
 error_reporting(0);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,9 +127,6 @@ error_reporting(0);
                     <button class="btn-descobrir" type="submit"><img src="assets/img/search.png"></i></button>
 
                 </form>
-
-
-
 
                 <?php
                 if ($_SESSION['go'] == true && isset($_SESSION['quantLinhas'])) {
