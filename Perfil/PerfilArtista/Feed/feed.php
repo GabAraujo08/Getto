@@ -5,6 +5,7 @@ require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
 require_once '../../../Dao/ComentarioDao.php';
 require_once '../../../Dao/ArtistaDao.php';
+require_once '../../../Dao/SeguidoresDao.php';
 
 /*if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsuario']) {
     $dataExpiracao = strtotime('22-06-2023');
