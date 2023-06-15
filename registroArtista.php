@@ -15,6 +15,53 @@
 <body>
 
     <style>
+        .preview-img {
+            margin-top: 0.5%;
+            width: 100%;
+        }
+
+        #picture__input {
+            display: none !important;
+        }
+
+        .picture {
+            min-width: 288px !important;
+            width: 24% !important;
+            aspect-ratio: 16/9 !important;
+            background: #ddd !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #aaa !important;
+            border: 2px dashed currentcolor !important;
+            font-family: sans-serif !important;
+            transition: color 300ms ease-in-out, background 300ms ease-in-out !important;
+            outline: none !important;
+            overflow: hidden !important;
+            border-radius: 20px !important;
+        }
+
+        .picture:hover {
+            color: #664187 !important;
+            background: #ccc !important;
+        }
+
+        .picture:active {
+            border-color: #664187 !important;
+            color: #664187 !important;
+            background: #eee !important;
+        }
+
+        .picture:focus {
+            color: #777 !important;
+            background: #ccc !important;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .picture__img {
+            max-width: 100% !important;
+        }
+
         .btn-artista {
             color: white !important;
             background-color: #664187 !important;
@@ -131,22 +178,23 @@
                   flex-direction: column;">
                                     <span class="span-input">Gênero</span>
                                     <select id="genero" name="generoArtista" class="select-estado">
-                                        <option value="AC">Selecionar</option>
-                                        <option value="AC">Masculino</option>
-                                        <option value="AL">Feminino</option>
-                                        <option value="AP">Prefiro não informar</option>
+                                        <option value="#">Selecionar</option>
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Feminino">Feminino</option>
+                                        <option value="Prefiro não informar">Prefiro não informar</option>
 
                                     </select>
                                 </div>
 
                             </div>
                             <div class="tab">
-                                <div class="form-floating mb-3 " style="display: flex;
-                                        flex-direction: column;">
-                                    <span class="span-input">Envie uma foto sua!</span>
-                                    <input class="input-img" name="fotoPerfil" type="file" accept="image/*" id="input-file">
-                                    <br>
-                                    <img id="preview-image" alt="Preview da imagem" style="display:none;">
+                                <div class="form-floating mb-3 " style="display: flex; flex-direction: column;">
+                                    <div class="preview-img">
+                                        <label class="picture" for="picture__input" tabIndex="0">
+                                            <span class="picture__image"></span>
+                                        </label>
+                                        <input type="file" name="imagemEvento" id="picture__input">
+                                    </div>
                                 </div>
 
                                 <div class="form-floating mb-3 " style="display: flex;
@@ -363,6 +411,37 @@
         }
     </script>
 
+
+    <script>
+        const inputFiles = document.querySelector("#picture__input");
+        const pictureImage = document.querySelector(".picture__image");
+        const pictureImageTxt = "Envie uma foto!";
+        pictureImage.innerHTML = pictureImageTxt;
+
+        inputFiles.addEventListener("change", function(e) {
+            const inputTarget = e.target;
+            const file = inputTarget.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener("load", function(e) {
+                    const readerTarget = e.target;
+
+                    const img = document.createElement("img");
+                    img.src = readerTarget.result;
+                    img.classList.add("picture__img");
+
+                    pictureImage.innerHTML = "";
+                    pictureImage.appendChild(img);
+                });
+
+                reader.readAsDataURL(file);
+            } else {
+                pictureImage.innerHTML = pictureImageTxt;
+            }
+        });
+    </script>
     <script type="text/javascript" src="./teste2.js"></script>
     <script type="text/javascript" src="./assets/js/registro.js"></script>
 </body>

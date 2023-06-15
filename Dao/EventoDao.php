@@ -8,8 +8,8 @@ class EventoDao
     {
         $conexao = Conexao::conectar();
 
-        $queryInsert = "INSERT INTO tbEvento(horarioInicioEvento, horarioFinalEvento, dataEvento, descEvento, tituloEvento, statusEvento, logradouroEvento, imagemEvento, numLogEvento, cepEvento, bairroEvento, cidadeEvento, estadoEvento, idArtista, idTipoArte)
-                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $queryInsert = "INSERT INTO tbEvento(horarioInicioEvento, horarioFinalEvento, dataEvento, descEvento, tituloEvento, statusEvento, logradouroEvento, imagemEvento, numLogEvento, cepEvento, bairroEvento, cidadeEvento, estadoEvento, idArtista, idTipoArte, linkIng)
+                            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         $prepareStatement = $conexao->prepare($queryInsert);
 
@@ -28,6 +28,7 @@ class EventoDao
         $prepareStatement->bindValue(13, $evento->getEstadoEvento());
         $prepareStatement->bindValue(14, $evento->getIdArtista());
         $prepareStatement->bindValue(15, $evento->getIdTipoArte());
+        $prepareStatement->bindValue(16, $evento->getLinkIng());
         $prepareStatement->execute();
         return 'Cadastrou';
     }
@@ -48,7 +49,7 @@ class EventoDao
     public static function ListaEvento(){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare('SELECT  tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbEvento.idEvento, tbEvento.dataEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento,  tbEvento.descEvento, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento.bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento
+        $consulta = $conexao->prepare('SELECT  tbUsuario.nicknameUsuario, tbUsuario.fotoPerfilUsuario, tbEvento.idEvento, tbEvento.dataEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.dataEvento,  tbEvento.descEvento, tbEvento.linkIng, tbEvento.tituloEvento, tbEvento.logradouroEvento, tbEvento.imagemEvento, tbEvento.numLogEvento, tbEvento.cepEvento, tbEvento.bairroEvento, tbEvento.cidadeEvento, tbEvento.estadoEvento FROM tbEvento
                                             INNER JOIN tbArtista ON tbArtista.idArtista = tbEvento.idArtista
                                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                                  ORDER BY tbEvento.dataEvento DESC');

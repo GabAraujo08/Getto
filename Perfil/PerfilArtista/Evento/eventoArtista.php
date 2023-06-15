@@ -174,7 +174,7 @@ color: #656565;">
                 <?php
                 require_once '../../../Dao/EventoDao.php';
 
-                $eventos = EventoDao::ListaEvento($_SESSION['idUsuario']);
+                $eventos = EventoDao::ListaEvento();
                 foreach ($eventos as $index => $evento) { ?>
 
 
@@ -209,7 +209,7 @@ color: #656565;">
                                 <div class="accordion-body rounded-4">
                                     <div class="baixo">
                                         <div class="img-evento">
-                                            <img src="assets/img/<?php echo $evento['imagemEvento'] ?> ">
+                                            <img src="assets/img/<?php echo $evento['imagemEvento']; ?>">
                                         </div>
                                         <div class="conteudo-evento">
                                             <div class="criador-evento">
@@ -223,6 +223,10 @@ color: #656565;">
                                             <div class="descricao-evento">
                                                 <p><?php echo $evento['descEvento']; ?></p>
                                             </div>
+
+                                            <div class="link-ingresso">
+                                                    <p>link do ingresso: <?php echo $evento['linkIng']; ?></p>
+                                                </div>
 
                                             <div class="horario">
                                                 <div class="horario-inicio">

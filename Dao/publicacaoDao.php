@@ -159,7 +159,7 @@ class PublicacaoDao
         $conexao = Conexao::conectar();
 
         $consulta = $conexao->prepare('
-            select ta.nomeTipoArte as nomeTipoArte, count(p.idTipoArte) as contagemCaregorias from tbpublicacao p
+            select ta.nomeTipoArte as nomeTipoArte, count(p.idTipoArte) as contagemCategorias from tbpublicacao p
             join tbtipoarte ta on p.idTipoArte = ta.idTipoArte
             group by ta.nomeTipoArte
             order by count(p.idTipoArte) desc
