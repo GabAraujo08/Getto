@@ -175,7 +175,7 @@
                             </div>
 
                             <div class="modal fade" id="modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered justify-content-center modal-lg">
+                                <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $usuario['nomeUsuario']; ?></h1>
@@ -185,13 +185,42 @@
                                             <div class="modal-body-img">
                                                 <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
                                             </div>
+                                            <div class="modal-body-info">
                                             <div class="modal-body-link">
-                                                <div class="link-titulo">
-                                                    <p>Link repositório:</p>
+                                                    <div class="link-titulo">
+                                                        <p>ID:</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <p><?php echo $usuario['idUsuario']; ?></p>
+                                                    </div>
                                                 </div>
-                                                <div class="link">
-                                                    <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio']; ?></a>
+                                            
+                                                <div class="modal-body-link">
+                                                    <div class="link-titulo">
+                                                        <p>nome:</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <p><?PHP echo $usuario['nomeUsuario']; ?></p>
+                                                    </div>
                                                 </div>
+                                                <div class="modal-body-link">
+                                                    <div class="link-titulo">
+                                                        <p>Link repositório:</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio']; ?></a>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body-link">
+                                                    <div class="link-titulo">
+                                                        <p>Email:</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <p><?php echo $usuario['emailUsuario']; ?></p>
+                                                    </div>
+
+                                                </div>
+
 
                                             </div>
                                         </div>
@@ -204,8 +233,8 @@
                                             </form>
 
                                             <form method="post" action="../Controller/AprovaArtista.php">
-                                            <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                            <p><?php echo $usuario['emailUsuario']; ?></p>
+                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                                
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
                                                 <button type="submit" name="btnRecusar" data-bs-dismiss="modal" class="btn btn-primary">Recusar</button>
                                             </form>
