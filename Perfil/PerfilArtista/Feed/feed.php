@@ -14,7 +14,6 @@ if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsua
     exit;
 }
 
-print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
