@@ -122,7 +122,7 @@ require_once 'GlobalPerfil.php';
                                     $resultado = $consulta->fetch();
                                     if ($resultado == false) {
                                 ?>
-                                        <form id="formSegui" name="formSegui" action="../../Controller/Seguir.php" method="POST">
+                                        <form id="formSegui" name="formSegui" action="../../Controller/SeguirVisitante.php" method="POST">
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
@@ -149,7 +149,7 @@ require_once 'GlobalPerfil.php';
                                     } else {
                                     ?>
 
-                                        <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
+                                        <form id="formSegui" name="formSegui" action="../../Controller/DeseguirVisitante.php" method="POST">
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">

@@ -9,9 +9,9 @@
 
     PresencaDao::cadastrar($presenca);
     if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');
+        header('Location: ../Perfil/PerfilVisitante/Evento/eventoVisitante.php');
     }else{
-        header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');  
+        header('Location: ../Perfil/PerfilVisitante/Evento/eventoVisitante.php');  
     }
     
     
