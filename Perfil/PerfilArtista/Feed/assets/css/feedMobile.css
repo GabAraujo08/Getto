@@ -30,15 +30,12 @@
 
 .div-logo-marca {
   width: 99vw;
-
   justify-content: space-around;
   align-items: center;
   position: absolute;
   top: 0;
-
   z-index: 100;
   width: 120px;
-  top: 10px;
   right: 10px;
   display: flex;
   flex-direction: row-reverse;
@@ -1122,6 +1119,7 @@ textarea {
 
 #modalSairConta .modal-body {
   font-family: "InterBold";
+  min-height: unset!important;
 }
 
 #modalSairConta .modal-header {
@@ -1459,8 +1457,9 @@ textarea {
 }
 
 .area-info .area-sugestao .sugestao-perfil .img-perfil-sugestao img {
-  width: 100%;
-  cursor: pointer;
+  object-fit: cover;
+  height: 65px;
+  width: 65px;
 }
 
 .titulo-box-tags > h2 {

@@ -225,7 +225,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <form class="formAprovar" name="btnaprova" id="btnaprova" action="../Controller/AprovaArtista.php" method="post">
+                                            <form class="formAprovar" name="btnaprova" id="btnAprovar" action="../Controller/AprovaArtista.php" method="post">
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
                                                 <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
