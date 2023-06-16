@@ -11,7 +11,7 @@
     if(isset($_SESSION['idArtista'])){
         header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');
     }else{
-        header('Location: ../Perfil/PerfilVisitante/Evento/eventoArtista.php');  
+        header('Location: ../Perfil/PerfilVisitante/Evento/eventoVisitante.php');  
     }
     
     
