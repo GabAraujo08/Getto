@@ -41,7 +41,7 @@ require_once '../../../Dao/PresencaDao.php';
                             <a href="../Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Iní­cio</button></li>
                             </a>
-                            <a href="../../PerfilArtista/Evento/eventoArtista.php">
+                            <a href="#">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
                             <a href="">
@@ -53,7 +53,7 @@ require_once '../../../Dao/PresencaDao.php';
                             <a href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
-                            <a href="../perfil.php">
+                            <a href="../perfil-visitante.php">
                                 <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                             </a>
                         </ul>
