@@ -8,6 +8,14 @@ a {
   src: url('../fonts/Inter-Regular.ttf');
 }
 
+
+
+.main{
+  display: flex;
+    overflow-y: auto;
+    max-height: 100vh;
+}
+
 .resumoDiv {
   display: flex;
 }
@@ -243,13 +251,12 @@ display: flex;
   margin-top: 70px;
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
-  overflow-y: auto;
+
 }
 
 
 
-.box-eventos::-webkit-scrollbar {
+.main::-webkit-scrollbar {
   width: 9px;
   /* width of the entire scrollbar */
 }
@@ -260,12 +267,12 @@ display: flex;
     max-height: 350px
 }
 
-.box-eventos::-webkit-scrollbar-track {
+.main::-webkit-scrollbar-track {
   background: #ECEBF3;
   /* color of the tracking area */
 }
 
-.box-eventos::-webkit-scrollbar-thumb {
+.main::-webkit-scrollbar-thumb {
   background-color: #664187;
   /* color of the scroll thumb */
   border-radius: 20px;
@@ -283,6 +290,7 @@ display: flex;
   margin-right: 20px;
 } */
 .accordion{
+  padding: 20px;
   width: 90%!important;
 }
 
