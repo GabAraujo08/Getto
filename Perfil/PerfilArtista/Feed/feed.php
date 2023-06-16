@@ -44,7 +44,16 @@ require_once '../../../Dao/SeguidoresDao.php';
     <div style="overflow-x: hidden;" class="d-flex">
 
         <div class="box-area-info">
+
             <div class="area-info">
+                <div class="div-logo-marca">
+
+                    <div class="icone-perfil">
+                        <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                    </div>
+
+                </div>
+
 
                 <div class="box-tags">
 
@@ -63,7 +72,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                 </div>
                                 <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">
                                     <?php
-                                    echo $topCat[0]['nomeTipoArte'];
+                                    echo $topCat[0]['nomeTipoArte'] ?? 'Desenvolvimento';
                                     ?></button>
                             </div>
                             <div class="tag">
@@ -72,7 +81,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                 </div>
                                 <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">
                                     <?php
-                                    echo $topCat[1]['nomeTipoArte'];
+                                    echo $topCat[1]['nomeTipoArte'] ?? 'Desenvolvimento';
                                     ?>
                                 </button>
                             </div>
@@ -82,7 +91,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                 </div>
                                 <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">
                                     <?php
-                                    echo $topCat[2]['nomeTipoArte'];
+                                    echo $topCat[2]['nomeTipoArte'] ?? 'Desenvolvimento';
                                     ?>
                                 </button>
                             </div>
@@ -124,7 +133,6 @@ require_once '../../../Dao/SeguidoresDao.php';
 
                 <?php
                 $sugestoes = ArtistaDao::buscaArtistasAtivos();
-
                 if ($_SESSION['nivelContaUsuario'] == 2) {
                 ?>
 
@@ -219,7 +227,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                         <form action="../../../Controller/Deseguir.php" method="post">
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $sugestoes[1]['idArtista']; ?>">
-                                            <button>Deseguir</button>
+                                            <button>Deixar de seguir</button>
                                         </form>
                                     <?php
                                     }
@@ -361,7 +369,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                     $texto_compartilhamento = $ps['descPublicacao'];
                             ?>
                                     <div class="publicacao">
-                                        
+
                                         <div class="header-publicacao">
                                             <div class="informacoes-perfil-publicacao">
                                                 <div class="img-perfil-publicacao">
@@ -1003,13 +1011,6 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
 
 
 
-    <div class="div-logo-marca">
-
-        <div class="icone-perfil">
-            <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
-        </div>
-
-    </div>
 
 
 
