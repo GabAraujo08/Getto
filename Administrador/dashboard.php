@@ -232,16 +232,20 @@
                                                 <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnAprovar" class="btn btn-secondary">Aprovar</button>
                                             </form>
 
-
-
-                                            <button id="btnRecusar" type="button" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
-
-                                            <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
+                                            <form class="formRecusar" id="formRecusar" method="post" action="../Controller/AprovaArtista.php">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <textarea name="" id="" cols="30" rows="10"></textarea>
-                                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                                <button id="btnRecusar" type="submit" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
+
                                             </form>
+
+                                            <!-- <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
+                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
+                                                <textarea name="motivoRecusa" id="" cols="30" rows="10"></textarea>
+                                                <button id="btnRecusar" type="submit" class="btn btn-primary">Enviar</button>
+                                            </form> -->
+
 
                                         </div>
 
