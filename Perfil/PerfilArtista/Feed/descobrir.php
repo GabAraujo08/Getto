@@ -153,46 +153,64 @@ error_reporting(0);
             </div>
             <div class="container-fluid">
                 <div class="main-publicacao">
-                <?php
-                    $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
-                     foreach($pubArtEng as $pae){   
-                ?>
-                    <div class="publicacao">
-                        <img src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
-                    </div>
                     <?php
-                     }
+                    $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
+                    foreach ($pubArtEng as $pae) {
                     ?>
+                        <div class="publicacao">
+                            <?php
+                            if ($pae['idTipoMidia'] == 3) {
+                            ?>
+                                <img src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="" class="img-publicacao"> <?PHP
+                                } else if ($pae['idTipoMidia'] == 2) {
+                                                                                                                                ?>
+                                <video id="player-video" controls>
+                                    <source src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>">
+                                </video>
+                            <?PHP
+                            } else {
+                            ?>
+
+                                <audio id="player-audio" controls>
+                                    <source src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>">
+                                </audio>
+                            <?PHP
+                            }
+                            ?>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
             </div>
+
         </div>
 
-    </div>
 
+        <nav class="mobile-nav">
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-home.svg" alt="">
+            </a>
+            <a href="../Feed/descobrir.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
+            </a>
+            <a href="../../PerfilArtista/Evento/eventoArtista.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
+            </a>
+            <a href="../perfil.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
+            </a>
+            <a href="../Configuracoes/configuracoes.php" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
+            </a>
 
-    <nav class="mobile-nav">
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-home.svg" alt="">
-        </a>
-        <a href="../Feed/descobrir.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
-        </a>
-        <a href="../../PerfilArtista/Evento/eventoArtista.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
-        </a>
-        <a href="../perfil.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
-        </a>
-        <a href="../Configuracoes/configuracoes.php" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
-        </a>
-
-    </nav>
+        </nav>
 
     </div>
 

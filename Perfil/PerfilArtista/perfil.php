@@ -154,7 +154,7 @@ require_once 'GlobalPerfil.php';
                                     <div class="area-doacao">
                                         <p class="alerta-pix">Você ainda não tem chave pix cadastrada.</p>
 
-                                        <button style="position: relative;" class="btn btn-primary btn-doacao">
+                                        <button data-bs-toggle="modal" data-bs-target="#adicionarPix" style="position: relative;" class="btn btn-primary btn-doacao">
                                             <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
                                             <p class="slide-in" id="pix-info" style="color: #000;
                           position: absolute;
@@ -226,9 +226,24 @@ require_once 'GlobalPerfil.php';
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
                                 foreach ($mp as $p) {
+                                    if($p['idTipoMidia'] == 3){
                                 ?>
                                     <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                <?php
+                                    }elseif($p['idTipoMidia'] == 2){
+                                ?>
+                                <video id="player-video" controls>
+                                    <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                </video>
+                            <?PHP
+                            } else {
+                            ?>
+
+                                <audio id="player-audio" controls>
+                                    <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                </audio>
                                 <?PHP
+                                    }
                                 }
                                 ?>
 
@@ -265,10 +280,30 @@ require_once 'GlobalPerfil.php';
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
                                 foreach ($mp as $p) {
+
                                 ?>
                                     <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
                                 <?PHP
-                                }
+               
+                                    if ($p['idTipoMidia'] == 3) {
+                                ?>
+                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
+                                                                                                                                } else if ($p['idTipoMidia'] == 2) {
+                                                                                                                                    ?>
+                                        <video id="player-video" controls>
+                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        </video>
+                                    <?PHP
+                                                                                                                                } else {
+                                    ?>
+
+                                        <audio id="player-audio" controls>
+                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        </audio>
+                                <?PHP
+                                                                                                                                }
+                                                                                                                            }
+
                                 ?>
 
                             </div>
@@ -312,7 +347,7 @@ require_once 'GlobalPerfil.php';
 
 
 
-                
+
 
 
             </div>
@@ -1202,6 +1237,51 @@ require_once 'GlobalPerfil.php';
         </div>
     </div>
 
+
+    <!-- -------------------------------------- MODAL ADD PIX ---------------------------------------- -->
+
+
+
+    <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <h1>Adicione suas informações para doação!</h1>
+                        <div class="input-group mb-3">
+
+                            <input placeholder="Nome da conta" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+
+                        <div class="input-group mb-3">
+
+                            <select name="tipoChave" id="">
+                                <option value="CPF">CPF</option>
+                                <option value="CNPJ">CNPJ</option>
+                                <option value="TELEFONE">TELEFONE</option>
+                                <option value="EMAIL">EMAIL</option>
+                                <option value="ALEATORIA">ALEATORIA</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+
+                            <input placeholder="Chave PIX" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
