@@ -265,9 +265,24 @@ require_once 'GlobalPerfil.php';
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
                                 foreach ($mp as $p) {
-                                ?>
-                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?PHP
+                                    if ($p['idTipoMidia'] == 3) {
+                                    ?>
+                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
+                                                                                                                                    } else if ($p['idTipoMidia'] == 2) {
+                                                                                                                                        ?>
+                                        <video id="player-video" controls>
+                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        </video>
+                                    <?PHP
+                                                                                                                                    } else {
+                                    ?>
+
+                                        <audio id="player-audio" controls>
+                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        </audio>
+                                    <?PHP
+                                                                                                                                    }
+                                    
                                 }
                                 ?>
 

@@ -103,7 +103,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                 </div>
                                 <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">
                                     <?php
-                                    echo $topCat[3]['nomeTipoArte'] ?? 'Desenvolvimento';
+                                    echo $topCat[3]['nomeTipoArte'] ?? '';
                                     ?>
                                 </button>
                             </div>
@@ -113,7 +113,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                 </div>
                                 <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">
                                     <?php
-                                    echo $topCat[4]['nomeTipoArte'] ?? 'Desenvolvimento';
+                                    echo $topCat[4]['nomeTipoArte'] ?? '';
                                     ?>
                                 </button>
                             </div>
@@ -399,7 +399,8 @@ require_once '../../../Dao/SeguidoresDao.php';
                                             <?php
                                             if ($ps['idTipoMidia'] == 3) {
                                             ?>
-                                                <img src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
+                                                <img src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                                 <?PHP
                                                                                                                                                 } else if ($ps['idTipoMidia'] == 2) {
                                                                                                                                                     ?>
                                                 <video id="player-video" controls>

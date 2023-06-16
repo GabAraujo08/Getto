@@ -158,7 +158,25 @@ error_reporting(0);
                      foreach($pubArtEng as $pae){   
                 ?>
                     <div class="publicacao">
-                        <img src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
+                        <?php
+                                                if ($p['idTipoMidia'] == 3) {
+                                                ?>
+                                                    <img src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="" class="img-publicacao"> <?PHP
+                                                                                                                                                } else if ($p['idTipoMidia'] == 2) {
+                                                                                                                                                    ?>
+                                                    <video id="player-video" controls>
+                                                        <source src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>">
+                                                    </video>
+                                                <?PHP
+                                                                                                                                                } else {
+                                                ?>
+
+                                                    <audio id="player-audio" controls>
+                                                        <source src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>">
+                                                    </audio>
+                                                <?PHP
+                                                                                                                                                }
+                                                ?>
                     </div>
                     <?php
                      }
