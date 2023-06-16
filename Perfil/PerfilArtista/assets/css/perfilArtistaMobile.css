@@ -1037,6 +1037,36 @@ font-size: 1rem;
 }
 
 
+/* ---------------------- MODAL ADICIONAR CHAVE PIX ------------------------- */
+
+#adicionarPix input{
+	border: 2px solid #664187 !important;
+    border-radius: 10px !important;
+	width: 100%;
+	font-family: 'InterBold';
+}
+
+#adicionarPix select{
+	border: 2px solid #664187 !important;
+    border-radius: 10px !important;
+	width: 100%;
+	font-family: 'InterBold';
+	height: 40px;
+}
+
+#adicionarPix .modal-body h1 {
+	font-family: 'InterBold';
+    font-size: 1.6rem;
+}
+
+#adicionarPix .modal-footer {
+	justify-content: flex-end!important;
+    display: flex;
+    width: 100%;
+}
+
+
+
 
 
 /*---------------------------------MODAL EVENTO----------------------------*/
