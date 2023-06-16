@@ -226,22 +226,22 @@ require_once 'GlobalPerfil.php';
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
                                 foreach ($mp as $p) {
-                                    if($p['idTipoMidia'] == 3){
+                                    if ($p['idTipoMidia'] == 3) {
                                 ?>
-                                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?php
-                                    }elseif($p['idTipoMidia'] == 2){
-                                ?>
-                                <video id="player-video" controls>
-                                    <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
-                                </video>
-                            <?PHP
-                            } else {
-                            ?>
+                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                    <?php
+                                    } elseif ($p['idTipoMidia'] == 2) {
+                                    ?>
+                                        <video id="player-video" controls>
+                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        </video>
+                                    <?PHP
+                                    } else {
+                                    ?>
 
-                                <audio id="player-audio" controls>
-                                    <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
-                                </audio>
+                                        <audio id="player-audio" controls>
+                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        </audio>
                                 <?PHP
                                     }
                                 }
@@ -283,10 +283,10 @@ require_once 'GlobalPerfil.php';
 
                                 ?>
                                     <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?PHP
-               
+                                    <?PHP
+
                                     if ($p['idTipoMidia'] == 3) {
-                                ?>
+                                    ?>
                                         <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
                                                                                                                                 } else if ($p['idTipoMidia'] == 2) {
                                                                                                                                     ?>
@@ -472,12 +472,6 @@ require_once 'GlobalPerfil.php';
                         <div class="input-group mb-3">
 
                             <input type="text" class="form-control" aria-label="Sizing example input" name="cidadeUsuario" value="<?PHP echo $_SESSION['cidadeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
-
-                        </div>
-                        <label>Chave PIX</label>
-                        <div class="input-group mb-3">
-
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="chavePix" value="#" aria-describedby="inputGroup-sizing-default">
 
                         </div>
 
@@ -1066,178 +1060,6 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
-    <div class="modal fade" id="comentarioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Publicação de @gabbs</h1>
-
-
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- <div class="box-input-search">
-                        <input class="busca-comentario" type="search" placeholder="Busque um comentário">
-
-                    </div>
-                    <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
-
-                    <div class="box-comentario">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-                            <div class="box-btn-denuncia">
-                                <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <div id="divComentario" class="comentario slide-in">
-
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-
-
-
-
-                    </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Você está denunciando @gabbs</h1>
-
-
-
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-bottom: 5px;">
-                        Este é o comentário que você quer denunciar?
-                    </h1>
-                    <div class="box-comentario ">
-                        <img src="assets/img/img-perfil.svg" alt="">
-                        <div class="conteudo-comentario">
-                            <h1>@gabbs</h1>
-                            <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
-
-                        </div>
-                    </div>
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-bottom: 5px;">
-                        Selecione o que mais se assemelha com sua denúncia!
-                    </h1>
-
-                    <select name="tipoDenuncia" id="">
-                        <option value="#">Violência</option>
-                        <option value="#">Assédio</option>
-                        <option value="#">Preconceito</option>
-                        <option value="#">Discurso de ódio</option>
-                        <option value="#">Mensagem falsa</option>
-
-                    </select>
-
-                    <h1 style="font-family: 'InterBold';
-                        font-size: 18px;
-                        margin-top: 5px;">
-                        Abaixo faça uma breve descrição sobre sua denúncia!
-                    </h1>
-
-
-
-
-
-
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <div id="divComentario" class="comentario slide-in">
-
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Escreva sua denúncia" name="comentario" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-
-
-
-
-
-                    </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
-                        <div class="box-text-area">
-                            <form action="#">
-                                <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
-
-                            </textarea>
-                                <div class="box-btn-comentario">
-                                    <button class="btn btn-primary">
-                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #ef220b;"></i>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div> -->
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
     <!-- -------------------------------------- MODAL ADD PIX ---------------------------------------- -->
 
 
@@ -1250,11 +1072,11 @@ require_once 'GlobalPerfil.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#">
+                    <form action="../../Controller/CadastraConta.php" method="Post" name="contapix" id="contapix">
                         <h1>Adicione suas informações para doação!</h1>
                         <div class="input-group mb-3">
 
-                            <input placeholder="Nome da conta" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input placeholder="Nome da conta" name="nomeConta" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
                         <div class="input-group mb-3">
@@ -1270,15 +1092,16 @@ require_once 'GlobalPerfil.php';
 
                         <div class="input-group mb-3">
 
-                            <input placeholder="Chave PIX" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input placeholder="Chave PIX" name="chavePix" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
-                    </form>
+
 
                 </div>
                 <div class="modal-footer">
 
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
