@@ -225,7 +225,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <form name="btnaprova" id="btnaprova" action="../Controller/AprovaArtista.php" method="post">
+                                            <form class="formAprovar" name="btnaprova" id="btnaprova" action="../Controller/AprovaArtista.php" method="post">
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
                                                 <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
@@ -234,9 +234,9 @@
 
 
 
-                                            <button id="btnRecusar" type="button" name="btnRecusar" class="btn btn-primary">Recusar</button>
+                                            <button id="btnRecusar" type="button" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
 
-                                            <form id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
+                                            <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
                                                 <textarea name="" id="" cols="30" rows="10"></textarea>
@@ -281,25 +281,27 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const btnRecusar = document.getElementById('btnRecusar');
-            const formRecusar = document.getElementById('formRecusar');
+            const btnRecusarList = document.querySelectorAll('.btnRecusar');
 
-            btnRecusar.addEventListener('click', function() {
-                formRecusar.style.display = 'block';
-                alert('Formulário de recusa exibido!');
+            btnRecusarList.forEach(function(btnRecusar) {
+                btnRecusar.addEventListener('click', function() {
+                    const formRecusar = btnRecusar.nextElementSibling;
+                    const formAprovar = btnRecusar.parentElement.querySelector('.formAprovar');
+
+                    formAprovar.style.display = 'none';
+                    btnRecusar.style.display = 'none';
+                    formRecusar.style.display = 'block';
+                });
             });
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
-    </script>
+    <script src="../jquery.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 
-   
+
 
 
     <script>

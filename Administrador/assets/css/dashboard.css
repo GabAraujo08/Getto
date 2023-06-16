@@ -588,6 +588,15 @@ transform: translateY(-0.25em);
   border: solid 2px #664187;
 }
 
+.formRecusar {
+  width: 50%;
+}
+
+.formRecusar textarea {
+  width: 100%;
+resize: none;
+}
+
 
 
 /* ------------------------- ALERT QUANDO APROVAR ARTISTA -------------------------- */
