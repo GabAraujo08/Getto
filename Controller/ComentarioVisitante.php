@@ -3,15 +3,9 @@
     
     session_start();
 
-    if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/Feed/feed.php');
-    }else{
-        header('Location: ../Perfil/PerfilArtista/Feed/feed.php');  
-    } 
 
     $c = new Comentario();
 
-    $c->setComentario($_POST['comentario']);
     $c->setNumCurtidaComentario(0);
     $c->setStatusComentario('Normal');
     $c->setIdPublicacao($_POST['idPubli']);
@@ -19,5 +13,14 @@
 
     ComentarioDao::cadastrar($c);
 
-    
-?>
+
+
+
+    if(isset($_SESSION['idArtista'])){
+        header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');
+
+    ComentarioDao::cadastrar($c);
+    }else{
+        header('Location: ../PerfilVisitante/Feed/feed.php');
+    }
+    ?>

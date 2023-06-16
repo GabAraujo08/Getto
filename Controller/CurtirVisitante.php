@@ -9,11 +9,10 @@
 
     CurtidaDao::cadastrar($curtida);
     if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/Feed/feed.php');
+        header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');
     }else{
-        header('Location: ../Perfil/PerfilArtista/Feed/feed.php');  
+        header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');  
     }
     
     
 ?>
-

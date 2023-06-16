@@ -272,7 +272,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                     if ($resultado2 == false) {
                                                     ?>
 
-                                                        <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                        <form id="curtida" name="Curtida" action="../../../Controller/CurtirVisitante.php" method="POST">
                                                             <input type="hidden" name="idPublicacao" value="<?PHP echo $ps['idPublicacao']; ?>">
                                                             <button name="cc" type="submit" class="btn-acao">
                                                                 <img src="assets/img/icon-estrela-btn.svg" alt="">
@@ -282,7 +282,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                     <?php
                                                     } else if (!in_array($ps['idPublicacao'], array_column($resultado2, 'idPublicacao'))) {
                                                     ?>
-                                                        <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                        <form id="curtida" name="Curtida" action="../../../Controller/CurtirVisitante.php" method="POST">
                                                             <input type="hidden" name="idPublicacao" value="<?PHP echo $ps['idPublicacao']; ?>">
                                                             <button name="cc" type="submit" class="btn-acao">
                                                                 <img src="assets/img/icon-estrela-btn.svg" alt="">
@@ -292,7 +292,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                     } else {
                                                     ?>
 
-                                                        <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
+                                                        <form id="curtida" name="Curtida" action="../../../Controller/DescurtirUsuario.php" method="POST">
                                                             <input type="hidden" name="idPublicacao" value="<?PHP echo $ps['idPublicacao']; ?>">
                                                             <button name="cc" type="submit" class="btn-acao">
                                                                 <img src="assets/img/icon-like-true.svg" alt="">
@@ -438,7 +438,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                     <div id="divComentario" class="comentario slide-in">
 
                                                         <div class="box-text-area">
-                                                            <form method="POST" action="../../../Controller/Comentario.php">
+                                                            <form method="POST" action="../../../Controller/ComentarioVisitante.php">
                                                                 <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                                     </textarea>
@@ -715,7 +715,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                         <div id="divComentario" class="comentario slide-in">
 
                                                             <div class="box-text-area">
-                                                                <form method="POST" id="coment" action="../../../Controller/Comentario.php">
+                                                                <form method="POST" id="coment" action="../../../Controller/ComentarioVisitante.php">
                                                                     <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                         </textarea>
