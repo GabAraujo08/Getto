@@ -186,7 +186,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         if ($resultado == false) {
                                                         ?>
 
-                                                            <form id="Presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                            <form id="Presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     Confirmar Presença
@@ -196,7 +196,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         <?php
                                                         } else if (!in_array($evento['idEvento'], array_column($resultado, 'idEvento'))) {
                                                         ?>
-                                                            <form id="presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                            <form id="presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     Confirmar Presença
@@ -206,7 +206,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         } else {
                                                         ?>
 
-                                                            <form id="presenca" name="Presenca" action="../../../Controller/DesPresenca.php" method="POST">
+                                                            <form id="presenca" name="Presenca" action="../../../Controller/DesPresencaVisitante.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     tirar Presença
