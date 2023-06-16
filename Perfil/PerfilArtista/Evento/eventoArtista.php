@@ -226,7 +226,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                 </div>
 
                                                 <div class="link-ingresso">
-                                                    <p>link do ingresso: <?php echo $evento['linkIng']; ?></p>
+                                                    <p>link do ingresso: <a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
                                                 </div>
 
                                                 <div class="horario">
