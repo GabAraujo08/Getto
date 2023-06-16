@@ -438,7 +438,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                     <div id="divComentario" class="comentario slide-in">
 
                                                         <div class="box-text-area">
-                                                            <form method="POST" action="../../../Controller/Comentario.php">
+                                                            <form method="POST" action="../../../Controller/ComentarioVisitante.php">
                                                                 <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                                     </textarea>
@@ -715,7 +715,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                         <div id="divComentario" class="comentario slide-in">
 
                                                             <div class="box-text-area">
-                                                                <form method="POST" id="coment" action="../../../Controller/Comentario.php">
+                                                                <form method="POST" id="coment" action="../../../Controller/ComentarioVisitante.php">
                                                                     <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                         </textarea>
