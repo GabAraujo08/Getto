@@ -30,7 +30,7 @@ class PublicacaoDao
             $id = $publicacao['idPublicacao'];
         return $id;
     }
-    public static function ListaPublicacao()
+    public static function ListaPublicacaoArtistasEngajados()
     {
         $conexao = Conexao::conectar();
 

@@ -153,149 +153,16 @@ error_reporting(0);
             </div>
             <div class="container-fluid">
                 <div class="main-publicacao">
+                <?php
+                    $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
+                     foreach($pubArtEng as $pae){   
+                ?>
                     <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
+                        <img src="../assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
                     </div>
-
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                      
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                      
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                      
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                      
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                      
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-
-                    
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/seuJorge.jpeg" alt="">
-                    </div>
-                </div>
-
-
+                    <?php
+                     }
+                    ?>
             </div>
         </div>
 
