@@ -1119,6 +1119,7 @@ textarea {
 
 #modalSairConta .modal-body {
   font-family: "InterBold";
+  min-height: unset!important;
 }
 
 #modalSairConta .modal-header {
