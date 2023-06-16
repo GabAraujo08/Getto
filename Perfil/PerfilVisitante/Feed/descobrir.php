@@ -44,7 +44,7 @@ require_once '../../../Dao/Conexao.php';
                             <a href="../Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
-                            <a href="../../PerfilArtista/Evento/eventoArtista.php">
+                            <a href="../Evento/eventoVisitante.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
                             <a href="">
@@ -121,7 +121,7 @@ require_once '../../../Dao/Conexao.php';
         </div>
         <div style="position: relative;" class="box-container">
             <div style="z-index: 101;" class="area-buscar">
-                <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/busca.php">
+                <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/buscaUsuario.php">
                     <input type="search" id="search" name="busca" placeholder="Pesquisar...">
                     <button class="btn-descobrir" type="submit"><img src="assets/img/search.png"></i></button>
 
@@ -134,7 +134,7 @@ require_once '../../../Dao/Conexao.php';
                 if ($_SESSION['go'] == true && isset($_SESSION['quantLinhas'])) {
                     $html = '';
                     for ($i = 0; $i < $_SESSION['quantLinhas']; $i++) {
-                        $html .= '<form action="../perfilMostrar.php?$_SESSION" method="POST">';
+                        $html .= '<form action="../perfilMostrarUsuario.php?$_SESSION" method="POST">';
                         $html .= '<li>';
                         if ($_SESSION['nivel'] == 2) {
                             $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';

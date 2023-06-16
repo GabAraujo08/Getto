@@ -33,7 +33,7 @@ require_once 'GlobalPerfil.php';
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                             </a>
                             
-                            <a href="../PerfilArtista/Evento/eventoArtista.php">
+                            <a href="../PerfilVisitante/Evento/eventoVisitante.php">
                                 <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                             </a>
                             
