@@ -1119,6 +1119,7 @@ textarea {
 
 #modalSairConta .modal-body {
   font-family: "InterBold";
+  min-height: unset!important;
 }
 
 #modalSairConta .modal-header {
@@ -1742,4 +1743,114 @@ textarea {
 .modal-backdrop {
   position: relative !important;
   display: none;
+}
+
+
+
+.audio-player {
+  background-color: #fff;
+  width: 1000px;
+  padding: 20px;
+
+  border-radius: 5px;
+}
+
+.info-player {
+  display: flex;
+  flex-direction: row;
+}
+
+.desc-musica {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.reproducao {
+  margin-left: 50%;
+}
+
+
+.play-button,
+.volume-button {
+  padding: 5px;
+  border-radius: 3px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.skip-button {
+  border: none;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+
+.cover {
+  width: 20%;
+  object-fit: cover;
+}
+
+.cover .cover-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: solid 2px;
+  object-fit: cover;
+}
+
+.volume-slider {
+  width: 100px;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.timer,
+.total-time {
+  font-size: 12px;
+}
+
+.desc-musica {
+  margin-top: 100px;
+}
+
+.nome-musica p {
+  margin-top: 0px;
+  font-size: 35px;
+  margin-bottom: 0px;
+
+}
+
+.autor p {
+
+  font-size: 20px;
+}
+
+.time-bar {
+  border-radius: 5px;
+  flex-grow: 1;
+  height: 8px;
+  background-color: #fff;
+  margin: 0 10px;
+  position: relative;
+}
+
+.time-fill {
+  border-radius: 5px;
+  height: 100%;
+  background-color: #000;
+  width: 0;
+  transition: width 0.2s ease-in-out;
 }

@@ -1,362 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./teste2.css">
-    <title>Entre e cadastre-se!</title>
+    <title>Player de Áudio</title>
+    <style>
+        #player {
+            width: 300px;
+        }
+    </style>
 </head>
 
 <body>
+    <style>
+        /* Estilo geral do player de vídeo */
+        #player {
+            width: 640px;
+        }
 
-    <div class="wrapper">
+        /* Estilize a barra de controle */
+        #player::-webkit-media-controls {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
 
-        <!-- botoes da tab -->
+        /* Estilize o botão de reprodução */
+        #player::-webkit-media-controls-play-button {
+            background-color: transparent;
+            background-image: url('caminho/para/o/icone-de-play.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            width: 50px;
+            height: 50px;
+        }
 
-        <div class="tab">
-            <button class="tablinks active" onclick="openForm(event, 'Artista')" id="defaultOpen">Artista</button>
-            <button class="tablinks" onclick="openForm(event, 'Visitante')">Visitante</button>
-        </div>
+        /* Estilize a barra de progresso */
+        #player::-webkit-media-controls-timeline {
+            background-color: #333;
+            height: 4px;
+            margin-top: 15px;
+        }
 
-        <!-- termino dos botoes -->
+        /* Estilize o indicador de progresso */
+        #player::-webkit-media-controls-current-time-display,
+        #player::-webkit-media-controls-time-remaining-display {
+            color: #fff;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            margin: 0 10px;
+        }
 
-        <div id="Artista" class="tabcontent">
+        /* Estilize o botão de volume */
+        #player::-webkit-media-controls-volume-slider {
+            width: 80px;
+        }
 
-            <!-- formulario 1 -->
+        /* Estilize o controle de volume */
+        #player::-webkit-media-controls-volume-slider-container {
+            margin-right: 10px;
+        }
 
-            <div class="form_1 data_info">
-                <h2>Artista</h2>
-                <form>
-                    <div class="form_container">
-                        <div class="single-input">
-                            <input type="text" class="input" id="nomeArtista" required>
-                            <label for="nome">Nome</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="nicknameArtista" required>
-                            <label for="nome">Nome de usuário</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="emailArtista" required>
-                            <label for="nome">Endereço de email</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- formulario 2 -->
-
-            <div class="form_2 data_info" style="display: none;">
-                <h2>Personal Info</h2>
-                <form>
-                    <div class="form_container">
-                        <div class="select-estado">
-                            <select id="estado" name="estadoArtista" class="select-estado">
-                                <option value="AC">Selecionar</option>
-                                <option value="AC">Acre</option>
-                                <option value="AL">Alagoas</option>
-                                <option value="AP">Amapá</option>
-                                <option value="AM">Amazonas</option>
-                                <option value="BA">Bahia</option>
-                                <option value="CE">Ceará</option>
-                                <option value="DF">Distrito Federal</option>
-                                <option value="ES">Espírito Santo</option>
-                                <option value="GO">Goiás</option>
-                                <option value="MA">Maranhão</option>
-                                <option value="MT">Mato Grosso</option>
-                                <option value="MS">Mato Grosso do Sul</option>
-                                <option value="MG">Minas Gerais</option>
-                                <option value="PA">Pará</option>
-                                <option value="PB">Paraíba</option>
-                                <option value="PR">Paraná</option>
-                                <option value="PE">Pernambuco</option>
-                                <option value="PI">Piauí</option>
-                                <option value="RJ">Rio de Janeiro</option>
-                                <option value="RN">Rio Grande do Norte</option>
-                                <option value="RS">Rio Grande do Sul</option>
-                                <option value="RO">Rondônia</option>
-                                <option value="RR">Roraima</option>
-                                <option value="SC">Santa Catarina</option>
-                                <option value="SP">São Paulo</option>
-                                <option value="SE">Sergipe</option>
-                                <option value="TO">Tocantins</option>
-                                <option value="EX">Estrangeiro</option>
-                            </select>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="cidadeArtista" required>
-                            <label for="nome">Cidade</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="telefoneArtista" required>
-                            <label for="numero">Número de telefone</label>
-                        </div>
-                        <select id="genero" name="generoArtista" class="select-estado">
-                            <option value="AC">Selecionar</option>
-                            <option value="AC">Masculino</option>
-                            <option value="AL">Feminino</option>
-                            <option value="AP">Prefiro não informar</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-
-            <!-- formulario 3 -->
-
-            <div class="form_3 data_info" style="display: none;">
-                <h2>Professional Info</h2>
-                <form>
-                    <div class="form_container">
-                        <label class="picture" for="picture__input" tabIndex="0">
-                            <span class="picture__image"></span>
-                            <input type="file" name="picture__input" id="picture__input">
-                        </label>
-                        <div class="single-input">
-                            <input type="text" class="input" id="telefoneArtista" required>
-                            <label for="numero">Anexe um link do seu portfólio!</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="telefoneArtista" required>
-                            <label for="numero">Digite sua senha</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="telefoneArtista" required>
-                            <label for="numero">Confirme sua senha</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- barra de progresso -->
-
-            <div class="header">
-                <ul>
-                    <li class="active form_1_progessbar">
-                        <div>
-                            <p>1</p>
-                        </div>
-                    </li>
-                    <li class="form_2_progessbar">
-                        <div>
-                            <p>2</p>
-                        </div>
-                    </li>
-                    <li class="form_3_progessbar">
-                        <div>
-                            <p>3</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- termino barra de progresso -->
-
-
-            <!-- inicio dos botoes -->
-
-            <div class="btns_wrap">
-                <div class="common_btns form_1_btns">
-                    <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                </div>
-                <div class="common_btns form_2_btns" style="display: none;">
-                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
-                    <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                </div>
-                <div class="common_btns form_3_btns" style="display: none;">
-                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
-                    <button type="button" class="btn_done">Done</button>
-                </div>
-            </div>
-
-            <!-- termino dos botoes -->
-
-
-
-            <div class="modal_wrapper">
-                <div class="shadow"></div>
-                <div class="success_wrap">
-                    <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
-                    <p>Seu perfil já foi mandado para análise, uma mensagem será enviada para seu email ápos a verificação!</p>
-                </div>
-            </div>
-        </div>
-
-
-        <div id="Visitante" class="tabcontent">
-
-            <!-- formulario 1 -->
-
-            <div class="form_1 data_info">
-                <h2>Visitante</h2>
-                <form>
-                    <div class="form_container">
-                        <div class="single-input">
-                            <input type="text" class="input" id="nomeArtista" required>
-                            <label for="nome">Nome</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="nicknameArtista" required>
-                            <label for="nome">Nome de usuário</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="emailArtista" required>
-                            <label for="nome">Endereço de email</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- formulario 2 -->
-
-            <div class="form_2 data_info" style="display: none;">
-                <h2>Personal Info</h2>
-                <form>
-                    <div class="form_container">
-                        <div class="select-estado">
-                            <select id="estado" name="estadoArtista" class="select-estado">
-                                <option value="AC">Selecionar</option>
-                                <option value="AC">Acre</option>
-                                <option value="AL">Alagoas</option>
-                                <option value="AP">Amapá</option>
-                                <option value="AM">Amazonas</option>
-                                <option value="BA">Bahia</option>
-                                <option value="CE">Ceará</option>
-                                <option value="DF">Distrito Federal</option>
-                                <option value="ES">Espírito Santo</option>
-                                <option value="GO">Goiás</option>
-                                <option value="MA">Maranhão</option>
-                                <option value="MT">Mato Grosso</option>
-                                <option value="MS">Mato Grosso do Sul</option>
-                                <option value="MG">Minas Gerais</option>
-                                <option value="PA">Pará</option>
-                                <option value="PB">Paraíba</option>
-                                <option value="PR">Paraná</option>
-                                <option value="PE">Pernambuco</option>
-                                <option value="PI">Piauí</option>
-                                <option value="RJ">Rio de Janeiro</option>
-                                <option value="RN">Rio Grande do Norte</option>
-                                <option value="RS">Rio Grande do Sul</option>
-                                <option value="RO">Rondônia</option>
-                                <option value="RR">Roraima</option>
-                                <option value="SC">Santa Catarina</option>
-                                <option value="SP">São Paulo</option>
-                                <option value="SE">Sergipe</option>
-                                <option value="TO">Tocantins</option>
-                                <option value="EX">Estrangeiro</option>
-                            </select>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="cidadeArtista" required>
-                            <label for="nome">Cidade</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="telefoneArtista" required>
-                            <label for="numero">Número de telefone</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <!-- formulario 3 -->
-
-            <div class="form_3 data_info" style="display: none;">
-                <h2>Professional Info</h2>
-                <form>
-                    <div class="form_container">
-                        <div class="single-input">
-                            <input type="text" class="input" id="telefoneArtista" required>
-                            <label for="numero">Digite sua senha</label>
-                        </div>
-                        <div class="single-input">
-                            <input type="text" class="input" id="telefoneArtista" required>
-                            <label for="numero">Confirme sua senha</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
-            <!-- barra de progresso -->
-
-            <div class="header">
-                <ul>
-                    <li class="active form_1_progessbar">
-                        <div>
-                            <p>1</p>
-                        </div>
-                    </li>
-                    <li class="form_2_progessbar">
-                        <div>
-                            <p>2</p>
-                        </div>
-                    </li>
-                    <li class="form_3_progessbar">
-                        <div>
-                            <p>3</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- termino barra de progresso -->
-
-
-            <!-- inicio dos botoes -->
-
-            <div class="btns_wrap">
-                <div class="common_btns form_1_btns">
-                    <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                </div>
-                <div class="common_btns form_2_btns" style="display: none;">
-                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
-                    <button type="button" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                </div>
-                <div class="common_btns form_3_btns" style="display: none;">
-                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
-                    <button type="button" class="btn_done">Done</button>
-                </div>
-            </div>
-
-            <!-- termino dos botoes -->
-
-
-
-            <div class="modal_wrapper">
-                <div class="shadow"></div>
-                <div class="success_wrap">
-                    <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
-                    <p>Seu perfil já foi mandado para análise, uma mensagem será enviada para seu email ápos a verificação!</p>
-                </div>
-            </div>
-        </div>
+        /* Estilize o botão de tela cheia */
+        #player::-webkit-media-controls-fullscreen-button {
+            background-color: transparent;
+            background-image: url('caminho/para/o/icone-de-tela-cheia.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            border: none;
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+        }
+    </style>
+    <div class="audio-player">
+    <div class="controls">
+      <button class="play-button" onclick="toggleAudio()">Play/Pause</button>
+      <button class="volume-button" onclick="toggleMute()">Mute/Unmute</button>
+      <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1" onchange="adjustVolume(this.value)">
     </div>
-    <script type="text/javascript" src="./teste2.js"></script>
+    <div class="progress-bar">
+      <div class="timer">00:00</div>
+      <div class="time-bar">
+        <div class="time-fill"></div>
+      </div>
+      <div class="total-time">00:00</div>
+    </div>
+    <audio id="audio" src="caminho/do/arquivo.mp3"></audio>
+  </div>
 
-    <!-- tab area -->
-
-<script>
-    // código JavaScript
-
-    // função para abrir a guia selecionada e mostrar o conteúdo correspondente
-    function openForm(evt, formName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
-        document.getElementById(formName).style.display = "block";
-        evt.currentTarget.classList.add("active");
-    }
-
-    // código para selecionar a guia "Artista" e mostrar o conteúdo correspondente ao carregar a página
-    document.getElementById("defaultOpen").click();
-</script>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
