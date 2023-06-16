@@ -456,13 +456,6 @@ require_once '../../../Dao/PresencaDao.php';
 
 
 
-        <div class="div-logo-marca">
-            <div class="logo-marca">
-                <img src="assets/img/logomarca.png" alt="">
-            </div>
-
-        </div>
-
         <script>
             const card = document.querySelector("#card")
             card.addEventListener("mouseenter", (e) => {
