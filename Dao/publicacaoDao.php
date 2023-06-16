@@ -61,7 +61,6 @@ class PublicacaoDao
                                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                                INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
                                                INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
-                                               INNER JOIN tbSeguidores ON tbSeguidores.idUsuario = tbUsuario.idUsuario
                                                WHERE tbPublicacao.idArtista = ?
                                                ORDER BY tbPublicacao.horarioPublicacao DESC
                                                ');
