@@ -68,7 +68,6 @@ require_once '../../../Dao/PresencaDao.php';
 
                 </div>
             </div>
-
             <div class="box-eventos">
                 <div class="header-eventos">
                     <div class="img">
@@ -84,61 +83,61 @@ require_once '../../../Dao/PresencaDao.php';
                             Aqui vocês poderão ficar por dentro de todos os eventos!
                         </p>
                         <p style="font-family: 'Poppins';
-                font-style: normal;
-                font-weight: 600;
-                font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 16px;
 
 
 
 
-            color: #656565;">
-                            Fique de olho e acompanhe seus artistas favoritos!
-                        </p>
+                color: #656565;">
 
 
 
                     </div>
                 </div>
+                <div class="eventos-main">
+                    <?php
+                    require_once '../../../Dao/EventoDao.php';
 
-                <?php
-                require_once '../../../Dao/EventoDao.php';
+                    $eventos = EventoDao::ListaEvento();
+                    foreach ($eventos as $index => $evento) { ?>
 
-                $eventos = EventoDao::ListaEvento();
-                foreach ($eventos as $index => $evento) { ?>
 
-                    <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header rounded-4" id="flush-heading1<?php echo $index; ?>">
-                                <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1<?php echo $index; ?>" aria-expanded="false" aria-controls="flush-collapse1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample<?php echo $index; ?>" style="border-radius: 20px;">
-                                    <div class="resumoDiv">
-                                        <div class="card">
-                                            <div class="front">
-                                                <p><?php $dia = date('d', strtotime($evento['dataEvento']));
-                                                    echo $dia; ?></p><span><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
-                                                                        echo $mes; ?></span>
+
+                        <div class="accordion accordion-flush" id="accordionFlushExample1<?php echo $index; ?>">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header rounded-4" id="flush-heading1<?php echo $index; ?>">
+                                    <button class="accordion-button collapsed rounded-4" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1<?php echo $index; ?>" aria-expanded="false" aria-controls="flush-collapse1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample<?php echo $index; ?>" style="border-radius: 20px;">
+                                        <div class="resumoDiv">
+                                            <div class="card">
+                                                <div class="front">
+                                                    <p><?php $dia = date('d', strtotime($evento['dataEvento']));
+                                                        echo $dia; ?></p><span><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                                                            echo $mes; ?></span>
+                                                </div>
+                                                <div class="back">
+                                                    <p>inicio: <?php echo $evento['horarioInicioEvento']; ?></p><span>fim: <?php echo $evento['horarioFinalEvento']; ?></span>
+                                                </div>
                                             </div>
-                                            <div class="back">
-                                                <p>inicio: <?php echo $evento['horarioInicioEvento']; ?></p><span>fim: <?php echo $evento['horarioFinalEvento']; ?></span>
+                                            <div class="card-evento">
+                                                <div class="titulo-evento">
+                                                    <p><?php echo $evento['tituloEvento']; ?></p>
+                                                </div>
+                                                <div class="endereco-evento">
+                                                    <p><?php echo $evento['logradouroEvento']; ?> <?php echo $evento['numLogEvento']; ?></p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="card-evento">
-                                            <div class="titulo-evento">
-                                                <p><?php echo $evento['tituloEvento']; ?></p>
+                                    </button>
+                                </h2>
+                                <div id="flush-collapse1<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample1<?php echo $index; ?>">
+                                    <div class="accordion-body rounded-4">
+                                        <div class="baixo">
+                                            <div class="img-evento">
+                                                <img src="assets/img/<?php echo $evento['imagemEvento']; ?>">
                                             </div>
-                                            <div class="endereco-evento">
-                                                <p><?php echo $evento['logradouroEvento']; ?> <?php echo $evento['numLogEvento']; ?></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="flush-collapse1<?php echo $index; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading1<?php echo $index; ?>" data-bs-parent="#accordionFlushExample1<?php echo $index; ?>">
-                                <div class="accordion-body rounded-4">
-                                    <div class="baixo">
-                                        <div class="img-evento">
-                                            <img src="../../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento'] ?> ">
-                                        </div>
-                                        <div class="conteudo-evento">
+                                            <div class="conteudo-evento">
                                                 <div class="criador-evento">
                                                     <div class="img-criador">
                                                         <img src="../assets/img/FotoPerfil/<?php echo $evento['fotoPerfilUsuario'] ?> " alt="">
@@ -165,7 +164,6 @@ require_once '../../../Dao/PresencaDao.php';
                                                 </div>
 
 
-
                                                 <div class="presenca-evento">
                                                     <div class="confirmados-evento">
                                                         <p><?php
@@ -183,7 +181,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         if ($resultado == false) {
                                                         ?>
 
-                                                            <form id="Presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                            <form id="Presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     Confirmar Presença
@@ -193,7 +191,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         <?php
                                                         } else if (!in_array($evento['idEvento'], array_column($resultado, 'idEvento'))) {
                                                         ?>
-                                                            <form id="presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
+                                                            <form id="presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     Confirmar Presença
@@ -203,7 +201,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         } else {
                                                         ?>
 
-                                                            <form id="presenca" name="Presenca" action="../../../Controller/DesPresenca.php" method="POST">
+                                                            <form id="presenca" name="Presenca" action="../../../Controller/DesPresencaVisitante.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     tirar Presença
@@ -216,85 +214,14 @@ require_once '../../../Dao/PresencaDao.php';
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="nome-criador">
-                                                <p><?php echo $evento['nicknameUsuario'] ?> </p>
-                                            </div>
-                                        </div>
-                                        <div class="descricao-evento">
-                                            <p><?php echo $evento['descEvento']; ?></p>
-                                        </div>
-
-                                        <div class="horario">
-                                            <div class="horario-inicio">
-                                                <p>Horario de ini­cio: <?php echo $evento['horarioInicioEvento']; ?></p>
-                                            </div>
-                                            <div class="horario-termino">
-                                                <p>Horario de termino: <?php echo $evento['horarioFinalEvento']; ?></p>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="presenca-evento">
-                                            <div class="confirmados-evento">
-                                                <p><?php
-                                                    $prec = PresencaDao::consultar($evento['idEvento']);
-                                                    echo $prec . ' Presenças confirmadas'; ?></p>
-                                            </div>
-                                            <div class="confirmar-evento">
-                                                <?php
-                                                $conexao = Conexao::conectar();
-                                                $consulta = $conexao->prepare('SELECT idPresenca, idEvento FROM tbPresenca WHERE idUsuario = ?');
-                                                $consulta->bindValue(1, $_SESSION['idUsuario']);
-                                                $consulta->execute();
-                                                $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-                                                if ($resultado == false) {
-                                                ?>
-
-                                                    <form id="Presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
-                                                        <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
-                                                        <button name="pp" type="submit" class="btn">
-                                                            Confirmar Presença
-                                                        </button>
-                                                    </form>
-
-                                                <?php
-                                                } else if (!in_array($evento['idEvento'], array_column($resultado, 'idEvento'))) {
-                                                ?>
-                                                    <form id="presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
-                                                        <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
-                                                        <button name="pp" type="submit" class="btn">
-                                                            Confirmar Presença
-                                                        </button>
-                                                    </form>
-                                                <?php
-                                                } else {
-                                                ?>
-
-                                                    <form id="presenca" name="Presenca" action="../../../Controller/DesPresencaVisitante.php" method="POST">
-                                                        <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
-                                                        <button name="pp" type="submit" class="btn">
-                                                            tirar Presença
-                                                        </button>
-                                                    </form>
-
-                                                <?php
-                                                }
-                                                ?>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                <?php } ?>
-            </div>
-        </div>
-
+                    <?php } ?>
+                </div>
         <nav style="background-color: #fff;" class="mobile-nav">
             <a href="#" class="bloc-icon">
                 <img src="assets/img/bottomNav/icon-home.svg" alt="">
