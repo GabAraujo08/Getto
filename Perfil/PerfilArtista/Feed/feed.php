@@ -29,7 +29,7 @@ require_once '../../../Dao/SeguidoresDao.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/feedMobile.css">
     <link rel="stylesheet" href="../../../assets/fontawesome/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
 
 
@@ -400,19 +400,19 @@ require_once '../../../Dao/SeguidoresDao.php';
                                             if ($ps['idTipoMidia'] == 3) {
                                             ?>
                                                 <img src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
-                                            } else if ($ps['idTipoMidia'] == 2) {
+                                                                                                                                            } else if ($ps['idTipoMidia'] == 2) {
                                                                                                                                                 ?>
                                                 <video id="player-video" controls>
                                                     <source src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>">
                                                 </video>
                                             <?PHP
-                                            } else {
+                                                                                                                                            } else {
                                             ?>
 
                                                 <div class="audio-player">
                                                     <div class="info-player">
                                                         <div class="cover">
-                                                            <img class="cover-img" src="assets/img/pincel.png">
+                                                            <img class="cover-img" src="teste/teste2.jpg">
                                                         </div>
                                                         <div class="desc-musica">
                                                             <div class="autor">
@@ -441,10 +441,10 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                         </div>
                                                         <div class="total-time">00:00</div>
                                                     </div>
-                                                    <audio id="audio" src="../assets/img/Pubs/<?PHP echo $ps['arquivoMidia']; ?>"></audio>
+                                                    <audio id="audio" src="teste/teste.mp3"></audio>
                                                 </div>
                                             <?PHP
-                                            }
+                                                                                                                                            }
                                             ?>
                                         </div>
                                         <div class="legenda-publicacao">
@@ -1220,7 +1220,78 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        var audio = document.getElementById('audio');
+        var playButton = document.querySelector('.play-button');
+        var volumeButton = document.querySelector('.volume-button');
+        var volumeSlider = document.querySelector('.volume-slider');
+        var timer = document.querySelector('.timer');
+        var totalTime = document.querySelector('.total-time');
+        var timeFill = document.querySelector('.time-fill');
+        var progressBar = document.querySelector('.progress-bar');
 
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                audio.pause();
+                playButton.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function toggleMute() {
+            if (audio.muted) {
+                audio.muted = false;
+                volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else {
+                audio.muted = true;
+                volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        }
+
+        function adjustVolume(volume) {
+            audio.volume = volume;
+        }
+
+        audio.addEventListener('timeupdate', function() {
+            var position = audio.currentTime / audio.duration;
+            timeFill.style.width = (position * 100) + '%';
+
+            var minutes = Math.floor(audio.currentTime / 60);
+            var seconds = Math.floor(audio.currentTime % 60);
+            timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+        });
+
+        audio.addEventListener('loadedmetadata', function() {
+            var minutes = Math.floor(audio.duration / 60);
+            var seconds = Math.floor(audio.duration % 60);
+            totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+        });
+
+        function padTime(time) {
+            return (time < 10 ? '0' : '') + time;
+        }
+
+        function seek(event) {
+            var progressWidth = progressBar.clientWidth;
+            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+            var positionPercentage = clickX / progressWidth;
+            var seekTime = positionPercentage * audio.duration;
+
+            audio.currentTime = seekTime;
+        }
+
+        function skipForward() {
+            audio.currentTime += 10;
+        }
+
+        function skipBackward() {
+            audio.currentTime -= 10;
+        }
+    </script>
 
 
 
