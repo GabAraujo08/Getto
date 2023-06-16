@@ -267,7 +267,8 @@ require_once 'GlobalPerfil.php';
                                 foreach ($mp as $p) {
                                     if ($p['idTipoMidia'] == 3) {
                                     ?>
-                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
+                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                 <?PHP
                                     } else if ($p['idTipoMidia'] == 2) {
                                     ?>
                                         <video id="player-video" controls>
