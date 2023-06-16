@@ -1,6 +1,7 @@
 <?PHP
     require_once 'GlobalController.php';
-    header('Location: ../Login/login.php');
+    header('Location: ../Login/login.php?registro=concluido');
+
 
     $a = $_POST['senhaVisitante'];
     $b = $_POST['confirmarSenhaVisitante'];

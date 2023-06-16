@@ -237,7 +237,7 @@
                                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
                                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 
-                                    <button data-bs-toggle="modal" data-bs-target="#envio-concluido" style="display: none;" type="submit" id="enviarBtn" onclick="nextPrev(1)">Enviar</button>
+                                    <button  style="display: none;" type="submit" id="enviarBtn" onclick="nextPrev(1)">Enviar</button>
 
 
                                 </div>
@@ -299,7 +299,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="envio-concluido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="envio-concluido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -319,7 +319,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
@@ -335,7 +335,7 @@
             // Define um atraso de 3 segundos antes de enviar o formulário
             setTimeout(function() {
                 document.getElementById("formArtista").submit();
-            }, 2500);
+            }, 500);
         });
     </script>
 

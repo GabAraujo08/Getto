@@ -102,6 +102,44 @@ if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
     </div>
   </div>
 
+  <div class="modal fade" id="envio-concluido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><img src="../assets/img/aceito.svg" alt=""></h1>
+
+        </div>
+        <div class="modal-body">
+          <div class="textos">
+            <h1>Obrigado por concluir seu cadastro!</h1>
+            <p>Sua conta está sendo analisada, fique de olho no seu email.</p>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      // Verificar se o parâmetro "registro" está presente na URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const registroParam = urlParams.get('registro');
+
+      // Verificar se o valor do parâmetro é "concluido"
+      if (registroParam === 'concluido') {
+        // Abrir o modal
+        var modal = document.getElementById('envio-concluido');
+        var modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
+      }
+    }
+  </script>
+
 
   <script>
     function toggleSenhaVisibility() {
