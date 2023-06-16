@@ -61,11 +61,7 @@ require_once '../../../Dao/Conexao.php';
                             </a>
                         </ul>
                     </div>
-                    <div class="nova-pub">
-                        <button id="nova-pub" class="btn btn-primary btn-nova-pub" data-bs-toggle="modal" data-bs-target="#modalCriarPub" type="button">Nova
-                            publicação</button>
-                    </div>
-
+                    
                     <div class="sair">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
                             <img src="assets/img/sair.png">Sair
