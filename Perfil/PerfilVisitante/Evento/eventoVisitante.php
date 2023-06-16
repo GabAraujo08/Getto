@@ -135,7 +135,7 @@ require_once '../../../Dao/PresencaDao.php';
                                     <div class="accordion-body rounded-4">
                                         <div class="baixo">
                                             <div class="img-evento">
-                                                <img src="assets/img/<?php echo $evento['imagemEvento']; ?>">
+                                                <img src="../../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>">
                                             </div>
                                             <div class="conteudo-evento">
                                                 <div class="criador-evento">
