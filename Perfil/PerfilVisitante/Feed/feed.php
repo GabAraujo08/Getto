@@ -232,13 +232,13 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                 }else if($ps['idTipoMidia'] == 2){
                                             ?>
                                                     <video id="player-video" controls>
-                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></video>
+                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>"></video>
                                             <?PHP
                                                 }else{
                                             ?>
 
                                                     <audio id="player-audio" controls>
-                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
+                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>">
                                                     </audio>
                                             <?PHP
                                                 }
