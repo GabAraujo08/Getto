@@ -56,7 +56,7 @@ class PublicacaoDao
     {
 
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare('SELECT DISTINCT tbMidia.idTipoMidia, tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
+        $consulta = $conexao->prepare('SELECT  tbMidia.idTipoMidia, tbUsuario.nicknameUsuario,  tbUsuario.fotoPerfilUsuario, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbPublicacao
                                                INNER JOIN tbArtista ON tbArtista.idArtista = tbPublicacao.idArtista
                                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbArtista.idUsuario
                                                INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
