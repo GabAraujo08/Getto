@@ -68,6 +68,7 @@ require_once '../../../Dao/PresencaDao.php';
 
                 </div>
             </div>
+
             <div class="box-eventos">
                 <div class="header-eventos">
                     <div class="img">
@@ -91,11 +92,14 @@ require_once '../../../Dao/PresencaDao.php';
 
 
                 color: #656565;">
+                            Fique de olho e acompanhe seus artistas favoritos!
+                        </p>
 
 
-
+                        
                     </div>
                 </div>
+
                 <div class="eventos-main">
                     <?php
                     require_once '../../../Dao/EventoDao.php';
@@ -164,6 +168,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                 </div>
 
 
+
                                                 <div class="presenca-evento">
                                                     <div class="confirmados-evento">
                                                         <p><?php
@@ -181,7 +186,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         if ($resultado == false) {
                                                         ?>
 
-                                                            <form id="Presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
+                                                            <form id="Presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     Confirmar Presença
@@ -191,7 +196,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         <?php
                                                         } else if (!in_array($evento['idEvento'], array_column($resultado, 'idEvento'))) {
                                                         ?>
-                                                            <form id="presenca" name="Presenca" action="../../../Controller/PresencaVisitante.php" method="POST">
+                                                            <form id="presenca" name="Presenca" action="../../../Controller/ConfirmarPresenca.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     Confirmar Presença
@@ -201,7 +206,7 @@ require_once '../../../Dao/PresencaDao.php';
                                                         } else {
                                                         ?>
 
-                                                            <form id="presenca" name="Presenca" action="../../../Controller/DesPresencaVisitante.php" method="POST">
+                                                            <form id="presenca" name="Presenca" action="../../../Controller/DesPresenca.php" method="POST">
                                                                 <input type="hidden" name="idEvento" value="<?PHP echo $evento['idEvento']; ?>">
                                                                 <button name="pp" type="submit" class="btn">
                                                                     tirar Presença
@@ -222,6 +227,162 @@ require_once '../../../Dao/PresencaDao.php';
 
                     <?php } ?>
                 </div>
+                <nav style="background-color: #fff;" class="mobile-nav">
+                    <a href="#" class="bloc-icon">
+                        <img src="assets/img/bottomNav/icon-home.svg" alt="">
+                    </a>
+                    <a href="#" class="bloc-icon">
+                        <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
+                    </a>
+                    <a href="#" class="bloc-icon">
+                        <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
+                    </a>
+                    <a href="#" class="bloc-icon">
+                        <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
+                    </a>
+                    <a href="#" class="bloc-icon">
+                        <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
+                    </a>
+                    <a href="#" class="bloc-icon">
+                        <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
+                    </a>
+                    <a href="#" class="bloc-icon">
+                        <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
+                    </a>
+
+                </nav>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered justify-content-center">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                                <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>VocÃª deseja sair da sua conta?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form name="formExclui" action="../../../Controller/Logout.php" method="POST">
+                                    <button type="submit" class="btn btn-secondary">Sair da conta</button>
+                                </form>
+                                <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- ----------------------------- MODAL CRIAR EVENTO -------------------------- -->
+
+                <div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo evento</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="../../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
+                                    <div class="container">
+                                        <div class="lado-esquerdo">
+                                            <label>Inserir título: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" name="tituloEvento" class="form-control" placeholder="título">
+                                            </div>
+                                            <div class="hora">
+                                                <div class="inicio">
+                                                    <label for="horario">Horário de início: </label>
+                                                    <div class="input-group mb-3">
+                                                        <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
+                                                    </div>
+                                                </div>
+                                                <div class="termino">
+                                                    <label>Horário de término: </label>
+                                                    <div class="input-group mb-3">
+                                                        <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="data">
+                                                <label for="data">Selecione uma data:</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="date" name="dataEvento" id="data">
+                                                </div>
+
+                                                <label>Tipo de Arte</label>
+                                                <div class="input-group mb-3">
+                                                    <select name="tipoArte" id="">
+                                                        <option value="#">Selecionar...</option>
+                                                        <?php
+                                                        $t = TipoArteDao::ListaTag();
+                                                        foreach ($t as $tag) {
+                                                        ?>
+                                                            <option value="<?PHP echo $tag['idTipoArte']; ?>"><?PHP echo $tag['nomeTipoArte']; ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <label>CEP: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" name="cepEvento" id="cep" placeholder="cep" onkeyup="handleZipCode(event)" maxlength="9" onblur="pesquisacep(this.value);">
+                                            </div>
+                                            <label>Rua: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="rua" class="form-control" name="logradouro" placeholder="endereço">
+                                            </div>
+                                            <label>Número de endereço: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
+                                            </div>
+                                            <label>Bairro: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="bairro" class="form-control" name="bairroEvento" placeholder="bairro">
+                                            </div>
+
+                                            <label>Cidade: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="cidade" class="form-control" name="cidEvento" placeholder="cidade">
+                                            </div>
+                                            <label>Estado: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" id="uf" class="form-control" name="estadoEvento" placeholder="estado">
+                                            </div>
+                                        </div>
+                                        <div class="lado-direito">
+                                            <div class="input-group mb-3">
+                                                <div class="preview-img">
+                                                    <label class="picture" for="picture__input" tabIndex="0">
+                                                        <span class="picture__image"></span>
+                                                    </label>
+                                                    <input type="file" name="imagemEvento" id="picture__input">
+                                                </div>
+                                            </div>
+                                            <label>Descrição do evento</label>
+                                            <div class="input-group mb-3">
+                                                <textarea cols="25" rows="7" class="form-control" name="descEvento" id="desc-evento" placeholder="Escreva aqui... "></textarea>
+                                            </div>
+                                            <label>Link dos Ingressos: </label>
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" name="ingressoEvento" placeholder="link dos ingressos...">
+                                            </div>
+                                            <div class="footer">
+                                                <button type="submit" class="btn">Concluir</button>
+                                            </div>
+                                        </div>
+
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <nav style="background-color: #fff;" class="mobile-nav">
             <a href="#" class="bloc-icon">
                 <img src="assets/img/bottomNav/icon-home.svg" alt="">
