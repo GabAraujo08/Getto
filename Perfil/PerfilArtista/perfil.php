@@ -229,7 +229,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="col-8 publicacoes">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
 
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
@@ -259,7 +259,7 @@ require_once 'GlobalPerfil.php';
 
 
 
-                            <div id="eventos-web" class="col-4 eventos">
+                            <div id="eventos-web" class="eventos eventos-web">
 
 
                                 <?php require_once '../../Dao/EventoDao.php';
