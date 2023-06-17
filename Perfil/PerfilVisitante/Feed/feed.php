@@ -21,6 +21,10 @@ require_once '../../../Dao/SeguidoresDao.php';
 </head>
 
 <body>
+
+
+
+
     <div class="d-flex"> <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
         <div class="area-sidebar">
             <div class="sidebar">
@@ -43,7 +47,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                             <a href="../Configuracoes/configuracoes.php">
                                 <li class="list-group-item"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></li>
                             </a>
-                            <a  href="../Feed/descobrir.php">
+                            <a href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
                             <a href="../perfil-visitante.php">
@@ -59,10 +63,10 @@ require_once '../../../Dao/SeguidoresDao.php';
                     </div>
 
                     <div class="sair">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
-                    <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
-                </a>
-            </div>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                            <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
+                        </a>
+                    </div>
 
                     <!-- ---------------------------- BOTAO PERFIL E SAIR ---------------------------- -->
 
@@ -194,11 +198,11 @@ require_once '../../../Dao/SeguidoresDao.php';
 
                             <?PHP
                             $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
-                            if($seguindo == 0){
+                            if ($seguindo == 0) {
                                 $pubs = PublicacaoDao::TipoArteComMaisPublicacoes();
                                 foreach ($pubs as $ps) {
                                     $texto_compartilhamento = $ps['descPublicacao'];
-                                ?>
+                            ?>
                                     <div class="publicacao">
                                         <div class="header-publicacao">
                                             <div class="informacoes-perfil-publicacao">
@@ -227,23 +231,58 @@ require_once '../../../Dao/SeguidoresDao.php';
 
                                         <div class="box-img-publicacao">
                                             <?php
-                                                if($ps['idTipoMidia'] == 3){
+                                            if ($ps['idTipoMidia'] == 3) {
                                             ?>
-                                                    <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                                <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>" alt="" class="img-publicacao">
                                             <?PHP
-                                                }else if($ps['idTipoMidia'] == 2){
+                                            } else if ($ps['idTipoMidia'] == 2) {
                                             ?>
-                                                    <video id="player-video" controls>
-                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>"></video>
+                                                <video id="player-video" controls>
+                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>">
+                                                </video>
                                             <?PHP
-                                                }else{
+                                            } else {
                                             ?>
 
-                                                    <audio id="player-audio" controls>
+                                                <div class="audio-player">
+                                                    <div class="info-player">
+                                                        <div class="cover">
+                                                            <img class="cover-img" src=".../../../../../teste/teste.jpg">
+                                                        </div>
+                                                        <div class="desc-musica">
+                                                            <div class="autor">
+                                                                <p>Kanye West</p>
+                                                            </div>
+                                                            <div class="nome-musica">
+                                                                <p>Esqueci</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="controls">
+                                                        <div class="reproducao">
+                                                            <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                            <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                            <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                        </div>
+                                                        <div class="volume">
+                                                            <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-bar" onclick="seek(event)">
+                                                        <div class="timer">00:00</div>
+                                                        <div class="time-bar">
+                                                            <div class="time-fill"></div>
+                                                        </div>
+                                                        <div class="total-time">00:00</div>
+                                                    </div>
+                                                    <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>"></audio>
+                                                </div>
+
+                                                <!-- <audio id="player-audio" controls>
                                                     <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>">
-                                                    </audio>
+                                                    </audio> -->
                                             <?PHP
-                                                }
+                                            }
                                             ?>
                                         </div>
                                         <div class="legenda-publicacao">
@@ -435,30 +474,30 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                         <?php
                                                         }
                                                         ?>
-                                                        </div>
-                                                <div class="modal-footer">
-                                                    <div id="divComentario" class="comentario slide-in">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <div id="divComentario" class="comentario slide-in">
 
-                                                        <div class="box-text-area">
-                                                            <form method="POST" action="../../../Controller/Comentario.php">
-                                                                <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
+                                                            <div class="box-text-area">
+                                                                <form method="POST" action="../../../Controller/Comentario.php">
+                                                                    <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                                     </textarea>
-                                                                <input type="hidden" name="idPubli" value="<?PHP echo $pta['idPublicacao']; ?>">
-                                                                <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                                                <div class="box-btn-comentario">
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </form>
+                                                                    <input type="hidden" name="idPubli" value="<?PHP echo $pta['idPublicacao']; ?>">
+                                                                    <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                                                    <div class="box-btn-comentario">
+                                                                        <button type="submit" class="btn btn-primary">
+                                                                            <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+
+
+
                                                         </div>
-
-
-
-
-                                                    </div>
-                                                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                                                        <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
                                                                 <div class="box-text-area">
                                                                     <form action="#">
                                                                         <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
@@ -474,269 +513,300 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                             </div> -->
 
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?PHP
-                            }
-                                ?>
-
-                                
-                            </div>
-                            
-
-                            <?php
-                            } else {
-                                $pub = PublicacaoDao::ListaPublicacaoSegui($_SESSION['idUsuario']);
-                                foreach ($pub as $p) {
-                                ?>
-                                    <div class="publicacao">
-                                        <div class="header-publicacao">
-                                            <div class="informacoes-perfil-publicacao">
-                                                <div class="img-perfil-publicacao">
-                                                    <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
-                                                </div>
-                                                <div class="nick-e-bio-perfil-publicacao">
-                                                    <div class="nick">
-                                                        <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
                                                     </div>
-
                                                 </div>
                                             </div>
-                                            <div class="box-btn-configuracao-publicacao">
-                                                <button class="btn-configuracao-publicacao">
-                                                    <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                                </button>
-                                            </div>
                                         </div>
+                                    <?PHP
+                                }
+                                    ?>
 
 
-                                        <div class="box-img-publicacao">
-                                        <?php
-                                                if($p['idTipoMidia'] == 3){
-                                            ?>
+                                    </div>
+
+
+                                    <?php
+                                } else {
+                                    $pub = PublicacaoDao::ListaPublicacaoSegui($_SESSION['idUsuario']);
+                                    foreach ($pub as $p) {
+                                    ?>
+                                        <div class="publicacao">
+                                            <div class="header-publicacao">
+                                                <div class="informacoes-perfil-publicacao">
+                                                    <div class="img-perfil-publicacao">
+                                                        <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $p['fotoPerfilUsuario']; ?>" alt="">
+                                                    </div>
+                                                    <div class="nick-e-bio-perfil-publicacao">
+                                                        <div class="nick">
+                                                            <h1><?PHP echo $p['nicknameUsuario']; ?></h1>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="box-btn-configuracao-publicacao">
+                                                    <button class="btn-configuracao-publicacao">
+                                                        <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                                    </button>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="box-img-publicacao">
+                                                <?php
+                                                if ($p['idTipoMidia'] == 3) {
+                                                ?>
                                                     <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
-                                            <?PHP
-                                                }else if($p['idTipoMidia'] == 2){
-                                            ?>
+                                                <?PHP
+                                                } else if ($p['idTipoMidia'] == 2) {
+                                                ?>
                                                     <video id="player-video" controls>
-                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></video>
-                                            <?PHP
-                                                }else{
-                                            ?>
-
-                                                    <audio id="player-audio" controls>
-                                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
-                                                    </audio>
-                                            <?PHP
-                                                }
-                                            ?>
-                                        </div>
-                                        <div class="legenda-publicacao">
-                                            <p>
-                                                <?PHP echo $p['descPublicacao']; ?>!
-                                            </p>
-                                        </div>
-                                        <div class="qnt-likes">
-                                            <p>
-                                                <!-- 10 curtidas -->
-                                                <?php
-                                                $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
-                                                echo $cc . ' curtidas';
-                                                ?>
-                                            </p>
-                                        </div>
-                                        <div class="acoes-publicacao">
-                                            <div class="box-btn-acoes">
-
-                                                <?php
-                                                $conexao = Conexao::conectar();
-                                                $consulta = $conexao->prepare('SELECT idCurtida, idPublicacao FROM tbCurtida WHERE idUsuario = ?');
-                                                $consulta->bindValue(1, $_SESSION['idUsuario']);
-                                                $consulta->execute();
-                                                $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-
-                                                if ($resultado == false) {
-                                                ?>
-
-                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
-                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                        <button name="cc" type="submit" class="btn-acao">
-                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                        </button>
-                                                    </form>
-
-                                                <?php
-                                                } else if (!in_array($p['idPublicacao'], array_column($resultado, 'idPublicacao'))) {
-                                                ?>
-                                                    <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
-                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                        <button name="cc" type="submit" class="btn-acao">
-                                                            <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                                        </button>
-                                                    </form>
-                                                <?php
+                                                        <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
+                                                    </video>
+                                                <?PHP
                                                 } else {
                                                 ?>
-
-                                                    <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
-                                                        <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                        <button name="cc" type="submit" class="btn-acao">
-                                                            <img src="assets/img/icon-like-true.svg" alt="">
-                                                        </button>
-                                                    </form>
-
-                                                <?php
-                                                }
-                                                ?>
-
-
-
-
-                                            <button data-bs-toggle="modal" data-bs-target="#comentarioModal<?PHP echo $p['idPublicacao']; ?>" style="position: relative;" id="btnComentario" class="btn-acao">
-                                                <!--<p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>-->
-                                                <img src="assets/img/icon-comentario-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                            </button>
-                                            <button class="btn-acao">
-                                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                            </button>
-                                        </div>
-                                        <div class="tempo-publicacao">
-                                            <p><?php
-                                                $minutos = $p['minutosPublicacao'];
-                                                $meses = intval($minutos / 43200);
-                                                $minutos = $minutos % 43200;
-
-                                                if ($meses > 0) {
-                                                    echo 'há ' . $meses . ' m';
-                                                } elseif ($minutos == 0) {
-                                                    echo 'Agora mesmo';
-                                                } elseif ($minutos > 1440) {
-                                                    $d = intval($minutos / 1440);
-                                                    echo 'há ' . $d . ' d';
-                                                } elseif ($minutos > 59) {
-                                                    $h = intval($minutos / 60);
-                                                    echo 'há ' . $h . ' h';
-                                                } else {
-                                                    echo 'há ' . $minutos . ' min';
-                                                }
-                                                ?></p>
-                                        </div>
-                                    </div>
-                                    <div id="divComentario" class="comentario slide-in" style="display: none;">
-
-                                        <div class="box-text-area">
-                                            <textarea name="comentario" id="" cols="30" rows="10">
-
-                                                                        </textarea>
-                                            <div class="box-btn-comentario">
-                                                <button class="btn btn-primary">
-                                                    <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?PHP
-                                $tc = ComentarioDao::consultarQuantComentario($p['idPublicacao']);
-                                ?>
-                                <div class="modal-comentario">
-
-
-                                    <div class="modal fade" id="comentarioModal<?PHP echo $p['idPublicacao']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $tc; ?> Comentários </h1>
-
-
-
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <!-- <div class="box-input-search">
-                                                                <input class="busca-comentario" type="search" placeholder="Busque um comentário">
-
+                                                    <div class="audio-player">
+                                                        <div class="info-player">
+                                                            <div class="cover">
+                                                                <img class="cover-img" src=".../../../../../teste/teste.jpg">
                                                             </div>
-                                                            <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
-                                                    <?php
-                                                    $come = ComentarioDao::listarComentario($p['idPublicacao']);
-                                                    foreach ($come as $c) {
-
-                                                    ?>
-                                                        <div class="box-comentario">
-                                                            <?PHP
-                                                            if ($c['nivelContaUsuario'] == 2) {
-                                                            ?>
-                                                                <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
-                                                            <?PHP
-                                                            } else {
-                                                            ?>
-                                                                <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
-                                                            <?PHP
-                                                            }
-                                                            ?>
-                                                            <div class="conteudo-comentario">
-                                                                <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
-                                                                <p><?PHP echo $c['comentario']; ?></p>
-                                                                <?php
-                                                                $minuto = $c['minutosComentario'];
-                                                                $mes = intval($minuto / 43200);
-                                                                $minuto = $minuto % 43200;
-
-                                                                if ($mes > 0) {
-                                                                    echo 'há ' . $mes . ' m';
-                                                                } elseif ($minuto == 0) {
-                                                                    echo 'Agora mesmo';
-                                                                } elseif ($minuto > 1440) {
-                                                                    $ds = intval($minuto / 1440);
-                                                                    echo 'há ' . $ds . ' d';
-                                                                } elseif ($minuto > 59) {
-                                                                    $hs = intval($minuto / 60);
-                                                                    echo 'há ' . $hs . ' h';
-                                                                } else {
-                                                                    echo 'há ' . $minuto . ' min';
-                                                                }
-                                                                ?>
-                                                                <div class="box-btn-denuncia">
-                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                            <div class="desc-musica">
+                                                                <div class="autor">
+                                                                    <p>Kanye West</p>
+                                                                </div>
+                                                                <div class="nome-musica">
+                                                                    <p>Esqueci</p>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="controls">
+                                                            <div class="reproducao">
+                                                                <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                                <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                                <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                            </div>
+                                                            <div class="volume">
+                                                                <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="progress-bar" onclick="seek(event)">
+                                                            <div class="timer">00:00</div>
+                                                            <div class="time-bar">
+                                                                <div class="time-fill"></div>
+                                                            </div>
+                                                            <div class="total-time">00:00</div>
+                                                        </div>
+                                                        <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
+                                                    </div>
+                                                    
+                                                <?PHP
+                                                }
+                                                ?>
+                                            </div>
+                                            <div class="legenda-publicacao">
+                                                <p>
+                                                    <?PHP echo $p['descPublicacao']; ?>!
+                                                </p>
+                                            </div>
+                                            <div class="qnt-likes">
+                                                <p>
+                                                    <!-- 10 curtidas -->
+                                                    <?php
+                                                    $cc = CurtidaDao::consultarCurtida($p['idPublicacao']);
+                                                    echo $cc . ' curtidas';
+                                                    ?>
+                                                </p>
+                                            </div>
+                                            <div class="acoes-publicacao">
+                                                <div class="box-btn-acoes">
+
+                                                    <?php
+                                                    $conexao = Conexao::conectar();
+                                                    $consulta = $conexao->prepare('SELECT idCurtida, idPublicacao FROM tbCurtida WHERE idUsuario = ?');
+                                                    $consulta->bindValue(1, $_SESSION['idUsuario']);
+                                                    $consulta->execute();
+                                                    $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+
+                                                    if ($resultado == false) {
+                                                    ?>
+
+                                                        <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                            <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                            <button name="cc" type="submit" class="btn-acao">
+                                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                            </button>
+                                                        </form>
+
+                                                    <?php
+                                                    } else if (!in_array($p['idPublicacao'], array_column($resultado, 'idPublicacao'))) {
+                                                    ?>
+                                                        <form id="curtida" name="Curtida" action="../../../Controller/Curtir.php" method="POST">
+                                                            <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                            <button name="cc" type="submit" class="btn-acao">
+                                                                <img src="assets/img/icon-estrela-btn.svg" alt="">
+                                                            </button>
+                                                        </form>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+
+                                                        <form id="curtida" name="Curtida" action="../../../Controller/Descurtir.php" method="POST">
+                                                            <input type="hidden" name="idPublicacao" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                            <button name="cc" type="submit" class="btn-acao">
+                                                                <img src="assets/img/icon-like-true.svg" alt="">
+                                                            </button>
+                                                        </form>
 
                                                     <?php
                                                     }
                                                     ?>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <div id="divComentario" class="comentario slide-in">
 
-                                                            <div class="box-text-area">
-                                                                <form method="POST" id="coment" action="../../../Controller/Comentario.php">
-                                                                    <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
+
+
+
+                                                    <button data-bs-toggle="modal" data-bs-target="#comentarioModal<?PHP echo $p['idPublicacao']; ?>" style="position: relative;" id="btnComentario" class="btn-acao">
+                                                        <!--<p style="position: absolute; top: -10px; right: -1px; color: red; font-family: 'InterBold';">1</p>-->
+                                                        <img src="assets/img/icon-comentario-btn.svg" alt="">
+                                                    </button>
+                                                    <button class="btn-acao">
+                                                        <img src="assets/img/icon-salvar-btn.svg" alt="">
+                                                    </button>
+                                                    <button class="btn-acao">
+                                                        <img src="assets/img/icon-compartilhar-btn.svg" alt="">
+                                                    </button>
+                                                </div>
+                                                <div class="tempo-publicacao">
+                                                    <p><?php
+                                                        $minutos = $p['minutosPublicacao'];
+                                                        $meses = intval($minutos / 43200);
+                                                        $minutos = $minutos % 43200;
+
+                                                        if ($meses > 0) {
+                                                            echo 'há ' . $meses . ' m';
+                                                        } elseif ($minutos == 0) {
+                                                            echo 'Agora mesmo';
+                                                        } elseif ($minutos > 1440) {
+                                                            $d = intval($minutos / 1440);
+                                                            echo 'há ' . $d . ' d';
+                                                        } elseif ($minutos > 59) {
+                                                            $h = intval($minutos / 60);
+                                                            echo 'há ' . $h . ' h';
+                                                        } else {
+                                                            echo 'há ' . $minutos . ' min';
+                                                        }
+                                                        ?></p>
+                                                </div>
+                                            </div>
+                                            <div id="divComentario" class="comentario slide-in" style="display: none;">
+
+                                                <div class="box-text-area">
+                                                    <textarea name="comentario" id="" cols="30" rows="10">
+
+                                                                        </textarea>
+                                                    <div class="box-btn-comentario">
+                                                        <button class="btn btn-primary">
+                                                            <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?PHP
+                                        $tc = ComentarioDao::consultarQuantComentario($p['idPublicacao']);
+                                        ?>
+                                        <div class="modal-comentario">
+
+
+                                            <div class="modal fade" id="comentarioModal<?PHP echo $p['idPublicacao']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $tc; ?> Comentários </h1>
+
+
+
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <!-- <div class="box-input-search">
+                                                                <input class="busca-comentario" type="search" placeholder="Busque um comentário">
+
+                                                            </div>
+                                                            <button class="btn-search" type="submit"><i class="fa-solid fa-magnifying-glass icon-search"></i></button> -->
+                                                            <?php
+                                                            $come = ComentarioDao::listarComentario($p['idPublicacao']);
+                                                            foreach ($come as $c) {
+
+                                                            ?>
+                                                                <div class="box-comentario">
+                                                                    <?PHP
+                                                                    if ($c['nivelContaUsuario'] == 2) {
+                                                                    ?>
+                                                                        <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                                    <?PHP
+                                                                    } else {
+                                                                    ?>
+                                                                        <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                                    <?PHP
+                                                                    }
+                                                                    ?>
+                                                                    <div class="conteudo-comentario">
+                                                                        <h1><?PHP echo $c['nicknameUsuario']; ?></h1>
+                                                                        <p><?PHP echo $c['comentario']; ?></p>
+                                                                        <?php
+                                                                        $minuto = $c['minutosComentario'];
+                                                                        $mes = intval($minuto / 43200);
+                                                                        $minuto = $minuto % 43200;
+
+                                                                        if ($mes > 0) {
+                                                                            echo 'há ' . $mes . ' m';
+                                                                        } elseif ($minuto == 0) {
+                                                                            echo 'Agora mesmo';
+                                                                        } elseif ($minuto > 1440) {
+                                                                            $ds = intval($minuto / 1440);
+                                                                            echo 'há ' . $ds . ' d';
+                                                                        } elseif ($minuto > 59) {
+                                                                            $hs = intval($minuto / 60);
+                                                                            echo 'há ' . $hs . ' h';
+                                                                        } else {
+                                                                            echo 'há ' . $minuto . ' min';
+                                                                        }
+                                                                        ?>
+                                                                        <div class="box-btn-denuncia">
+                                                                            <button data-bs-toggle="modal" data-bs-target="#denunciaModal" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div id="divComentario" class="comentario slide-in">
+
+                                                                <div class="box-text-area">
+                                                                    <form method="POST" id="coment" action="../../../Controller/Comentario.php">
+                                                                        <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                         </textarea>
-                                                                    <input type="hidden" name="idPubli" value="<?PHP echo $p['idPublicacao']; ?>">
-                                                                    <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
-                                                                    <div class="box-btn-comentario">
-                                                                        <button type="submit" class="btn btn-primary">
-                                                                            <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
+                                                                        <input type="hidden" name="idPubli" value="<?PHP echo $p['idPublicacao']; ?>">
+                                                                        <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
+                                                                        <div class="box-btn-comentario">
+                                                                            <button type="submit" class="btn btn-primary">
+                                                                                <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+
+
+
+
+
                                                             </div>
-
-
-
-
-
-                                                        </div>
-                                                        <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                                                            <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
                                                     <div class="box-text-area">
                                                         <form action="#">
                                                             <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
@@ -752,165 +822,165 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                 </div> -->
 
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        <?PHP
+                                    }
+                                        ?>
                                         </div>
-                                    <?PHP
+                                    <?php
                                 }
                                     ?>
-                                    </div>
-                            <?php
-                            }
-                            ?>
-                            
 
 
-                                            
 
-                             
-                                                
-                                </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="box-area-info">
-                <div class="area-info">
+        </div>
+        <div class="box-area-info">
+            <div class="area-info">
 
-                    <div class="box-tags">
+                <div class="box-tags">
 
-                        <div class="titulo-tags">
-                            <h1>Mais populares</h1>
-                        </div>
-                        <div class="tags">
-                            <div class="column-tags">
-                                <div class="tag">
-                                    <div class="rank-tag">
-                                        <h2>1#</h2>
-                                    </div>
-                                    <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Musica</button>
+                    <div class="titulo-tags">
+                        <h1>Mais populares</h1>
+                    </div>
+                    <div class="tags">
+                        <div class="column-tags">
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>1#</h2>
                                 </div>
-                                <div class="tag">
-                                    <div class="rank-tag">
-                                        <h2>2#</h2>
-                                    </div>
-                                    <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Teatro</button>
-                                </div>
-                                <div class="tag">
-                                    <div class="rank-tag">
-                                        <h2>3#</h2>
-                                    </div>
-                                    <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Dança</button>
-                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Musica</button>
                             </div>
-                            <div class="column-tags">
-                                <div class="tag">
-                                    <div class="rank-tag">
-                                        <h2>4#</h2>
-                                    </div>
-                                    <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Desenho</button>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>2#</h2>
                                 </div>
-                                <div class="tag">
-                                    <div class="rank-tag">
-                                        <h2>5#</h2>
-                                    </div>
-                                    <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Classicos</button>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Teatro</button>
+                            </div>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>3#</h2>
                                 </div>
-                                <div class="tag">
-                                    <div class="rank-tag">
-                                        <h2>6#</h2>
-                                    </div>
-                                    <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Realismo</button>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Dança</button>
+                            </div>
+                        </div>
+                        <div class="column-tags">
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>4#</h2>
                                 </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Desenho</button>
+                            </div>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>5#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Classicos</button>
+                            </div>
+                            <div class="tag">
+                                <div class="rank-tag">
+                                    <h2>6#</h2>
+                                </div>
+                                <button id="top-tag" class="btn btn-primary btn-top-tag" type="button">Realismo</button>
                             </div>
                         </div>
                     </div>
+                </div>
 
 
-                    <div class="area-sugestao">
+                <div class="area-sugestao">
 
-                        <div class="titulo-sugestao">
-                            <h1>Sugestões para seguir</h1>
+                    <div class="titulo-sugestao">
+                        <h1>Sugestões para seguir</h1>
+                    </div>
+
+                    <div class="box-sugestoes">
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
+                            </div>
+
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
                         </div>
 
-                        <div class="box-sugestoes">
-                            <div class="sugestao-perfil">
-                                <div class="img-perfil-sugestao">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
 
-                                <div class="informacoes-sugestao">
-                                    <h1>@gabb</h1>
-                                    <p>Cantor e compositor</p>
-                                </div>
-                                <div class="btn-seguir">
-                                    <button>Seguir</button>
-                                </div>
+
+
+
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
                             </div>
 
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
+                            </div>
+                        </div>
 
-
-
-
-                            <div class="sugestao-perfil">
-                                <div class="img-perfil-sugestao">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-
-                                <div class="informacoes-sugestao">
-                                    <h1>@gabb</h1>
-                                    <p>Cantor e compositor</p>
-                                </div>
-                                <div class="btn-seguir">
-                                    <button>Seguir</button>
-                                </div>
+                        <div class="sugestao-perfil">
+                            <div class="img-perfil-sugestao">
+                                <img src="assets/img/img-perfil.svg" alt="">
                             </div>
 
-                            <div class="sugestao-perfil">
-                                <div class="img-perfil-sugestao">
-                                    <img src="assets/img/img-perfil.svg" alt="">
-                                </div>
-
-                                <div class="informacoes-sugestao">
-                                    <h1>@gabb</h1>
-                                    <p>Cantor e compositor</p>
-                                </div>
-                                <div class="btn-seguir">
-                                    <button>Seguir</button>
-                                </div>
+                            <div class="informacoes-sugestao">
+                                <h1>@gabb</h1>
+                                <p>Cantor e compositor</p>
+                            </div>
+                            <div class="btn-seguir">
+                                <button>Seguir</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <nav class="mobile-nav">
-            <a href="#" class="bloc-icon">
-                <img src="assets/img/bottomNav/icon-home.svg" alt="">
-            </a>
-            <a href="descobrir.php" class="bloc-icon">
-                <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
-            </a>
-            <a href="#" class="bloc-icon">
-                <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
-            </a>
-            <a href="#" class="bloc-icon">
-                <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
-            </a>
-            <a href="#" class="bloc-icon">
-                <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
-            </a>
-            <a href="#" class="bloc-icon">
-                <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
-            </a>
-            <a href="#" class="bloc-icon">
-                <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
-            </a>
+    <nav class="mobile-nav">
+        <a href="#" class="bloc-icon">
+            <img src="assets/img/bottomNav/icon-home.svg" alt="">
+        </a>
+        <a href="descobrir.php" class="bloc-icon">
+            <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
+        </a>
+        <a href="#" class="bloc-icon">
+            <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
+        </a>
+        <a href="#" class="bloc-icon">
+            <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
+        </a>
+        <a href="#" class="bloc-icon">
+            <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
+        </a>
+        <a href="#" class="bloc-icon">
+            <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
+        </a>
+        <a href="#" class="bloc-icon">
+            <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
+        </a>
 
-        </nav>
+    </nav>
 
     </div>
 
@@ -1034,7 +1104,80 @@ require_once '../../../Dao/SeguidoresDao.php';
         </div>
     </div>
 
-    
+
+    <script>
+        var audio = document.getElementById('audio');
+        var playButton = document.querySelector('.play-button');
+        var volumeButton = document.querySelector('.volume-button');
+        var volumeSlider = document.querySelector('.volume-slider');
+        var timer = document.querySelector('.timer');
+        var totalTime = document.querySelector('.total-time');
+        var timeFill = document.querySelector('.time-fill');
+        var progressBar = document.querySelector('.progress-bar');
+
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                audio.pause();
+                playButton.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function toggleMute() {
+            if (audio.muted) {
+                audio.muted = false;
+                volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else {
+                audio.muted = true;
+                volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        }
+
+        function adjustVolume(volume) {
+            audio.volume = volume;
+        }
+
+        audio.addEventListener('timeupdate', function() {
+            var position = audio.currentTime / audio.duration;
+            timeFill.style.width = (position * 100) + '%';
+
+            var minutes = Math.floor(audio.currentTime / 60);
+            var seconds = Math.floor(audio.currentTime % 60);
+            timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+        });
+
+        audio.addEventListener('loadedmetadata', function() {
+            var minutes = Math.floor(audio.duration / 60);
+            var seconds = Math.floor(audio.duration % 60);
+            totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+        });
+
+        function padTime(time) {
+            return (time < 10 ? '0' : '') + time;
+        }
+
+        function seek(event) {
+            var progressWidth = progressBar.clientWidth;
+            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+            var positionPercentage = clickX / progressWidth;
+            var seekTime = positionPercentage * audio.duration;
+
+            audio.currentTime = seekTime;
+        }
+
+        function skipForward() {
+            audio.currentTime += 10;
+        }
+
+        function skipBackward() {
+            audio.currentTime -= 10;
+        }
+    </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 

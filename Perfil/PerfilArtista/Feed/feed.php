@@ -1148,7 +1148,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
     <script src="../../../jquery.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-        var audio = document.getElementById('audio');
+        var audio = document.getElementById('player-audio');
         var playButton = document.querySelector('.play-button');
         var volumeButton = document.querySelector('.volume-button');
         var volumeSlider = document.querySelector('.volume-slider');
