@@ -17,5 +17,18 @@
             $prepareStatement->execute();
             return 'Cadastrou';  
         }
+
+
+        public static function ListaContaPix($id){
+            
+            $conexao = Conexao::conectar();
+            $consulta = $conexao->prepare(' SELECT DISTINCT tbContaPixArtista.nomeContaPixArtista, tbContaPixArtista.chaveContaPixArtista FROM tbContaPixArtista
+                                                WHERE tbContaPixArtista.idArtista = ?');
+            $consulta->bindValue(1, $id);
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $resultado;
+        }
     }
 ?>
