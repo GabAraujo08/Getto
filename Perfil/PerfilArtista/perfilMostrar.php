@@ -438,19 +438,14 @@ require_once 'GlobalPerfil.php';
                 <div class="modal-body">
                         <h1>informações do artista para doação!</h1>
                         <div class="input-group mb-3">
-
                             <input placeholder="<?php echo $cpa['nomeContaPixArtista'] ?>" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly>
                         </div>
 
                         <div class="input-group mb-3">
-
-                            <select name="tipoContaPixArtista" id="" disabled>
-                                <option value="<?php echo $cpa['tipoContaPixArtista']; ?>"><?php echo $cpa['tipoContaPixArtista']; ?></option>
-                            </select>
+                            <input placeholder="<?php echo $cpa['tipoContaPixArtista'] ?>" name="tipoContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly>
                         </div>
 
                         <div class="input-group mb-3">
-
                             <input placeholder="<?php echo $cpa['chaveContaPixArtista'] ?>" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly>
                         </div>
 
