@@ -1,9 +1,9 @@
-<?php include('../../../../Controller/VerificaLogado.php'); 
-    require_once '../../../../Dao/CurtidaDao.php';
-    require_once '../../../../Dao/Conexao.php';
-    require_once '../../../../Dao/PublicacaoDao.php';
-    require_once '../../../../Dao/EventoDao.php';
-    require_once '../../../../Dao/PresencaDao.php';
+<?php include('../../../../Controller/VerificaLogado.php');
+require_once '../../../../Dao/CurtidaDao.php';
+require_once '../../../../Dao/Conexao.php';
+require_once '../../../../Dao/PublicacaoDao.php';
+require_once '../../../../Dao/EventoDao.php';
+require_once '../../../../Dao/PresencaDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +60,15 @@
         flex-direction: column;
         justify-content: center;
         padding: 5%;
+        width: 70%;
+    }
+
+    .explicacao-img {
+        width: 30%;
+    }
+
+    .explicacao-img img {
+        width: 100%;
     }
 
     .explicacao-titulo p {
@@ -219,6 +228,42 @@
         color: #9056E8;
         margin: 0;
     }
+
+    .sair {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 80px;
+  }
+  
+  .sair a {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "InterRegular";
+  }
+  
+  .sair img {
+    width: 30px;
+    margin-right: 5px;
+  }
+
+  #modalSairConta .modal-body {
+    font-family: "InterBold";
+    min-height: unset!important;
+  }
+  
+  #modalSairConta .modal-header {
+    border-top: 0;
+    border-bottom: 0;
+  }
+  
+  #modalSairConta .modal-footer {
+    border-top: 0;
+    border-bottom: 0;
+  }
+  
 </style>
 
 <body>
@@ -237,7 +282,7 @@
                     <a href="../../Feed/feed.php">
                         <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                     </a>
-                   
+
                     <a href="../../../../Perfil/PerfilArtista/Evento/eventoArtista.php">
                         <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                     </a>
@@ -257,6 +302,11 @@
             </div>
             <div class="nova-pub">
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
+            </div>
+            <div class="sair">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                    <img src="../assets/img/sair.png">Sair
+                </a>
             </div>
             <!-- <div class="container">
                 <div class="d-flex justify-content-center align-items-center flex-column sugestao-seguidores">
@@ -364,8 +414,8 @@
                 <div class="visitas-quantidade">
                     <p><?php
                         $quantEvent = EventoDao::QuantEvento($_SESSION['idArtista']);
-                        echo $quantEvent[0]['quantEvent'];                        
-                    ?></p>
+                        echo $quantEvent[0]['quantEvent'];
+                        ?></p>
                 </div>
             </div>
             <div class="card-curtidas">
@@ -377,16 +427,16 @@
                 </div>
                 <div class="curtidas-quantidade">
                     <p><?php
-                       $quantcurtida = CurtidaDao::QuantCurtidaTotais($_SESSION['idArtista']);
+                        $quantcurtida = CurtidaDao::QuantCurtidaTotais($_SESSION['idArtista']);
 
-                       $totalCurtidas = 0;
-                       foreach ($quantcurtida as $publicacao) {
-                           $totalCurtidas += $publicacao['quantidade'];
-                       }
-                       
-                       echo $totalCurtidas;
-                       
-                    ?></p>
+                        $totalCurtidas = 0;
+                        foreach ($quantcurtida as $publicacao) {
+                            $totalCurtidas += $publicacao['quantidade'];
+                        }
+
+                        echo $totalCurtidas;
+
+                        ?></p>
                 </div>
             </div>
             <div class="card-compartilhamentos">
@@ -397,17 +447,17 @@
                     <p>Confirmações totais do evento</p>
                 </div>
                 <div class="compartilhamentos-quantidade">
-                <p><?php
-                       $quantpresenca = PresencaDao::QuantPresencaTotais($_SESSION['idArtista']);
+                    <p><?php
+                        $quantpresenca = PresencaDao::QuantPresencaTotais($_SESSION['idArtista']);
 
-                       $totalPresenca = 0;
-                       foreach ($quantpresenca as $evento) {
-                           $totalPresenca += $evento['quantidade'];
-                       }
-                       
-                       echo $totalPresenca;
-                       
-                    ?></p>
+                        $totalPresenca = 0;
+                        foreach ($quantpresenca as $evento) {
+                            $totalPresenca += $evento['quantidade'];
+                        }
+
+                        echo $totalPresenca;
+
+                        ?></p>
                 </div>
             </div>
             <div class="card-publicacoes">
@@ -421,7 +471,7 @@
                     <p><?php
                         $quantPubli = PublicacaoDao::QuantPublis($_SESSION['idArtista']);
                         echo $quantPubli[0]['quantPubli'];
-                    ?></p>
+                        ?></p>
                 </div>
             </div>
         </div>
@@ -452,6 +502,26 @@
 
     </nav>
 
+
+    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você deseja sair da sua conta?
+                </div>
+                <div class="modal-footer">
+                    <form name="formExclui" action="../../../../Controller/Logout.php" method="POST">
+                        <button type="submit" class="btn btn-secondary">Sair</button>
+                    </form>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -31,7 +31,7 @@ require_once 'GlobalPerfil.php';
                         <!-- <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca"> -->
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
-                    <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
+                    <div style="margin-top: 30px;" class="d-flex justify-content-center align-items-center flex-column list-group-box">
                         <ul class="list-group">
                             <a href="Feed/feed.php">
                                 <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>

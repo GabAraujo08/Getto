@@ -1,3 +1,18 @@
+<?php
+include('../../../../Controller/VerificaLogado.php');
+require_once '../../../../Dao/ArtistaDao.php';
+
+
+/*if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsuario']) {
+    $dataExpiracao = strtotime('22-06-2023');
+    setcookie('primeiroLogin', 'true', $dataExpiracao, '/');
+    setcookie('idU', $_SESSION['idUsuario'], $dataExpiracao, '/');
+    header('Location: ../escolhaTags.php');
+    exit;
+}*/
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,8 +23,7 @@
     <title>Conta</title>
     <link rel="shortcut icon" href="../assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/contaMudarSenha.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,11 +34,11 @@
                 <h1 class="logo-tipo">Getto</h1>
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-            <ul class="list-group">
+                <ul class="list-group">
                     <a href="../../Feed/feed.php">
                         <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                     </a>
-                    
+
                     <a href="../../Evento/eventoArtista.php">
                         <li class="list-group-item"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></li>
                     </a>
@@ -41,6 +55,11 @@
             </div>
             <div class="nova-pub">
                 <button id="nova-pub" class="btn btn-primary btn-nova-pub" type="button">Nova publicação</button>
+            </div>
+            <div class="sair">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
+                    <img src="../assets/img/sair.png">Sair
+                </a>
             </div>
             <!-- <div class="container">
             <div class="d-flex justify-content-center align-items-center flex-column sugestao-seguidores">
@@ -124,7 +143,7 @@
 
 
 
-        
+
         <div class="box">
             <div class="header-feed">
                 <div class="div-logos">
@@ -137,7 +156,7 @@
                 </div>
                 <div class="feed-perfil">
                     <div class="box-img-perfil-feed">
-                        <img src="../assets/img/img-perfil.svg" alt="">
+                        <img src="../../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -146,8 +165,7 @@
 
                 <div class="voltar-conteudo">
                     <div class="voltar">
-                        <a href="conta-config.php"> <img src="../assets/img/icon-voltar.png" alt=""
-                                class="icon-voltar"></a>
+                        <a href="conta-config.php"> <img src="../assets/img/icon-voltar.png" alt="" class="icon-voltar"></a>
                     </div>
                     <div class="titulo-config">
                         <h1>Alteração de senha</h1>
@@ -156,20 +174,17 @@
 
                 <div class="input-group mb-3">
 
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input"
-                        placeholder="Senha atual" aria-describedby="inputGroup-sizing-default">
+                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Senha atual" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="input-group mb-3">
 
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input"
-                        placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
+                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="input-group mb-3">
 
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input"
-                        placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
+                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
                 </div>
 
 
@@ -219,14 +234,32 @@
         </a>
 
     </nav>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+
+
+    <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered justify-content-center">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Sair da conta</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Você deseja sair da sua conta?
+                </div>
+                <div class="modal-footer">
+                    <form name="formExclui" action="../../../../Controller/Logout.php" method="POST">
+                        <button type="submit" class="btn btn-secondary">Sair</button>
+                    </form>
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Voltar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
 </body>
 

@@ -44,7 +44,7 @@ body{
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 25px;
+  bottom: 80px;
 }
 
 .sair a {
@@ -118,9 +118,9 @@ width: 35px;
     box-sizing: border-box;
 }
 
-.sidebar .sidebar-box{
+/* .sidebar .sidebar-box{
     margin-top: 25px!important;
-}
+} */
 
 .sidebar .sidebar-box .logos{
     font-family: 'InterBold';

@@ -544,26 +544,40 @@ body {
 }
 
 
+#modalSairConta .modal-body {
+  font-family: "InterBold";
+  min-height: unset!important;
+}
+
+#modalSairConta .modal-header {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+#modalSairConta .modal-footer {
+  border-top: 0;
+  border-bottom: 0;
+}
+
 .sair {
   width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 60px;
 }
 
 .sair a {
   font-size: 22px;
   font-weight: 700;
-  font-family: 'InterRegular';
+  font-family: "InterRegular";
 }
 
-.sair img{
+.sair img {
   width: 30px;
-    margin-right: 5px;
+  margin-right: 5px;
 }
-
 #eventos {
   background-image: url('../img/icone-calendario.png');
 

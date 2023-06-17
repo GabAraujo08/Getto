@@ -56,7 +56,7 @@ require_once '../../../Dao/Conexao.php';
                             <a target="../Descobrir/descobrir.php" href="../Feed/descobrir.php">
                                 <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
                             </a>
-                            <a href="../perfil.php">
+                            <a href="../perfil-visitante.php">
                                 <li class="list-group-item"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></li>
                             </a>
                         </ul>
@@ -64,7 +64,7 @@ require_once '../../../Dao/Conexao.php';
                     
                     <div class="sair">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
-                            <img src="assets/img/sair.png">Sair
+                            <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
                         </a>
                     </div>
 
