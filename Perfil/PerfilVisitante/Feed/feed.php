@@ -598,7 +598,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                         </div>
                                                         <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
                                                     </div>
-                                                    
+
                                                 <?PHP
                                                 }
                                                 ?>
