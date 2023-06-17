@@ -478,7 +478,7 @@ require_once 'GlobalPerfil.php';
             document.getElementById("main").style.marginLeft = "0";
         }
     </script>
-    <script>
+    <!-- <script>
         document.getElementById('icone').addEventListener('click', function() {
             var pixInfo = document.getElementById('pix-info');
 
@@ -490,11 +490,11 @@ require_once 'GlobalPerfil.php';
                 pixInfo.style.display = 'block'; // Exibe o elemento
             }
         });
-    </script>
-    <script src="assets/js/perfil.js"></script>
+    </script> -->
+    
+    <script src="assets/js/exibicaoPerfil.js"></script>
     <script src="assets/js/jquery-3.6.4.min.js"></script>
-    <script src="assets/js/extrator"></script>
-    <script src="assets/js/preview.js"></script>
+ 
 </body>
 
 </html>

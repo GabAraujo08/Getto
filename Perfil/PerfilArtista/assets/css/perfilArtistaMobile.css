@@ -773,13 +773,13 @@ body {
 
 .atividade .publicacoes {
 	display: flex;
-	flex-wrap: wrap;
-
-	max-width: 980px;
-	max-height: 440px;
-	overflow-y: auto;
-	padding: 15px;
-	overflow-x: hidden;
+    flex-wrap: wrap;
+    overflow: unset!important;
+    padding: 15px;
+    overflow-x: hidden;
+    padding-bottom: -14px;
+    width: 100%!important;
+   
 }
 
 
@@ -804,14 +804,13 @@ body {
 
 
 .atividade .publicacoes img {
-	width: 49%;
 	transition: transform 0.3s, box-shadow 0.3s;
-	/* Adiciona transições suaves para os efeitos */
-	cursor: pointer;
-
-	border-radius: 0;
-	margin: 1px;
-	height: 70%;
+    cursor: pointer;
+    border-radius: 0;
+    margin: 1px;
+    width: 33%;
+    max-height: 320px;
+    height: 70%;
 }
 
 .publicacoes img:hover {
@@ -824,7 +823,7 @@ body {
 
 
 .atividade .eventos {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	align-items: center;
 	padding: 15px;
