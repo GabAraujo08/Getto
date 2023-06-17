@@ -143,45 +143,27 @@ require_once 'GlobalPerfil.php';
                                 <?PHP
                                     }
                                 ?>
-                                
                             </div>
-                            <!-- <div class="col-4 eventos">
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    
-                                        <h1>
-                                            Batalha de rima
-                                        </h1>
-                                        <p class="rua-evento">
-                                            Rua Quimanga, 509
-                                        </p>
-                                    
-
-                                </div>
-
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    <h1>
-                                        Batalha de rima
-                                    </h1>
-                                    <p>
-                                        Rua Quimanga, 509
-                                    </p>
-                                </div>
-
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    <h1>
-                                        Batalha de rima
-                                    </h1>
-                                    <p>
-                                        Rua Quimanga, 509
-                                    </p>
-                                </div>
 
 
+                            <div id="eventos-web" class="eventos eventos-web">
 
-                            </div> -->
+                                <?php require_once '../../Dao/EventoDao.php';
+
+                                    $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idUsuario']);
+                                    foreach ($eventos as $evento) : ?>
+                                        <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+                                        <div class="img-evento">
+                                            <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+
+                                            <h1>
+                                                <?PHP echo $evento['tituloEvento']; ?>
+                                            </h1>
+
+
+                                        </div>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>

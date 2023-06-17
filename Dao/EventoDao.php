@@ -113,5 +113,18 @@ class EventoDao
         
         return $resultado;
     }
+
+    public static function ListaConfirmaEvento($id)
+    {
+        $conexao = Conexao::conectar();
+        $query = $conexao->prepare('SELECT tbEvento.idEvento, tbEvento.tituloEvento, tbEvento.imagemEvento FROM tbPresenca
+                INNER JOIN tbEvento ON tbPresenca.idEvento = tbEvento.idEvento
+                WHERE tbPresenca.idUsuario = ?');
+        $query->bindValue(1, $id);
+        $query->execute();
+        $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        return $resultado;
+    }
 }
 ?>
