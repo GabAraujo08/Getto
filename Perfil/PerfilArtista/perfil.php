@@ -152,29 +152,26 @@ require_once 'GlobalPerfil.php';
 
                                 <div class="div-btn-editar-perfil">
                                     <div class="area-doacao">
-                                        <p class="alerta-pix">Você ainda não tem chave pix cadastrada.</p>
-
-                                        <?php require_once '../../Dao/ContaPixArtistaDao.php';
-
-                                            $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);
-                                            foreach ($pix as $cpa) : 
+                                        <?php
+                                        $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);
+                                        if (empty($pix)) {
+                                            echo '<p class="alerta-pix">Você ainda não tem chave Pix cadastrada.</p>';
+                                        } else {
+                                            foreach ($pix as $cpa) {
+                                                echo '
+            <button data-bs-toggle="modal" data-bs-target="#adicionarPix" style="position: relative;" class="btn btn-primary btn-doacao">
+                <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
+                
+            </button>';
+                                            }
+                                        }
                                         ?>
-                                        <button data-bs-toggle="modal" data-bs-target="#adicionarPix" style="position: relative;" class="btn btn-primary btn-doacao">
-                                            <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
-                                            <p class="slide-in" id="pix-info" style="color: #000;
-                          position: absolute;
-                          top: 30%;
-                          left: -250px;
-                          font-family: 'InterBold';
-                          display: none;
-                          ">Sua chave pix é <?php echo $cpa['chaveContaPixArtista']; ?></p>
 
-                                        <?php endforeach; ?>
-                                        </button>
                                         <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             Editar perfil
                                         </button>
                                     </div>
+
 
 
 
@@ -1069,9 +1066,10 @@ require_once 'GlobalPerfil.php';
 
     <!-- -------------------------------------- MODAL ADD PIX ---------------------------------------- -->
 
-
-
-    <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php
+    $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);
+    if (empty($pix)) {
+        echo '<div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1111,7 +1109,57 @@ require_once 'GlobalPerfil.php';
                 </form>
             </div>
         </div>
-    </div>
+    </div>';
+    } else {
+        foreach ($pix as $cpaModal) {
+            echo '
+            <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../../Controller/CadastraConta.php" method="Post" name="contapix" id="contapix">
+                        <h1>Adicione suas informações para doação!</h1>
+                        <div class="input-group mb-3">
+
+                            <input value="'.$cpaModal['nomeContaPixArtista'].'" placeholder="Nome da conta" name="nomeConta" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+
+                        <div class="input-group mb-3">
+
+                            <select name="tipoChave" id="">
+                                <option value="CPF">CPF</option>
+                                <option value="CNPJ">CNPJ</option>
+                                <option value="TELEFONE">TELEFONE</option>
+                                <option value="EMAIL">EMAIL</option>
+                                <option value="ALEATORIA">ALEATORIA</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+
+                            <input value="'.$cpaModal['chaveContaPixArtista'].'" placeholder="Chave PIX" name="chavePix" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>';
+        }
+    }
+    ?>
+
+
+    
 
 
 
