@@ -128,10 +128,10 @@ require_once 'GlobalPerfil.php';
                                                         <?php require_once '../../Dao/ContaPixArtistaDao.php';
 
                                                         $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idA']);
-                                                        foreach ($pix as $cpa) : 
+                                                        foreach ($pix as $cpa) :
                                                         ?>
 
-                                                        <p class="slide-in" id="pix-info" style="color: #000;
+                                                            <p class="slide-in" id="pix-info" style="color: #000;
                                                         position: absolute;
                                                         top: 30%;
                                                         left: -250px;
@@ -156,22 +156,16 @@ require_once 'GlobalPerfil.php';
                                             <div class="div-btn-editar-perfil">
                                                 <div class="area-doacao">
 
-                                                    <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
+                                                    <button data-bs-toggle="modal" data-bs-target="#adicionarPix" type="button" style="position: relative;" class="btn btn-primary btn-doacao">
                                                         <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
 
                                                         <?php require_once '../../Dao/ContaPixArtistaDao.php';
 
-                                                            $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idA']);
-                                                            foreach ($pix as $cpa) : 
+                                                        $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idA']);
+                                                        foreach ($pix as $cpa) :
                                                         ?>
 
-                                                        <p class="slide-in" id="pix-info" style="color: #000;
-                                                        position: absolute;
-                                                        top: 30%;
-                                                        left: -250px;
-                                                        font-family: 'InterBold';
-                                                        display: none;
-                                                        ">Sua chave pix é <?php echo $cpa['chaveContaPixArtista']; ?></p>
+
                                                         <?php endforeach; ?>
                                                     </button>
                                                     <button class="btn btn-primary btn-editar-perfil" value="">
@@ -250,12 +244,12 @@ require_once 'GlobalPerfil.php';
                                 <?php
                                 require_once  '../../Dao/publicacaoDao.php';
 
-                                if (isset($_SESSION['idA'])){
+                                if (isset($_SESSION['idA'])) {
                                     $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
                                     foreach ($mp as $p) :
-                                    ?>
+                                ?>
                                         <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?php endforeach; 
+                                <?php endforeach;
                                 } ?>
 
 
@@ -269,21 +263,21 @@ require_once 'GlobalPerfil.php';
 
                                 <div class="img-evento">
 
-                                    <?php 
+                                    <?php
                                     require_once '../../Dao/EventoDao.php';
 
                                     if (isset($_SESSION['idA'])) {
                                         $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
                                         foreach ($eventos as $evento) : ?>
 
-                                    <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                                            <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
 
-                                        <h1>
-                                            <?PHP echo $evento['tituloEvento']; ?>
-                                        </h1>
+                                            <h1>
+                                                <?PHP echo $evento['tituloEvento']; ?>
+                                            </h1>
 
-                                    <?php endforeach; 
-                                    }?>
+                                    <?php endforeach;
+                                    } ?>
 
                                 </div>
 
@@ -436,6 +430,47 @@ require_once 'GlobalPerfil.php';
         </div>
     </div>
 
+    <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="../../Controller/CadastraConta.php" method="Post" name="contapix" id="contapix">
+                        <h1>Adicione suas informações para doação!</h1>
+                        <div class="input-group mb-3">
+
+                            <input placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+
+                        <div class="input-group mb-3">
+
+                            <select name="tipoContaPixArtista" id="">
+                                <option value="CPF">CPF</option>
+                                <option value="CNPJ">CNPJ</option>
+                                <option value="TELEFONE">TELEFONE</option>
+                                <option value="EMAIL">EMAIL</option>
+                                <option value="ALEATORIA">ALEATORIA</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group mb-3">
+
+                            <input placeholder="Chave PIX" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        </div>
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>

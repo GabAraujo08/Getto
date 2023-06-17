@@ -572,7 +572,7 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
-    
+
 
     <!-- --------------------------- MODAL CRIAR PUBLICACAO ----------------------- -->
 
@@ -957,55 +957,55 @@ require_once 'GlobalPerfil.php';
 
     $cadastrado = !empty($pix);
 
-    if (!$cadastrado) { 
-        ?>
+    if (!$cadastrado) {
+    ?>
         <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="../../Controller/CadastraConta.php" method="Post" name="contapix" id="contapix">
+                            <h1>Adicione suas informações para doação!</h1>
+                            <div class="input-group mb-3">
+
+                                <input placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+
+                            <div class="input-group mb-3">
+
+                                <select name="tipoContaPixArtista" id="">
+                                    <option value="CPF">CPF</option>
+                                    <option value="CNPJ">CNPJ</option>
+                                    <option value="TELEFONE">TELEFONE</option>
+                                    <option value="EMAIL">EMAIL</option>
+                                    <option value="ALEATORIA">ALEATORIA</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group mb-3">
+
+                                <input placeholder="Chave PIX" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                    </form>
                 </div>
-                <div class="modal-body">
-                    <form action="../../Controller/CadastraConta.php" method="Post" name="contapix" id="contapix">
-                        <h1>Adicione suas informações para doação!</h1>
-                        <div class="input-group mb-3">
-
-                            <input placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div>
-
-                        <div class="input-group mb-3">
-
-                            <select name="tipoContaPixArtista" id="">
-                                <option value="CPF">CPF</option>
-                                <option value="CNPJ">CNPJ</option>
-                                <option value="TELEFONE">TELEFONE</option>
-                                <option value="EMAIL">EMAIL</option>
-                                <option value="ALEATORIA">ALEATORIA</option>
-                            </select>
-                        </div>
-
-                        <div class="input-group mb-3">
-
-                            <input placeholder="Chave PIX" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        </div>
-
-
-                </div>
-                <div class="modal-footer">
-
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
-                </form>
             </div>
         </div>
-    </div>
 
     <?php }  ?>
 
-    <?php $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);?>
+    <?php $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']); ?>
 
-            <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1017,7 +1017,7 @@ require_once 'GlobalPerfil.php';
                         <h1>Adicione suas informações para doação!</h1>
                         <div class="input-group mb-3">
 
-                            <input value="<?php echo $cpa['nomeContaPixArtista']?>" placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input value="<?php echo $cpa['nomeContaPixArtista'] ?>" placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
                         <div class="input-group mb-3">
@@ -1047,10 +1047,10 @@ require_once 'GlobalPerfil.php';
             </div>
         </div>
     </div>
-   
 
 
-    
+
+
 
 
 
