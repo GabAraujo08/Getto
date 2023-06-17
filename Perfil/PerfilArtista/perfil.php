@@ -572,125 +572,7 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
-    <!-- ------------------------------ MODAL CRIAR EVENTO ------------------------------------- -->
-
-    <!-- Button trigger modal -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalCriarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Criar novo evento</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="../../Controller/CriaEvento.php" name="criaEvento" id="criaEvento" method="POST" enctype="multipart/form-data">
-                        <div class="container">
-                            <div class="lado-esquerdo">
-                                <label>Inserir título: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" name="tituloEvento" class="form-control" placeholder="título">
-                                </div>
-                                <div class="hora">
-                                    <div class="inicio">
-                                        <label for="horario">Horário de início: </label>
-                                        <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horarioInicio" class="form-control" placeholder="início">
-                                        </div>
-                                    </div>
-                                    <div class="termino">
-                                        <label>Horário de término: </label>
-                                        <div class="input-group mb-3">
-                                            <input type="time" id="horario" name="horarioFim" class="form-control" placeholder="término">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="data">
-                                    <label for="data">Selecione uma data:</label>
-                                    <div class="input-group mb-3">
-                                        <input type="date" name="dataEvento" id="data">
-                                    </div>
-                                    <label>Número de endereço: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="numLog" placeholder="número de endereço">
-                                    </div>
-                                </div>
-                                <label>Endereço: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="logradouro" placeholder="endereço">
-                                </div>
-                                <label>Bairro: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="bairroEvento" placeholder="bairro">
-                                </div>
-                                <label>CEP: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="cepEvento" placeholder="cep">
-                                </div>
-                                <label>Cidade: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" name="cidEvento" placeholder="cidade">
-                                </div>
-                                <label>Estado: </label>
-                                <div class="input-group mb-3">
-                                    <select id="estado-evento" name="estadoEvento" class="select-estado">
-                                        <option value="AC">Selecionar</option>
-                                        <option value="AC">Acre</option>
-                                        <option value="AL">Alagoas</option>
-                                        <option value="AP">Amapá</option>
-                                        <option value="AM">Amazonas</option>
-                                        <option value="BA">Bahia</option>
-                                        <option value="CE">Ceará</option>
-                                        <option value="DF">Distrito Federal</option>
-                                        <option value="ES">Espírito Santo</option>
-                                        <option value="GO">Goiás</option>
-                                        <option value="MA">Maranhão</option>
-                                        <option value="MT">Mato Grosso</option>
-                                        <option value="MS">Mato Grosso do Sul</option>
-                                        <option value="MG">Minas Gerais</option>
-                                        <option value="PA">Pará</option>
-                                        <option value="PB">Paraíba</option>
-                                        <option value="PR">Paraná</option>
-                                        <option value="PE">Pernambuco</option>
-                                        <option value="PI">Piauí</option>
-                                        <option value="RJ">Rio de Janeiro</option>
-                                        <option value="RN">Rio Grande do Norte</option>
-                                        <option value="RS">Rio Grande do Sul</option>
-                                        <option value="RO">Rondônia</option>
-                                        <option value="RR">Roraima</option>
-                                        <option value="SC">Santa Catarina</option>
-                                        <option value="SP">São Paulo</option>
-                                        <option value="SE">Sergipe</option>
-                                        <option value="TO">Tocantins</option>
-                                        <option value="EX">Estrangeiro</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="lado-direito">
-                                <div class="input-group mb-3">
-                                    <div class="preview-img">
-                                        <label class="picture" for="picture__input" tabIndex="0">
-                                            <span class="picture__image"></span>
-                                        </label>
-                                        <input type="file" name="imagemEvento" id="picture__input">
-                                    </div>
-                                </div>
-                                <label>Descrição do evento</label>
-                                <div class="input-group mb-3">
-                                    <input type="textarea" class="form-control" name="descEvento" id="desc-evento" placeholder="descrição">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="footer">
-                            <button type="submit" class="btn">Concluir</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
 
     <!-- --------------------------- MODAL CRIAR PUBLICACAO ----------------------- -->
 
@@ -1072,7 +954,10 @@ require_once 'GlobalPerfil.php';
 
     <?php
     $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);
-    if (empty($pix)){
+
+    $cadastrado = !empty($pix);
+
+    if (!$cadastrado) { 
         ?>
         <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -1091,7 +976,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="input-group mb-3">
 
-                            <select name="tipoChave" id="">
+                            <select name="tipoContaPixArtista" id="">
                                 <option value="CPF">CPF</option>
                                 <option value="CNPJ">CNPJ</option>
                                 <option value="TELEFONE">TELEFONE</option>
@@ -1116,7 +1001,9 @@ require_once 'GlobalPerfil.php';
         </div>
     </div>
 
-    <?php } else { ?>
+    <?php }  ?>
+
+    <?php $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);?>
 
             <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -1130,13 +1017,13 @@ require_once 'GlobalPerfil.php';
                         <h1>Adicione suas informações para doação!</h1>
                         <div class="input-group mb-3">
 
-                            <input value="<?php echo isset($_SESSION['nomeContaPixArtista']) ? $_SESSION['nomeContaPixArtista'] : ''; ?>" placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input value="<?php echo $cpa['nomeContaPixArtista']?>" placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
                         <div class="input-group mb-3">
 
                             <select name="tipoContaPixArtista" id="">
-                                <option value="<?PHP echo $_SESSION['tipoContaPixArtista']; ?>"><?PHP echo $_SESSION['tipoContaPixArtista']; ?></option>
+                                <option value="<?php echo $cpa['tipoContaPixArtista']; ?>"><?php echo $cpa['tipoContaPixArtista']; ?></option>
                                 <option value="CPF">CPF</option>
                                 <option value="CNPJ">CNPJ</option>
                                 <option value="TELEFONE">TELEFONE</option>
@@ -1147,7 +1034,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="input-group mb-3">
 
-                            <input value="<?php echo isset($_SESSION['chaveContaPixArtista']) ? $_SESSION['chaveContaPixArtista'] : ''; ?>" placeholder="Chave PIX" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input value="<?php echo $cpa['chaveContaPixArtista'] ?>" placeholder="Chave PIX" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
 
@@ -1160,9 +1047,7 @@ require_once 'GlobalPerfil.php';
             </div>
         </div>
     </div>
-    <?php   
-        } 
-    ?>
+   
 
 
     
