@@ -106,6 +106,45 @@ require_once 'GlobalPerfil.php';
                                     }
                                     ?>
                                 </div>
+
+                                <div class="desc-perfil">
+                                    <div class="seguindo-seguidores">
+                                        <div class="seguindo">
+                                            <?PHP
+
+                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
+                                            ?>
+                                            <div class="seguindo-numero">
+                                                <p><?PHP
+                                                    echo $seguindo;
+                                                    ?></p>
+                                            </div>
+                                            <div class="seguindo-text">
+                                                <h1>Seguindo</h1>
+                                            </div>
+                                        </div>
+                                        <div class="seguidores">
+
+
+                                            <?PHP
+                                            if ($_SESSION['nivel'] == 2) {
+                                                $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
+                                            ?>
+                                                <div class="seguidores-numero">
+                                                    <p><?PHP
+                                                        echo $seguimores;
+                                                        ?></p>
+                                                </div>
+                                                <div class="seguidores-text">
+                                                    <h1>Seguidores</h1>
+                                                </div>
+                                            <?PHP
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <?PHP
                                 if ($_SESSION['nivel'] == 2) {
                                     $conexao = Conexao::conectar();
@@ -131,7 +170,7 @@ require_once 'GlobalPerfil.php';
                                                         foreach ($pix as $cpa) :
                                                         ?>
 
-                                                            
+
 
                                                         <?php endforeach; ?>
                                                     </button>
@@ -174,65 +213,29 @@ require_once 'GlobalPerfil.php';
                                 }
                                 ?>
 
-                            </div>
 
-
-                            <div class="desc-perfil">
-                                <div class="seguindo-seguidores">
-                                    <div class="seguindo">
-                                        <?PHP
-
-                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
-                                        ?>
-                                        <div class="seguindo-numero">
-                                            <p><?PHP
-                                                echo $seguindo;
-                                                ?></p>
-                                        </div>
-                                        <div class="seguindo-text">
-                                            <h1>Seguindo</h1>
-                                        </div>
-                                    </div>
-                                    <div class="seguidores">
-
-
-                                        <?PHP
-                                        if ($_SESSION['nivel'] == 2) {
-                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
-                                        ?>
-                                            <div class="seguidores-numero">
-                                                <p><?PHP
-                                                    echo $seguimores;
-                                                    ?></p>
-                                            </div>
-                                            <div class="seguidores-text">
-                                                <h1>Seguidores</h1>
-                                            </div>
-                                        <?PHP
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
 
-                        <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
-                            Sua atividade
-                        </h1>
-                        <div class="btn-mudarExibicao">
-                            <button id="btn-exibirPublicacoes" class="btn btn-primary">
-                                <img src="assets/img/publicacao.png" alt="">
-                            </button>
+                        <div class="atividade-btn">
+                            <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
+                                Sua atividade
+                            </h1>
+                            <div class="btn-mudarExibicao">
+                                <button id="btn-exibirPublicacoes" class="btn btn-primary">
+                                    <img src="assets/img/publicacao-preto.svg" alt="">
+                                </button>
 
-                            <button id="btn-exibirEventos" class="btn btn-primary">
-                                <img src="assets/img/icone-calendario.png" alt="">
-                            </button>
+                                <button id="btn-exibirEventos" class="btn btn-primary">
+                                    <img src="assets/img/calendario-preto.svg" alt="">
+                                </button>
+                            </div>
                         </div>
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="col-8 publicacoes">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
 
 
                                 <?php
@@ -251,32 +254,23 @@ require_once 'GlobalPerfil.php';
 
 
 
-                            <div id="eventos-web" class="col-4 eventos">
+                            <div id="eventos-web" class="eventos eventos-web">
+                                <?php
+                                require_once '../../Dao/EventoDao.php';
 
-
-
-                                <div class="img-evento">
-
-                                    <?php
-                                    require_once '../../Dao/EventoDao.php';
-
-                                    if (isset($_SESSION['idA'])) {
-                                        $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
-                                        foreach ($eventos as $evento) : ?>
-
+                                if (isset($_SESSION['idA'])) {
+                                    $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
+                                    foreach ($eventos as $evento) : ?>
+                                        <div class="img-evento">
                                             <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
 
                                             <h1>
                                                 <?PHP echo $evento['tituloEvento']; ?>
                                             </h1>
-
-                                    <?php endforeach;
-                                    } ?>
-
-                                </div>
-
+                                        </div>
+                                <?php endforeach;
+                                } ?>
                             </div>
-
                             <div id="publicacoes-mobile" class="col-8 publicacoes">
 
 
@@ -425,17 +419,17 @@ require_once 'GlobalPerfil.php';
     </div>
 
     <?php $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idA']);
-        foreach ($pix as $cpa) :
-        ?>
+    foreach ($pix as $cpa) :
+    ?>
 
-    <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+        <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
                         <h1>informações do artista para doação!</h1>
                         <div class="input-group mb-3">
 
@@ -451,11 +445,11 @@ require_once 'GlobalPerfil.php';
                         </div>
 
 
+                    </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
-    </div>
     <?php endforeach; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
@@ -491,10 +485,10 @@ require_once 'GlobalPerfil.php';
             }
         });
     </script> -->
-    
+
     <script src="assets/js/exibicaoPerfil.js"></script>
     <script src="assets/js/jquery-3.6.4.min.js"></script>
- 
+
 </body>
 
 </html>
