@@ -126,12 +126,20 @@ require_once 'GlobalPerfil.php';
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
-                                            <div class="area-doacao">
-                                                    <p class="alerta-pix">Sem chave pix cadastrada</p>
+                                                <div class="area-doacao">
 
-                                                    <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
+                                                    <button data-bs-toggle="modal" data-bs-target="#adicionarPix" type="button" style="position: relative;" class="btn btn-primary btn-doacao">
                                                         <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
-                                                        
+
+                                                        <?php require_once '../../Dao/ContaPixArtistaDao.php';
+
+                                                        $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idA']);
+                                                        foreach ($pix as $cpa) :
+                                                        ?>
+
+                                                            
+
+                                                        <?php endforeach; ?>
                                                     </button>
                                                     <button class="btn btn-primary btn-editar-perfil" value="">
                                                         Seguir
@@ -142,19 +150,25 @@ require_once 'GlobalPerfil.php';
                                     <?PHP
                                     } else {
                                     ?>
-
                                         <form id="formSegui" name="formSegui" action="../../Controller/Deseguir.php" method="POST">
                                             <input type="hidden" name="idUsuario" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                             <input type="hidden" name="idArtista" value="<?PHP echo $_SESSION['idA']; ?>">
                                             <div class="div-btn-editar-perfil">
-                                            <div class="area-doacao">
-                                                    <p class="alerta-pix">Sem chave pix cadastrada</p>
+                                                <div class="area-doacao">
 
                                                     <button data-bs-toggle="modal" data-bs-target="#adicionarPix" type="button" style="position: relative;" class="btn btn-primary btn-doacao">
                                                         <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
-                                                        
+
+                                                        <?php require_once '../../Dao/ContaPixArtistaDao.php';
+
+                                                        $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idA']);
+                                                        foreach ($pix as $cpa) :
+                                                        ?>
+
+
+                                                        <?php endforeach; ?>
                                                     </button>
-                                                    <button class="btn btn-primary btn-editar-perfil" value="" >
+                                                    <button class="btn btn-primary btn-editar-perfil" value="">
                                                         Deixar de seguir
                                                     </button>
                                                 </div>
@@ -165,7 +179,6 @@ require_once 'GlobalPerfil.php';
                                     }
                                 }
                                 ?>
-
 
                             </div>
 
