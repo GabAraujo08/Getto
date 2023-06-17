@@ -153,14 +153,15 @@ require_once 'GlobalPerfil.php';
                                 <div class="div-btn-editar-perfil">
                                     <div class="area-doacao">
                                         <p class="alerta-pix">Você ainda não tem chave pix cadastrada.</p>
-
-                                        <?php require_once '../../Dao/ContaPixArtistaDao.php';
-
-                                            $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);
-                                            foreach ($pix as $cpa) : 
-                                        ?>
                                         <button data-bs-toggle="modal" data-bs-target="#adicionarPix" style="position: relative;" class="btn btn-primary btn-doacao">
                                             <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
+
+                                            
+                                        <?php require_once '../../Dao/ContaPixArtistaDao.php';
+
+                                        $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);
+                                        foreach ($pix as $cpa) : 
+                                        ?>
                                             <p class="slide-in" id="pix-info" style="color: #000;
                           position: absolute;
                           top: 30%;
