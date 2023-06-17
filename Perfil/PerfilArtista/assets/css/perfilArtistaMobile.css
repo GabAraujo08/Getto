@@ -808,7 +808,7 @@ body {
     cursor: pointer;
     border-radius: 0;
     margin: 1px;
-    width: 33%;
+    width: 31%;
     max-height: 320px;
     height: 70%;
 }
@@ -824,12 +824,14 @@ body {
 
 .atividade .eventos {
 	display: none;
-	flex-direction: column;
-	align-items: center;
-	padding: 15px;
-	max-height: 440px;
-	overflow-y: auto;
-	overflow-x: hidden;
+    /* flex-direction: column; */
+    align-items: center;
+    padding: 15px;
+    /* max-height: 440px; */
+    /* overflow-y: auto; */
+    overflow-x: hidden;
+    width: 100%;
+    flex-wrap: wrap;
 
 }
 
@@ -858,11 +860,11 @@ body {
 
 .atividade .eventos .img-evento img {
 	width: 100%;
-
-	margin-bottom: 1px;
-	border-radius: 0;
-	object-fit: cover;
-	cursor: pointer;
+    /* margin-bottom: 1px; */
+    border-radius: 0;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 1px;
 
 
 }
@@ -881,6 +883,7 @@ body {
 
 .eventos .img-evento {
 	position: relative;
+	width: 32%;
 }
 
 
