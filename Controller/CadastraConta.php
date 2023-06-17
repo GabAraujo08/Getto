@@ -7,9 +7,9 @@
 
     $cp = new ContaArtista ();
 
-    $cp->setchavePixArtista($_POST['chavePix']);
-    $cp->settipoContaPixArtista($_POST['tipoChave']);
-    $cp->setnomeContaPixArtista($_POST['nomeConta']);
+    $cp->setchavePixArtista($_POST['chaveContaPixArtista']);
+    $cp->settipoContaPixArtista($_POST['tipoContaPixArtista']);
+    $cp->setnomeContaPixArtista($_POST['nomeContaPixArtista']);
     $cp->setIdArtista($_SESSION['idArtista']);
 
     ContaPixArtistaDao::cadastrar($cp);

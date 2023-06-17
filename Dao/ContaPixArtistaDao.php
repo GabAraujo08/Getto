@@ -22,7 +22,7 @@
         public static function ListaContaPix($id){
             
             $conexao = Conexao::conectar();
-            $consulta = $conexao->prepare(' SELECT DISTINCT tbContaPixArtista.nomeContaPixArtista, tbContaPixArtista.chaveContaPixArtista FROM tbContaPixArtista
+            $consulta = $conexao->prepare(' SELECT DISTINCT tbContaPixArtista.nomeContaPixArtista, tbContaPixArtista.tipoContaPixArtista, tbContaPixArtista.chaveContaPixArtista  FROM tbContaPixArtista
                                                 WHERE tbContaPixArtista.idArtista = ?');
             $consulta->bindValue(1, $id);
             $consulta->execute();

@@ -1072,8 +1072,9 @@ require_once 'GlobalPerfil.php';
 
     <?php
     $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idArtista']);
-    if (empty($pix)) {
-        echo '<div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    if (empty($pix)){
+        ?>
+        <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1085,7 +1086,7 @@ require_once 'GlobalPerfil.php';
                         <h1>Adicione suas informações para doação!</h1>
                         <div class="input-group mb-3">
 
-                            <input placeholder="Nome da conta" name="nomeConta" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
                         <div class="input-group mb-3">
@@ -1101,7 +1102,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="input-group mb-3">
 
-                            <input placeholder="Chave PIX" name="chavePix" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input placeholder="Chave PIX" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
 
@@ -1113,10 +1114,10 @@ require_once 'GlobalPerfil.php';
                 </form>
             </div>
         </div>
-    </div>';
-    } else {
-        foreach ($pix as $cpaModal) {
-            echo '
+    </div>
+
+    <?php } else { ?>
+
             <div class="modal fade" id="adicionarPix" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -1125,16 +1126,17 @@ require_once 'GlobalPerfil.php';
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="../../Controller/CadastraConta.php" method="Post" name="contapix" id="contapix">
+                    <form action="UpdateContaPix.php " method="Post" name="contapix" id="contapix">
                         <h1>Adicione suas informações para doação!</h1>
                         <div class="input-group mb-3">
 
-                            <input value="'.$cpaModal['nomeContaPixArtista'].'" placeholder="Nome da conta" name="nomeConta" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input value="<?php echo isset($_SESSION['nomeContaPixArtista']) ? $_SESSION['nomeContaPixArtista'] : ''; ?>" placeholder="Nome da conta" name="nomeContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
                         <div class="input-group mb-3">
 
-                            <select name="tipoChave" id="">
+                            <select name="tipoContaPixArtista" id="">
+                                <option value="<?PHP echo $_SESSION['tipoContaPixArtista']; ?>"><?PHP echo $_SESSION['tipoContaPixArtista']; ?></option>
                                 <option value="CPF">CPF</option>
                                 <option value="CNPJ">CNPJ</option>
                                 <option value="TELEFONE">TELEFONE</option>
@@ -1145,7 +1147,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="input-group mb-3">
 
-                            <input value="'.$cpaModal['chaveContaPixArtista'].'" placeholder="Chave PIX" name="chavePix" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                            <input value="<?php echo isset($_SESSION['chaveContaPixArtista']) ? $_SESSION['chaveContaPixArtista'] : ''; ?>" placeholder="Chave PIX" name="chaveContaPixArtista" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         </div>
 
 
@@ -1157,9 +1159,9 @@ require_once 'GlobalPerfil.php';
                 </form>
             </div>
         </div>
-    </div>';
-        }
-    }
+    </div>
+    <?php   
+        } 
     ?>
 
 
