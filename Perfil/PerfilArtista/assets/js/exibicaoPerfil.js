@@ -23,7 +23,7 @@ btnPublicacoes.addEventListener('click', function() {
 
 btnEventos.addEventListener('click', function() {
     // Exibe a seção de eventos
-    divEventosWeb.style.display = 'block';
+    divEventosWeb.style.display = 'flex';
     // Oculta a seção de publicações
     divPublicacoesWeb.style.display = 'none';
 });

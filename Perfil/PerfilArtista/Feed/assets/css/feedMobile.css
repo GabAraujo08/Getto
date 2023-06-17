@@ -1747,6 +1747,10 @@ textarea {
 
 
 
+
+
+
+
 .audio-player {
   background-color: #fff;
   width: 1000px;
@@ -1817,6 +1821,14 @@ textarea {
   cursor: pointer;
 }
 
+.progress-bar {
+   
+   flex-direction: unset!important; 
+  
+}
+
+
+
 .timer,
 .total-time {
   font-size: 12px;
@@ -1847,10 +1859,12 @@ textarea {
   position: relative;
 }
 
+
+
 .time-fill {
   border-radius: 5px;
   height: 100%;
   background-color: #000;
-  width: 0;
+  width: 50%; /* Defina uma largura inicial aqui, por exemplo, width: 50%; */
   transition: width 0.2s ease-in-out;
 }
