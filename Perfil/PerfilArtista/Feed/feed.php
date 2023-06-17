@@ -440,7 +440,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                         </div>
                                                         <div class="total-time">00:00</div>
                                                     </div>
-                                                    <audio id="audio" src="../assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
+                                                    <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
                                                 </div>
                                             <?PHP
                                                                                                                                             }
@@ -1175,97 +1175,12 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
 
 
     <script src="../../../jquery.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script>
-    // Função para obter o elemento pai do botão clicado
-    function getParent(element, className) {
-        while ((element = element.parentElement) && !element.classList.contains(className));
-        return element;
-    }
-
-    // Função para inicializar cada player de áudio
-    function initializeAudioPlayer(player) {
-        var audio = player.querySelector('audio');
-        var playButton = player.querySelector('.play-button');
-        var volumeButton = player.querySelector('.volume-button');
-        var volumeSlider = player.querySelector('.volume-slider');
-        var timer = player.querySelector('.timer');
-        var totalTime = player.querySelector('.total-time');
-        var timeFill = player.querySelector('.time-fill');
-        var progressBar = player.querySelector('.progress-bar');
-
-        playButton.addEventListener('click', toggleAudio);
-        volumeButton.addEventListener('click', toggleMute);
-        volumeSlider.addEventListener('input', function () {
-            adjustVolume(this.value);
-        });
-        progressBar.addEventListener('click', seek);
-
-        function toggleAudio() {
-            if (audio.paused) {
-                audio.play();
-                playButton.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                audio.pause();
-                playButton.innerHTML = '<i class="fas fa-play"></i>';
-            }
-        }
-
-        function toggleMute() {
-            if (audio.muted) {
-                audio.muted = false;
-                volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-            } else {
-                audio.muted = true;
-                volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
-            }
-        }
-
-        function adjustVolume(volume) {
-            audio.volume = volume;
-        }
-
-        audio.addEventListener('timeupdate', function () {
-            var position = audio.currentTime / audio.duration;
-            timeFill.style.width = (position * 100) + '%';
-
-            var minutes = Math.floor(audio.currentTime / 60);
-            var seconds = Math.floor(audio.currentTime % 60);
-            timer.textContent = padTime(minutes) + ':' + padTime(seconds);
-        });
-
-        audio.addEventListener('loadedmetadata', function () {
-            var minutes = Math.floor(audio.duration / 60);
-            var seconds = Math.floor(audio.duration % 60);
-            totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
-        });
-
-        function padTime(time) {
-            return (time < 10 ? '0' : '') + time;
-        }
-
-        function seek(event) {
-            var progressWidth = progressBar.clientWidth;
-            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-            var positionPercentage = clickX / progressWidth;
-            var seekTime = positionPercentage * audio.duration;
-
-            audio.currentTime = seekTime;
-        }
-    }
-
-    // Inicialização de todos os players de áudio presentes na página
-    var players = document.querySelectorAll('.audio-player');
-    players.forEach(function (player) {
-        initializeAudioPlayer(player);
-    });
-</script>
-
+  
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
     <script>
-    function initializeAudioPlayer() {
         var audio = document.getElementById('audio');
         var playButton = document.querySelector('.play-button');
         var volumeButton = document.querySelector('.volume-button');
@@ -1275,12 +1190,6 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
         var timeFill = document.querySelector('.time-fill');
         var progressBar = document.querySelector('.progress-bar');
 
-        playButton.addEventListener('click', toggleAudio);
-        volumeButton.addEventListener('click', toggleMute);
-        volumeSlider.addEventListener('input', function () {
-            adjustVolume(this.value);
-        });
-        progressBar.addEventListener('click', seek);
 
         function toggleAudio() {
             if (audio.paused) {
@@ -1306,7 +1215,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
             audio.volume = volume;
         }
 
-        audio.addEventListener('timeupdate', function () {
+        audio.addEventListener('timeupdate', function() {
             var position = audio.currentTime / audio.duration;
             timeFill.style.width = (position * 100) + '%';
 
@@ -1315,7 +1224,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
             timer.textContent = padTime(minutes) + ':' + padTime(seconds);
         });
 
-        audio.addEventListener('loadedmetadata', function () {
+        audio.addEventListener('loadedmetadata', function() {
             var minutes = Math.floor(audio.duration / 60);
             var seconds = Math.floor(audio.duration % 60);
             totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
@@ -1333,21 +1242,15 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
 
             audio.currentTime = seekTime;
         }
-    }
 
-    function skipForward() {
-        var audio = document.getElementById('audio');
-        audio.currentTime += 10;
-    }
+        function skipForward() {
+            audio.currentTime += 10;
+        }
 
-    function skipBackward() {
-        var audio = document.getElementById('audio');
-        audio.currentTime -= 10;
-    }
-
-    initializeAudioPlayer();
-</script>
-
+        function skipBackward() {
+            audio.currentTime -= 10;
+        }
+    </script>
 
 
 
