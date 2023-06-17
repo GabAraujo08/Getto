@@ -665,6 +665,8 @@ body {
 	font-size: small;
 	font-weight: bold;
 	margin: 2px;
+	display: flex;
+	justify-content: center;
 }
 
 .container-fluid .area-perfil .informacao-perfil .seguindo-seguidores .seguindo .seguindo-text>h1 {
@@ -678,6 +680,8 @@ body {
 	font-size: small;
 	font-weight: bold;
 	margin: 2px;
+	display: flex;
+	justify-content: center;
 }
 
 .container-fluid .area-perfil .informacao-perfil .seguindo-seguidores .seguidores .seguidores-text>h1 {
@@ -766,6 +770,7 @@ body {
 }
 
 /*------------------------------------- ATIVIDADE E EVENTO ----------------------------*/
+
 
 .atividade {
 	display: flex;
@@ -915,12 +920,15 @@ body {
 	opacity: 1;
 }
 
-
-
+.atividade-btn{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 20px 0 20px;
+}
 
 .btn-mudarExibicao {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-around;
 	margin-bottom: 10px;
 }
 
@@ -955,27 +963,13 @@ body {
 
 
 .btn-mudarExibicao #btn-exibirPublicacoes {
-
-
-
-
-	background-repeat: no-repeat;
-	background-position-y: 50%;
-	background-position-x: 5px;
-	padding-left: 20px;
-	border-radius: 20px 0px 0px 20px;
-	border-right: 0px;
+	border: none;
 }
 
 
 .btn-mudarExibicao #btn-exibirEventos {
 
-
-	background-repeat: no-repeat;
-	background-position-y: 5px;
-	background-position-x: 5px;
-	border-radius: 0px 20px 20px 0px;
-	border-left: 0px;
+	border: none;
 }
 
 

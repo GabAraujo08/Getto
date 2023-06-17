@@ -149,6 +149,35 @@ require_once 'GlobalPerfil.php';
                                     </div>
                                 </div>
 
+                                <div class="desc-perfil">
+                                    <div class="seguindo-seguidores">
+                                        <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
+                                            <?PHP
+                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idArtista']);
+                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                            ?>
+                                            <div class="seguindo-numero">
+                                                <p><?php
+                                                    echo $seguindo;
+                                                    ?></p>
+                                            </div>
+                                            <div class="seguindo-text">
+                                                <h1>Seguindo</h1>
+                                            </div>
+                                        </div>
+                                        <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguidoresModal" class="seguidores">
+
+                                            <div class="seguidores-numero">
+                                                <p><?PHP
+                                                    echo $seguimores;
+                                                    ?></p>
+                                            </div>
+                                            <div class="seguidores-text">
+                                                <h1>Seguidores</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="div-btn-editar-perfil">
                                     <div class="area-doacao">
@@ -181,52 +210,21 @@ require_once 'GlobalPerfil.php';
 
                                 </div>
                             </div>
+                        </div>
+                        <div class="atividade-btn">
+                            <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
+                                Sua atividade
+                            </h1>
+                            <div class="btn-mudarExibicao">
+                                <button id="btn-exibirPublicacoes" class="btn btn-primary">
+                                    <img src="assets/img/publicacao-preto.svg" alt="">
+                                </button>
 
-
-                            <div class="desc-perfil">
-                                <div class="seguindo-seguidores">
-                                    <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
-                                        <?PHP
-                                        $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idArtista']);
-                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
-                                        ?>
-                                        <div class="seguindo-numero">
-                                            <p><?php
-                                                echo $seguindo;
-                                                ?></p>
-                                        </div>
-                                        <div class="seguindo-text">
-                                            <h1>Seguindo</h1>
-                                        </div>
-                                    </div>
-                                    <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguidoresModal" class="seguidores">
-
-                                        <div class="seguidores-numero">
-                                            <p><?PHP
-                                                echo $seguimores;
-                                                ?></p>
-                                        </div>
-                                        <div class="seguidores-text">
-                                            <h1>Seguidores</h1>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button id="btn-exibirEventos" class="btn btn-primary">
+                                    <img src="assets/img/calendario-preto.svg" alt="">
+                                </button>
                             </div>
                         </div>
-
-                        <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
-                            Sua atividade
-                        </h1>
-                        <div class="btn-mudarExibicao">
-                            <button id="btn-exibirPublicacoes" class="btn btn-primary">
-                                <img src="assets/img/publicacao.png" alt="">
-                            </button>
-
-                            <button id="btn-exibirEventos" class="btn btn-primary">
-                                <img src="assets/img/icone-calendario.png" alt="">
-                            </button>
-                        </div>
-
                         <div class="atividade">
 
                             <div id="publicacoes-web" class="publicacoes publicacoes-web">
