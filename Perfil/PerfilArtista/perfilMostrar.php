@@ -125,13 +125,22 @@ require_once 'GlobalPerfil.php';
 
                                                     <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
                                                         <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
+
+                                                        <?php require_once '../../Dao/ContaPixArtistaDao.php';
+
+                                                        $pix = ContaPixArtistaDao::ListaContaPix($_SESSION['idA']);
+                                                        foreach ($pix as $cpa) : 
+                                                        ?>
+
                                                         <p class="slide-in" id="pix-info" style="color: #000;
                                                         position: absolute;
                                                         top: 30%;
                                                         left: -250px;
                                                         font-family: 'InterBold';
                                                         display: none;
-                                                        ">A chave pix é <strong>827.374.873-90</strong></p>
+                                                        ">Sua chave pix é <?php echo $cpa['chaveContaPixArtista']; ?></p>
+
+                                                        <?php endforeach; ?>
                                                     </button>
                                                     <button class="btn btn-primary btn-editar-perfil" value="">
                                                         Seguir
