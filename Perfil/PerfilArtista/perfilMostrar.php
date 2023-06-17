@@ -122,7 +122,7 @@ require_once 'GlobalPerfil.php';
                                             <div class="div-btn-editar-perfil">
                                                 <div class="area-doacao">
 
-                                                    <button type="button" style="position: relative;" class="btn btn-primary btn-doacao">
+                                                    <button data-bs-toggle="modal" data-bs-target="#adicionarPix" type="button" style="position: relative;" class="btn btn-primary btn-doacao">
                                                         <img src="../PerfilArtista/assets/img/dollar.png" id="icone" alt="" srcset="">
 
                                                         <?php require_once '../../Dao/ContaPixArtistaDao.php';
@@ -131,13 +131,7 @@ require_once 'GlobalPerfil.php';
                                                         foreach ($pix as $cpa) :
                                                         ?>
 
-                                                            <p class="slide-in" id="pix-info" style="color: #000;
-                                                        position: absolute;
-                                                        top: 30%;
-                                                        left: -250px;
-                                                        font-family: 'InterBold';
-                                                        display: none;
-                                                        ">Sua chave pix é <?php echo $cpa['chaveContaPixArtista']; ?></p>
+                                                            
 
                                                         <?php endforeach; ?>
                                                     </button>
