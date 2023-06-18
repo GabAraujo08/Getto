@@ -851,7 +851,7 @@ body {
     cursor: pointer;
     border-radius: 0;
     margin: 1px;
-    width: 33%;
+    width: 30%;
     max-height: 320px;
     height: 70%;
 }
@@ -875,7 +875,7 @@ body {
     overflow-x: hidden;
     width: 100%;
     flex-wrap: wrap;
-	justify-content: center;
+	
 }
 
 .atividade .eventos::-webkit-scrollbar {
