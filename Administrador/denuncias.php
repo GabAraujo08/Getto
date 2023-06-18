@@ -88,19 +88,19 @@
                                 <h1>TIPO DE DENÚNCIA: RACISMO</h1>
                             </div>
                             <div class="desc-denuncia">
-                               
+
                             </div>
                         </div>
                         <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
+                            <button data-bs-toggle="modal" data-bs-target="#analiseDenuncia" class="btn-denuncia">
                                 Analisar
                             </button>
                         </div>
                     </div>
-                   
+
                 </div>
                 <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
-                
+
             </div>
 
 
@@ -109,7 +109,86 @@
 
 
     </main>
+   
 
+    <div class="modal fade" id="analiseDenuncia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por Gabriel</h1>
+                                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="modal-body-img">
+                                                <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/8.jpg">
+                                            </div>
+                                            <div class="modal-body-info">
+                                                <div class="modal-body-link">
+                                                    <div class="link-titulo">
+                                                        <p>Nickname</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <p><?php echo $usuario['nicknameUsuario']; ?></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-body-link">
+                                                    <div class="link-titulo">
+                                                        <p>Nome:</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <p><?PHP echo $usuario['nomeUsuario']; ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body-link">
+                                                    <div class="link-titulo">
+                                                        <p>Link repositório:</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio']; ?></a>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body-link">
+                                                    <div class="link-titulo">
+                                                        <p>Email:</p>
+                                                    </div>
+                                                    <div class="link">
+                                                        <p><?php echo $usuario['emailUsuario']; ?></p>
+                                                    </div>
+
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form class="formAprovar" name="btnaprova" id="btnAprovar" action="../Controller/AprovaArtista.php" method="post">
+                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
+                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                                <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
+                                                <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnAprovar" class="btn btn-secondary">Aprovar</button>
+                                            </form>
+
+                                            <form class="formRecusar" id="formRecusar" method="post" action="../Controller/AprovaArtista.php">
+                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
+                                                <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
+
+                                            </form>
+
+                                            <!-- <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
+                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
+                                                <textarea name="motivoRecusa" id="" cols="30" rows="10"></textarea>
+                                                <button id="btnRecusar" type="submit" class="btn btn-primary">Enviar</button>
+                                            </form> -->
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
 
 
     <!-- ----------------------- ALERTA QUANDO APROVAR UM ARTISTA ---------------------- -->
