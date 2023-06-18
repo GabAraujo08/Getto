@@ -2140,3 +2140,10 @@ ola o git deixa eu te mostrar
   width: 0; 
   transition: width 0.2s ease-in-out;
 }
+
+
+
+video {
+  width: 100%;
+  height: 150px;
+}
