@@ -960,9 +960,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                         </form>                                                                        </div>
 
                                                                     </div>
-                                                                    <div class="box-btn-denuncia">
-                                                                        <button data-bs-toggle="modal" data-bs-target="#denunciaModal" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                    </div>
+                                                                    
                                                                 </div>
 
                                                             <?php
