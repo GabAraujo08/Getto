@@ -31,11 +31,12 @@ require_once 'GlobalPerfil.php';
                     <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
                         <ul class="list-group">
                             <li class="list-group-item"><a href="Feed/feed.php"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></a></li>
-                            <li class="list-group-item"><button id="amigos" class="btn btn-primary btn-item-list" type="button">Amigos</button></li>
+
                             <li class="list-group-item"><a href="Evento/eventoArtista.php"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></a></li>
                             <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                             <li class="list-group-item"><a href="Configuracoes/configuracoes.php"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></a></li>
                             <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                            <li class="list-group-item"><a href="perfil.php"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></a></li>
                         </ul>
                     </div>
                     <div class="nova-pub">
@@ -87,63 +88,66 @@ require_once 'GlobalPerfil.php';
                                 ?>
                             </div>
                             <div class="area-bio">
-                                <div class="usuario-bio">
-                                    <div class="area-nick-nome">
-                                        <div class="nick">
-                                            <h1> <?PHP echo $_SESSION['nick']; ?></h1>
+                                <div class="informacoes-perfil">
+                                    <div class="usuario-bio">
+                                        <div class="area-nick-nome">
+                                            <div class="nick">
+                                                <h1> <?PHP echo $_SESSION['nick']; ?></h1>
+                                            </div>
+                                            <div class="nome">
+                                                <h1>(<?PHP echo $_SESSION['nome']; ?>)</h1>
+                                            </div>
                                         </div>
-                                        <div class="nome">
-                                            <h1>(<?PHP echo $_SESSION['nome']; ?>)</h1>
-                                        </div>
+                                        <?PHP
+                                        if ($_SESSION['nivel'] == 2) {
+                                        ?>
+                                            <div class="bio">
+                                                <p><?PHP echo $_SESSION['bio']; ?></p>
+                                            </div>
+                                        <?PHP
+                                        }
+                                        ?>
                                     </div>
-                                    <?PHP
-                                    if ($_SESSION['nivel'] == 2) {
-                                    ?>
-                                        <div class="bio">
-                                            <p><?PHP echo $_SESSION['bio']; ?></p>
-                                        </div>
-                                    <?PHP
-                                    }
-                                    ?>
-                                </div>
 
-                                <div class="desc-perfil">
-                                    <div class="seguindo-seguidores">
-                                        <div class="seguindo">
-                                            <?PHP
+                                    <div class="desc-perfil">
+                                        <div class="seguindo-seguidores">
+                                            <div class="seguindo">
+                                                <?PHP
 
-                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
-                                            ?>
-                                            <div class="seguindo-numero">
-                                                <p><?PHP
-                                                    echo $seguindo;
-                                                    ?></p>
-                                            </div>
-                                            <div class="seguindo-text">
-                                                <h1>Seguindo</h1>
-                                            </div>
-                                        </div>
-                                        <div class="seguidores">
-
-
-                                            <?PHP
-                                            if ($_SESSION['nivel'] == 2) {
-                                                $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
-                                            ?>
-                                                <div class="seguidores-numero">
+                                                $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
+                                                ?>
+                                                <div class="seguindo-numero">
                                                     <p><?PHP
-                                                        echo $seguimores;
+                                                        echo $seguindo;
                                                         ?></p>
                                                 </div>
-                                                <div class="seguidores-text">
-                                                    <h1>Seguidores</h1>
+                                                <div class="seguindo-text">
+                                                    <h1>Seguindo</h1>
                                                 </div>
-                                            <?PHP
-                                            }
-                                            ?>
+                                            </div>
+                                            <div class="seguidores">
+
+
+                                                <?PHP
+                                                if ($_SESSION['nivel'] == 2) {
+                                                    $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
+                                                ?>
+                                                    <div class="seguidores-numero">
+                                                        <p><?PHP
+                                                            echo $seguimores;
+                                                            ?></p>
+                                                    </div>
+                                                    <div class="seguidores-text">
+                                                        <h1>Seguidores</h1>
+                                                    </div>
+                                                <?PHP
+                                                }
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
 
                                 <?PHP
                                 if ($_SESSION['nivel'] == 2) {

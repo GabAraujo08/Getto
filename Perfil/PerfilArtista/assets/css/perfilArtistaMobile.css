@@ -748,6 +748,7 @@ body {
 	margin-top: 1px;
 	margin-left: -1px;
 	margin-bottom: -8px;
+	flex-direction: column;
 }
 
 .container-fluid .area-perfil .area-nick-nome .nick>h1 {

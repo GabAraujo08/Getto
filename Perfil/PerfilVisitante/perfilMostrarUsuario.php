@@ -18,6 +18,14 @@ require_once 'GlobalPerfil.php';
 
 <body>
 
+<style>
+    .btn-mudarExibicao button {
+        width: unset!important;
+    }
+    .btn-mudarExibicao {
+        justify-content: flex-end;
+    }
+</style>
 
     <div class="d-flex">
         <div class="area-sidebar">
@@ -183,7 +191,7 @@ require_once 'GlobalPerfil.php';
                             </div>
 
 
-                            <div class="desc-perfil">
+                            <div style="margin-left: 6.5rem;" class="desc-perfil">
                                 <div class="seguindo-seguidores">
                                     <div class="seguindo">
                                         <?PHP
@@ -225,7 +233,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="btn-mudarExibicao">
                             <button id="btn-exibirPublicacoes" class="btn btn-primary">
-                                <img src="assets/img/publicacao.png" alt="">
+                                <img src="../PerfilArtista/assets/img/publicacao-preto.svg" alt="">
                             </button>
 
                             <button id="btn-exibirEventos" class="btn btn-primary">
