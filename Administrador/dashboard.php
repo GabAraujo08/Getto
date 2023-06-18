@@ -1,4 +1,5 @@
-<?PHP include('../Controller/VerificaLogadoAdm.php'); ?>
+<?PHP include('../Controller/VerificaLogadoAdm.php'); 
+require_once 'GlobalAdm.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -339,7 +340,10 @@
                             <p>Artistas na plataforma</p>
                         </div>
                         <div class="visitas-quantidade">
-                            <p>100</p>
+                        <?php
+                            require_once '../Dao/AdministradorDao.php';
+                            $totalArtistas = AdministradorDao::ArtistasTotais();
+                            echo '<p>' . $totalArtistas . '</p>';?>
                         </div>
                     </div>
                     <div class="card-curtidas">
@@ -350,7 +354,10 @@
                             <p>Usuários na plataforma</p>
                         </div>
                         <div class="curtidas-quantidade">
-                            <p>1000</p>
+                            <?php
+                            require_once '../Dao/AdministradorDao.php';
+                            $totalUsuarios = AdministradorDao::UsuariosTotais();
+                            echo '<p>' . $totalUsuarios . '</p>';?>
                         </div>
                     </div>
                     <div class="card-compartilhamentos">
@@ -361,7 +368,10 @@
                             <p>Eventos na plataforma</p>
                         </div>
                         <div class="compartilhamentos-quantidade">
-                            <p>200</p>
+                            <?php
+                            require_once '../Dao/AdministradorDao.php';
+                            $totalEventos = AdministradorDao::EventosTotais();
+                            echo '<p>' . $totalEventos . '</p>';?>
                         </div>
                     </div>
                     <div class="card-publicacoes">
@@ -372,7 +382,10 @@
                             <p>Publicações totais na plataforma</p>
                         </div>
                         <div class="publicacoes-quantidade">
-                            <p>500</p>
+                            <?php
+                            require_once '../Dao/AdministradorDao.php';
+                            $totalPublicacao = AdministradorDao::PublicacaoTotais();
+                            echo '<p>' . $totalPublicacao . '</p>';?>
                         </div>
                     </div>
                 </div>
