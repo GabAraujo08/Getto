@@ -155,7 +155,7 @@
                                             <form class="formRecusar" id="formRecusar" method="post" action="../Controller/AprovaArtista.php">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <button id="btnRecusar" type="submit" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
+                                                <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
 
                                             </form>
 
@@ -182,6 +182,16 @@
                                 </div>
                             </div>
 
+                            <div style="display: none;" id="alertRecusar" class="alertRecusar">
+                                <div class="img">
+                                    <i class="fa-regular fa-circle-check" style="color: #fff;"></i>
+                                </div>
+                                <div class="text">
+                                    <p>Você recusou <?PHP echo $usuario['nomeUsuario']; ?>.
+                                    </p>
+                                </div>
+                            </div>
+
                         <?PHP
                         endforeach;
                         ?>
@@ -199,7 +209,6 @@
 
 
 
-    <!-- ----------------------- ALERTA QUANDO APROVAR UM ARTISTA ---------------------- -->
 
 
 
@@ -217,6 +226,22 @@
                     formRecusar.style.display = 'block';
                 });
             });
+        });
+    </script>
+
+     <!-- ----------------------- ALERTA QUANDO RECUSAR UM ARTISTA ---------------------- -->
+
+
+
+     <script>
+          // Seleciona o botão "Aprovar" pelo id
+          var btnRecusar = document.getElementById("btnRecusar");
+        var divAlertRecusar = document.getElementById("alertRecusar");
+
+        // Adiciona um evento de clique ao botão
+        btnRecusar.addEventListener("click", function() {
+            // Cria um elemento "div" para o alerta
+            divAlertRecusar.style.display = 'flex';
         });
     </script>
 

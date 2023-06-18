@@ -63,6 +63,8 @@
 
         .picture__img {
             max-width: 100% !important;
+            max-height: 20rem;
+
         }
 
         .btn-artista {

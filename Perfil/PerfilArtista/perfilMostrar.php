@@ -13,6 +13,7 @@ require_once 'GlobalPerfil.php';
     <title>Perfil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/perfilArtistaMobile.css">
+    <link rel="stylesheet" href="../../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/css/preview-criar-evento.css" />
     <link rel="stylesheet" href="assets/css/modal-criarPub.css">
     <link rel="shortcut icon" href="../assets/img/logomarca.png" />
@@ -36,7 +37,7 @@ require_once 'GlobalPerfil.php';
                             <li class="list-group-item"><a href="Evento/eventoArtista.php"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></a></li>
                             <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                             <li class="list-group-item"><a href="Configuracoes/configuracoes.php"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></a></li>
-                            <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                            <li class="list-group-item"><a href="Feed/descobrir.php"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></a></li>
                             <li class="list-group-item"><a href="perfil.php"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></a></li>
                         </ul>
                     </div>
@@ -245,14 +246,55 @@ require_once 'GlobalPerfil.php';
 
                                 <?php
                                 require_once  '../../Dao/publicacaoDao.php';
-
-                                if (isset($_SESSION['idA'])) {
-                                    $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
-                                    foreach ($mp as $p) :
-                                ?>
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                foreach ($mp as $p) {
+                                    if ($p['idTipoMidia'] == 3) { ?>
                                         <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?php endforeach;
-                                } ?>
+                                    <?php
+                                    } elseif ($p['idTipoMidia'] == 2) { ?>
+                                        <video id="player-video" controls>
+                                            <source src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
+                                        </video>
+                                    <?PHP
+                                    } else { ?>
+                                        <div class="audio-player">
+                                            <div class="info-player">
+                                                <div class="cover">
+                                                    <img class="cover-img" src="../../teste/teste.jpg">
+                                                </div>
+                                                <!-- <div class="desc-musica">
+                                                    <div class="autor">
+                                                        <p>Kanye West</p>
+                                                    </div>
+                                                    <div class="nome-musica">
+                                                        <p>Esqueci</p>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                            <div class="controls">
+                                                <div class="reproducao">
+                                                    <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                    <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                    <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                </div>
+                                                <div class="volume">
+                                                    <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="progress-bar" onclick="seek(event)">
+                                                <div class="timer">00:00</div>
+                                                <div class="time-bar">
+                                                    <div class="time-fill"></div>
+                                                </div>
+                                                <div class="total-time">00:00</div>
+                                            </div>
+                                            <audio id="audio" src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>"></audio>
+                                        </div>
+
+                                <?PHP
+                                    }
+                                }
+                                ?>
 
 
                             </div>
@@ -462,6 +504,95 @@ require_once 'GlobalPerfil.php';
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+    </script>
+
+    <script>
+        var audioPlayers = document.querySelectorAll('.audio-player');
+        audioPlayers.forEach(function(player) {
+            var audio = player.querySelector('.audio-element');
+            var playButton = player.querySelector('.play-button');
+            var volumeButton = player.querySelector('.volume-button');
+            var timer = player.querySelector('.timer');
+            var totalTime = player.querySelector('.total-time');
+            var timeFill = player.querySelector('.time-fill');
+            var progressBar = player.querySelector('.progress-bar');
+
+            playButton.addEventListener('click', function() {
+                toggleAudio(audio, playButton);
+            });
+
+            volumeButton.addEventListener('click', function() {
+                toggleMute(audio, volumeButton);
+            });
+
+            audio.addEventListener('timeupdate', function() {
+                var position = audio.currentTime / audio.duration;
+                timeFill.style.width = (position * 100) + '%';
+
+                var minutes = Math.floor(audio.currentTime / 60);
+                var seconds = Math.floor(audio.currentTime % 60);
+                timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            audio.addEventListener('loadedmetadata', function() {
+                var minutes = Math.floor(audio.duration / 60);
+                var seconds = Math.floor(audio.duration % 60);
+                totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            function toggleAudio(audio, button) {
+                if (audio.paused) {
+                    audio.play();
+                    button.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    audio.pause();
+                    button.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            }
+
+            function toggleMute(audio, button) {
+                if (audio.muted) {
+                    audio.muted = false;
+                    button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    audio.muted = true;
+                    button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
+            }
+
+            function padTime(time) {
+                return (time < 10 ? '0' : '') + time;
+            }
+
+            progressBar.addEventListener('click', function(event) {
+                seek(event, audio, progressBar);
+            });
+
+            player.querySelector('.skip-button').addEventListener('click', function() {
+                skipBackward(audio);
+            });
+
+            player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
+                skipForward(audio);
+            });
+        });
+
+        function seek(event, audio, progressBar) {
+            var progressWidth = progressBar.clientWidth;
+            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+            var positionPercentage = clickX / progressWidth;
+            var seekTime = positionPercentage * audio.duration;
+
+            audio.currentTime = seekTime;
+        }
+
+        function skipForward(audio) {
+            audio.currentTime += 10;
+        }
+
+        function skipBackward(audio) {
+            audio.currentTime -= 10;
+        }
     </script>
 
     <script>

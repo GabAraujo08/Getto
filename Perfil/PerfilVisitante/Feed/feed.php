@@ -493,6 +493,8 @@ require_once '../../../Dao/ArtistaDao.php';
                                             } else {
                                             ?>
 
+
+
                                                 <div class="audio-player">
                                                     <div class="info-player">
                                                         <div class="cover">
@@ -524,7 +526,7 @@ require_once '../../../Dao/ArtistaDao.php';
                                                         </div>
                                                         <div class="total-time">00:00</div>
                                                     </div>
-                                                    <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>"></audio>
+                                                    <audio class="audio-element" id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>"></audio>
                                                 </div>
 
                                                 <!-- <audio id="player-audio" controls>
@@ -681,11 +683,11 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                 <?PHP
                                                                 if ($cs['nivelContaUsuario'] == 2) {
                                                                 ?>
-                                                                    <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                                                    <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
                                                                 <?PHP
                                                                 } else {
                                                                 ?>
-                                                                    <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                                                    <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
                                                                 <?PHP
                                                                 }
                                                                 ?>
@@ -821,6 +823,10 @@ require_once '../../../Dao/ArtistaDao.php';
                                                 <?PHP
                                                 } else {
                                                 ?>
+
+
+
+
                                                     <div class="audio-player">
                                                         <div class="info-player">
                                                             <div class="cover">
@@ -852,8 +858,11 @@ require_once '../../../Dao/ArtistaDao.php';
                                                             </div>
                                                             <div class="total-time">00:00</div>
                                                         </div>
-                                                        <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
+                                                        <audio class="audio-element" id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
                                                     </div>
+
+
+                                                   
 
                                                 <?PHP
                                                 }
@@ -1250,7 +1259,7 @@ require_once '../../../Dao/ArtistaDao.php';
 
 
 
-    <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <!--<div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1268,7 +1277,7 @@ require_once '../../../Dao/ArtistaDao.php';
                         Este é o comentário que você quer denunciar?
                     </h1>
                     <div class="box-comentario ">
-                        <img src="assets/img/img-perfil.svg" alt="">
+                        <img src="../" alt="">
                         <div class="conteudo-comentario">
                             <h1>@gabbs</h1>
                             <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
@@ -1326,7 +1335,7 @@ require_once '../../../Dao/ArtistaDao.php';
 
 
                     </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                    <div id="divDenuncia" style="display: none;" class="comentario slide-in">
                         <div class="box-text-area">
                             <form action="#">
                                 <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
@@ -1369,60 +1378,77 @@ require_once '../../../Dao/ArtistaDao.php';
 
 
     <script>
-        var audio = document.getElementById('audio');
-        var playButton = document.querySelector('.play-button');
-        var volumeButton = document.querySelector('.volume-button');
-        var volumeSlider = document.querySelector('.volume-slider');
-        var timer = document.querySelector('.timer');
-        var totalTime = document.querySelector('.total-time');
-        var timeFill = document.querySelector('.time-fill');
-        var progressBar = document.querySelector('.progress-bar');
+        var audioPlayers = document.querySelectorAll('.audio-player');
+        audioPlayers.forEach(function(player) {
+            var audio = player.querySelector('.audio-element');
+            var playButton = player.querySelector('.play-button');
+            var volumeButton = player.querySelector('.volume-button');
+            var timer = player.querySelector('.timer');
+            var totalTime = player.querySelector('.total-time');
+            var timeFill = player.querySelector('.time-fill');
+            var progressBar = player.querySelector('.progress-bar');
 
+            playButton.addEventListener('click', function() {
+                toggleAudio(audio, playButton);
+            });
 
-        function toggleAudio() {
-            if (audio.paused) {
-                audio.play();
-                playButton.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                audio.pause();
-                playButton.innerHTML = '<i class="fas fa-play"></i>';
+            volumeButton.addEventListener('click', function() {
+                toggleMute(audio, volumeButton);
+            });
+
+            audio.addEventListener('timeupdate', function() {
+                var position = audio.currentTime / audio.duration;
+                timeFill.style.width = (position * 100) + '%';
+
+                var minutes = Math.floor(audio.currentTime / 60);
+                var seconds = Math.floor(audio.currentTime % 60);
+                timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            audio.addEventListener('loadedmetadata', function() {
+                var minutes = Math.floor(audio.duration / 60);
+                var seconds = Math.floor(audio.duration % 60);
+                totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            function toggleAudio(audio, button) {
+                if (audio.paused) {
+                    audio.play();
+                    button.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    audio.pause();
+                    button.innerHTML = '<i class="fas fa-play"></i>';
+                }
             }
-        }
 
-        function toggleMute() {
-            if (audio.muted) {
-                audio.muted = false;
-                volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-            } else {
-                audio.muted = true;
-                volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            function toggleMute(audio, button) {
+                if (audio.muted) {
+                    audio.muted = false;
+                    button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    audio.muted = true;
+                    button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
             }
-        }
 
-        function adjustVolume(volume) {
-            audio.volume = volume;
-        }
+            function padTime(time) {
+                return (time < 10 ? '0' : '') + time;
+            }
 
-        audio.addEventListener('timeupdate', function() {
-            var position = audio.currentTime / audio.duration;
-            timeFill.style.width = (position * 100) + '%';
+            progressBar.addEventListener('click', function(event) {
+                seek(event, audio, progressBar);
+            });
 
-            var minutes = Math.floor(audio.currentTime / 60);
-            var seconds = Math.floor(audio.currentTime % 60);
-            timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+            player.querySelector('.skip-button').addEventListener('click', function() {
+                skipBackward(audio);
+            });
+
+            player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
+                skipForward(audio);
+            });
         });
 
-        audio.addEventListener('loadedmetadata', function() {
-            var minutes = Math.floor(audio.duration / 60);
-            var seconds = Math.floor(audio.duration % 60);
-            totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
-        });
-
-        function padTime(time) {
-            return (time < 10 ? '0' : '') + time;
-        }
-
-        function seek(event) {
+        function seek(event, audio, progressBar) {
             var progressWidth = progressBar.clientWidth;
             var clickX = event.clientX - progressBar.getBoundingClientRect().left;
             var positionPercentage = clickX / progressWidth;
@@ -1431,11 +1457,11 @@ require_once '../../../Dao/ArtistaDao.php';
             audio.currentTime = seekTime;
         }
 
-        function skipForward() {
+        function skipForward(audio) {
             audio.currentTime += 10;
         }
 
-        function skipBackward() {
+        function skipBackward(audio) {
             audio.currentTime -= 10;
         }
     </script>
