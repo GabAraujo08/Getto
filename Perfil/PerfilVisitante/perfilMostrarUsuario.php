@@ -120,6 +120,45 @@ require_once 'GlobalPerfil.php';
                                     }
                                     ?>
                                 </div>
+
+                                <div style="margin-left: 6.5rem;" class="desc-perfil">
+                                <div class="seguindo-seguidores">
+                                    <div class="seguindo">
+                                        <?PHP
+
+                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
+                                        ?>
+                                        <div class="seguindo-numero">
+                                            <p><?PHP
+                                                echo $seguindo;
+                                                ?></p>
+                                        </div>
+                                        <div class="seguindo-text">
+                                            <h1>Seguindo</h1>
+                                        </div>
+                                    </div>
+                                    <div class="seguidores">
+
+
+                                        <?PHP
+                                        if ($_SESSION['nivel'] == 2) {
+                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
+                                        ?>
+                                            <div class="seguidores-numero">
+                                                <p><?PHP
+                                                    echo $seguimores;
+                                                    ?></p>
+                                            </div>
+                                            <div class="seguidores-text">
+                                                <h1>Seguidores</h1>
+                                            </div>
+                                        <?PHP
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+
                                 <?PHP
                                 if ($_SESSION['nivel'] == 2) {
                                     $conexao = Conexao::conectar();
@@ -189,45 +228,6 @@ require_once 'GlobalPerfil.php';
                                 ?>
 
                             </div>
-
-
-                            <div style="margin-left: 6.5rem;" class="desc-perfil">
-                                <div class="seguindo-seguidores">
-                                    <div class="seguindo">
-                                        <?PHP
-
-                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idU']);
-                                        ?>
-                                        <div class="seguindo-numero">
-                                            <p><?PHP
-                                                echo $seguindo;
-                                                ?></p>
-                                        </div>
-                                        <div class="seguindo-text">
-                                            <h1>Seguindo</h1>
-                                        </div>
-                                    </div>
-                                    <div class="seguidores">
-
-
-                                        <?PHP
-                                        if ($_SESSION['nivel'] == 2) {
-                                            $seguimores = SeguidoresDao::consultarSeguidores($_SESSION['idA']);
-                                        ?>
-                                            <div class="seguidores-numero">
-                                                <p><?PHP
-                                                    echo $seguimores;
-                                                    ?></p>
-                                            </div>
-                                            <div class="seguidores-text">
-                                                <h1>Seguidores</h1>
-                                            </div>
-                                        <?PHP
-                                        }
-                                        ?>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
 
@@ -288,13 +288,6 @@ require_once 'GlobalPerfil.php';
                                     }?>
 
                                 </div>
-
-
-
-
-
-
-
                         </div>
                     </div>
                 </div>
