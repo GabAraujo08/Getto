@@ -87,7 +87,8 @@ require_once '../../../Dao/TipoDenunciaDao.php';
                         <input type="hidden" name="nickname" value="<?php echo $_POST['nickname']; ?>">
                         <input type="hidden" name="idDenunciado" value="<?php echo $_POST['idDenunciado']; ?>">
                         <input type="hidden" name="idDenunciador" value="<?php echo $_POST['idDenunciador']; ?>">
-                        <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
+                        <input type="hidden" name="emaildenunciado" value="<?php echo $_POST['emaildenunciado']; ?>">
+                        <input type="hidden" name="emaildenunciador" value="<?php echo $_POST['emaildenunciador']; ?>">
                         <div class="box-btn-comentario">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
