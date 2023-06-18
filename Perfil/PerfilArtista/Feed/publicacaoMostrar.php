@@ -184,9 +184,9 @@ require_once '../../../Dao/ComentarioDao.php';
                         </div>
                     </div>
 
-                    <div class="comentario-footer">
+                    <!-- <div class="comentario-footer">
                         <div class="input-comentario">
-                            <textarea placeholder="Escreva seu comentário..." type="text">
+                            <textarea placeholder="Escreva seu comentário..." type="text"></textarea>
                         </div>
 
                         <div class="acoes-publicacao">
@@ -205,7 +205,7 @@ require_once '../../../Dao/ComentarioDao.php';
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
