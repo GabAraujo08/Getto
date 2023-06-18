@@ -158,7 +158,7 @@ require_once 'GlobalPerfil.php';
                                } else if ($pcc['idTipoMidia'] == 2) {
                                 ?>
                                     <video id="player-video" controls>
-                                        <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        <source src="../PerfilArtista/assets/img/Pubs/<?PHP echo $pcc['arquivoMidia']; ?>">
                                     </video>
                                 <?PHP
                                 } else {
@@ -166,7 +166,7 @@ require_once 'GlobalPerfil.php';
                                     <div class="audio-player">
                                         <div class="info-player">
                                             <div class="cover">
-                                                <img class="cover-img" src=".../../../../teste/teste.jpg">
+                                                <img class="cover-img" src="../../teste/teste.jpg">
                                             </div>
                                             <!-- <div class="desc-musica">
                                                 <div class="autor">
@@ -194,7 +194,7 @@ require_once 'GlobalPerfil.php';
                                                 </div>
                                                 <div class="total-time">00:00</div>
                                             </div>
-                                            <audio class="audio-element" id="audio" src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
+                                            <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>"></audio>
                                         </div>
 
                                 <?PHP
