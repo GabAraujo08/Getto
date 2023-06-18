@@ -27,7 +27,7 @@ require_once 'GlobalPerfil.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                    <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <!-- <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca"> -->
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
@@ -61,7 +61,7 @@ require_once 'GlobalPerfil.php';
                     </a>
                 </div>
             </div>
-
+            
             <a href="">
                 <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
                     <img src="assets/img/icon-logout.svg" alt="Sair">
@@ -99,23 +99,6 @@ require_once 'GlobalPerfil.php';
                                     </div>
                                 </div>
 
-                                <div class="desc-perfil">
-                                    <div class="seguindo-seguidores">
-                                        <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
-                                            <?PHP
-                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
-                                            ?>
-                                            <div class="seguindo-numero">
-                                                <p><?PHP
-                                                    echo $seguindo;
-                                                    ?></p>
-                                            </div>
-                                            <div class="seguindo-text">
-                                                <h1>Seguindo</h1>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="div-btn-editar-perfil">
                                     <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#modalEditarPerfil">
@@ -123,63 +106,61 @@ require_once 'GlobalPerfil.php';
                                     </button>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="atividade-btn">
-                            <div class="titulo-publicacoes-curtidas">
-                                <p style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">Publicações curtidas</p>
+
+                            <div class="desc-perfil">
+                                <div class="seguindo-seguidores">
+                                    <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
+                                        <?PHP
+                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                        ?>
+                                        <div class="seguindo-numero">
+                                            <p><?PHP
+                                                echo $seguindo;
+                                                ?></p>
+                                        </div>
+                                        <div class="seguindo-text">
+                                            <h1>Seguindo</h1>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
+
+                        <div class="titulo-publicacoes-curtidas">
+                            <p style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">Publicações curtidas</p>
+                        </div>
+
                         <div class="atividade">
                             <div class="col-12 publicacoes">
 
-                                <?php
-                                $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idUsuario']);
-                                foreach ($pc as $pcc) {
+                            <?php
+                                    $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idUsuario']);
+                                    foreach($pc as $pcc){
                                 ?>
                                     <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
                                 <?PHP
-                                }
+                                    }
                                 ?>
 
-                            </div>
-                            <!-- <div class="col-4 eventos">
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    
+                            <div id="eventos-web" class="eventos eventos-web">
+
+                            <?php require_once '../../Dao/EventoDao.php';
+
+                                $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idUsuario']);
+                                foreach ($eventos as $evento) : ?>
+                                    <div class="img-evento">
+                                        <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+
                                         <h1>
-                                            Batalha de rima
+                                            <?PHP echo $evento['tituloEvento']; ?>
                                         </h1>
-                                        <p class="rua-evento">
-                                            Rua Quimanga, 509
-                                        </p>
-                                    
-
-                                </div>
-
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    <h1>
-                                        Batalha de rima
-                                    </h1>
-                                    <p>
-                                        Rua Quimanga, 509
-                                    </p>
-                                </div>
-
-                                <div class="img-evento">
-                                    <img src="assets/img/kyan-evento.jpg" alt="">
-                                    <h1>
-                                        Batalha de rima
-                                    </h1>
-                                    <p>
-                                        Rua Quimanga, 509
-                                    </p>
-                                </div>
 
 
-
-                            </div> -->
+                                    </div>
+                            <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -382,71 +363,71 @@ require_once 'GlobalPerfil.php';
 
                 </div>
                 <div class="modal-body">
-                    <?PHP
-                    $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
-                    foreach ($es as $ess) {
-                    ?>
-                        <div class="box-comentario">
-                            <div class="imagem-nick">
-                                <img src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $ess['fotoPerfilUsuario'] ?>" alt="">
+                <?PHP
+                   $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
+                    foreach($es as $ess){
+                ?>
+                    <div class="box-comentario">
+                        <div class="imagem-nick">
+                            <img src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $ess['fotoPerfilUsuario'] ?>" alt="">
 
-                                <div class="conteudo-comentario">
-                                    <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
-                                    <p><?PHP echo $ess['nicknameUsuario'] ?></p>
-
-
+                            <div class="conteudo-comentario">
+                            <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
+                                <p><?PHP echo $ess['nicknameUsuario'] ?></p>
 
 
-                                </div>
-                            </div>
-
-                            <div class="opcoes">
-                                <button id="btn-bloquearSeguindo">
-                                    <i class="fa-solid fa-ban"></i>
-                                </button>
-                                <button id="btn-excluirSeguindo">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
 
 
-                            </div>
-
-                            <div id="confirmacao-excluirSeguindo" style="display: none;" class="confirmacao-excluir">
-                                <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
-                                <div class="btn-confirmacao-excluir">
-                                    <button>
-                                        <i class="fa-solid fa-heart-crack"></i>
-                                        <p>Sim</p>
-                                    </button>
-
-                                    <button id="btn-confirmar-excluir">
-                                        <i class="fa-solid fa-face-smile-beam"></i>
-                                        <p>Não</p>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                                <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
-                                <div class="btn-confirmacao-excluir">
-                                    <button>
-                                        <i class="fa-solid fa-heart-crack"></i>
-                                        <p>Sim</p>
-                                    </button>
-
-                                    <button id="btn-confirmarBloqueio">
-                                        <i class="fa-solid fa-face-smile-beam"></i>
-                                        <p>Não</p>
-                                    </button>
-                                </div>
                             </div>
                         </div>
+
+                        <div class="opcoes">
+                            <button id="btn-bloquearSeguindo">
+                                <i class="fa-solid fa-ban"></i>
+                            </button>
+                            <button id="btn-excluirSeguindo">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+
+                        </div>
+
+                        <div id="confirmacao-excluirSeguindo" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmar-excluir">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
+                            <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
+                            <div class="btn-confirmacao-excluir">
+                                <button>
+                                    <i class="fa-solid fa-heart-crack"></i>
+                                    <p>Sim</p>
+                                </button>
+
+                                <button id="btn-confirmarBloqueio">
+                                    <i class="fa-solid fa-face-smile-beam"></i>
+                                    <p>Não</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     <?PHP
                     }
                     ?>
 
-                    <!-- <div class="confirmacao-excluir">
+                        <!-- <div class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>
                             <div class="btn-confirmacao-excluir">
                                 <button>
@@ -461,13 +442,13 @@ require_once 'GlobalPerfil.php';
                             </div>
 
                         </div> -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+
                 </div>
             </div>
-            <div class="modal-footer">
-
-            </div>
         </div>
-    </div>
     </div>
 
 
