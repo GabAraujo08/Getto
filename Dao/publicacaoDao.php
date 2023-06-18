@@ -118,7 +118,7 @@ class PublicacaoDao
     public static function ListaPublicacaoCurti($id)
     {
         $conexao = Conexao::conectar();
-        $query = $conexao->prepare('SELECT tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbCurtida
+        $query = $conexao->prepare('SELECT tbMidia.idTipoMidia, tbPublicacao.idPublicacao, tbPublicacao.descPublicacao, tbMidia.arquivoMidia, TIMESTAMPDIFF(MINUTE, tbPublicacao.horarioPublicacao, NOW()) as minutosPublicacao FROM tbCurtida
                 INNER JOIN tbPublicacao ON tbCurtida.idPublicacao = tbPublicacao.idPublicacao
                 INNER JOIN tbMidiaPublicacao ON tbMidiaPublicacao.idPublicacao = tbPublicacao.idPublicacao
                 INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
