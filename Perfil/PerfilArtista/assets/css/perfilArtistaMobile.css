@@ -644,7 +644,6 @@ body {
 .container-fluid .area-perfil .informacao-perfil .desc-perfil {
 	display: flex;
 	flex-direction: row;
-	margin-left: 6.5rem;
 	/* margin-left: 3.5rem; */
 	/* margin-right: 2px; */
 	/* margin-bottom: -4px; */
@@ -837,7 +836,7 @@ body {
     overflow-x: hidden;
     width: 100%;
     flex-wrap: wrap;
-
+	justify-content: center;
 }
 
 .atividade .eventos::-webkit-scrollbar {
@@ -951,9 +950,12 @@ body {
 	border-color: unset !important;
 }
 
-.btn-mudarExibicao button:focus {
-	background-color: #5c2b86;
+.btn-exibirPublicacoes img:hover {
+	background-image: url('assets/img/publicacao-roxo');
+}
 
+.btn-exibirEventos img:hover {
+	background-image: url('assets/img/publicacao-roxo')
 }
 
 #btn-exibirPublicacoes img {
