@@ -110,8 +110,6 @@ require_once 'GlobalPerfil.php';
                         </div>
                     </div> -->
 
-
-
                 </div>
             </div>
             <div class="nova-pub">
@@ -237,7 +235,7 @@ require_once 'GlobalPerfil.php';
                                 foreach ($mp as $p) {
                                     if ($p['idTipoMidia'] == 3) {
                                 ?>
-                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                        <img data-bs-toggle="modal" data-bs-target="#modalMostrarPublicacao" src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
                                     <?php
                                     } elseif ($p['idTipoMidia'] == 2) {
                                     ?>
@@ -573,7 +571,17 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
+    <!-- --------------------------- MODAL MOSTRAR PUBLICACAO ----------------------- -->
 
+    <div class="modal fade" id="modalMostrarPublicacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- --------------------------- MODAL CRIAR PUBLICACAO ----------------------- -->
 
