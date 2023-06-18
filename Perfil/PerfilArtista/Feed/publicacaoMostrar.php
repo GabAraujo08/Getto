@@ -184,7 +184,7 @@ require_once '../../../Dao/ComentarioDao.php';
                         </div>
                     </div>
 
-                    <!-- <div class="comentario-footer">
+                    <div class="comentario-footer">
                         <div class="input-comentario">
                             <textarea placeholder="Escreva seu comentário..." type="text"></textarea>
                         </div>
@@ -192,20 +192,14 @@ require_once '../../../Dao/ComentarioDao.php';
                         <div class="acoes-publicacao">
                             <div class="opcoes">
                                 <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                <p>15 Curtidas</p>
-                            </div>
-
-                            <div class="informacoes">
                                 
-
-
-                                <p>1 Min</p>
+                                
                             </div>
+
+                            
 
                         </div>
-                    </div> -->
+                    </div>
 
                 </div>
 
