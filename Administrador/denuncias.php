@@ -1,4 +1,6 @@
-<?PHP include('../Controller/VerificaLogadoAdm.php'); ?>
+<?PHP include('../Controller/VerificaLogadoAdm.php'); 
+require_once 'GlobalAdm.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,17 +80,21 @@
                             Denúncias recentes
                         </h1>
                     </div>
-
+                    
+                    <?PHP
+                    $ld = DenunciaDao::ListaDenuncia();
+                    foreach($ld as $dl){
+                    ?>
                     <div class="denuncia">
                         <div class="img-denuncia">
                             <img src="assets/img/img-denuncia.svg" alt="">
                         </div>
                         <div class="textos-denuncia">
                             <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
+                                <h1>TIPO DE DENÚNCIA: <?php echo $dl['nomeTipoDenuncia'] ?></h1>
                             </div>
                             <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
+                                <p><?php echo $dl['descDenuncia'] ?></p>
                             </div>
                         </div>
                         <div class="box-btn-denuncia">
@@ -97,62 +103,10 @@
                             </button>
                         </div>
                     </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+                    <?php
+                    }
+                    ?>
+                   
                 <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
                 
             </div>
