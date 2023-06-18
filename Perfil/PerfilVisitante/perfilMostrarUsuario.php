@@ -238,7 +238,7 @@ require_once 'GlobalPerfil.php';
                             </button>
 
                             <button id="btn-exibirEventos" class="btn btn-primary btnExibirEvento">
-                                <img src="assets/img/icone-calendario.png" alt="">
+                                <img src="../PerfilArtista/assets/img/calendario-preto.svg" alt="">
                             </button>
                         </div>
 

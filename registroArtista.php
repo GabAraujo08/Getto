@@ -18,6 +18,9 @@
         .preview-img {
             margin-top: 0.5%;
             width: 100%;
+            object-fit: cover !important;
+            object-position: 50% 50% !important;
+            vertical-align: middle;
         }
 
         #picture__input {
@@ -37,8 +40,8 @@
             font-family: sans-serif !important;
             transition: color 300ms ease-in-out, background 300ms ease-in-out !important;
             outline: none !important;
-            overflow: hidden !important;
             border-radius: 20px !important;
+            height: 20rem;
         }
 
         .picture:hover {
@@ -237,7 +240,7 @@
                                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
                                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
 
-                                    <button  style="display: none;" type="submit" id="enviarBtn" onclick="nextPrev(1)">Enviar</button>
+                                    <button style="display: none;" type="submit" id="enviarBtn" onclick="nextPrev(1)">Enviar</button>
 
 
                                 </div>
