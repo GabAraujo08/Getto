@@ -30,15 +30,16 @@ require_once '../../Dao/SeguidoresDao.php';
 
 <body>
 
-<style>
-    #inputCover {
-        display: none;
-    }
-    label[for="inputCover"] {
-  font-family: 'InterBold';
-  /* Outros estilos aqui */
-}
-</style>
+    <style>
+        #inputCover {
+            display: none;
+        }
+
+        label[for="inputCover"] {
+            font-family: 'InterBold';
+            /* Outros estilos aqui */
+        }
+    </style>
 
     <div class="d-flex">
         <div class="area-sidebar">
@@ -292,7 +293,7 @@ require_once '../../Dao/SeguidoresDao.php';
                                                 </div>
                                                 <div class="total-time">00:00</div>
                                             </div>
-                                            <audio id="audio" src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>"></audio>
+                                            <audio class="audio-element" id="audio" src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
                                         </div>
 
                                 <?PHP
@@ -1243,60 +1244,77 @@ require_once '../../Dao/SeguidoresDao.php';
     </script>
 
     <script>
-        var audio = document.getElementById('audio');
-        var playButton = document.querySelector('.play-button');
-        var volumeButton = document.querySelector('.volume-button');
-        var volumeSlider = document.querySelector('.volume-slider');
-        var timer = document.querySelector('.timer');
-        var totalTime = document.querySelector('.total-time');
-        var timeFill = document.querySelector('.time-fill');
-        var progressBar = document.querySelector('.progress-bar');
+        var audioPlayers = document.querySelectorAll('.audio-player');
+        audioPlayers.forEach(function(player) {
+            var audio = player.querySelector('.audio-element');
+            var playButton = player.querySelector('.play-button');
+            var volumeButton = player.querySelector('.volume-button');
+            var timer = player.querySelector('.timer');
+            var totalTime = player.querySelector('.total-time');
+            var timeFill = player.querySelector('.time-fill');
+            var progressBar = player.querySelector('.progress-bar');
 
+            playButton.addEventListener('click', function() {
+                toggleAudio(audio, playButton);
+            });
 
-        function toggleAudio() {
-            if (audio.paused) {
-                audio.play();
-                playButton.innerHTML = '<i class="fas fa-pause"></i>';
-            } else {
-                audio.pause();
-                playButton.innerHTML = '<i class="fas fa-play"></i>';
+            volumeButton.addEventListener('click', function() {
+                toggleMute(audio, volumeButton);
+            });
+
+            audio.addEventListener('timeupdate', function() {
+                var position = audio.currentTime / audio.duration;
+                timeFill.style.width = (position * 100) + '%';
+
+                var minutes = Math.floor(audio.currentTime / 60);
+                var seconds = Math.floor(audio.currentTime % 60);
+                timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            audio.addEventListener('loadedmetadata', function() {
+                var minutes = Math.floor(audio.duration / 60);
+                var seconds = Math.floor(audio.duration % 60);
+                totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            function toggleAudio(audio, button) {
+                if (audio.paused) {
+                    audio.play();
+                    button.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    audio.pause();
+                    button.innerHTML = '<i class="fas fa-play"></i>';
+                }
             }
-        }
 
-        function toggleMute() {
-            if (audio.muted) {
-                audio.muted = false;
-                volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
-            } else {
-                audio.muted = true;
-                volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            function toggleMute(audio, button) {
+                if (audio.muted) {
+                    audio.muted = false;
+                    button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    audio.muted = true;
+                    button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
             }
-        }
 
-        function adjustVolume(volume) {
-            audio.volume = volume;
-        }
+            function padTime(time) {
+                return (time < 10 ? '0' : '') + time;
+            }
 
-        audio.addEventListener('timeupdate', function() {
-            var position = audio.currentTime / audio.duration;
-            timeFill.style.width = (position * 100) + '%';
+            progressBar.addEventListener('click', function(event) {
+                seek(event, audio, progressBar);
+            });
 
-            var minutes = Math.floor(audio.currentTime / 60);
-            var seconds = Math.floor(audio.currentTime % 60);
-            timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+            player.querySelector('.skip-button').addEventListener('click', function() {
+                skipBackward(audio);
+            });
+
+            player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
+                skipForward(audio);
+            });
         });
 
-        audio.addEventListener('loadedmetadata', function() {
-            var minutes = Math.floor(audio.duration / 60);
-            var seconds = Math.floor(audio.duration % 60);
-            totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
-        });
-
-        function padTime(time) {
-            return (time < 10 ? '0' : '') + time;
-        }
-
-        function seek(event) {
+        function seek(event, audio, progressBar) {
             var progressWidth = progressBar.clientWidth;
             var clickX = event.clientX - progressBar.getBoundingClientRect().left;
             var positionPercentage = clickX / progressWidth;
@@ -1305,11 +1323,11 @@ require_once '../../Dao/SeguidoresDao.php';
             audio.currentTime = seekTime;
         }
 
-        function skipForward() {
+        function skipForward(audio) {
             audio.currentTime += 10;
         }
 
-        function skipBackward() {
+        function skipBackward(audio) {
             audio.currentTime -= 10;
         }
     </script>
