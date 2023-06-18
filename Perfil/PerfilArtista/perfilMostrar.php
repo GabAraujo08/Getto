@@ -36,7 +36,7 @@ require_once 'GlobalPerfil.php';
                             <li class="list-group-item"><a href="Evento/eventoArtista.php"><button id="eventos" class="btn btn-primary btn-item-list" type="button">Eventos</button></a></li>
                             <li class="list-group-item"><button id="notificacoes" class="btn btn-primary btn-item-list" type="button">Notificações</button></li>
                             <li class="list-group-item"><a href="Configuracoes/configuracoes.php"><button id="configuracoes" class="btn btn-primary btn-item-list" type="button">Configurações</button></a></li>
-                            <li class="list-group-item"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></li>
+                            <li class="list-group-item"><a href="Feed/descobrir.php"><button id="descobrir" class="btn btn-primary btn-item-list" type="button">Descobrir</button></a></li>
                             <li class="list-group-item"><a href="perfil.php"><button id="perfil" class="btn btn-primary btn-item-list" type="button">Perfil</button></a></li>
                         </ul>
                     </div>
