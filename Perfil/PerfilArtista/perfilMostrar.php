@@ -257,10 +257,13 @@ require_once 'GlobalPerfil.php';
                                         </video>
                                     <?PHP
                                     } else { ?>
+
+
+
                                         <div class="audio-player">
                                             <div class="info-player">
                                                 <div class="cover">
-                                                    <img class="cover-img" src="../../teste/teste.jpg">
+                                                    <img class="cover-img" src=".../../../../teste/teste.jpg">
                                                 </div>
                                                 <!-- <div class="desc-musica">
                                                     <div class="autor">
@@ -288,8 +291,10 @@ require_once 'GlobalPerfil.php';
                                                 </div>
                                                 <div class="total-time">00:00</div>
                                             </div>
-                                            <audio id="audio" src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>"></audio>
+                                            <audio class="audio-element" id="audio" src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
                                         </div>
+
+
 
                                 <?PHP
                                     }
