@@ -2,7 +2,7 @@
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/Conexao.php';
- error_reporting(0);
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +61,7 @@ require_once '../../../Dao/Conexao.php';
                             </a>
                         </ul>
                     </div>
-                    
+
                     <div class="sair">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#modalSairConta">
                             <img src="../../PerfilArtista/Feed/assets/img/sair.png">Sair
@@ -116,7 +116,15 @@ require_once '../../../Dao/Conexao.php';
 
         </div>
         <div style="position: relative;" class="box-container">
+            <div class="div-logo-marca">
+                <div class="icone-perfil">
+                    <a href="../perfil-visitante.php">
+                        <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                    </a>
+                </div>
+            </div>
             <div style="z-index: 101;" class="area-buscar">
+
                 <form name="FormBusca" id="FormBusca" method="Post" action="../../../Controller/buscaUsuario.php">
                     <input type="search" id="search" name="busca" placeholder="Pesquisar...">
                     <button class="btn-descobrir" type="submit"><img src="assets/img/search.png"></i></button>
@@ -151,15 +159,15 @@ require_once '../../../Dao/Conexao.php';
             </div>
             <div class="container-fluid">
                 <div class="main-publicacao">
-                <?php
-                    $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
-                     foreach($pubArtEng as $pae){   
-                ?>
-                    <div class="publicacao">
-                        <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
-                    </div>
                     <?php
-                     }
+                    $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
+                    foreach ($pubArtEng as $pae) {
+                    ?>
+                        <div class="publicacao">
+                            <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
+                        </div>
+                    <?php
+                    }
                     ?>
                 </div>
             </div>

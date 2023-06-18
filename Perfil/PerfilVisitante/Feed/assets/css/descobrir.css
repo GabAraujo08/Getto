@@ -31,7 +31,21 @@
       list-style: none;
     }
   
+    .div-logo-marca .icone-perfil img {
+      border-radius: 50%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      height: 65px;
+      width: 65px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
     
+    .div-logo-marca .icone-perfil img:hover {
+      transform: scale(1.2);
+    }
+
+
     .sidebar {
       display: flex;
       justify-content: center;
@@ -90,7 +104,7 @@
     margin-right: 25px;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 33px;
   }
   
   #results{

@@ -488,7 +488,6 @@ body {
 .container-fluid .area-perfil .informacao-perfil .desc-perfil {
   display: flex;
   flex-direction: row;
-  margin-left: 6.5rem;
   /* margin-left: 3.5rem; */
   /* margin-right: 2px; */
   /* margin-bottom: -4px; */
@@ -811,145 +810,208 @@ body {
 
 /*------------------------------------- ATIVIDADE E EVENTO ----------------------------*/
 
-.atividade{
+.atividade {
 	display: flex;
 }
 
-.atividade .publicacoes{
+.atividade .publicacoes {
 	display: flex;
-	flex-wrap: wrap;
-	
-	
-	max-height: 440px;
-	overflow-y: auto;
-	padding: 15px;
-	overflow-x: hidden;
+    flex-wrap: wrap;
+    overflow: unset!important;
+    padding: 15px;
+    overflow-x: hidden;
+    padding-bottom: -14px;
+    width: 100%!important;
+   
 }
 
 
 .atividade .publicacoes::-webkit-scrollbar {
 	width: 6px;
 	/* width of the entire scrollbar */
-  }
-  
-  .atividade .publicacoes::-webkit-scrollbar-track {
+}
+
+.atividade .publicacoes::-webkit-scrollbar-track {
 	background: #ECEBF3;
 	/* color of the tracking area */
-  }
-  
-  .atividade .publicacoes::-webkit-scrollbar-thumb {
+}
+
+.atividade .publicacoes::-webkit-scrollbar-thumb {
 	background-color: #664187;
 	/* color of the scroll thumb */
 	border-radius: 20px;
 	/* roundness of the scroll thumb */
 	border: 3px solid #664187;
 	/* creates padding around scroll thumb */
-  }
-  
+}
 
-.atividade .publicacoes img{
-	width: 24%;
-	transition: transform 0.3s, box-shadow 0.3s; /* Adiciona transições suaves para os efeitos */
-	cursor: pointer;
-	object-fit: cover;
-	border-radius: 0;
-	margin: 1px;
+
+.atividade .publicacoes img {
+	transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    border-radius: 0;
+    margin: 1px;
+    width: 33%;
+    max-height: 320px;
+    height: 70%;
 }
 
 .publicacoes img:hover {
-	transform: scale(1.08); /* Aumenta o tamanho da imagem em 20% */
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona um efeito de box shadow */
-  }
+	transform: scale(1.05);
+	/* Aumenta o tamanho da imagem em 20% */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	/* Adiciona um efeito de box shadow */
+}
 
 
 
-.atividade .eventos{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 15px;
-	max-height: 440px;
-	overflow-y: auto;
-	overflow-x: hidden;
-
+.atividade .eventos {
+	display: none;
+    /* flex-direction: column; */
+    align-items: center;
+    padding: 15px;
+    /* max-height: 440px; */
+    /* overflow-y: auto; */
+    overflow-x: hidden;
+    width: 100%;
+    flex-wrap: wrap;
+	justify-content: center;
 }
 
 .atividade .eventos::-webkit-scrollbar {
 	width: 6px;
 	/* width of the entire scrollbar */
-  }
-  
-  .atividade .eventos::-webkit-scrollbar-track {
+}
+
+.atividade .eventos::-webkit-scrollbar-track {
 	background: #ECEBF3;
 	/* color of the tracking area */
-  }
-  
-  .atividade .eventos::-webkit-scrollbar-thumb {
+}
+
+.atividade .eventos::-webkit-scrollbar-thumb {
 	background-color: #664187;
 	/* color of the scroll thumb */
 	border-radius: 20px;
 	/* roundness of the scroll thumb */
 	border: 3px solid #664187;
 	/* creates padding around scroll thumb */
-  }
-  
-
-  
+}
 
 
-.atividade .eventos .img-evento img{
+
+
+
+.atividade .eventos .img-evento img {
 	width: 100%;
-	
-	margin-bottom: 1px;
-	border-radius: 0;
-	object-fit: cover;
-	cursor: pointer;
-	
+    /* margin-bottom: 1px; */
+    border-radius: 0;
+    object-fit: cover;
+    cursor: pointer;
+    margin: 1px;
+
 
 }
 
 .eventos .img-evento img:hover {
-	
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona um efeito de box shadow */
-	filter: brightness(0.7); /* Aplica o efeito de escurecimento (70% de brilho) */
-  }
+
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	/* Adiciona um efeito de box shadow */
+	filter: brightness(0.7);
+	/* Aplica o efeito de escurecimento (70% de brilho) */
+}
 
 
 
 
 
-  .eventos .img-evento{
+.eventos .img-evento {
 	position: relative;
-  }
+	width: 32%;
+}
 
-  
 
-  .eventos .img-evento  h1, .rua-evento{
+
+.eventos .img-evento h1,
+.rua-evento {
 	color: #fff;
 	font-family: 'InterBold';
 	opacity: 0;
 	position: absolute;
-	right: 0;
-	top: 40%;
-	pointer-events: none;
-  }
-
-  
-  .img-evento h1,
-  .img-evento p {
-	position: absolute;
-	top: 80%;
 	left: 50%;
+	top: 50%;
+	pointer-events: none;
+}
+
+
+.img-evento h1,
+.img-evento p {
+	position: absolute;
+
 	transform: translate(-50%, -50%);
 	opacity: 0;
 	cursor: pointer;
-	
-  }
-  
-  .img-evento:hover h1,
-  .img-evento:hover p {
+
+}
+
+.img-evento:hover h1,
+.img-evento:hover p {
 	opacity: 1;
-  }
+}
+
+.atividade-btn{
+	display: flex;
+	justify-content: space-between;
+	margin: 0 20px 0 20px;
+}
+
+.btn-mudarExibicao {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 10px;
+}
+
+.btn-mudarExibicao button {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	background-color: #ffffff;
+	width: 20%;
+	border-color: #000;
+	border: 2;
+	color: #000;
+	font-family: 'InterBold';
+	font-size: 16px;
+}
+
+.btn-mudarExibicao button:hover {
+	color: unset !important;
+	background-color: unset !important;
+	border-color: unset !important;
+}
+
+.btn-exibirPublicacoes img:hover {
+	background-image: url('assets/img/publicacao-roxo');
+}
+
+.btn-exibirEventos img:hover {
+	background-image: url('assets/img/publicacao-roxo')
+}
+
+#btn-exibirPublicacoes img {
+	width: 26px;
+	height: 26px;
+}
+
+
+.btn-mudarExibicao #btn-exibirPublicacoes {
+	border: none;
+}
+
+
+.btn-mudarExibicao #btn-exibirEventos {
+
+	border: none;
+}
 
 
 

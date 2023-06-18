@@ -27,7 +27,7 @@ require_once 'GlobalPerfil.php';
             <div class="sidebar">
                 <div class="d-flex justify-center align-items-center flex-column sidebar-box">
                     <div class="d-flex justify-center align-items-center logos">
-                    <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
+                        <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca">
                         <!-- <img src="assets/img/logomarca.png" alt="" class="img-fluid logo-marca"> -->
                         <h1 class="logo-tipo">Getto</h1>
                     </div>
@@ -61,7 +61,7 @@ require_once 'GlobalPerfil.php';
                     </a>
                 </div>
             </div>
-            
+
             <a href="">
                 <div class="d-flex flex-row justify-content-center align-items-center btn-sair">
                     <img src="assets/img/icon-logout.svg" alt="Sair">
@@ -99,6 +99,23 @@ require_once 'GlobalPerfil.php';
                                     </div>
                                 </div>
 
+                                <div class="desc-perfil">
+                                    <div class="seguindo-seguidores">
+                                        <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
+                                            <?PHP
+                                            $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
+                                            ?>
+                                            <div class="seguindo-numero">
+                                                <p><?PHP
+                                                    echo $seguindo;
+                                                    ?></p>
+                                            </div>
+                                            <div class="seguindo-text">
+                                                <h1>Seguindo</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="div-btn-editar-perfil">
                                     <button class="btn btn-primary btn-editar-perfil" value="" data-bs-toggle="modal" data-bs-target="#modalEditarPerfil">
@@ -108,324 +125,322 @@ require_once 'GlobalPerfil.php';
                             </div>
 
 
-                            <div class="desc-perfil">
-                                <div class="seguindo-seguidores">
-                                    <div style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#seguindoModal" class="seguindo">
-                                        <?PHP
-                                        $seguindo = SeguidoresDao::consultarSeguindo($_SESSION['idUsuario']);
-                                        ?>
-                                        <div class="seguindo-numero">
-                                            <p><?PHP
-                                                echo $seguindo;
-                                                ?></p>
-                                        </div>
-                                        <div class="seguindo-text">
-                                            <h1>Seguindo</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
 
+                        <div class="atividade-btn">
+                            <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
+                                Suas interações
+                            </h1>
+                            <div class="btn-mudarExibicao">
+                                <button id="btn-exibirPublicacoes" class="btn btn-primary">
+                                    <img src="../PerfilArtista/assets/img/publicacao-preto.svg" alt="">
+                                </button>
 
-                        <div class="titulo-publicacoes-curtidas">
-                            <p style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">Publicações curtidas</p>
+                                <button id="btn-exibirEventos" class="btn btn-primary">
+                                    <img src="../PerfilArtista/assets/img/calendario-preto.svg" alt="">
+                                </button>
+                            </div>
                         </div>
 
                         <div class="atividade">
-                            <div class="col-12 publicacoes">
 
-                            <?php
-                                    $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idUsuario']);
-                                    foreach($pc as $pcc){
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
+
+                                <?php
+                                $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idUsuario']);
+                                foreach ($pc as $pcc) {
                                 ?>
                                     <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
                                 <?PHP
-                                    }
+                                }
                                 ?>
 
-                            <div id="eventos-web" class="eventos eventos-web">
+                                <div id="eventos-web" class="eventos eventos-web">
 
-                            <?php require_once '../../Dao/EventoDao.php';
+                                    <?php require_once '../../Dao/EventoDao.php';
 
-                                $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idUsuario']);
-                                foreach ($eventos as $evento) : ?>
-                                    <div class="img-evento">
-                                        <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+                                    $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idUsuario']);
+                                    foreach ($eventos as $evento) : ?>
+                                        <div class="img-evento">
+                                            <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
 
-                                        <h1>
-                                            <?PHP echo $evento['tituloEvento']; ?>
-                                        </h1>
+                                            <h1>
+                                                <?PHP echo $evento['tituloEvento']; ?>
+                                            </h1>
 
 
-                                    </div>
-                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
-    <nav class="mobile-nav">
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-home.svg" alt="">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
-        </a>
-        <a href="#" class="bloc-icon">
-            <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
-        </a>
+        <nav class="mobile-nav">
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-home.svg" alt="">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-pesquisa.svg" alt="">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-calendario.svg" alt="">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-publicacao.svg" alt="" style="width: 35px;">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-notificacao.svg" alt="">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-amigos.svg" alt="">
+            </a>
+            <a href="#" class="bloc-icon">
+                <img src="assets/img/bottomNav/icon-configuracoes.svg" alt="">
+            </a>
 
-    </nav>
-
-
+        </nav>
 
 
 
-    <!-- --------------------------- MODAL EDITAR PERFIL ----------------------------------- -->
 
-    <!-- Button trigger modal -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalEditarPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
+        <!-- --------------------------- MODAL EDITAR PERFIL ----------------------------------- -->
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalEditarPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+
+                        <form name="formInfo" enctype="multipart/form-data" action="UpdateUsuario.php" method="POST">
+                            <label>Nome:</label>
+                            <div class="input-group mb-3">
+
+                                <input type="text" class="form-control" name="nomeUsuario" value="<?PHP echo $_SESSION['nomeUsuario']; ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+
+                            </div>
+                            <label>Nickname:</label>
+                            <div class="input-group mb-3">
+
+                                <input type="text" class="form-control" aria-label="Sizing example input" name="nicknameUsuario" value="<?PHP echo $_SESSION['nicknameUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+
+                            </div>
+
+
+                            <label>Telefone:</label>
+                            <div class="input-group mb-3">
+
+                                <input type="text" class="form-control" aria-label="Sizing example input" name="foneUsuario" value="<?PHP echo $_SESSION['foneUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+
+                            </div>
+                            <label>Estado:</label>
+                            <div class="input-group mb-3">
+
+                                <input type="text" class="form-control" aria-label="Sizing example input" name="estadoUsuario" value="<?PHP echo $_SESSION['estadoUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+
+                            </div>
+                            <label>Cidade:</label>
+                            <div class="input-group mb-3">
+
+                                <input type="text" class="form-control" aria-label="Sizing example input" name="cidadeUsuario" value="<?PHP echo $_SESSION['cidadeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+
+                            </div>
+
+
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+
+                        </form>
+                    </div>
                 </div>
-                <div class="modal-body">
+            </div>
+        </div>
 
 
-                    <form name="formInfo" enctype="multipart/form-data" action="UpdateUsuario.php" method="POST">
-                        <label>Nome:</label>
-                        <div class="input-group mb-3">
 
-                            <input type="text" class="form-control" name="nomeUsuario" value="<?PHP echo $_SESSION['nomeUsuario']; ?>" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-
-                        </div>
-                        <label>Nickname:</label>
-                        <div class="input-group mb-3">
-
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="nicknameUsuario" value="<?PHP echo $_SESSION['nicknameUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
-
-                        </div>
+        <!-- ------------------------------ MODAL EDITAR PAPEL DE PAREDE ------------------------------------- -->
 
 
-                        <label>Telefone:</label>
-                        <div class="input-group mb-3">
+        <div class="modal fade" id="modalEditarPapelParede" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mudar capa</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="formUpdateCapa" name="formUpdateCapa" enctype="multipart/form-data" action="UpdateFotoCapa.php" method="POST">
+                        <div class="modal-body">
 
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="foneUsuario" value="<?PHP echo $_SESSION['foneUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+                            <div class="div-img-capa">
+                                <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papelParedeUsuario']; ?>" alt="">
+                            </div>
 
-                        </div>
-                        <label>Estado:</label>
-                        <div class="input-group mb-3">
+                            <div class="btn-mudar-capa">
+                                <input type="file" name="fotoCapa" id="input-papel-parede-modal" accept="image/*" style="display: none;">
 
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="estadoUsuario" value="<?PHP echo $_SESSION['estadoUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+                            </div>
 
-                        </div>
-                        <label>Cidade:</label>
-                        <div class="input-group mb-3">
-
-                            <input type="text" class="form-control" aria-label="Sizing example input" name="cidadeUsuario" value="<?PHP echo $_SESSION['cidadeUsuario']; ?>" aria-describedby="inputGroup-sizing-default">
+                            <!-- <div class="preview">
+                            <img id="preview-img" src="" alt="">
+                        </div> -->
 
                         </div>
-
-
-
-                </div>
-                <div class="modal-footer">
-
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-
+                        <div class="modal-footer">
+                            <button type="button" id="btn-papel-parede-modal">Escolha uma foto</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-    <!-- ------------------------------ MODAL EDITAR PAPEL DE PAREDE ------------------------------------- -->
-
-
-    <div class="modal fade" id="modalEditarPapelParede" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mudar capa</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form id="formUpdateCapa" name="formUpdateCapa" enctype="multipart/form-data" action="UpdateFotoCapa.php" method="POST">
-                    <div class="modal-body">
-
-                        <div class="div-img-capa">
-                            <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papelParedeUsuario']; ?>" alt="">
-                        </div>
-
-                        <div class="btn-mudar-capa">
-                            <input type="file" name="fotoCapa" id="input-papel-parede-modal" accept="image/*" style="display: none;">
-
-                        </div>
-
-                        <!-- <div class="preview">
-                            <img id="preview-img" src="" alt="">
-                        </div> -->
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="btn-papel-parede-modal">Escolha uma foto</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
 
 
 
-    <!-- ------------------------------ MODAL EDITAR FOTO DE PERFIL ------------------------------------- -->
+        <!-- ------------------------------ MODAL EDITAR FOTO DE PERFIL ------------------------------------- -->
 
 
-    <div class="modal fade" id="modalEditarFotoPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mudar foto de perfil</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form name="formUpdateFotoPerfil" enctype="multipart/form-data" action="UpdateFotoPerfil.php" method="POST">
-                    <div class="modal-body">
-                        <div class="div-img-usuario">
-                            <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
-                        </div>
-
-                        <div class="btn-mudar-capa">
-                            <input type="file" name="fotoPerfil" id="input-perfil-modal" accept="image/*" style="display: none;">
-
-                        </div>
-
-                        <!-- <div class="preview">
-                            <img id="preview-img" src="" alt="">
-                        </div> -->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="btn-perfil-modal">Escolha uma foto</button>
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                        Você está seguindo... </h1>
-                    <div class="box-btn-fechar">
-                        <div class="box-input-search">
-                            <form action="">
-                                <input class="form-control" placeholder="Busque algúem..." type="search">
-                                <button type="submit">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                </button>
-                            </form>
-
-                        </div>
-
-
+        <div class="modal fade" id="modalEditarFotoPerfil" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Mudar foto de perfil</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
                     </div>
+                    <form name="formUpdateFotoPerfil" enctype="multipart/form-data" action="UpdateFotoPerfil.php" method="POST">
+                        <div class="modal-body">
+                            <div class="div-img-usuario">
+                                <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                            </div>
 
+                            <div class="btn-mudar-capa">
+                                <input type="file" name="fotoPerfil" id="input-perfil-modal" accept="image/*" style="display: none;">
+
+                            </div>
+
+                            <!-- <div class="preview">
+                            <img id="preview-img" src="" alt="">
+                        </div> -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btn-perfil-modal">Escolha uma foto</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-body">
-                <?PHP
-                   $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
-                    foreach($es as $ess){
-                ?>
-                    <div class="box-comentario">
-                        <div class="imagem-nick">
-                            <img src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $ess['fotoPerfilUsuario'] ?>" alt="">
-
-                            <div class="conteudo-comentario">
-                            <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
-                                <p><?PHP echo $ess['nicknameUsuario'] ?></p>
+            </div>
+        </div>
 
 
 
+
+        <div class="modal fade" id="seguindoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                            Você está seguindo... </h1>
+                        <div class="box-btn-fechar">
+                            <div class="box-input-search">
+                                <form action="">
+                                    <input class="form-control" placeholder="Busque algúem..." type="search">
+                                    <button type="submit">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
 
                             </div>
-                        </div>
 
-                        <div class="opcoes">
-                            <button id="btn-bloquearSeguindo">
-                                <i class="fa-solid fa-ban"></i>
-                            </button>
-                            <button id="btn-excluirSeguindo">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
 
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                         </div>
 
-                        <div id="confirmacao-excluirSeguindo" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
-                            <div class="btn-confirmacao-excluir">
-                                <button>
-                                    <i class="fa-solid fa-heart-crack"></i>
-                                    <p>Sim</p>
-                                </button>
-
-                                <button id="btn-confirmar-excluir">
-                                    <i class="fa-solid fa-face-smile-beam"></i>
-                                    <p>Não</p>
-                                </button>
-                            </div>
-
-                        </div>
-
-                        <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
-                            <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
-                            <div class="btn-confirmacao-excluir">
-                                <button>
-                                    <i class="fa-solid fa-heart-crack"></i>
-                                    <p>Sim</p>
-                                </button>
-
-                                <button id="btn-confirmarBloqueio">
-                                    <i class="fa-solid fa-face-smile-beam"></i>
-                                    <p>Não</p>
-                                </button>
-                            </div>
-                        </div>
                     </div>
-                    <?PHP
-                    }
-                    ?>
+                    <div class="modal-body">
+                        <?PHP
+                        $es = SeguidoresDao::EstouSeguindo($_SESSION['idUsuario']);
+                        foreach ($es as $ess) {
+                        ?>
+                            <div class="box-comentario">
+                                <div class="imagem-nick">
+                                    <img src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $ess['fotoPerfilUsuario'] ?>" alt="">
+
+                                    <div class="conteudo-comentario">
+                                        <h1><?PHP echo $ess['nomeUsuario'] ?></h1>
+                                        <p><?PHP echo $ess['nicknameUsuario'] ?></p>
+
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="opcoes">
+                                    <button id="btn-bloquearSeguindo">
+                                        <i class="fa-solid fa-ban"></i>
+                                    </button>
+                                    <button id="btn-excluirSeguindo">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+
+
+                                </div>
+
+                                <div id="confirmacao-excluirSeguindo" style="display: none;" class="confirmacao-excluir">
+                                    <p>Tem certeza que quer <b>excluir</b><?PHP echo $ess['nicknameUsuario'] ?></p>
+                                    <div class="btn-confirmacao-excluir">
+                                        <button>
+                                            <i class="fa-solid fa-heart-crack"></i>
+                                            <p>Sim</p>
+                                        </button>
+
+                                        <button id="btn-confirmar-excluir">
+                                            <i class="fa-solid fa-face-smile-beam"></i>
+                                            <p>Não</p>
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                                <div id="confirmacao-bloqueio" style="display: none;" class="confirmacao-excluir">
+                                    <p>Tem certeza que quer <b>bloquear</b> <?PHP echo $ess['nicknameUsuario'] ?></p>
+                                    <div class="btn-confirmacao-excluir">
+                                        <button>
+                                            <i class="fa-solid fa-heart-crack"></i>
+                                            <p>Sim</p>
+                                        </button>
+
+                                        <button id="btn-confirmarBloqueio">
+                                            <i class="fa-solid fa-face-smile-beam"></i>
+                                            <p>Não</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        <?PHP
+                        }
+                        ?>
 
                         <!-- <div class="confirmacao-excluir">
                             <p>Tem certeza que quer excluir @guuss</p>
@@ -495,7 +510,7 @@ require_once 'GlobalPerfil.php';
     </script>
 
     <script src="assets/js/perfil.js"></script>
-
+    <script src="../PerfilArtista/assets/js/exibicaoPerfil.js"></script>
 
 
 </body>
