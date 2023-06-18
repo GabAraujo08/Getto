@@ -143,26 +143,23 @@ require_once 'GlobalPerfil.php';
                                 <?PHP
                                     }
                                 ?>
-                            </div>
-
 
                             <div id="eventos-web" class="eventos eventos-web">
 
-                                <?php require_once '../../Dao/EventoDao.php';
+                            <?php require_once '../../Dao/EventoDao.php';
 
-                                    $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idUsuario']);
-                                    foreach ($eventos as $evento) : ?>
+                                $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idUsuario']);
+                                foreach ($eventos as $evento) : ?>
+                                    <div class="img-evento">
                                         <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
-                                        <div class="img-evento">
-                                            <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
 
-                                            <h1>
-                                                <?PHP echo $evento['tituloEvento']; ?>
-                                            </h1>
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
 
 
-                                        </div>
-                                <?php endforeach; ?>
+                                    </div>
+                            <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
