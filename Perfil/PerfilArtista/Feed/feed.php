@@ -606,7 +606,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                     <p><?PHP echo $cs['comentario']; ?></p>
                                                                     <?php
                                                                     $min = $cs['minutosComentario'];
-                                                                    $mess = intval($minuto / 43200);
+                                                                    $mess = intval($min / 43200);
                                                                     $min = $min % 43200;
 
                                                                     if ($mess > 0) {
