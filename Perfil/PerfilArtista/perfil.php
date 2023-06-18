@@ -23,6 +23,15 @@ require_once 'GlobalPerfil.php';
 
 <body>
 
+<style>
+    #inputCover {
+        display: none;
+    }
+    label[for="inputCover"] {
+  font-family: 'InterBold';
+  /* Outros estilos aqui */
+}
+</style>
 
     <div class="d-flex">
         <div class="area-sidebar">
