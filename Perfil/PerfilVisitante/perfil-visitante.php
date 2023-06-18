@@ -659,12 +659,12 @@ require_once 'GlobalPerfil.php';
         const divPublicacoesWeb = document.getElementById('publicacoes-web');
         const divEventosWeb = document.getElementById('eventos-web');
 
-        divPublicacoesWeb.style.display = 'block';
+        divPublicacoesWeb.style.display = 'flex';
 
         // Define os manipuladores de evento para os botões
         btnPublicacoes.addEventListener('click', function() {
             // Exibe a seção de publicações
-            divPublicacoesWeb.style.display = 'block';
+            divPublicacoesWeb.style.display = 'flex';
             // Oculta a seção de eventos
             divEventosWeb.style.display = 'none';
         });
