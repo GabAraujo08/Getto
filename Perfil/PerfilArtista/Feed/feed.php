@@ -639,9 +639,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                     </div>
 
                                                                 </div>
-                                                                <div class="box-btn-denuncia">
-                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                </div>
+                                                                
                                                             </div>
 
 
