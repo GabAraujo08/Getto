@@ -555,12 +555,13 @@ transform: translateY(-0.25em);
 
 .modal-footer{
   align-items: center;
+  justify-content: flex-end!important;
 }
 
-.modal-footer > button{
-  padding: 10px;
-  background-color: #664187;
-  border: none;
+.modal-footer  button{
+  background-color: #6c757d;
+ 
+  border: 0;
 }
 
 .modal-footer .btn-primary:hover{
@@ -588,9 +589,7 @@ transform: translateY(-0.25em);
   border: solid 2px #664187;
 }
 
-.formRecusar {
-  width: 50%;
-}
+
 
 .formRecusar textarea {
   width: 100%;
