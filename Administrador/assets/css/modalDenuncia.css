@@ -1,0 +1,131 @@
+@font-face {
+	font-family: 'AsapRegular';
+	src: url('../fonts/Asap-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'AsapBold';
+	src: url('../fonts/Asap-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'InterRegular';
+	src: url('../fonts/Inter-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'InterBold';
+	src: url('../fonts/Inter-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/Roboto-Regular.ttf');
+}
+
+#analiseDenuncia .denunciado {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#analiseDenuncia .denunciado .img-denunciado {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#analiseDenuncia .denunciado .img-denunciado img {
+    width: 80px;
+    height: 80px;
+    max-height: 80px;
+    max-width: 80px;
+    border-radius: 50%;
+}
+
+#analiseDenuncia .informacoes-denunciado {
+    width: 100%;
+}
+
+#analiseDenuncia .comentario, .box-denunciante,
+.box-descDenuncia, .classificacaoDenuncia, .box-dataDenuncia {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 320px;
+}
+
+#analiseDenuncia .box-comentario {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+  }
+  
+  #analiseDenuncia .box-comentario img {
+    width: 60px;
+    height: 60px;
+    border: 2.06796px solid #ffffff;
+    box-shadow: 0px 5.13592px 5.13592px rgb(0 0 0 / 25%);
+    border-radius: 50%;
+  }
+  
+  #analiseDenuncia .box-comentario .conteudo-comentario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-left: 1rem;
+  }
+  
+  #analiseDenuncia .box-comentario .conteudo-comentario h1 {
+    font-family: "InterBold";
+    font-size: 18px;
+  }
+  
+  #analiseDenuncia .box-comentario .conteudo-comentario p {
+    font-family: "InterBold";
+    margin-left: 5px;
+    max-height: 100px;
+    overflow-y: auto;
+  }
+  
+  #analiseDenuncia
+    .box-comentario
+    .conteudo-comentario
+    .box-btn-denuncia {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+  
+  #analiseDenuncia
+    .box-comentario
+    .conteudo-comentario
+    .box-btn-denuncia
+    button {
+    width: auto;
+    background: none;
+    border: none;
+  }
+
+
+  .img-denunciante {
+    width: 60px;
+    height: 60px;
+    border: 2.06796px solid #ffffff;
+    box-shadow: 0px 5.13592px 5.13592px rgb(0 0 0 / 25%);
+    border-radius: 50%;
+  }

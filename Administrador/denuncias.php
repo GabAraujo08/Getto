@@ -13,6 +13,7 @@ require_once 'GlobalAdm.php';
     <link rel="shortcut icon" href="assets/img/logomarca.svg" type="imagem">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/modalDenuncia.css">
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
 </head>
 
@@ -58,7 +59,7 @@ require_once 'GlobalAdm.php';
         <div class="box-dashboard">
             <div class="header-adm">
                 <div class="texto-adm">
-                    <p>Olá, <?php echo ($_SESSION['nomeAdministrador']) ?> </p>
+                    <p >Olá, <?php echo ($_SESSION['nomeAdministrador']) ?> </p>
 
                 </div>
                 <div class="notificacao-perfil">
@@ -81,36 +82,36 @@ require_once 'GlobalAdm.php';
                         </h1>
                     </div>
 
-                    
+
                     <?PHP
                     $ld = DenunciaDao::ListaDenuncia();
-                    foreach($ld as $dl){
+                    foreach ($ld as $dl) {
                     ?>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: <?php echo $dl['nomeTipoDenuncia'] ?></h1>
+                        <div class="denuncia">
+                            <div class="img-denuncia">
+                                <img src="assets/img/img-denuncia.svg" alt="">
                             </div>
-                            <div class="desc-denuncia">
+                            <div class="textos-denuncia">
+                                <div class="titulo-denuncia">
+                                    <h1>TIPO DE DENÚNCIA: <?php echo $dl['nomeTipoDenuncia'] ?></h1>
+                                </div>
+                                <div class="desc-denuncia">
 
-                                <p><?php echo $dl['descDenuncia'] ?></p>
+                                    <p><?php echo $dl['descDenuncia'] ?></p>
 
+                                </div>
+                            </div>
+                            <div class="box-btn-denuncia">
+                                <button data-bs-toggle="modal" data-bs-target="#analiseDenuncia" class="btn-denuncia">
+                                    Analisar
+                                </button>
                             </div>
                         </div>
-                        <div class="box-btn-denuncia">
-                            <button data-bs-toggle="modal" data-bs-target="#analiseDenuncia" class="btn-denuncia">
-                                Analisar
-                            </button>
-                        </div>
-                    </div>
 
                     <?php
                     }
                     ?>
-                   
+
 
                 </div>
                 <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
@@ -123,74 +124,101 @@ require_once 'GlobalAdm.php';
 
 
     </main>
-   
+
 
     <div class="modal fade" id="analiseDenuncia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por Gabriel</h1>
-                                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="modal-body-img">
-                                                <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/8.jpg">
-                                            </div>
-                                            <div class="modal-body-info">
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Nickname</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?php echo $usuario['nicknameUsuario']; ?></p>
-                                                    </div>
-                                                </div>
+        <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por Gabriel</h1>
+                    <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="denunciado">
 
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Nome:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?PHP echo $usuario['nomeUsuario']; ?></p>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Link repositório:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio']; ?></a>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Email:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?php echo $usuario['emailUsuario']; ?></p>
-                                                    </div>
-
-                                                </div>
+                        <div class="informacoes-denunciado">
+                            <h1 style="font-family: 'InterBold';">Gabriel Araujo está sendo denunciado por:</h1>
+                            <div class="comentario">
+                                <div class="box-comentario">
 
 
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <form class="formAprovar" name="btnaprova" id="btnAprovar" action="../Controller/AprovaArtista.php" method="post">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
-                                                <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnAprovar" class="btn btn-secondary">Aprovar</button>
-                                            </form>
+                                    <img src="../assets/img/perfil.png" alt="">
 
-                                            <form class="formRecusar" id="formRecusar" method="post" action="../Controller/AprovaArtista.php">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
+                                    <div class="conteudo-comentario">
+                                        <h1>@gabb</h1>
+                                        <p>Gabriel Araujo</p>
 
-                                            </form>
 
-                                            <!-- <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <h2 style="font-family: 'InterBold';
+    margin: 0;">Classificação da denúncia</h2>
+                            <div class="classificacaoDenuncia">
+                                <h3 style="color: red; font-family: 'InterBold';">Racismo</h3>
+                            </div>
+
+                            <h2 style="font-family: InterBold;">Data da denúncia</h2>
+                            <div class="box-dataDenuncia">
+                                <h3>18/08/2023</h3>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="denunciante">
+                        <div class="informacoes-denuncia">
+                            <h1 style="font-family: 'InterBold';">
+                                Descrição da denúncia
+                            </h1>
+                            <div class="box-descDenuncia">
+                                <h3 style="font-family: 'InterBold';">Comentário preconceituoso</h3>
+                            </div>
+
+                        </div>
+                        <div class="informacoes-denunciante">
+                            <h2>Foi denunciado por:</h2>
+                            <div class="box-denunciante">
+                                <div class="box-comentario">
+
+
+                                    <img src="../assets/img/perfil.png" alt="">
+
+                                    <div class="conteudo-comentario">
+                                        <h1>@gabb</h1>
+                                        <p>Gabriel Araujo</p>
+
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <form method="post" action="#">
+                        <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="#" class="btn btn-secondary">Ignorar denúncia</button>
+                    </form>
+                    <form class="formAprovar" name="btnaprova" id="btnAprovar" action="#" method="post">
+
+                        
+                    <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="#" class="btnRecusar btn btn-primary">Remover comentário</button>
+                    </form>
+
+                    <form class="formRecusar" id="formRecusar" method="post" action="#">
+
+                        <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="#" class="btnRecusar btn btn-primary">Remover comentário</button>
+
+                    </form>
+
+                    <!-- <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
                                                 <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
                                                 <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
                                                 <textarea name="motivoRecusa" id="" cols="30" rows="10"></textarea>
@@ -198,11 +226,11 @@ require_once 'GlobalAdm.php';
                                             </form> -->
 
 
-                                        </div>
+                </div>
 
-                                    </div>
-                                </div>
-                            </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- ----------------------- ALERTA QUANDO APROVAR UM ARTISTA ---------------------- -->

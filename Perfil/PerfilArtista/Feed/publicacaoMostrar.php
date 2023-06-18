@@ -186,9 +186,9 @@ echo $id;
                         </div>
                     </div>
 
-                    <div class="comentario-footer">
+                    <!-- <div class="comentario-footer">
                         <div class="input-comentario">
-                            <textarea placeholder="Escreva seu comentário..." type="text">
+                            <textarea placeholder="Escreva seu comentário..." type="text"></textarea>
                         </div>
 
                         <div class="acoes-publicacao">
@@ -207,7 +207,7 @@ echo $id;
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
 
