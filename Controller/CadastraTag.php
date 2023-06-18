@@ -1,7 +1,9 @@
 <?PHP
     require_once 'GlobalController.php';
 
-    header('Location: ../Administrador/addTags.php');
+    $previousPage = $_SERVER['HTTP_REFERER'];
+    header('Location: ' . $previousPage);
+
 
     $tag = new TipoArte();
 

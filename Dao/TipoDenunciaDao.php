@@ -2,7 +2,7 @@
     require_once 'GlobalDao.php';
 
     class TipoDenunciaDao{
-        public static function ListaTipoMidia(){
+        public static function ListaTipoDenuncia(){
             $conexao = Conexao::conectar();
             $consulta = $conexao->prepare('SELECT * FROM tbTipoDenuncia');
             $consulta->execute();

@@ -1,7 +1,9 @@
 <?php
 require_once 'GlobalController.php';
 session_start();
-header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');
+$previousPage = $_SERVER['HTTP_REFERER'];
+    header('Location: ' . $previousPage);
+
 
 $evento = new Evento();
 

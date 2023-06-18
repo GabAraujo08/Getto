@@ -714,8 +714,15 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                     }
                                                                     ?>
                                                                     <div class="box-btn-denuncia">
-                                                                        <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                    </div>
+                                                                    <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
+                                                                            <input type="hidden" name="comentario" value="<?php echo $cs['comentario']; ?>">
+                                                                            <input type="hidden" name="nickname" value="<?php echo $cs['nicknameUsuario']; ?>">
+                                                                            <input type="hidden" name="fotoPerfil" value="<?php echo $cs['fotoPerfilUsuario']; ?>">
+                                                                            <input type="hidden" name="nivelConta" value="<?php echo $cs['nivelContaUsuario']; ?>">
+                                                                            <input type="hidden" name="idDenunciado" value="<?php echo $cs['idUsuario']; ?>">
+                                                                            <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
+                                                                            <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                        </form>                                                                    </div>
                                                                 </div>
                                                             </div>
 
@@ -734,7 +741,7 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                     <textarea placeholder="Deixe seu comentário" name="comentario" id="" cols="30" rows="10">
 
                                                                     </textarea>
-                                                                    <input type="hidden" name="idPubli" value="<?PHP echo $pta['idPublicacao']; ?>">
+                                                                    <input type="hidden" name="idPubli" value="<?PHP echo $ps['idPublicacao']; ?>">
                                                                     <input type="hidden" name="idUsua" value="<?PHP echo $_SESSION['idUsuario']; ?>">
                                                                     <div class="box-btn-comentario">
                                                                         <button type="submit" class="btn btn-primary">
@@ -1032,8 +1039,15 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                         }
                                                                         ?>
                                                                         <div class="box-btn-denuncia">
-                                                                            <button data-bs-toggle="modal" data-bs-target="#denunciaModal" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                        </div>
+                                                                        <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
+                                                                            <input type="hidden" name="comentario" value="<?php echo $c['comentario']; ?>">
+                                                                            <input type="hidden" name="nickname" value="<?php echo $c['nicknameUsuario']; ?>">
+                                                                            <input type="hidden" name="fotoPerfil" value="<?php echo $c['fotoPerfilUsuario']; ?>">
+                                                                            <input type="hidden" name="nivelConta" value="<?php echo $c['nivelContaUsuario']; ?>">
+                                                                            <input type="hidden" name="idDenunciado" value="<?php echo $c['idUsuario']; ?>">
+                                                                            <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
+                                                                            <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                        </form>                                                                        </div>
                                                                     </div>
                                                                 </div>
 

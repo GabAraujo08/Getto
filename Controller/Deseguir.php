@@ -9,9 +9,7 @@
     $consulta->bindValue(2, $_POST['idArtista']);
     $consulta->execute();
 
-    if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/perfilMostrar.php');
-    }else{
-        header('Location: ../Perfil/PerfilVisitante/perfilMostrarUsuario.php');  
-    }  
+    $previousPage = $_SERVER['HTTP_REFERER'];
+    header('Location: ' . $previousPage);
+ 
 ?>

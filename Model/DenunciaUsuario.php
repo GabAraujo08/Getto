@@ -1,7 +1,7 @@
 <?php
 
 class DenunciaUsuario{
-    private $idDenunciaUsuario, $idUsuario, $idTipoUsuario;
+    private $idDenunciaUsuario, $idUsuario, $TipoUsuario, $idDenuncia;
 
 
     public function getIdDenunciaUsuario(){
@@ -11,6 +11,14 @@ class DenunciaUsuario{
         $this->idDenunciaUsuario = $id;
     }
 
+    public function getIdDenuncia(){
+        return $this->idDenuncia;
+    }
+    public function setIdDenuncia($id){
+        $this->idDenuncia = $id;
+    }
+
+
 
     public function getIdUsuario(){
         return $this->idUsuario;
@@ -19,10 +27,10 @@ class DenunciaUsuario{
         $this->idUsuario = $id;
     }
 
-    public function getIdTipoUsuario(){
-        return $this->idTipoUsuario;
+    public function getTipoUsuario(){
+        return $this->TipoUsuario;
     }
-    public function setIdTipoUsuario($id){
-        $this->idTipoUsuario = $id;
+    public function setTipoUsuario($id){
+        $this->TipoUsuario = $id;
     }
 }

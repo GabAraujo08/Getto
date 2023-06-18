@@ -16,5 +16,18 @@
             $prepareStatement->execute();
             return 'Cadastrou';
         }
+        public static function consultarIdDenuncia($d) {
+            $conexao = Conexao::conectar();
+            $querySelect = "SELECT idDenuncia FROM tbDenuncia WHERE descDenuncia LIKE ?";
+            $stmt = $conexao->prepare($querySelect);
+            $stmt->bindValue(1, $d);
+            $stmt->execute();
+            $lista = $stmt->fetchAll();
+            foreach ($lista as $denun) {
+                $id = $denun['idDenuncia'];
+            }
+            return $id;   
+        }
+        
     }
 ?>

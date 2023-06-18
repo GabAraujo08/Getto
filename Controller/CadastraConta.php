@@ -1,7 +1,9 @@
 <?php
     require_once 'GlobalController.php';
 
-    header('Location: ../Perfil/PerfilArtista/perfil.php');
+    $previousPage = $_SERVER['HTTP_REFERER'];
+    header('Location: ' . $previousPage);
+
 
     session_start();
 
