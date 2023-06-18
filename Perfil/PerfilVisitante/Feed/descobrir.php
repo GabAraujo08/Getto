@@ -161,13 +161,48 @@ error_reporting(0);
                 <div class="main-publicacao">
                     <?php
                     $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
-                    foreach ($pubArtEng as $pae) {
-                    ?>
+                    foreach ($pubArtEng as $pae) {?>
                         <div class="publicacao">
-                            <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
+                            <?php if ($pae['idTipoMidia'] == 3) {?>
+                                <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
+                            <?php
+                            } elseif ($pae['idTipoMidia'] == 2) {?>
+                                <video id="player-video" controls>
+                                    <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia']; ?>">
+                                </video>
+                            <?php
+                            } else {?>
+                                <div class="audio-player">
+                                    <div class="info-player">
+                                        <div class="cover">
+                                            <img class="cover-img" src="../../../teste/teste.jpg">
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <div class="reproducao">
+                                            <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                            <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                            <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                        </div>
+                                        <div class="volume">
+                                            <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="progress-bar" onclick="seek(event)">
+                                        <div class="timer">00:00</div>
+                                        <div class="time-bar">
+                                            <div class="time-fill"></div>
+                                        </div>
+                                        <div class="total-time">00:00</div>
+                                    </div>
+                                    <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia']; ?>"></audio>
+                                </div>
+                            <?PHP
+                                 }
+                            ?>
                         </div>
-                    <?php
-                    }
+                        <?PHP
+                        }
                     ?>
                 </div>
             </div>

@@ -3,7 +3,7 @@ include('../../../Controller/VerificaLogado.php');
 require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
-
+require_once '../../../Dao/ComentarioDao.php';
 require_once '../../../Dao/ArtistaDao.php';
 require_once '../../../Dao/SeguidoresDao.php';
 
@@ -1267,6 +1267,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
         function skipBackward(audio) {
             audio.currentTime -= 10;
         }
+
     </script>
 
 
