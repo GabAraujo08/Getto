@@ -6,9 +6,6 @@ const divEventosMobile = document.getElementById('eventos-mobile');
 const divPublicacoesWeb = document.querySelector('.publicacoes-web');
 const divEventosWeb = document.querySelector('.eventos-web');
 
-// Define a exibição padrão da div de publicações para dispositivos móveis
-divPublicacoesMobile.style.display = 'block';
-
 
 // Define a exibição padrão da seção de publicações para web
 divPublicacoesWeb.style.display = 'block';
