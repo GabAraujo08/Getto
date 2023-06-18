@@ -733,15 +733,17 @@ require_once '../../Dao/SeguidoresDao.php';
                             <div class="descricao-mostrar-evento">
                                 <p><?php echo $evento['descEvento']; ?></p>
                             </div>
-                            <div class="comentarios-mostrar-evento">
-
+                            <div class="endereco-mostrar-evento">
+                                <p><?php echo $evento['logradouroEvento']; ?> <?php echo $evento['numLogEvento']; ?></p>
+                            </div>
+                            <div class="horario-evento">
+                                <p>inicio: <?php echo $evento['horarioInicioEvento']; ?></p><span>fim: <?php echo $evento['horarioFinalEvento']; ?></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- --------------------------- MODAL CRIAR PUBLICACAO ----------------------- -->
