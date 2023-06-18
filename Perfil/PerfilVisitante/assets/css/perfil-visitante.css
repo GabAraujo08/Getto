@@ -1443,6 +1443,132 @@ body {
    
 }
 
+
+
+
+/* --------------------- PLAYER DE MUSICA ------------------------- */
+
+
+
+.audio-player {
+	background-color: #fff;
+	width: 31%;
+	
+  
+	border-radius: 5px;
+  }
+  
+  .info-player {
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .desc-musica {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+  }
+  
+  .controls {
+	display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+	padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  
+  
+  
+  .play-button,
+  .volume-button {
+	padding: 5px;
+	border-radius: 3px;
+	border: none;
+	background-color: #fff;
+	cursor: pointer;
+	font-size: 22px;
+  }
+  
+  .skip-button {
+	border: none;
+	background-color: #fff;
+	font-size: 20px;
+  }
+  
+  
+  .cover {
+	width: 100%;
+	object-fit: cover;
+  }
+  
+  .cover .cover-img {
+	
+	width: 100%!important;
+	
+	object-fit: cover;
+  }
+  
+  .volume-slider {
+	width: 100px;
+  }
+  
+  .progress-bar {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  .progress-bar {
+	 
+	 flex-direction: unset!important; 
+	
+  }
+  
+  
+  
+  .timer,
+  .total-time {
+	font-size: 12px;
+  }
+  
+  
+  
+  .nome-musica p {
+	margin-top: 0px;
+	font-size: 35px;
+	margin-bottom: 0px;
+  
+  }
+  
+  .autor p {
+  
+	font-size: 20px;
+  }
+  
+  .time-bar {
+	border-radius: 5px;
+	flex-grow: 1;
+	height: 8px;
+	background-color: #fff;
+	margin: 0 10px;
+	position: relative;
+  }
+  
+  
+  
+  .time-fill {
+	border-radius: 5px;
+	height: 100%;
+	background-color: #000;
+	width: 0; 
+	transition: width 0.2s ease-in-out;
+  }
+  
+
+
 /* ------------------------------------- MEDIA QUERIES ----------------------------*/
 
 
