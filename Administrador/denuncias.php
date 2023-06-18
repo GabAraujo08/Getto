@@ -94,19 +94,26 @@ require_once 'GlobalAdm.php';
                                 <h1>TIPO DE DENÚNCIA: <?php echo $dl['nomeTipoDenuncia'] ?></h1>
                             </div>
                             <div class="desc-denuncia">
+
                                 <p><?php echo $dl['descDenuncia'] ?></p>
+
                             </div>
                         </div>
                         <div class="box-btn-denuncia">
                             <button class="btn-denuncia">
-                                Ver comentário
+                                Analisar
                             </button>
                         </div>
                     </div>
+
                     <?php
                     }
                     ?>
                    
+
+                   
+                </div>
+
                 <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
                 
             </div>
