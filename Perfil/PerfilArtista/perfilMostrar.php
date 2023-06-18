@@ -245,19 +245,19 @@ require_once 'GlobalPerfil.php';
 
 
                                 <?php
-                                    require_once  '../../Dao/publicacaoDao.php';
-                                    $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
-                                    foreach ($mp as $p) {
-                                    if ($p['idTipoMidia'] == 3) {?>
+                                require_once  '../../Dao/publicacaoDao.php';
+                                $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                foreach ($mp as $p) {
+                                    if ($p['idTipoMidia'] == 3) { ?>
                                         <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                        <?php
-                                        } elseif ($p['idTipoMidia'] == 2) {?>
-                                            <video id="player-video" controls>
-                                                <source src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
-                                            </video>
-                                        <?PHP
-                                        } else {?>
-                                            <div class="audio-player">
+                                    <?php
+                                    } elseif ($p['idTipoMidia'] == 2) { ?>
+                                        <video id="player-video" controls>
+                                            <source src="assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
+                                        </video>
+                                    <?PHP
+                                    } else { ?>
+                                        <div class="audio-player">
                                             <div class="info-player">
                                                 <div class="cover">
                                                     <img class="cover-img" src="../../teste/teste.jpg">
@@ -291,10 +291,10 @@ require_once 'GlobalPerfil.php';
                                             <audio id="audio" src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>"></audio>
                                         </div>
 
-                                    <?PHP
-                                        }
+                                <?PHP
                                     }
-                                    ?>
+                                }
+                                ?>
 
 
                             </div>
@@ -506,7 +506,7 @@ require_once 'GlobalPerfil.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
 
-<script>
+    <script>
         var audioPlayers = document.querySelectorAll('.audio-player');
         audioPlayers.forEach(function(player) {
             var audio = player.querySelector('.audio-element');
