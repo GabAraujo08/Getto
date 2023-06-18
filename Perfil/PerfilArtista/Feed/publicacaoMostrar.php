@@ -4,6 +4,8 @@ require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
 require_once '../../../Dao/ComentarioDao.php';
+$id = $_GET['id'];
+echo $id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
