@@ -267,14 +267,14 @@ require_once '../../Dao/SeguidoresDao.php';
                                                 <div class="cover">
                                                     <img class="cover-img" src=".../../../../teste/teste.jpg">
                                                 </div>
-                                                <div class="desc-musica">
+                                                <!-- <div class="desc-musica">
                                                     <div class="autor">
                                                         <p>Kanye West</p>
                                                     </div>
                                                     <div class="nome-musica">
                                                         <p>Esqueci</p>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="controls">
                                                 <div class="reproducao">
