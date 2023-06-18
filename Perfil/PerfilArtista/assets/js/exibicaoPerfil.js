@@ -8,12 +8,12 @@ const divEventosWeb = document.querySelector('.eventos-web');
 
 
 // Define a exibição padrão da seção de publicações para web
-divPublicacoesWeb.style.display = 'block';
+divPublicacoesWeb.style.display = 'flex';
 
 // Define os manipuladores de evento para os botões
 btnPublicacoes.addEventListener('click', function() {
     // Exibe a seção de publicações
-    divPublicacoesWeb.style.display = 'block';
+    divPublicacoesWeb.style.display = 'flex';
     // Oculta a seção de eventos
     divEventosWeb.style.display = 'none';
 });

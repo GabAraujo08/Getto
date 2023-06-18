@@ -245,10 +245,40 @@ require_once 'GlobalPerfil.php';
                                     <?PHP
                                     } else {
                                     ?>
+                                        <div class="audio-player">
+                                            <div class="info-player">
+                                                <div class="cover">
+                                                    <img class="cover-img" src=".../../../../teste/teste.jpg">
+                                                </div>
+                                                <!-- <div class="desc-musica">
+                                                    <div class="autor">
+                                                        <p>Kanye West</p>
+                                                    </div>
+                                                    <div class="nome-musica">
+                                                        <p>Esqueci</p>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                            <div class="controls">
+                                                <div class="reproducao">
+                                                    <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                    <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                    <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                </div>
+                                                <div class="volume">
+                                                    <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="progress-bar" onclick="seek(event)">
+                                                <div class="timer">00:00</div>
+                                                <div class="time-bar">
+                                                    <div class="time-fill"></div>
+                                                </div>
+                                                <div class="total-time">00:00</div>
+                                            </div>
+                                            <audio id="audio" src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>"></audio>
+                                        </div>
 
-                                        <audio id="player-audio" controls>
-                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
-                                        </audio>
                                 <?PHP
                                     }
                                 }
@@ -577,7 +607,7 @@ require_once 'GlobalPerfil.php';
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-body">
-                <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
                 </div>
             </div>
         </div>
@@ -1122,7 +1152,77 @@ require_once 'GlobalPerfil.php';
         });
     </script>
 
+    <script>
+        var audio = document.getElementById('audio');
+        var playButton = document.querySelector('.play-button');
+        var volumeButton = document.querySelector('.volume-button');
+        var volumeSlider = document.querySelector('.volume-slider');
+        var timer = document.querySelector('.timer');
+        var totalTime = document.querySelector('.total-time');
+        var timeFill = document.querySelector('.time-fill');
+        var progressBar = document.querySelector('.progress-bar');
 
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                audio.pause();
+                playButton.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        function toggleMute() {
+            if (audio.muted) {
+                audio.muted = false;
+                volumeButton.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else {
+                audio.muted = true;
+                volumeButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        }
+
+        function adjustVolume(volume) {
+            audio.volume = volume;
+        }
+
+        audio.addEventListener('timeupdate', function() {
+            var position = audio.currentTime / audio.duration;
+            timeFill.style.width = (position * 100) + '%';
+
+            var minutes = Math.floor(audio.currentTime / 60);
+            var seconds = Math.floor(audio.currentTime % 60);
+            timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+        });
+
+        audio.addEventListener('loadedmetadata', function() {
+            var minutes = Math.floor(audio.duration / 60);
+            var seconds = Math.floor(audio.duration % 60);
+            totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+        });
+
+        function padTime(time) {
+            return (time < 10 ? '0' : '') + time;
+        }
+
+        function seek(event) {
+            var progressWidth = progressBar.clientWidth;
+            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+            var positionPercentage = clickX / progressWidth;
+            var seekTime = positionPercentage * audio.duration;
+
+            audio.currentTime = seekTime;
+        }
+
+        function skipForward() {
+            audio.currentTime += 10;
+        }
+
+        function skipBackward() {
+            audio.currentTime -= 10;
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b8f56ddd91.js" crossorigin="anonymous"></script>
