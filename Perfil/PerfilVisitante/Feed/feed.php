@@ -683,11 +683,11 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                 <?PHP
                                                                 if ($cs['nivelContaUsuario'] == 2) {
                                                                 ?>
-                                                                    <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                                                    <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
                                                                 <?PHP
                                                                 } else {
                                                                 ?>
-                                                                    <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                                                    <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
                                                                 <?PHP
                                                                 }
                                                                 ?>
@@ -1245,7 +1245,7 @@ require_once '../../../Dao/ArtistaDao.php';
 
 
 
-    <div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <!--<div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1263,7 +1263,7 @@ require_once '../../../Dao/ArtistaDao.php';
                         Este é o comentário que você quer denunciar?
                     </h1>
                     <div class="box-comentario ">
-                        <img src="assets/img/img-perfil.svg" alt="">
+                        <img src="../" alt="">
                         <div class="conteudo-comentario">
                             <h1>@gabbs</h1>
                             <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
@@ -1321,7 +1321,7 @@ require_once '../../../Dao/ArtistaDao.php';
 
 
                     </div>
-                    <!-- <div id="divDenuncia" style="display: none;" class="comentario slide-in">
+                    <div id="divDenuncia" style="display: none;" class="comentario slide-in">
                         <div class="box-text-area">
                             <form action="#">
                                 <textarea placeholder="Qual motivo da sua denúncia?" name="" id="" cols="30" rows="10">
