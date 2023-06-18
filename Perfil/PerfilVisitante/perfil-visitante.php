@@ -155,7 +155,7 @@ require_once 'GlobalPerfil.php';
                                 <?PHP
                                 }
                                 ?>
-
+                            </div>
                                 <div id="eventos-web" class="eventos eventos-web">
 
                                     <?php require_once '../../Dao/EventoDao.php';
@@ -493,6 +493,31 @@ require_once 'GlobalPerfil.php';
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+    </script>
+
+    <script>
+        const btnPublicacoes = document.getElementById('btn-exibirPublicacoes');
+        const btnEventos = document.getElementById('btn-exibirEventos');
+
+        const divPublicacoesWeb = document.getElementById('publicacoes-web');
+        const divEventosWeb = document.getElementById('eventos-web');
+
+        divPublicacoesWeb.style.display = 'block';
+
+        // Define os manipuladores de evento para os botões
+        btnPublicacoes.addEventListener('click', function() {
+            // Exibe a seção de publicações
+            divPublicacoesWeb.style.display = 'block';
+            // Oculta a seção de eventos
+            divEventosWeb.style.display = 'none';
+        });
+
+        btnEventos.addEventListener('click', function() {
+            // Exibe a seção de eventos
+            divEventosWeb.style.display = 'flex';
+            // Oculta a seção de publicações
+            divPublicacoesWeb.style.display = 'none';
+        });
     </script>
 
     <script>
