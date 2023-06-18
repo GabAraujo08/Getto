@@ -10,6 +10,7 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 if (isset($_POST['btnAprovar'])) {
+    // Código para aprovação
     $usuario_id = $_POST['usuario_id'];
     $usuario_indice = $_POST['usuario_indice'];
     $usuario_email = $_POST['usuario_email'];
@@ -53,16 +54,16 @@ if (isset($_POST['btnAprovar'])) {
             <body>
                 <h1>Parabéns!</h1>
                 <p>Agora você pode acessar livremente a nossa plataforma e aproveitar todas as suas funcionalidades!!</p>
-                <img src="cid:imagem" alt="Imagem incorporada">
+                <img src="cid:imagem" alt="Imagem incorporada" style="max-width: 100%; height: auto;">
             </body>
             </html>
         ';
 
         $mail->AltBody = 'Parabéns agora você pode acessar livremente a nossa plataforma e aproveitar todas suas funcionalidades!!';
 
-        // Caminho para a imagem que deseja incorporar
-        $imagePath = 'shrek.jpeg';
-        $mail->addStringEmbeddedImage(file_get_contents($imagePath), 'imagem', 'imagem.jpg', 'base64', 'image/jpeg');
+        // Caminho para a imagem de aprovação que deseja incorporar
+        $imagePathAprovacao = 'aprovado.jpg';
+        $mail->addStringEmbeddedImage(file_get_contents($imagePathAprovacao), 'imagem', 'imagem.jpg', 'base64', 'image/jpeg');
 
         // Iniciar o buffer de saída
         ob_start();
@@ -85,6 +86,7 @@ if (isset($_POST['btnAprovar'])) {
 }
 
 if (isset($_POST['btnRecusar'])) {
+    // Código para recusa
     $usuario_id = $_POST['usuario_id'];
     $usuario_email = $_POST['usuario_email'];
 
@@ -124,16 +126,16 @@ if (isset($_POST['btnRecusar'])) {
             <body>
                 <h1>Infelizmente sua conta foi recusada!</h1>
                 <p>Sua conta não atende aos requisitos para o uso da nossa plataforma.</p>
-                <img src="cid:imagem" alt="Imagem incorporada">
+                <img src="cid:imagem" alt="Imagem incorporada" style="max-width: 100%; height: auto;">
             </body>
             </html>
         ';
 
         $mail->AltBody = 'Infelizmente sua conta foi recusada. Sua conta não atende aos requisitos para o uso da nossa plataforma.';
 
-        // Caminho para a imagem que deseja incorporar
-        $imagePath = 'shrek.jpeg';
-        $mail->addStringEmbeddedImage(file_get_contents($imagePath), 'imagem', 'imagem.jpg', 'base64', 'image/jpeg');
+        // Caminho para a imagem de recusa que deseja incorporar
+        $imagePathRecusa = 'recusado.jpg';
+        $mail->addStringEmbeddedImage(file_get_contents($imagePathRecusa), 'imagem', 'imagem.jpg', 'base64', 'image/jpeg');
 
         // Iniciar o buffer de saída
         ob_start();
@@ -155,5 +157,3 @@ if (isset($_POST['btnRecusar'])) {
     }
 }
 ?>
-
-

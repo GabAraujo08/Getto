@@ -410,38 +410,38 @@ require_once '../../../Dao/SeguidoresDao.php';
                                             ?>
 
                                                 <div class="audio-player">
-                                                    <div class="info-player">
-                                                        <div class="cover">
-                                                            <img class="cover-img" src=".../../../../../teste/teste.jpg">
-                                                        </div>
-                                                        <div class="desc-musica">
-                                                            <div class="autor">
-                                                                <p>Kanye West</p>
+                                                        <div class="info-player">
+                                                            <div class="cover">
+                                                                <img class="cover-img" src=".../../../../../teste/teste.jpg">
                                                             </div>
-                                                            <div class="nome-musica">
-                                                                <p>Esqueci</p>
+                                                            <div class="desc-musica">
+                                                                <div class="autor">
+                                                                    <p>Kanye West</p>
+                                                                </div>
+                                                                <div class="nome-musica">
+                                                                    <p>Esqueci</p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="controls">
-                                                        <div class="reproducao">
-                                                            <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
-                                                            <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
-                                                            <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                        <div class="controls">
+                                                            <div class="reproducao">
+                                                                <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                                <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                                <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                            </div>
+                                                            <div class="volume">
+                                                                <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                            </div>
                                                         </div>
-                                                        <div class="volume">
-                                                            <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                        <div class="progress-bar" onclick="seek(event)">
+                                                            <div class="timer">00:00</div>
+                                                            <div class="time-bar">
+                                                                <div class="time-fill"></div>
+                                                            </div>
+                                                            <div class="total-time">00:00</div>
                                                         </div>
+                                                        <audio id="audio" src="../assets/img/Pubs/<?php echo $ps['arquivoMidia']; ?>"></audio>
                                                     </div>
-                                                    <div class="progress-bar" onclick="seek(event)">
-                                                        <div class="timer">00:00</div>
-                                                        <div class="time-bar">
-                                                            <div class="time-fill"></div>
-                                                        </div>
-                                                        <div class="total-time">00:00</div>
-                                                    </div>
-                                                    <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
-                                                </div>
                                             <?PHP
                                                                                                                                             }
                                             ?>
