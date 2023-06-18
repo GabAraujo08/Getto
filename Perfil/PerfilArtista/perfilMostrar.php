@@ -244,15 +244,20 @@ require_once 'GlobalPerfil.php';
 
 
                                 <?php
-                                require_once  '../../Dao/publicacaoDao.php';
-
-                                if (isset($_SESSION['idA'])) {
+                                    require_once  '../../Dao/publicacaoDao.php';
                                     $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
-                                    foreach ($mp as $p) :
-                                ?>
-                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
-                                <?php endforeach;
-                                } ?>
+                                    foreach ($mp as $p) {
+                                        if ($p['idTipoMidia'] == 3) {?>
+                                            <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                                        <?php
+                                        } elseif ($p['idTipoMidia'] == 2) {?>
+                                            <video id="player-video" controls>
+                                                <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
+                                            </video>
+                                        <?PHP
+                                        } else {
+                                        }
+                                    } ?>
 
 
                             </div>

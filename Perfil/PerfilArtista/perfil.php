@@ -1,5 +1,12 @@
 <?php include('../../Controller/VerificaLogado.php');
 require_once 'GlobalPerfil.php';
+require_once '../../Dao/publicacaoDao.php';
+require_once '../../Dao/Conexao.php';
+require_once '../../Dao/CurtidaDao.php';
+require_once '../../Dao/ComentarioDao.php';
+require_once '../../Dao/ArtistaDao.php';
+require_once '../../Dao/SeguidoresDao.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -617,10 +624,84 @@ require_once 'GlobalPerfil.php';
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
+                    <div class="img-mostrar-publicacao">
+                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" id="img-mostrar-pub" alt="">
+                    </div>
+                    <div class="conteudo-mostrar-publicacao">
+                        <div class="perfil-usuario">
+                            <div class="img-perfil-mostrar-publicacao">
+                                <img class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                            </div>
+                            <div class="nickname-perfil">
+                                <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                            </div>
+                            <div class="legenda-mostrar-publicacao">
+                                <p>
+                                    <?PHP echo $p['descPublicacao']; ?>!
+                                </p>
+                            </div>
+                            <div class="titulo-comentarios">
+                                <p>Comentários</p>
+                            </div>
+                            <div class="comentarios-mostrar-publicacao">
+                                <?php
+                                $comes = ComentarioDao::listarComentario($ps['idPublicacao']);
+                                foreach ($comes as $cs) {
+
+                                ?>
+                                    <div class="box-comentario">
+                                        <?PHP
+                                        if ($cs['nivelContaUsuario'] == 2) {
+                                        ?>
+                                            <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                        <?PHP
+                                        } else {
+                                        ?>
+                                            <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                        <?PHP
+                                        }
+                                        ?>
+                                        <div class="conteudo-comentario">
+                                            <h1><?PHP echo $cs['nicknameUsuario']; ?></h1>
+                                            <p><?PHP echo $cs['comentario']; ?></p>
+                                            <?php
+                                            $min = $cs['minutosComentario'];
+                                            $mess = intval($min / 43200);
+                                            $min = $min % 43200;
+
+                                            if ($mess > 0) {
+                                                echo 'há ' . $mess . ' m';
+                                            } elseif ($min == 0) {
+                                                echo 'Agora mesmo';
+                                            } elseif ($min > 1440) {
+                                                $dss = intval($min / 1440);
+                                                echo 'há ' . $dss . ' d';
+                                            } elseif ($min > 59) {
+                                                $hss = intval($min / 60);
+                                                echo 'há ' . $hss . ' h';
+                                            } else {
+                                                echo 'há ' . $min . ' min';
+                                            }
+                                            ?>
+                                            <div class="box-btn-denuncia">
+                                                <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- --------------------------- MODAL CRIAR PUBLICACAO ----------------------- -->
