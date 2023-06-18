@@ -157,22 +157,51 @@ require_once 'GlobalPerfil.php';
                                     <?php
                                     } else if ($pcc['idTipoMidia'] == 2) {
                                     ?>
-                                        <video id="player-video" controls>
-                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
-                                        </video>
-                                    <?PHP
-                                    } else {
-                                    ?>
-
-
-                                        
-
-
-
-                                        
-
-                                        <audio src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>"></audio>
-
+<<<<<<< HEAD
+                                    <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
+                                
+                               <?php 
+                               } else if ($pcc['idTipoMidia'] == 2) {
+                                ?>
+                                    <video id="player-video" controls>
+                                        <source src="../PerfilArtista/assets/img/Pubs/<?PHP echo $pcc['arquivoMidia']; ?>">
+                                    </video>
+                                <?PHP
+                                } else {
+                                ?>
+                                    <div class="audio-player">
+                                        <div class="info-player">
+                                            <div class="cover">
+                                                <img class="cover-img" src="../../teste/teste.jpg">
+                                            </div>
+                                            <!-- <div class="desc-musica">
+                                                <div class="autor">
+                                                    <p>Kanye West</p>
+                                                </div>
+                                                <div class="nome-musica">
+                                                    <p>Esqueci</p>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                            <div class="controls">
+                                                <div class="reproducao">
+                                                    <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                    <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                    <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                </div>
+                                                <div class="volume">
+                                                    <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                </div>
+                                            </div>
+                                            <div class="progress-bar" onclick="seek(event)">
+                                                <div class="timer">00:00</div>
+                                                <div class="time-bar">
+                                                    <div class="time-fill"></div>
+                                                </div>
+                                                <div class="total-time">00:00</div>
+                                            </div>
+                                            <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>"></audio>
+                                        </div>
                                 <?PHP
                                     }
                                 }
@@ -630,12 +659,12 @@ require_once 'GlobalPerfil.php';
         const divPublicacoesWeb = document.getElementById('publicacoes-web');
         const divEventosWeb = document.getElementById('eventos-web');
 
-        divPublicacoesWeb.style.display = 'block';
+        divPublicacoesWeb.style.display = 'flex';
 
         // Define os manipuladores de evento para os botões
         btnPublicacoes.addEventListener('click', function() {
             // Exibe a seção de publicações
-            divPublicacoesWeb.style.display = 'block';
+            divPublicacoesWeb.style.display = 'flex';
             // Oculta a seção de eventos
             divEventosWeb.style.display = 'none';
         });
