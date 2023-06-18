@@ -7,11 +7,9 @@
             $_SESSION['tiposArtes'] = $_POST['idTipo'];
 
 
-            if(isset($_SESSION['idArtista'])){
-                header('Location: ../Perfil/PerfilArtista/Feed/feed.php');
-            } else {
-                header('Location: ../Perfil/PerfilVisitante/Feed/feed.php');  
-            } 
+            $previousPage = $_SERVER['HTTP_REFERER'];
+            header('Location: ' . $previousPage);
+
         }
     }
 ?>

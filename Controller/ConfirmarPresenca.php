@@ -8,11 +8,10 @@
     $presenca->setIdUsuario($_SESSION['idUsuario']);
 
     PresencaDao::cadastrar($presenca);
-    if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/Evento/eventoArtista.php');
-    }else{
-        header('Location: ../Perfil/PerfilVisitante/Evento/eventoVisitante.php');  
-    }
+    
+    $previousPage = $_SERVER['HTTP_REFERER'];
+    header('Location: ' . $previousPage);
+
     
     
 ?>
