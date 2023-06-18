@@ -15,6 +15,251 @@
 </head>
 
 <body>
+<style>
+   
+
+    .voltar-dashboard {
+        display: flex;
+    }
+
+    .voltar-dashboard p {
+        margin: 0;
+        margin-left: 5%;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .box {
+        
+        border-radius: 20px;
+        margin: 0;
+        margin-top: 2%;
+       padding-left: 30px;
+        margin-right: 2%;
+    }
+
+    .explicacao-dashboard {
+        background-color: #ECEBF3;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        display: flex;
+        width: 100%;
+        margin-top: 2%;
+    }
+
+    .explicacao-textos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 5%;
+        width: 70%;
+    }
+
+    .explicacao-img {
+        width: 30%;
+    }
+
+    .explicacao-img img {
+        width: 100%;
+    }
+
+    .explicacao-titulo p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+    }
+
+    .explicacao-descricao p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 30px;
+        color: #656565;
+    }
+
+    .explicacao-img img {
+        padding: 10%;
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+
+    .cards-engajamentos {
+        display: flex;
+        width: 100%;
+        margin-top: 2%;
+    }
+
+    .card-visitas {
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 2%;
+    }
+
+    .visitas-titulo p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+
+    .visitas-quantidade {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+
+    .card-curtidas {
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 1%;
+    }
+
+    .curtidas-titulo p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+
+    .curtidas-quantidade {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+
+    .card-compartilhamentos {
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 1%;
+    }
+
+    .compartilhamentos-titulo p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+
+    .compartilhamentos-quantidade {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+
+    .card-publicacoes {
+        background: #ECEBF3;
+        box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 2%;
+    }
+
+    .publicacoes-titulo p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #595964;
+        margin: 0;
+    }
+
+    .publicacoes-quantidade {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 48px;
+        color: #9056E8;
+        margin: 0;
+    }
+
+    .sair {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 80px;
+  }
+  
+  .sair a {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: "InterRegular";
+  }
+  
+  .sair img {
+    width: 30px;
+    margin-right: 5px;
+  }
+
+  #modalSairConta .modal-body {
+    font-family: "InterBold";
+    min-height: unset!important;
+  }
+  
+  #modalSairConta .modal-header {
+    border-top: 0;
+    border-bottom: 0;
+  }
+  
+  #modalSairConta .modal-footer {
+    border-top: 0;
+    border-bottom: 0;
+  }
+  
+</style>
     <main>
 
         <div class="box-sidebar">
@@ -69,205 +314,69 @@
                 </div>
             </div>
             <!--BOX DA DENúNCIA COMEÇA AQUI-->
-            <div class="box-denuncia-verificacao">
-
-
-                <div class="box-denuncias">
-                    <div class="titulo-container-denuncia">
-                        <h1>
-                            Denúncias recentes
-                        </h1>
-                    </div>
-
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
+            <div class="box">
+                
+                <div class="explicacao-dashboard">
+                    <div class="explicacao-textos">
+                        <div class="explicacao-titulo">
+                            <p>Saiba como anda o engajamento do Getto!</p>
                         </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
+                        <div class="explicacao-descricao">
+                            <p>Fique de olho e veja quando estiver abaixo que o esperado!</p>
                         </div>
                     </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-                <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
-                <div class="container-verificacao">
-                    <div class="box-verificacao">
-                        <div class="titulo-container-verificacao">
-                            <h1>Pedidos de Verificações</h1>
-                        </div>
-
-                        <?php
-                        require_once 'GlobalAdm.php';
-                        $u = UsuarioDao::ListaVerificação();
-                        foreach ($u as  $chave => $usuario) :
-                        ?>
-                            <div class="verificacao">
-                                <div class="titulo-verificacao">
-                                    <h2> <?PHP echo $usuario['nomeUsuario']; ?> </h2>
-                                </div>
-                                <div class="box-btn-verificacao">
-                                    <button class="btn-verificacao" data-bs-toggle="modal" data-bs-target="#modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>"></button>
-                                </div>
-                            </div>
-
-                            <div class="modal fade" id="modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $usuario['nomeUsuario']; ?></h1>
-                                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="modal-body-img">
-                                                <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
-                                            </div>
-                                            <div class="modal-body-info">
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Nickname</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?php echo $usuario['nicknameUsuario']; ?></p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Nome:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?PHP echo $usuario['nomeUsuario']; ?></p>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Link repositório:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio']; ?></a>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Email:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?php echo $usuario['emailUsuario']; ?></p>
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <form class="formAprovar" name="btnaprova" id="btnAprovar" action="../Controller/AprovaArtista.php" method="post">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
-                                                <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnAprovar" class="btn btn-secondary">Aprovar</button>
-                                            </form>
-
-                                            <form class="formRecusar" id="formRecusar" method="post" action="../Controller/AprovaArtista.php">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <button id="btnRecusar" type="submit" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
-
-                                            </form>
-
-                                            <!-- <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <textarea name="motivoRecusa" id="" cols="30" rows="10"></textarea>
-                                                <button id="btnRecusar" type="submit" class="btn btn-primary">Enviar</button>
-                                            </form> -->
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="display: none;" id="alert" class="alert">
-                                <div class="img">
-                                    <i class="fa-regular fa-circle-check" style="color: #fff;"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Você aprovou <?PHP echo $usuario['nomeUsuario']; ?>.
-                                    </p>
-                                </div>
-                            </div>
-
-                        <?PHP
-                        endforeach;
-                        ?>
-
+                    <div class="explicacao-img">
+                        <img src="../Perfil/PerfilArtista/Configuracoes/assets/img/img-dash.svg" alt="">
                     </div>
                 </div>
+
+                <div class="cards-engajamentos">
+                    <div class="card-visitas">
+                        <div class="visitas-img">
+                            <img src="../Perfil/PerfilArtista/Configuracoes/assets/img/olho-vermelho (2).png" alt="">
+                        </div>
+                        <div class="visitas-titulo">
+                            <p>Artistas na plataforma</p>
+                        </div>
+                        <div class="visitas-quantidade">
+                            <p>100</p>
+                        </div>
+                    </div>
+                    <div class="card-curtidas">
+                        <div class="curtidas-img">
+                            <img src="../Perfil/PerfilArtista/Configuracoes/assets/img/estrela-getto.png" alt="">
+                        </div>
+                        <div class="curtidas-titulo">
+                            <p>Usuários na plataforma</p>
+                        </div>
+                        <div class="curtidas-quantidade">
+                            <p>1000</p>
+                        </div>
+                    </div>
+                    <div class="card-compartilhamentos">
+                        <div class="compartilhamentos-img">
+                            <img src="../Perfil/PerfilArtista/Configuracoes/assets/img/compartilhar.png" alt="">
+                        </div>
+                        <div class="compartilhamentos-titulo">
+                            <p>Eventos na plataforma</p>
+                        </div>
+                        <div class="compartilhamentos-quantidade">
+                            <p>200</p>
+                        </div>
+                    </div>
+                    <div class="card-publicacoes">
+                        <div class="publicacoes-img">
+                            <img src="../Perfil/PerfilArtista/Configuracoes/assets/img/pincel.png" alt="">
+                        </div>
+                        <div class="publicacoes-titulo">
+                            <p>Publicações totais na plataforma</p>
+                        </div>
+                        <div class="publicacoes-quantidade">
+                            <p>500</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
 
