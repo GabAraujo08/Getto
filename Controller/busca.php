@@ -2,11 +2,9 @@
     require_once 'GlobalController.php';
 
     session_start();
-    if(isset($_SESSION['idArtista'])){
-        header('Location: ../Perfil/PerfilArtista/Feed/descobrir.php');
-    } else {
-        header('Location: ../Perfil/PerfilVisitante/Feed/descobrir.php');  
-    } 
+
+    $previousPage = $_SERVER['HTTP_REFERER'];
+    header('Location: ' . $previousPage);
 
     $conexao = Conexao::conectar();
     $consulta = $conexao->prepare("SELECT * FROM tbUsuario WHERE nicknameUsuario LIKE ?");

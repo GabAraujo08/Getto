@@ -1,6 +1,8 @@
 <?PHP
    require_once 'GlobalController.php';
-    header('Location: ../registroVisitante.php');
+   $previousPage = $_SERVER['HTTP_REFERER'];
+   header('Location: ' . $previousPage);
+
     session_start();
     
 
