@@ -313,7 +313,7 @@ require_once '../../Dao/SeguidoresDao.php';
                                 $eventos = EventoDao::ListaMeusEventos($_SESSION['idArtista']);
                                 foreach ($eventos as $evento) : ?>
                                     <div class="img-evento">
-                                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                                        <img data-bs-toggle="modal" data-bs-target="#modalMostrarEvento" src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
 
 
 
@@ -645,9 +645,11 @@ require_once '../../Dao/SeguidoresDao.php';
                             </div>
                             <div class="comentarios-mostrar-publicacao">
                                 <?php
-                                $comes = ComentarioDao::listarComentario($ps['idPublicacao']);
+                                $comes = ComentarioDao::listarComentario($p['idPublicacao']);
+                                if(!$comes){
+                                    echo('Sem comentários');
+                                }else{;
                                 foreach ($comes as $cs) {
-
                                 ?>
                                     <div class="box-comentario">
                                         <?PHP
@@ -694,7 +696,45 @@ require_once '../../Dao/SeguidoresDao.php';
 
                                 <?php
                                 }
+                                }
                                 ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- --------------------------- MODAL MOSTRAR EVENTO ----------------------- -->
+
+    <div class="modal fade" id="modalMostrarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="img-mostrar-evento">
+                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                    </div>
+                    <div class="conteudo-mostrar-evento">
+                        <div class="perfil-usuario">
+                            <div class="img-perfil-mostrar-evento">
+                                <img class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                            </div>
+                            <div class="nickname-perfil">
+                                <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                            </div>
+                            <div class="titulo-evento">
+                                <h1>
+                                    <?PHP echo $evento['tituloEvento']; ?>
+                                </h1>
+                            </div>
+                            <div class="descricao-mostrar-evento">
+                                <p><?php echo $evento['descEvento']; ?></p>
+                            </div>
+                            <div class="comentarios-mostrar-evento">
+
                             </div>
                         </div>
                     </div>

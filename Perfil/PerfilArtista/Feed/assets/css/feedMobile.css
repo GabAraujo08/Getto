@@ -597,6 +597,7 @@ textarea {
   width: 100%;
   display: flex;
   margin-bottom: 5px;
+  align-items: center;
 }
 
 .modal-comentario .modal-body .box-comentario img {
@@ -612,6 +613,7 @@ textarea {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  margin-left: 1rem;
 }
 
 .modal-comentario .modal-body .box-comentario .conteudo-comentario h1 {
