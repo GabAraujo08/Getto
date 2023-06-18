@@ -630,6 +630,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                             <input type="hidden" name="fotoPerfil" value="<?php echo $cs['fotoPerfilUsuario']; ?>">
                                                                             <input type="hidden" name="nivelConta" value="<?php echo $cs['nivelContaUsuario']; ?>">
                                                                             <input type="hidden" name="idDenunciado" value="<?php echo $cs['idUsuario']; ?>">
+                                                                            <input type="hidden" name="email" value="<?php echo $cs['email']; ?>">
                                                                             <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
                                                                             <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                                         </form>
@@ -945,6 +946,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                             <input type="hidden" name="fotoPerfil" value="<?php echo $c['fotoPerfilUsuario']; ?>">
                                                                             <input type="hidden" name="nivelConta" value="<?php echo $c['nivelContaUsuario']; ?>">
                                                                             <input type="hidden" name="idDenunciado" value="<?php echo $c['idUsuario']; ?>">
+                                                                            <input type="hidden" name="email" value="<?php echo $c['email']; ?>">
                                                                             <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
                                                                             <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                                         </form>                                                                        </div>

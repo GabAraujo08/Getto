@@ -20,20 +20,21 @@
             return 'Cadastrou';
         }
 
-        public static function listarComentario($idPubli){
+        public static function listarComentario($idPubli) {
             $conexao = Conexao::conectar();
-
-            $consulta = $conexao->prepare('SELECT tbUsuario.idUsuario, tbUsuario.nicknameUsuario, tbUsuario.nivelContaUsuario,  tbUsuario.fotoPerfilUsuario, tbComentario.statusComentario, tbComentario.idComentario, tbComentario.comentario, TIMESTAMPDIFF(MINUTE, tbComentario.horaComentario, NOW()) as minutosComentario FROM tbPublicacao
-                                INNER JOIN tbComentario ON tbComentario.idPublicacao = tbPublicacao.idPublicacao
-                                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbComentario.idUsuario
-                                WHERE tbPublicacao.idPublicacao = ?
-                                ORDER BY tbComentario.horaComentario DESC
-                                ');
-                $consulta->bindValue(1, $idPubli);
-                $consulta->execute();
-                $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
-                return $resultado2;
+        
+            $consulta = $conexao->prepare('SELECT tbUsuario.idUsuario, tbUsuario.emailUsuario, tbUsuario.nicknameUsuario, tbUsuario.nivelContaUsuario, tbUsuario.fotoPerfilUsuario, tbComentario.statusComentario, tbComentario.idComentario, tbComentario.comentario, TIMESTAMPDIFF(MINUTE, tbComentario.horaComentario, NOW()) as minutosComentario FROM tbPublicacao
+                INNER JOIN tbComentario ON tbComentario.idPublicacao = tbPublicacao.idPublicacao
+                INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbComentario.idUsuario
+                WHERE tbPublicacao.idPublicacao = ? AND tbComentario.statusComentario = "Normal"
+                ORDER BY tbComentario.horaComentario DESC');
+        
+            $consulta->bindValue(1, $idPubli);
+            $consulta->execute();
+            $resultado2 = $consulta->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado2;
         }
+        
         public static function consultarQuantComentario($idpub){
             $conexao = Conexao::conectar();
             $consulta = $conexao->prepare('SELECT COUNT(idComentario) as totalComentario FROM tbComentario WHERE idPublicacao = ?');
@@ -49,6 +50,21 @@
             }
             
            
+        }
+        public static function atualizarStatusComentario($c){
+            $conexao = Conexao::conectar();
+
+            $queryInsert = "UPDATE tbComentario
+                            SET statusComentario = ?
+                            WHERE idComentario = ?";
+            
+            $prepareStatement = $conexao->prepare($queryInsert);
+            
+            $prepareStatement->bindValue(1, $c->getStatusComentario());
+            $prepareStatement->bindValue(2, $c->getIdComentario());
+
+            $prepareStatement->execute();
+            return 'Atualizou';
         }
     }
 ?>

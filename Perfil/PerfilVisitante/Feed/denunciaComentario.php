@@ -1,3 +1,13 @@
+<?php
+include('../../../Controller/VerificaLogado.php');
+require_once '../../../Dao/publicacaoDao.php';
+require_once '../../../Dao/Conexao.php';
+require_once '../../../Dao/CurtidaDao.php';
+require_once '../../../Dao/ComentarioDao.php';
+require_once '../../../Dao/ArtistaDao.php';
+require_once '../../../Dao/SeguidoresDao.php';
+require_once '../../../Dao/TipoDenunciaDao.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,10 +32,20 @@
                 Este é o comentário que você quer denunciar?
             </h1>
             <div class="box-comentario ">
-                <img src="assets/img/img-perfil.svg" alt="">
+                <?PHP
+                if ($_POST['nivelConta'] == 2) {
+                ?>
+                    <img src="../assets/img/FotoPerfil/<?PHP echo $_POST['fotoPerfil']; ?>" alt="">
+                <?PHP
+                } else {
+                ?>
+                    <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $_POST['fotoPerfil']; ?>" alt="">
+                <?PHP
+                }
+                ?>
                 <div class="conteudo-comentario">
-                    <h1>@gabbs</h1>
-                    <p>uctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed non tellus auctor, consequat mi eu, pulvinar ipsum. Quisque vel ipsum eros. Nam consequat vestibulum ligula, sed iaculis quam. Sed nec ante velit. Nullam eget massa sit amet erat pharetra euismod sed id elit. Praesent a fringilla mauris. Fusce ut odio et elit laoreet fermentum. Nulla vel est ligula. Nam eget enim euismod, semper leo ac, congue justo. Maecenas nec nibh a arcu efficitur facilisis a ac lectus.</p>
+                    <h1><?PHP echo $_POST['nickname']; ?></h1>
+                    <p><?PHP echo $_POST['comentario']; ?></p>
 
                 </div>
             </div>
@@ -35,14 +55,19 @@
                         margin-bottom: 5px;">
                 Selecione o que mais se assemelha com sua denúncia!
             </h1>
-            <form action="#">
-                <select name="tipoDenuncia" id="">
-                    <option value="#">Violência</option>
-                    <option value="#">Assédio</option>
-                    <option value="#">Preconceito</option>
-                    <option value="#">Discurso de ódio</option>
-                    <option value="#">Mensagem falsa</option>
+            <form action="../../../Controller/CadastraDenuncia.php" method="Post">
 
+                <select name="tipoDenuncia" id="">
+                    <option value="#">Selecionar...</option>
+                    <?php
+                    $td = TipoDenunciaDao::ListaTipoDenuncia();
+
+                    foreach($td as $dt){
+                    ?>
+                    <option value="<?PHP echo $dt['idTipoDenuncia']; ?>"><?PHP echo $dt['nomeTipoDenuncia']; ?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
 
                 <h1 style="font-family: 'InterBold';
@@ -55,9 +80,14 @@
 
                     <div class="box-text-area">
 
-                        <textarea placeholder="Escreva sua denúncia" name="comentario" id="" cols="30" rows="10">
+                        <textarea placeholder="Escreva sua denúncia" name="desc" id="" cols="30" rows="10">
 
                         </textarea>
+                        <input type="hidden" name="comentario" value="<?php echo $_POST['comentario']; ?>">
+                        <input type="hidden" name="nickname" value="<?php echo $_POST['nickname']; ?>">
+                        <input type="hidden" name="idDenunciado" value="<?php echo $_POST['idDenunciado']; ?>">
+                        <input type="hidden" name="idDenunciador" value="<?php echo $_POST['idDenunciador']; ?>">
+                        <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
                         <div class="box-btn-comentario">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa-solid fa-paper-plane fa-lg" style="color: #000000;"></i>
