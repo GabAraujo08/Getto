@@ -30,10 +30,10 @@
                 <div class="navegacao-sidebar">
                     <ul>
                         <li class="item-sidebar">
-                            <a href="" id="dash">Dashboard</a>
+                            <a href="dashboard.php" id="dash">Dashboard</a>
                         </li>
                         <li class="item-sidebar">
-                            <a href="denuncias.php" id="denuncia">Denúncias</a>
+                            <a href="#" id="denuncia">Denúncias</a>
                         </li>
                         <li class="item-sidebar">
                             <a href="verifica.php" id="verificacao">Verificação de artistas</a>
@@ -154,120 +154,7 @@
 
                 </div>
                 <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
-                <div class="container-verificacao">
-                    <div class="box-verificacao">
-                        <div class="titulo-container-verificacao">
-                            <h1>Pedidos de Verificações</h1>
-                        </div>
-
-                        <?php
-                        require_once 'GlobalAdm.php';
-                        $u = UsuarioDao::ListaVerificação();
-                        foreach ($u as  $chave => $usuario) :
-                        ?>
-                            <div class="verificacao">
-                                <div class="titulo-verificacao">
-                                    <h2> <?PHP echo $usuario['nomeUsuario']; ?> </h2>
-                                </div>
-                                <div class="box-btn-verificacao">
-                                    <button class="btn-verificacao" data-bs-toggle="modal" data-bs-target="#modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>"></button>
-                                </div>
-                            </div>
-
-                            <div class="modal fade" id="modalExcluirConta<?PHP echo $usuario['idUsuario']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel"><?PHP echo $usuario['nomeUsuario']; ?></h1>
-                                            <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="modal-body-img">
-                                                <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $usuario['fotoPerfilUsuario']; ?>">
-                                            </div>
-                                            <div class="modal-body-info">
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Nickname</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?php echo $usuario['nicknameUsuario']; ?></p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Nome:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?PHP echo $usuario['nomeUsuario']; ?></p>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Link repositório:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <a href="<?php echo $usuario['portfolio']; ?>"><?php echo $usuario['portfolio']; ?></a>
-                                                    </div>
-                                                </div>
-                                                <div class="modal-body-link">
-                                                    <div class="link-titulo">
-                                                        <p>Email:</p>
-                                                    </div>
-                                                    <div class="link">
-                                                        <p><?php echo $usuario['emailUsuario']; ?></p>
-                                                    </div>
-
-                                                </div>
-
-
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <form class="formAprovar" name="btnaprova" id="btnAprovar" action="../Controller/AprovaArtista.php" method="post">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_indice" value="<?php echo $chave; ?>">
-                                                <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnAprovar" class="btn btn-secondary">Aprovar</button>
-                                            </form>
-
-                                            <form class="formRecusar" id="formRecusar" method="post" action="../Controller/AprovaArtista.php">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <button id="btnRecusar" type="submit" name="btnRecusar" class="btnRecusar btn btn-primary">Recusar</button>
-
-                                            </form>
-
-                                            <!-- <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
-                                                <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
-                                                <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
-                                                <textarea name="motivoRecusa" id="" cols="30" rows="10"></textarea>
-                                                <button id="btnRecusar" type="submit" class="btn btn-primary">Enviar</button>
-                                            </form> -->
-
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="display: none;" id="alert" class="alert">
-                                <div class="img">
-                                    <i class="fa-regular fa-circle-check" style="color: #fff;"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Você aprovou <?PHP echo $usuario['nomeUsuario']; ?>.
-                                    </p>
-                                </div>
-                            </div>
-
-                        <?PHP
-                        endforeach;
-                        ?>
-
-                    </div>
-                </div>
+                
             </div>
 
 

@@ -71,7 +71,7 @@ if (isset($_POST['btnAprovar'])) {
         if ($mail->send()) {
             // Descartar a saída gerada até o momento
             ob_end_clean();
-            header('Location: ../Administrador/dashboard.php');
+            header('Location: ../Administrador/verifica.php');
             exit; // Encerrar o script após o redirecionamento
         } else {
             // Descartar a saída gerada até o momento
@@ -143,7 +143,7 @@ if (isset($_POST['btnRecusar'])) {
         if ($mail->send()) {
             // Descartar a saída gerada até o momento
             ob_end_clean();
-            header('Location: ../Administrador/dashboard.php');
+            header('Location: ../Administrador/verifica.php');
             exit; // Encerrar o script após o redirecionamento
         } else {
             // Descartar a saída gerada até o momento

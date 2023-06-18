@@ -30,16 +30,16 @@
                 <div class="navegacao-sidebar">
                     <ul>
                         <li class="item-sidebar">
-                            <a href="" id="dash">Dashboard</a>
+                            <a href="dashboard.php" id="dash">Dashboard</a>
                         </li>
                         <li class="item-sidebar">
-                            <a id="denuncia">Denúncias</a>
+                            <a href="denuncias.php" id="denuncia">Denúncias</a>
                         </li>
                         <li class="item-sidebar">
-                            <a id="verificacao">Verificação de artistas</a>
+                            <a href="verifica.php" id="verificacao">Verificação de artistas</a>
                         </li>
                         <li class="item-sidebar">
-                            <a id="tutorial">Tags</a>
+                            <a href="#" id="tutorial">Tags</a>
                         </li>
 
 

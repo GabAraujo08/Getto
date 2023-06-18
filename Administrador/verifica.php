@@ -30,13 +30,13 @@
                 <div class="navegacao-sidebar">
                     <ul>
                         <li class="item-sidebar">
-                            <a href="" id="dash">Dashboard</a>
+                            <a href="dashboard.php" id="dash">Dashboard</a>
                         </li>
                         <li class="item-sidebar">
                             <a href="denuncias.php" id="denuncia">Denúncias</a>
                         </li>
                         <li class="item-sidebar">
-                            <a href="verifica.php" id="verificacao">Verificação de artistas</a>
+                            <a href="#" id="verificacao">Verificação de artistas</a>
                         </li>
                         <li class="item-sidebar">
                             <a href="addTags.php" id="tutorial">Tags</a>
@@ -72,87 +72,7 @@
             <div class="box-denuncia-verificacao">
 
 
-                <div class="box-denuncias">
-                    <div class="titulo-container-denuncia">
-                        <h1>
-                            Denúncias recentes
-                        </h1>
-                    </div>
-
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
-                            </div>
-                            <div class="desc-denuncia">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a scelerisque nibh.</p>
-                            </div>
-                        </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Ver comentário
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+               
                 <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
                 <div class="container-verificacao">
                     <div class="box-verificacao">

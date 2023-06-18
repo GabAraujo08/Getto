@@ -362,6 +362,9 @@ transform: translateY(-0.25em);
   width: 303px;
   height: 69px;
   margin: 15px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-verificacao .box-verificacao .titulo-container-verificacao h1 {
