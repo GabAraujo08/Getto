@@ -161,22 +161,33 @@ error_reporting(0);
                 <div class="main-publicacao">
                     <?php
                     $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
-                    foreach ($pubArtEng as $pae) {?>
+                    foreach ($pubArtEng as $pae) { ?>
                         <div class="publicacao">
-                            <?php if ($pae['idTipoMidia'] == 3) {?>
+                            <?php if ($pae['idTipoMidia'] == 3) { ?>
                                 <img src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia'] ?>" alt="">
                             <?php
-                            } elseif ($pae['idTipoMidia'] == 2) {?>
+                            } elseif ($pae['idTipoMidia'] == 2) { ?>
                                 <video id="player-video" controls>
                                     <source src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia']; ?>">
                                 </video>
                             <?php
-                            } else {?>
+                            } else { ?>
+
+
+
                                 <div class="audio-player">
                                     <div class="info-player">
                                         <div class="cover">
-                                            <img class="cover-img" src="../../../teste/teste.jpg">
+                                            <img class="cover-img" src=".../../../../../teste/teste.jpg">
                                         </div>
+                                        <!-- <div class="desc-musica">
+                                            <div class="autor">
+                                                <p>Kanye West</p>
+                                            </div>
+                                            <div class="nome-musica">
+                                                <p>Esqueci</p>
+                                            </div>
+                                        </div> -->
                                     </div>
                                     <div class="controls">
                                         <div class="reproducao">
@@ -195,14 +206,16 @@ error_reporting(0);
                                         </div>
                                         <div class="total-time">00:00</div>
                                     </div>
-                                    <audio id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia']; ?>"></audio>
+                                    <audio class="audio-element" id="audio" src="../../PerfilArtista/assets/img/Pubs/<?php echo $pae['arquivoMidia']; ?>"></audio>
                                 </div>
+
+
                             <?PHP
-                                 }
+                            }
                             ?>
                         </div>
-                        <?PHP
-                        }
+                    <?PHP
+                    }
                     ?>
                 </div>
             </div>
@@ -482,7 +495,94 @@ error_reporting(0);
         });
     </script>
 
+    <script>
+        var audioPlayers = document.querySelectorAll('.audio-player');
+        audioPlayers.forEach(function(player) {
+            var audio = player.querySelector('.audio-element');
+            var playButton = player.querySelector('.play-button');
+            var volumeButton = player.querySelector('.volume-button');
+            var timer = player.querySelector('.timer');
+            var totalTime = player.querySelector('.total-time');
+            var timeFill = player.querySelector('.time-fill');
+            var progressBar = player.querySelector('.progress-bar');
 
+            playButton.addEventListener('click', function() {
+                toggleAudio(audio, playButton);
+            });
+
+            volumeButton.addEventListener('click', function() {
+                toggleMute(audio, volumeButton);
+            });
+
+            audio.addEventListener('timeupdate', function() {
+                var position = audio.currentTime / audio.duration;
+                timeFill.style.width = (position * 100) + '%';
+
+                var minutes = Math.floor(audio.currentTime / 60);
+                var seconds = Math.floor(audio.currentTime % 60);
+                timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            audio.addEventListener('loadedmetadata', function() {
+                var minutes = Math.floor(audio.duration / 60);
+                var seconds = Math.floor(audio.duration % 60);
+                totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
+
+            function toggleAudio(audio, button) {
+                if (audio.paused) {
+                    audio.play();
+                    button.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    audio.pause();
+                    button.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            }
+
+            function toggleMute(audio, button) {
+                if (audio.muted) {
+                    audio.muted = false;
+                    button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    audio.muted = true;
+                    button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
+            }
+
+            function padTime(time) {
+                return (time < 10 ? '0' : '') + time;
+            }
+
+            progressBar.addEventListener('click', function(event) {
+                seek(event, audio, progressBar);
+            });
+
+            player.querySelector('.skip-button').addEventListener('click', function() {
+                skipBackward(audio);
+            });
+
+            player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
+                skipForward(audio);
+            });
+        });
+
+        function seek(event, audio, progressBar) {
+            var progressWidth = progressBar.clientWidth;
+            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+            var positionPercentage = clickX / progressWidth;
+            var seekTime = positionPercentage * audio.duration;
+
+            audio.currentTime = seekTime;
+        }
+
+        function skipForward(audio) {
+            audio.currentTime += 10;
+        }
+
+        function skipBackward(audio) {
+            audio.currentTime -= 10;
+        }
+    </script>
 
 
 
