@@ -47,8 +47,7 @@ p {
 }
 
 #pintora {
-	width: 93vh% !important;
-	position: relative;
+	width: 93vh !important;
 	right: 50px;
 	
 }
@@ -327,7 +326,7 @@ button {
 	}
 
 	#pintora {
-		width: 93vh;
+		width: 85vh !important;
 	}
 
 	.funcionalidades {
