@@ -186,7 +186,8 @@ require_once '../../../../Dao/UsuarioDao.php';
 
                 <div class="input-group mb-3">
 
-                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
+                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" 
+                    aria-describedby="inputGroup-sizing-default">
                 </div>
 
 

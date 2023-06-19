@@ -14,9 +14,9 @@ $consulta->execute();
 $senha = $consulta->fetch();
 
 if (!password_verify($senhaAtual, $senha['senhaUsuario'])) {
-    return false;
+    echo 'Senha atual incorreta';
 } else if ($novaSenha != $confirmarSenha) {
-    return false;
+    echo 'As senhas não coincidem';
 } else {
     $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
 

@@ -1,4 +1,7 @@
-<?php require_once 'Global.php';
+<?php include('../../../../Controller/VerificaLogado.php');
+require_once '../../../../Dao/ArtistaDao.php';
+require_once 'Global.php';
+require_once '../../../../Dao/UsuarioDao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -142,7 +145,7 @@
                 </div>
                 <div class="feed-perfil">
                     <div class="box-img-perfil-feed">
-                        <img src="../assets/img/img-perfil.svg" alt="">
+                        <img src="../../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -173,7 +176,7 @@
 
                 <div class="input-group mb-3">
 
-                    <input name="cofsenha" type="password" class="form-control" aria-label="Sizing example input"
+                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" 
                         placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
                 </div>
 
