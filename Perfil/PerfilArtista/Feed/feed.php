@@ -731,8 +731,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                 if ($p['idTipoMidia'] == 3) {
                                                 ?>
                                                     <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
-                                                                                                                                                } else if ($p['idTipoMidia'] == 2) {
-                                                                                                                                                    ?>
+                                                } else if ($p['idTipoMidia'] == 2) {?>
                                                     <video id="player-video" controls>
                                                         <source src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
                                                     </video>

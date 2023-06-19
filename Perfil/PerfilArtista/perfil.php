@@ -245,7 +245,7 @@ require_once '../../Dao/SeguidoresDao.php';
                         </div>
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web" style="justify-content: center;">
 
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
@@ -305,7 +305,7 @@ require_once '../../Dao/SeguidoresDao.php';
 
 
 
-                            <div id="eventos-web" class="eventos eventos-web">
+                            <div id="eventos-web" class="eventos eventos-web" style="justify-content: center;">
 
 
                                 <?php require_once '../../Dao/EventoDao.php';
@@ -624,16 +624,18 @@ require_once '../../Dao/SeguidoresDao.php';
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="img-mostrar-publicacao">
-                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" id="img-mostrar-pub" alt="">
-                    </div>
                     <div class="conteudo-mostrar-publicacao">
-                        <div class="perfil-usuario">
-                            <div class="img-perfil-mostrar-publicacao">
-                                <img class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
-                            </div>
-                            <div class="nickname-perfil">
-                                <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                        <div class="img-mostrar-publicacao" style="width: 50%;">
+                            <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" id="img-mostrar-pub" alt="">
+                        </div>
+                        <div class="informacoes-mostrar-publicacao" style="width: 50%;">
+                            <div class="perfil-usuario-mostrar-publicacao">
+                                <div class="img-perfil-mostrar-publicacao">
+                                    <img class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                                </div>
+                                <div class="nickname-perfil">
+                                    <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                                </div>
                             </div>
                             <div class="legenda-mostrar-publicacao">
                                 <p>
@@ -655,7 +657,7 @@ require_once '../../Dao/SeguidoresDao.php';
                                             <?PHP
                                             if ($cs['nivelContaUsuario'] == 2) {
                                             ?>
-                                                <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                                <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="" style="width: 65px; height: 65px; border-radius: 50%;">
                                             <?PHP
                                             } else {
                                             ?>
@@ -746,11 +748,11 @@ require_once '../../Dao/SeguidoresDao.php';
                             <div class="data-mostrar-evento">
                                 <div class="data" style="display:flex;">
                                     <p class="data">Data:</p><span class="date"><?php $dia = date('d', strtotime($evento['dataEvento']));
-                                        echo $dia; ?></span>
+                                                                                echo $dia; ?></span>
                                 </div>
                                 <div class="mes">
                                     <p class="mes"><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
-                                        echo $mes; ?></p>
+                                                    echo $mes; ?></p>
                                 </div>
                             </div>
                             <div class="footer-mostrar-evento">

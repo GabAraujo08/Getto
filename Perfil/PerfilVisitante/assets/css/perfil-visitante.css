@@ -318,6 +318,212 @@ body {
   }
 
 
+  /*------------------------------------- MODAL MOSTRAR EVENTO ----------------------------*/
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1{
+	word-break: break-all;
+}
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .descricao-mostrar-evento p{
+	word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .img-mostrar-evento
+  img {
+  height: 100%;
+  width: 100%;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .img-perfil-mostrar-evento
+  img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .nickname-perfil
+  h1 {
+  font-family: "InterRegular";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .nickname-perfil {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .endereco-mostrar-evento p{
+	word-break: break-all;
+  }
+
+#modalMostrarEvento .modal-body .conteudo-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .titulo-mostrar-evento
+  h1 {
+  font-family: "InterRegular";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  color: #000000;
+  margin-top: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .data
+  p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .data
+  span {
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .mes
+  p {
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  p {
+  color: blue;
+  word-break: break-all;
+}
+
 
 /*--------------------------------- HEADER PERFIL ---------------------------------*/
 

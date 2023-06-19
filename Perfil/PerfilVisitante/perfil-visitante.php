@@ -19,7 +19,212 @@ require_once 'GlobalPerfil.php';
 
 <body>
 
+<style>
+    #modalMostrarEvento .modal-body .informacoes-mostrar-evento {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
 
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1{
+	word-break: break-all;
+}
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .descricao-mostrar-evento p{
+	word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .img-mostrar-evento
+  img {
+  height: 100%;
+  width: 100%;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .img-perfil-mostrar-evento
+  img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .nickname-perfil
+  h1 {
+  font-family: "InterRegular";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .nickname-perfil {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .endereco-mostrar-evento p{
+	word-break: break-all;
+  }
+
+#modalMostrarEvento .modal-body .conteudo-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .titulo-mostrar-evento
+  h1 {
+  font-family: "InterRegular";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  color: #000000;
+  margin-top: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .data
+  p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .data
+  span {
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .mes
+  p {
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  p {
+  color: blue;
+  word-break: break-all;
+}
+
+</style>
 
 
     <div class="d-flex">
@@ -145,7 +350,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web" style="justify-content: center;">
 
                                 <?php
                                 $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idUsuario']);
@@ -201,14 +406,14 @@ require_once 'GlobalPerfil.php';
                                 ?>
 
                             </div>
-                            <div id="eventos-web" class="eventos eventos-web">
+                            <div id="eventos-web" class="eventos eventos-web" style="justify-content: center;">
 
                                 <?php require_once '../../Dao/EventoDao.php';
 
                                 $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idUsuario']);
                                 foreach ($eventos as $evento) : ?>
                                     <div class="img-evento">
-                                        <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+                                        <img data-bs-toggle="modal" data-bs-target="#modalMostrarEvento" src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
 
                                         <h1>
                                             <?PHP echo $evento['tituloEvento']; ?>
@@ -320,6 +525,71 @@ require_once 'GlobalPerfil.php';
             </div>
         </div>
     </div>
+
+
+        <!-- --------------------------- MODAL MOSTRAR EVENTO ----------------------- -->
+
+        <div class="modal fade" id="modalMostrarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="conteudo-mostrar-evento">
+                        <div class="img-mostrar-evento" style="width: 50%;">
+                            <img src="../PerfilArtista/Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                        </div>
+                        <div class="informacoes-mostrar-evento" style="width: 50%;">
+                            <div class="perfil-usuario-mostrar-evento">
+                                <div class="img-perfil-mostrar-evento">
+                                    <img class="perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                                </div>
+                                <div class="nickname-perfil">
+                                    <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                                </div>
+                            </div>
+                            <div class="titulo-mostrar-evento">
+                                <h1>
+                                    <?PHP echo $evento['tituloEvento']; ?>
+                                </h1>
+                            </div>
+                            <div class="descricao-mostrar-evento">
+                                <p><?php echo $evento['descEvento']; ?></p>
+                            </div>
+                            <div class="endereco-mostrar-evento">
+                                <p><?php echo $evento['logradouroEvento']; ?> <?php echo $evento['numLogEvento']; ?></p>
+                            </div>
+                            <div class="horario-evento">
+                                <span>Horário de início:</span><?php echo $evento['horarioInicioEvento']; ?>
+                            </div>
+                            <div class="horario-evento">
+                                <span>Horário de término:</span><?php echo $evento['horarioFinalEvento']; ?>
+                            </div>
+                            <div class="data-mostrar-evento">
+                                <div class="data" style="display:flex;">
+                                    <p class="data">Data:</p><span class="date"><?php $dia = date('d', strtotime($evento['dataEvento']));
+                                        echo $dia; ?></span>
+                                </div>
+                                <div class="mes">
+                                    <p class="mes"><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                        echo $mes; ?></p>
+                                </div>
+                            </div>
+                            <div class="footer-mostrar-evento">
+                                <div class="confirmados-mostrar-evento">
+                                    <p><?php
+                                        $prec = PresencaDao::consultar($evento['idEvento']);
+                                        echo $prec . ' Presenças confirmadas'; ?></p>
+                                </div>
+                                <div class="link-evento">
+                                    <p><span>link do ingresso:</span><a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
