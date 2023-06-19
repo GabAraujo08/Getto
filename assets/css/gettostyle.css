@@ -59,6 +59,10 @@ p {
 
 .navbar {
 	--mdb-navbar-box-shadow: none;
+	position: fixed;
+    background-color: #d0b9da;
+    width: 100%;
+	height: 10%;
 }
 
 nav {
@@ -723,7 +727,7 @@ button {
 
 	.img-pintora {
 		width: 39%;
-		margin-bottom: 1rem !important;
+		margin-bottom: -13rem !important;
 	}
 
 	#pintora {
@@ -751,7 +755,7 @@ button {
 
 	/****terceira-parte****/
 	.terceira-parte {
-		height: 79vh !important;
+		height: 88vh !important;
 	}
 
 	.terceira-parte .imagem-seguidor {
@@ -765,7 +769,7 @@ button {
 	.terceira-parte .retangulo {
 		width: 51% !important;
 		margin-left: 13% !important;
-		top: 5rem !important;
+		top: 7rem !important;
 	}
 
 
