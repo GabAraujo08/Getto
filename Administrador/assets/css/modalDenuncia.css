@@ -28,21 +28,21 @@
 	src: url('../fonts/Roboto-Regular.ttf');
 }
 
-#analiseDenuncia .denunciado {
+ .denunciado {
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#analiseDenuncia .denunciado .img-denunciado {
+ .denunciado .img-denunciado {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 
-#analiseDenuncia .denunciado .img-denunciado img {
+ .denunciado .img-denunciado img {
     width: 80px;
     height: 80px;
     max-height: 80px;
@@ -50,11 +50,11 @@
     border-radius: 50%;
 }
 
-#analiseDenuncia .informacoes-denunciado {
+ .informacoes-denunciado {
     width: 100%;
 }
 
-#analiseDenuncia .comentario, .box-denunciante,
+ .comentario, .box-denunciante,
 .box-descDenuncia, .classificacaoDenuncia, .box-dataDenuncia {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -66,14 +66,14 @@
     width: 320px;
 }
 
-#analiseDenuncia .box-comentario {
+ .box-comentario {
     width: 100%;
     display: flex;
     margin-bottom: 5px;
     align-items: center;
   }
   
-  #analiseDenuncia .box-comentario img {
+   .box-comentario img {
     width: 60px;
     height: 60px;
     border: 2.06796px solid #ffffff;
@@ -81,7 +81,7 @@
     border-radius: 50%;
   }
   
-  #analiseDenuncia .box-comentario .conteudo-comentario {
+   .box-comentario .conteudo-comentario {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,19 +89,19 @@
     margin-left: 1rem;
   }
   
-  #analiseDenuncia .box-comentario .conteudo-comentario h1 {
+   .box-comentario .conteudo-comentario h1 {
     font-family: "InterBold";
     font-size: 18px;
   }
   
-  #analiseDenuncia .box-comentario .conteudo-comentario p {
+   .box-comentario .conteudo-comentario p {
     font-family: "InterBold";
     margin-left: 5px;
     max-height: 100px;
     overflow-y: auto;
   }
   
-  #analiseDenuncia
+  
     .box-comentario
     .conteudo-comentario
     .box-btn-denuncia {
@@ -111,7 +111,7 @@
     padding-right: 10px;
   }
   
-  #analiseDenuncia
+  
     .box-comentario
     .conteudo-comentario
     .box-btn-denuncia

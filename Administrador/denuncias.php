@@ -13,10 +13,9 @@ require_once 'GlobalAdm.php';
     <link rel="shortcut icon" href="assets/img/logomarca.svg" type="imagem">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/dashboard.css">
-    <link rel="stylesheet" href="assets/css/modalDenuncia.css">
+    
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/modalDenuncia.css">
 </head>
 
 <body>
@@ -209,7 +208,8 @@ require_once 'GlobalAdm.php';
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <form method="post" action="#">
+                                        <form name="ignora" id="ignora" method="post" action="../Controller/IgnorarDenuncia.php">
+                                            <input type="hidden" name="idDenuncia" value="<?php echo $dl['idDenuncia']; ?>">
                                             <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="#" class="btn btn-secondary">Ignorar denúncia</button>
                                         </form>
                                         <form class="formAprovar" name="btnaprova" id="btnAprovar" action="#" method="post">
