@@ -97,11 +97,7 @@ require_once 'GlobalAdm.php';
                                 <div class="titulo-denuncia">
                                     <h1>TIPO DE DENÚNCIA: <?php echo $dl['nomeTipoDenuncia'] ?></h1>
                                 </div>
-                                <div class="desc-denuncia">
-
-                                    <p><?php echo $dl['descDenuncia'] ?></p>
-
-                                </div>
+                                
                             </div>
                             <div class="box-btn-denuncia">
                                 <button data-bs-toggle="modal" data-bs-target="#analiseDenuncia<?php echo $dl['idDenuncia'] ?>" class="btn-denuncia">
@@ -110,29 +106,43 @@ require_once 'GlobalAdm.php';
                             </div>
                         </div>
 
-
+                        <?php
+                        $denunciado = DenunciaUsuarioDao::ListaDenunciado($dl['idDenuncia']);
+                        $denunciador = DenunciaUsuarioDao::ListaDenunciador($dl['idDenuncia']);
+                        ?>
 
                         <div class="modal fade" id="analiseDenuncia<?php echo $dl['idDenuncia'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por Gabriel</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por <?php echo $denunciador[0]['nomeUsuario'] ?>'</h1>
                                         <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="denunciado">
 
                                             <div class="informacoes-denunciado">
-                                                <h1 style="font-family: 'InterBold';">Gabriel Araujo está sendo denunciado por:</h1>
+                                                <h1 style="font-family: 'InterBold';"><?php echo $denunciado[0]['nomeUsuario'] ?> está sendo denunciado por:</h1>
                                                 <div class="comentario">
                                                     <div class="box-comentario">
 
 
-                                                        <img src="../assets/img/perfil.png" alt="">
+                                                   
+                                                        <?PHP
+                                                        if ($denunciado[0]['nivelContaUsuario'] == 2) {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $denunciado[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        } else {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilVisitante/assets/img/FotoPerfil/<?php echo $denunciado[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        }
+                                                        ?>
 
                                                         <div class="conteudo-comentario">
-                                                            <h1>@gabb</h1>
-                                                            <p>Gabriel Araujo</p>
+                                                            <h1><?php echo $denunciado[0]['nicknameUsuario'] ?></h1>
+                                                            <p><?php echo $denunciado[0]['nomeUsuario'] ?></p>
 
 
 
@@ -149,7 +159,7 @@ require_once 'GlobalAdm.php';
 
                                                 <h2 style="font-family: InterBold;">Data da denúncia</h2>
                                                 <div class="box-dataDenuncia">
-                                                    <h3><?php echo $dl['dataDenuncia'] ?></h3>
+                                                    <h3><?php echo $dl['dataFormatada'] ?></h3>
                                                 </div>
 
                                             </div>
@@ -171,11 +181,21 @@ require_once 'GlobalAdm.php';
                                                     <div class="box-comentario">
 
 
-                                                        <img src="../assets/img/perfil.png" alt="">
+                                                    <?PHP
+                                                        if ($denunciador[0]['nivelContaUsuario'] == 2) {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $denunciador[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        } else {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilVisitante/assets/img/FotoPerfil/<?php echo $denunciador[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        }
+                                                        ?>
 
                                                         <div class="conteudo-comentario">
-                                                            <h1>@gabb</h1>
-                                                            <p>Gabriel Araujo</p>
+                                                            <h1><?php echo $denunciador[0]['nicknameUsuario'] ?></h1>
+                                                            <p><?php echo $denunciador[0]['nomeUsuario'] ?></p>
 
 
 
