@@ -1,6 +1,8 @@
 <?php
 include('../../../../Controller/VerificaLogado.php');
 require_once '../../../../Dao/ArtistaDao.php';
+require_once 'Global.php';
+require_once '../../../../Dao/UsuarioDao.php';
 
 
 /*if (!isset($_COOKIE['primeiroLogin']) && $_COOKIE['idUser'] == $_SESSION['idUsuario']) {
@@ -161,7 +163,7 @@ require_once '../../../../Dao/ArtistaDao.php';
                 </div>
             </div>
 
-            <form>
+            <form action="AlterarSenha.php" method="POST">
 
                 <div class="voltar-conteudo">
                     <div class="voltar">
@@ -179,12 +181,12 @@ require_once '../../../../Dao/ArtistaDao.php';
 
                 <div class="input-group mb-3">
 
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
+                    <input name="senhaNova" type="password" class="form-control" aria-label="Sizing example input" placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="input-group mb-3">
 
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
+                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
                 </div>
 
 

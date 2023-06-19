@@ -1,3 +1,5 @@
+<?php require_once 'Global.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,7 +147,7 @@
                 </div>
             </div>
 
-            <form>
+            <form action="AlterarSenha.php" method="POST">
 
                 <div class="voltar-conteudo">
                     <div class="voltar">
@@ -165,13 +167,13 @@
 
                 <div class="input-group mb-3">
 
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input"
+                    <input name="senhaNova" type="password" class="form-control" aria-label="Sizing example input"
                         placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="input-group mb-3">
 
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input"
+                    <input name="cofsenha" type="password" class="form-control" aria-label="Sizing example input"
                         placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
                 </div>
 
