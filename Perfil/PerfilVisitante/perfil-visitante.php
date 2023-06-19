@@ -152,13 +152,7 @@ require_once 'GlobalPerfil.php';
                                 foreach ($pc as $pcc) {
                                     if ($pcc['idTipoMidia'] == 3) {
                                 ?>
-                                        <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
-
-                                    <?php
-                                    } else if ($pcc['idTipoMidia'] == 2) {
-                                    ?>
-                                    <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
-                                
+                                        <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">            
                                <?php 
                                } else if ($pcc['idTipoMidia'] == 2) {
                                 ?>
