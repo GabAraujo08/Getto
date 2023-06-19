@@ -141,9 +141,9 @@ error_reporting(0);
                         $html .= '<form action="../perfilMostrarUsuario.php?$_SESSION" method="POST">';
                         $html .= '<li>';
                         if ($_SESSION['nivel'] == 2) {
-                            $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                            $html .= '<img src="../../PerfilArtista/assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
                         } else {
-                            $html .= '<img src="../../PerfilVisitante/assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
+                            $html .= '<img src="../assets/img/FotoPerfil/' . $_SESSION['fotoP'] . '" alt="Imagem de perfil">';
                         }
 
                         $html .= '<button type="submit">' . $_SESSION['nick'] . '</button>';
