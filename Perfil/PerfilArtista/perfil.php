@@ -710,14 +710,14 @@ require_once '../../Dao/SeguidoresDao.php';
     <!-- --------------------------- MODAL MOSTRAR EVENTO ----------------------- -->
 
     <div class="modal fade" id="modalMostrarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="conteudo-mostrar-evento">
                         <div class="img-mostrar-evento" style="width: 50%;">
                             <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
                         </div>
-                        <div class="informacoes-mostrar-evento">
+                        <div class="informacoes-mostrar-evento" style="width: 50%;">
                             <div class="perfil-usuario-mostrar-evento">
                                 <div class="img-perfil-mostrar-evento">
                                     <img class="perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
@@ -738,15 +738,20 @@ require_once '../../Dao/SeguidoresDao.php';
                                 <p><?php echo $evento['logradouroEvento']; ?> <?php echo $evento['numLogEvento']; ?></p>
                             </div>
                             <div class="horario-evento">
-                            <span>Horário de início:</span><?php echo $evento['horarioInicioEvento']; ?>
+                                <span>Horário de início:</span><?php echo $evento['horarioInicioEvento']; ?>
                             </div>
                             <div class="horario-evento">
                                 <span>Horário de término:</span><?php echo $evento['horarioFinalEvento']; ?>
                             </div>
                             <div class="data-mostrar-evento">
-                                <p><?php $dia = date('d', strtotime($evento['dataEvento']));
-                                    echo $dia; ?></p><span><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
-                                                            echo $mes; ?></span>
+                                <div class="data" style="display:flex;">
+                                    <p class="data">Data:</p><span class="date"><?php $dia = date('d', strtotime($evento['dataEvento']));
+                                        echo $dia; ?></span>
+                                </div>
+                                <div class="mes">
+                                    <p class="mes"><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                        echo $mes; ?></p>
+                                </div>
                             </div>
                             <div class="footer-mostrar-evento">
                                 <div class="confirmados-mostrar-evento">
@@ -755,7 +760,7 @@ require_once '../../Dao/SeguidoresDao.php';
                                         echo $prec . ' Presenças confirmadas'; ?></p>
                                 </div>
                                 <div class="link-evento">
-                                    <p>link do ingresso: <a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
+                                    <p><span>link do ingresso: </span><a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
                                 </div>
                             </div>
                         </div>

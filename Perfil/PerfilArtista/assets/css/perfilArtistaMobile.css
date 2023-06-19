@@ -1092,13 +1092,21 @@ body {
   width: 100%;
 }
 /*------------------------------------- MODAL MOSTRAR EVENTO ----------------------------*/
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 #modalMostrarEvento
   .modal-body
   .conteudo-mostrar-evento
   .img-mostrar-evento
   img {
-  height: 70%;
-  width: 50%;
+  height: 100%;
+  width: 100%;
 }
 
 #modalMostrarEvento
@@ -1153,12 +1161,63 @@ body {
   .modal-body
   .conteudo-mostrar-evento
   .informacoes-mostrar-evento
-  .titulo-mostrar-evento h1 {
+  .titulo-mostrar-evento
+  h1 {
   font-family: "InterRegular";
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 23px;
+  color: #000000;
+  margin-top: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .data
+  p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
   color: #000000;
 }
 
@@ -1166,25 +1225,53 @@ body {
   .modal-body
   .conteudo-mostrar-evento
   .informacoes-mostrar-evento
-  .horario-evento span{
-	font-style: normal;
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 19px;
-	color: #000000;
-  } 
+  .data-mostrar-evento
+  .data
+  span {
+  margin-left: 5px;
+}
 
-  #modalMostrarEvento
+#modalMostrarEvento
   .modal-body
   .conteudo-mostrar-evento
   .informacoes-mostrar-evento
-  .horario-evento p{
-	font-style: normal;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 19px;
-	color: #000000;
-  }
+  .data-mostrar-evento
+  .mes
+  p {
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento {
+  display: flex;
+  justify-content: space-between;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  p {
+  color: blue;
+}
 
 /*---------------------------------MODAL EVENTO----------------------------*/
 
