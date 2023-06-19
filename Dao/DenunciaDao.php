@@ -28,6 +28,18 @@
             }
             return $id;   
         }
-        
+        public static function ListaDenuncia(){
+            $conexao = Conexao::conectar();
+
+            $consulta = $conexao->prepare('SELECT tbDenuncia.dataDenuncia, tbDenuncia.descDenuncia, tbTipoDenuncia.nomeTipoDenuncia
+                                               FROM tbDenuncia
+                                               INNER JOIN tbTipoDenuncia ON tbTipoDenuncia.idTipoDenuncia = tbDenuncia.idTipoDenuncia
+                                               WHERE tbDenuncia.statusDenuncia = "em Analise"');
+    
+            $consulta->execute();
+            $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    
+            return $resultado;
+        }
     }
 ?>

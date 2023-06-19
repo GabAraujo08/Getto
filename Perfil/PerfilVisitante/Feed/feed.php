@@ -696,7 +696,7 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                     <p><?PHP echo $cs['comentario']; ?></p>
                                                                     <?php
                                                                     $min = $cs['minutosComentario'];
-                                                                    $mess = intval($minuto / 43200);
+                                                                    $mess = intval($min / 43200);
                                                                     $min = $min % 43200;
 
                                                                     if ($mess > 0) {
@@ -1010,11 +1010,11 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                     <?PHP
                                                                     if ($c['nivelContaUsuario'] == 2) {
                                                                     ?>
-                                                                        <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                                        <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
                                                                     <?PHP
                                                                     } else {
                                                                     ?>
-                                                                        <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                                        <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
                                                                     <?PHP
                                                                     }
                                                                     ?>

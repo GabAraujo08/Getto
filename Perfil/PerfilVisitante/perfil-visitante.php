@@ -157,7 +157,6 @@ require_once 'GlobalPerfil.php';
                                     <?php
                                     } else if ($pcc['idTipoMidia'] == 2) {
                                     ?>
-<<<<<<< HEAD
                                     <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
                                 
                                <?php 

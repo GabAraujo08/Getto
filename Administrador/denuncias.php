@@ -1,4 +1,6 @@
-<?PHP include('../Controller/VerificaLogadoAdm.php'); ?>
+<?PHP include('../Controller/VerificaLogadoAdm.php');
+require_once 'GlobalAdm.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,10 @@
     <link rel="shortcut icon" href="assets/img/logomarca.svg" type="imagem">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/modalDenuncia.css">
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -56,7 +61,7 @@
         <div class="box-dashboard">
             <div class="header-adm">
                 <div class="texto-adm">
-                    <p>Olá, <?php echo ($_SESSION['nomeAdministrador']) ?> </p>
+                    <p >Olá, <?php echo ($_SESSION['nomeAdministrador']) ?> </p>
 
                 </div>
                 <div class="notificacao-perfil">
@@ -79,28 +84,152 @@
                         </h1>
                     </div>
 
-                    <div class="denuncia">
-                        <div class="img-denuncia">
-                            <img src="assets/img/img-denuncia.svg" alt="">
-                        </div>
-                        <div class="textos-denuncia">
-                            <div class="titulo-denuncia">
-                                <h1>TIPO DE DENÚNCIA: RACISMO</h1>
+
+                    <?PHP
+                    $ld = DenunciaDao::ListaDenuncia();
+                    foreach ($ld as $dl) {
+                    ?>
+                        <div class="denuncia">
+                            <div class="img-denuncia">
+                                <img src="assets/img/img-denuncia.svg" alt="">
                             </div>
-                            <div class="desc-denuncia">
-                               
+                            <div class="textos-denuncia">
+                                <div class="titulo-denuncia">
+                                    <h1>TIPO DE DENÚNCIA: <?php echo $dl['nomeTipoDenuncia'] ?></h1>
+                                </div>
+                                <div class="desc-denuncia">
+
+                                    <p><?php echo $dl['descDenuncia'] ?></p>
+
+                                </div>
+                            </div>
+                            <div class="box-btn-denuncia">
+                                <button data-bs-toggle="modal" data-bs-target="#analiseDenuncia<?php echo $dl['idDenuncia'] ?>" class="btn-denuncia">
+                                    Analisar
+                                </button>
                             </div>
                         </div>
-                        <div class="box-btn-denuncia">
-                            <button class="btn-denuncia">
-                                Analisar
-                            </button>
+
+
+
+                        <div class="modal fade" id="analiseDenuncia<?php echo $dl['idDenuncia'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por Gabriel</h1>
+                                        <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="denunciado">
+
+                                            <div class="informacoes-denunciado">
+                                                <h1 style="font-family: 'InterBold';">Gabriel Araujo está sendo denunciado por:</h1>
+                                                <div class="comentario">
+                                                    <div class="box-comentario">
+
+
+                                                        <img src="../assets/img/perfil.png" alt="">
+
+                                                        <div class="conteudo-comentario">
+                                                            <h1>@gabb</h1>
+                                                            <p>Gabriel Araujo</p>
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <h2 style="font-family: 'InterBold';
+                        margin: 0;">Classificação da denúncia</h2>
+                                                <div class="classificacaoDenuncia">
+                                                    <h3 style="color: red; font-family: 'InterBold';"><?php echo $dl['nomeTipoDenuncia'] ?></h3>
+                                                </div>
+
+                                                <h2 style="font-family: InterBold;">Data da denúncia</h2>
+                                                <div class="box-dataDenuncia">
+                                                    <h3><?php echo $dl['dataDenuncia'] ?></h3>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="denunciante">
+                                            <div class="informacoes-denuncia">
+                                                <h1 style="font-family: 'InterBold';">
+                                                    Descrição da denúncia
+                                                </h1>
+                                                <div class="box-descDenuncia">
+                                                    <h3 style="font-family: 'InterBold';"><?php echo $dl['descDenuncia'] ?></h3>
+                                                </div>
+
+                                            </div>
+                                            <div class="informacoes-denunciante">
+                                                <h2>Foi denunciado por:</h2>
+                                                <div class="box-denunciante">
+                                                    <div class="box-comentario">
+
+
+                                                        <img src="../assets/img/perfil.png" alt="">
+
+                                                        <div class="conteudo-comentario">
+                                                            <h1>@gabb</h1>
+                                                            <p>Gabriel Araujo</p>
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form method="post" action="#">
+                                            <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="#" class="btn btn-secondary">Ignorar denúncia</button>
+                                        </form>
+                                        <form class="formAprovar" name="btnaprova" id="btnAprovar" action="#" method="post">
+
+                                            
+                                        <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="#" class="btnRecusar btn btn-primary">Remover comentário</button>
+                                        </form>
+
+                                        <form class="formRecusar" id="formRecusar" method="post" action="#">
+
+                                            <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="#" class="btnRecusar btn btn-primary">Remover comentário</button>
+
+                                        </form>
+
+                                        <!-- <form class="formRecusar" id="formRecusar" style="display: none;" method="post" action="../Controller/AprovaArtista.php">
+                                                                    <input type="hidden" name="usuario_email" value="<?php echo $usuario['emailUsuario']; ?>">
+                                                                    <input type="hidden" name="usuario_id" value="<?php echo $usuario['idUsuario']; ?>">
+                                                                    <textarea name="motivoRecusa" id="" cols="30" rows="10"></textarea>
+                                                                    <button id="btnRecusar" type="submit" class="btn btn-primary">Enviar</button>
+                                                                </form> -->
+
+
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                   
+
+
+                    <?php
+                    }
+                    ?>
+
+
+                    
+
+
                 </div>
                 <!--BOX DA VERIFICAÇÃO COMEÇA AQUI-->
-                
+
             </div>
 
 
@@ -111,6 +240,7 @@
     </main>
 
 
+   
 
     <!-- ----------------------- ALERTA QUANDO APROVAR UM ARTISTA ---------------------- -->
 
@@ -165,6 +295,9 @@
             divAlert.style.display = 'flex';
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

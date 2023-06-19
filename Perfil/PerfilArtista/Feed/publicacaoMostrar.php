@@ -4,6 +4,8 @@ require_once '../../../Dao/publicacaoDao.php';
 require_once '../../../Dao/Conexao.php';
 require_once '../../../Dao/CurtidaDao.php';
 require_once '../../../Dao/ComentarioDao.php';
+$id = $_GET['id'];
+echo $id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -186,23 +188,17 @@ require_once '../../../Dao/ComentarioDao.php';
 
                     <div class="comentario-footer">
                         <div class="input-comentario">
-                            <textarea placeholder="Escreva seu comentário..." type="text">
+                            <textarea placeholder="Escreva seu comentário..." type="text"></textarea>
                         </div>
 
                         <div class="acoes-publicacao">
                             <div class="opcoes">
                                 <img src="assets/img/icon-estrela-btn.svg" alt="">
-                                <img src="assets/img/icon-compartilhar-btn.svg" alt="">
-                                <img src="assets/img/icon-salvar-btn.svg" alt="">
-                                <p>15 Curtidas</p>
-                            </div>
-
-                            <div class="informacoes">
                                 
-
-
-                                <p>1 Min</p>
+                                
                             </div>
+
+                            
 
                         </div>
                     </div>

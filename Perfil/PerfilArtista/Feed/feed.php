@@ -623,7 +623,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                         echo 'há ' . $min . ' min';
                                                                     }
                                                                     ?>
-<<<<<<< Updated upstream
+
                                                                     <div class="box-btn-denuncia">
                                                                         <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
                                                                             <input type="hidden" name="comentario" value="<?php echo $cs['comentario']; ?>">
@@ -637,12 +637,9 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                             <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                                         </form>
                                                                     </div>
-=======
+
                                                                 </div>
-                                                                <div class="box-btn-denuncia">
-                                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
->>>>>>> Stashed changes
-                                                                </div>
+                                                                
                                                             </div>
 
 
@@ -946,7 +943,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                             echo 'há ' . $minuto . ' min';
                                                                         }
                                                                         ?>
-<<<<<<< Updated upstream
+
                                                                         <div class="box-btn-denuncia">
                                                                         <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
                                                                             <input type="hidden" name="comentario" value="<?php echo $c['comentario']; ?>">
@@ -959,12 +956,9 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                             <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
                                                                             <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                                         </form>                                                                        </div>
-=======
+
                                                                     </div>
-                                                                    <div class="box-btn-denuncia">
-                                                                        <button data-bs-toggle="modal" data-bs-target="#denunciaModal" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
->>>>>>> Stashed changes
-                                                                    </div>
+                                                                    
                                                                 </div>
 
                                                             <?php
