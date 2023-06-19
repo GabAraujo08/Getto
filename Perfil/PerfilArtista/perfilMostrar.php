@@ -21,6 +21,213 @@ require_once 'GlobalPerfil.php';
 
 <body>
 
+<style>
+    /*------------------------------------- MODAL MOSTRAR EVENTO ----------------------------*/
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1{
+	word-break: break-all;
+}
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .descricao-mostrar-evento p{
+	word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .img-mostrar-evento
+  img {
+  height: 100%;
+  width: 100%;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .img-perfil-mostrar-evento
+  img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .nickname-perfil
+  h1 {
+  font-family: "InterRegular";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .perfil-usuario-mostrar-evento
+  .nickname-perfil {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .endereco-mostrar-evento p{
+	word-break: break-all;
+  }
+
+#modalMostrarEvento .modal-body .conteudo-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .titulo-mostrar-evento
+  h1 {
+  font-family: "InterRegular";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  color: #000000;
+  margin-top: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .horario-evento
+  p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento {
+  display: flex;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .data
+  p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .data
+  span {
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .data-mostrar-evento
+  .mes
+  p {
+  margin-left: 5px;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  span {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #000000;
+  word-break: break-all;
+}
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .footer-mostrar-evento
+  .link-evento
+  p {
+  color: blue;
+  word-break: break-all;
+}
+</style>
 
     <div class="d-flex">
         <div class="area-sidebar">
@@ -241,7 +448,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web" style="justify-content: center;">
 
 
                                 <?php
@@ -306,7 +513,7 @@ require_once 'GlobalPerfil.php';
 
 
 
-                            <div id="eventos-web" class="eventos eventos-web">
+                            <div id="eventos-web" class="eventos eventos-web" style="justify-content: center;">
                                 <?php
                                 require_once '../../Dao/EventoDao.php';
 
@@ -314,7 +521,7 @@ require_once 'GlobalPerfil.php';
                                     $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
                                     foreach ($eventos as $evento) : ?>
                                         <div class="img-evento">
-                                            <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                                            <img data-bs-toggle="modal" data-bs-target="#modalMostrarEvento" src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
 
                                             <h1>
                                                 <?PHP echo $evento['tituloEvento']; ?>
@@ -377,6 +584,94 @@ require_once 'GlobalPerfil.php';
 
     </nav>
 
+
+<!-- --------------------------- MODAL MOSTRAR PUBLICACAO ----------------------- -->
+
+<div class="modal fade" id="modalMostrarPublicacao" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="img-mostrar-publicacao">
+                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" id="img-mostrar-pub" alt="">
+                    </div>
+                    <div class="conteudo-mostrar-publicacao">
+                        <div class="perfil-usuario">
+                            <div class="img-perfil-mostrar-publicacao">
+                                <img class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                            </div>
+                            <div class="nickname-perfil">
+                                <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                            </div>
+                            <div class="legenda-mostrar-publicacao">
+                                <p>
+                                    <?PHP echo $p['descPublicacao']; ?>!
+                                </p>
+                            </div>
+                            <div class="titulo-comentarios">
+                                <p>Comentários</p>
+                            </div>
+                            <div class="comentarios-mostrar-publicacao">
+                                <?php
+                                $comes = ComentarioDao::listarComentario($p['idPublicacao']);
+                                if (!$comes) {
+                                    echo ('Sem comentários');
+                                } else {;
+                                    foreach ($comes as $cs) {
+                                ?>
+                                        <div class="box-comentario">
+                                            <?PHP
+                                            if ($cs['nivelContaUsuario'] == 2) {
+                                            ?>
+                                                <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                            <?PHP
+                                            } else {
+                                            ?>
+                                                <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                            <?PHP
+                                            }
+                                            ?>
+                                            <div class="conteudo-comentario">
+                                                <h1><?PHP echo $cs['nicknameUsuario']; ?></h1>
+                                                <p><?PHP echo $cs['comentario']; ?></p>
+                                                <?php
+                                                $min = $cs['minutosComentario'];
+                                                $mess = intval($min / 43200);
+                                                $min = $min % 43200;
+
+                                                if ($mess > 0) {
+                                                    echo 'há ' . $mess . ' m';
+                                                } elseif ($min == 0) {
+                                                    echo 'Agora mesmo';
+                                                } elseif ($min > 1440) {
+                                                    $dss = intval($min / 1440);
+                                                    echo 'há ' . $dss . ' d';
+                                                } elseif ($min > 59) {
+                                                    $hss = intval($min / 60);
+                                                    echo 'há ' . $hss . ' h';
+                                                } else {
+                                                    echo 'há ' . $min . ' min';
+                                                }
+                                                ?>
+                                                <div class="box-btn-denuncia">
+                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

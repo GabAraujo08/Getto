@@ -90,7 +90,7 @@ class EventoDao
     public static function ListaMeusEventos($id){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare(' SELECT DISTINCT idEvento, tbEvento.tituloEvento, tbEvento.descEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.numLogEvento, tbEvento.linkIng FROM tbEvento
+        $consulta = $conexao->prepare(' SELECT DISTINCT idEvento,tbEvento.tituloEvento, tbEvento.descEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.numLogEvento, tbEvento.linkIng FROM tbEvento
                                         WHERE tbEvento.idArtista = ?');
         $consulta->bindValue(1, $id);
         $consulta->execute();
@@ -116,7 +116,7 @@ class EventoDao
     public static function ListaConfirmaEvento($id)
     {
         $conexao = Conexao::conectar();
-        $query = $conexao->prepare('SELECT tbEvento.idEvento, tbEvento.tituloEvento, tbEvento.imagemEvento FROM tbPresenca
+        $query = $conexao->prepare('SELECT tbEvento.idEvento, tbEvento.tituloEvento, tbEvento.descEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.numLogEvento, tbEvento.linkIng FROM tbPresenca
                 INNER JOIN tbEvento ON tbPresenca.idEvento = tbEvento.idEvento
                 WHERE tbPresenca.idUsuario = ?');
         $query->bindValue(1, $id);

@@ -1098,6 +1098,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 10px;
 }
 
 #modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1{
@@ -1267,8 +1268,8 @@ body {
   .conteudo-mostrar-evento
   .informacoes-mostrar-evento
   .footer-mostrar-evento {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 #modalMostrarEvento
