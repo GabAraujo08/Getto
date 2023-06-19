@@ -14,9 +14,9 @@ $consulta->execute();
 $senha = $consulta->fetch();
 
 if (!password_verify($senhaAtual, $senha['senhaUsuario'])) {
-    echo 'Senha atual incorreta';
+    header('Location: conta-configMudarSenha.php');   
 } else if ($novaSenha != $confirmar) {
-    echo 'As senhas não coincidem';
+    header('Location: conta-configMudarSenha.php');   
 } else {
     $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
@@ -26,7 +26,8 @@ if (!password_verify($senhaAtual, $senha['senhaUsuario'])) {
     $prepareStatement->bindValue(2, $_SESSION['idUsuario']);
     
     if ($prepareStatement->execute()) {
-        echo 'Senha alterada com sucesso';
+        session_destroy(); 
+        header('Location: ../../../../Login/login.php');  
     } else {
         echo 'Erro ao atualizar a senha';
     }
