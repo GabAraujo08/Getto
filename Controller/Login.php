@@ -53,7 +53,8 @@ if ($resultado['emailUsuario'] == $email && password_verify($senha, $resultado['
         header('Location: ../emVerificacao.php');
     } else {
 
-        die('Sua conta está bloqueda entre em contato conosco.');
+        header('Location: ../Login/login.php?error=bloqueado');
+    exit;
     }
 } else {
 

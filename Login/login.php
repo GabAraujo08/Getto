@@ -6,6 +6,14 @@ if (isset($_GET['error']) && $_GET['error'] == 'incorrect') {
 }
 ?>
 
+<?php
+if (isset($_GET['error']) && $_GET['error'] == 'bloqueado') {
+  echo '<div class="alert">
+  <span class="ms erro"><i class="icon icon-hand-paper-o"></i><p>Você está bloqueado do Getto!</p> </span>
+  </div>';
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="">
