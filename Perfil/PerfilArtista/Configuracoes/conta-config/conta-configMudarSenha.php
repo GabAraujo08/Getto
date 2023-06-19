@@ -24,6 +24,7 @@ require_once '../../../../Dao/UsuarioDao.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conta</title>
     <link rel="shortcut icon" href="../assets/img/logomarca.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../../../../assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/contaMudarSenha.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
@@ -175,21 +176,25 @@ require_once '../../../../Dao/UsuarioDao.php';
                 </div>
 
                 <div class="input-group mb-3">
-
                     <input name="senha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Senha atual" aria-describedby="inputGroup-sizing-default">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('senha')">
+                        <i class="fas fa-eye" id="toggleSenha"></i>
+                    </button>
                 </div>
 
                 <div class="input-group mb-3">
-
                     <input name="senhaNova" type="password" class="form-control" aria-label="Sizing example input" placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('senhaNova')">
+                        <i class="fas fa-eye" id="toggleSenhaNova"></i>
+                    </button>
                 </div>
 
                 <div class="input-group mb-3">
-
-                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" 
-                    aria-describedby="inputGroup-sizing-default">
+                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('confSenha')">
+                        <i class="fas fa-eye" id="toggleConfSenha"></i>
+                    </button>
                 </div>
-
 
 
                 <button type="submit" class="btn btn-primary btn-entrar">Confirmar</button>
@@ -258,6 +263,23 @@ require_once '../../../../Dao/UsuarioDao.php';
             </div>
         </div>
     </div>
+
+    <script>
+function togglePasswordVisibility(inputName) {
+    var input = document.getElementsByName(inputName)[0];
+    var eyeIcon = document.getElementById("toggle" + inputName);
+
+    if (input.type === "password") {
+        input.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+    }
+}
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
