@@ -47,10 +47,14 @@ p {
 }
 
 #pintora {
-	width: 135%;
+	width: 93vh% !important;
 	position: relative;
 	right: 50px;
-	top: 18px;
+	
+}
+
+.img-pintora{
+	margin-top: 15rem !important;
 }
 
 /* -------------------------------- NAVBAR ------------------------------- */

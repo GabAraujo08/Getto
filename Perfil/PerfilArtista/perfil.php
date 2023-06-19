@@ -231,7 +231,7 @@ require_once '../../Dao/SeguidoresDao.php';
                         </div>
                         <div class="atividade-btn">
                             <h1 style="font-family: 'InterBold';font-size: 22px;margin-top: 10px;margin-bottom: 15px;">
-                                Sua atividade
+                                Suas Publicações
                             </h1>
                             <div class="btn-mudarExibicao">
                                 <button id="btn-exibirPublicacoes" class="btn btn-primary">

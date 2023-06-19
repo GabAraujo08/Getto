@@ -600,7 +600,7 @@ body {
 
 .container-fluid .area-perfil .papel-parede-img-perfil .papel-parede-img {
   width: 100%;
-  height: 215px;
+  height: 320px;
   z-index: -1;
   margin-bottom: 5px;
   border-radius: 8px;
@@ -1499,7 +1499,8 @@ body {
   }
 
   .container-fluid .area-perfil .area-nick-nome .nome > h1 {
-    font-size: calc(0.1rem + 1.2vw);
+    font-size: 19px !important;
+    margin-top: -3px !important;
   }
 }
 
