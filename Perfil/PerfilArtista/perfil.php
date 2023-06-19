@@ -646,56 +646,56 @@ require_once '../../Dao/SeguidoresDao.php';
                             <div class="comentarios-mostrar-publicacao">
                                 <?php
                                 $comes = ComentarioDao::listarComentario($p['idPublicacao']);
-                                if(!$comes){
-                                    echo('Sem comentários');
-                                }else{;
-                                foreach ($comes as $cs) {
+                                if (!$comes) {
+                                    echo ('Sem comentários');
+                                } else {;
+                                    foreach ($comes as $cs) {
                                 ?>
-                                    <div class="box-comentario">
-                                        <?PHP
-                                        if ($cs['nivelContaUsuario'] == 2) {
-                                        ?>
-                                            <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
-                                        <?PHP
-                                        } else {
-                                        ?>
-                                            <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
-                                        <?PHP
-                                        }
-                                        ?>
-                                        <div class="conteudo-comentario">
-                                            <h1><?PHP echo $cs['nicknameUsuario']; ?></h1>
-                                            <p><?PHP echo $cs['comentario']; ?></p>
-                                            <?php
-                                            $min = $cs['minutosComentario'];
-                                            $mess = intval($min / 43200);
-                                            $min = $min % 43200;
-
-                                            if ($mess > 0) {
-                                                echo 'há ' . $mess . ' m';
-                                            } elseif ($min == 0) {
-                                                echo 'Agora mesmo';
-                                            } elseif ($min > 1440) {
-                                                $dss = intval($min / 1440);
-                                                echo 'há ' . $dss . ' d';
-                                            } elseif ($min > 59) {
-                                                $hss = intval($min / 60);
-                                                echo 'há ' . $hss . ' h';
+                                        <div class="box-comentario">
+                                            <?PHP
+                                            if ($cs['nivelContaUsuario'] == 2) {
+                                            ?>
+                                                <img src="../assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                            <?PHP
                                             } else {
-                                                echo 'há ' . $min . ' min';
+                                            ?>
+                                                <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $cs['fotoPerfilUsuario']; ?>" alt="">
+                                            <?PHP
                                             }
                                             ?>
-                                            <div class="box-btn-denuncia">
-                                                <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                            <div class="conteudo-comentario">
+                                                <h1><?PHP echo $cs['nicknameUsuario']; ?></h1>
+                                                <p><?PHP echo $cs['comentario']; ?></p>
+                                                <?php
+                                                $min = $cs['minutosComentario'];
+                                                $mess = intval($min / 43200);
+                                                $min = $min % 43200;
+
+                                                if ($mess > 0) {
+                                                    echo 'há ' . $mess . ' m';
+                                                } elseif ($min == 0) {
+                                                    echo 'Agora mesmo';
+                                                } elseif ($min > 1440) {
+                                                    $dss = intval($min / 1440);
+                                                    echo 'há ' . $dss . ' d';
+                                                } elseif ($min > 59) {
+                                                    $hss = intval($min / 60);
+                                                    echo 'há ' . $hss . ' h';
+                                                } else {
+                                                    echo 'há ' . $min . ' min';
+                                                }
+                                                ?>
+                                                <div class="box-btn-denuncia">
+                                                    <button data-bs-toggle="modal" data-bs-target="#denunciaModal" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
 
 
 
                                 <?php
-                                }
+                                    }
                                 }
                                 ?>
                             </div>
@@ -705,7 +705,6 @@ require_once '../../Dao/SeguidoresDao.php';
             </div>
         </div>
     </div>
-    </div>
 
 
     <!-- --------------------------- MODAL MOSTRAR EVENTO ----------------------- -->
@@ -714,18 +713,20 @@ require_once '../../Dao/SeguidoresDao.php';
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
                 <div class="modal-body">
-                    <div class="img-mostrar-evento">
-                        <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
-                    </div>
                     <div class="conteudo-mostrar-evento">
-                        <div class="perfil-usuario">
-                            <div class="img-perfil-mostrar-evento">
-                                <img class="img perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                        <div class="img-mostrar-evento" style="width: 50%;">
+                            <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                        </div>
+                        <div class="informacoes-mostrar-evento">
+                            <div class="perfil-usuario-mostrar-evento">
+                                <div class="img-perfil-mostrar-evento">
+                                    <img class="perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                                </div>
+                                <div class="nickname-perfil">
+                                    <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                                </div>
                             </div>
-                            <div class="nickname-perfil">
-                                <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
-                            </div>
-                            <div class="titulo-evento">
+                            <div class="titulo-mostrar-evento">
                                 <h1>
                                     <?PHP echo $evento['tituloEvento']; ?>
                                 </h1>
@@ -737,7 +738,25 @@ require_once '../../Dao/SeguidoresDao.php';
                                 <p><?php echo $evento['logradouroEvento']; ?> <?php echo $evento['numLogEvento']; ?></p>
                             </div>
                             <div class="horario-evento">
-                                <p>inicio: <?php echo $evento['horarioInicioEvento']; ?></p><span>fim: <?php echo $evento['horarioFinalEvento']; ?></span>
+                            <span>Horário de início:</span><?php echo $evento['horarioInicioEvento']; ?>
+                            </div>
+                            <div class="horario-evento">
+                                <span>Horário de término:</span><?php echo $evento['horarioFinalEvento']; ?>
+                            </div>
+                            <div class="data-mostrar-evento">
+                                <p><?php $dia = date('d', strtotime($evento['dataEvento']));
+                                    echo $dia; ?></p><span><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                                            echo $mes; ?></span>
+                            </div>
+                            <div class="footer-mostrar-evento">
+                                <div class="confirmados-mostrar-evento">
+                                    <p><?php
+                                        $prec = PresencaDao::consultar($evento['idEvento']);
+                                        echo $prec . ' Presenças confirmadas'; ?></p>
+                                </div>
+                                <div class="link-evento">
+                                    <p>link do ingresso: <a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -745,6 +764,7 @@ require_once '../../Dao/SeguidoresDao.php';
             </div>
         </div>
     </div>
+
 
     <!-- --------------------------- MODAL CRIAR PUBLICACAO ----------------------- -->
 

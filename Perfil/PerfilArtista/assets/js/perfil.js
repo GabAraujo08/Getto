@@ -211,6 +211,7 @@ document.getElementById('inputFile').addEventListener('change', function(event) 
     var inputCover = document.createElement('input');
 inputCover.type = 'file';
 inputCover.id = 'inputCover';
+inputCover.name = 'capaMusica';
 inputCover.addEventListener('change', function(event) {
 
   var coverFile = event.target.files[0]; // Obtém o arquivo da capa do single
