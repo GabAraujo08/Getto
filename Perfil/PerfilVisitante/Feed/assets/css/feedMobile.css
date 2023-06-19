@@ -842,7 +842,6 @@ body {
 .tags {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   height: 100%;
 }
 
@@ -857,7 +856,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  padding: 5px;
 }
 
 .rank-tag>h2 {

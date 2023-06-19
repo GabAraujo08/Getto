@@ -16,7 +16,7 @@ if ($resultado['emailUsuario'] == $email && password_verify($senha, $resultado['
             $_SESSION['idUsuario'] = $resultado['idUsuario'];
             $_SESSION['nomeUsuario'] = $resultado['nomeUsuario'];
             $_SESSION['nicknameUsuario'] = $resultado['nicknameUsuario'];
-            $_SESSION['emailUsuario'] = $resulariotado['emailUsuario'];
+            $_SESSION['emailUsuario'] = $resultado['emailUsuario'];
             $_SESSION['senhaUsuario'] = $resultado['senhaUsuario'];
             $_SESSION['estadoUsuario'] = $resultado['estadoUsuario'];
             $_SESSION['cidadeUsuario'] = $resultado['cidadeUsuario'];
@@ -31,7 +31,7 @@ if ($resultado['emailUsuario'] == $email && password_verify($senha, $resultado['
             $_SESSION['idUsuario'] = $resultado['idUsuario'];
             $_SESSION['nomeUsuario'] = $resultado['nomeUsuario'];
             $_SESSION['nicknameUsuario'] = $resultado['nicknameUsuario'];
-            $_SESSION['emailUsuario'] = $resulariotado['emailUsuario'];
+            $_SESSION['emailUsuario'] = $resultado['emailUsuario'];
             $_SESSION['senhaUsuario'] = $resultado['senhaUsuario'];
             $_SESSION['estadoUsuario'] = $resultado['estadoUsuario'];
             $_SESSION['cidadeUsuario'] = $resultado['cidadeUsuario'];

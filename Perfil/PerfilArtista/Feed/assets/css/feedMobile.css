@@ -1499,7 +1499,6 @@ textarea {
   display: flex;
   flex-direction: row;
   height: 100%;
-  justify-content: center;
 }
 
 .column-tags {
@@ -1514,6 +1513,7 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 5px;
 }
 
 .rank-tag > h2 {

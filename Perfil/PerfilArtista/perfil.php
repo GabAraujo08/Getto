@@ -245,7 +245,7 @@ require_once '../../Dao/SeguidoresDao.php';
                         </div>
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web" style="justify-content: center;">
 
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
@@ -305,7 +305,7 @@ require_once '../../Dao/SeguidoresDao.php';
 
 
 
-                            <div id="eventos-web" class="eventos eventos-web">
+                            <div id="eventos-web" class="eventos eventos-web" style="justify-content: center;">
 
 
                                 <?php require_once '../../Dao/EventoDao.php';

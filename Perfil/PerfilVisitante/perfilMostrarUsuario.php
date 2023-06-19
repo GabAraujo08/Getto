@@ -21,6 +21,133 @@ require_once 'GlobalPerfil.php';
 <body>
 
     <style>
+        #modalMostrarEvento .modal-body .informacoes-mostrar-evento {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+        }
+
+        #modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1 {
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .informacoes-mostrar-evento .descricao-mostrar-evento p {
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .img-mostrar-evento img {
+            height: 100%;
+            width: 100%;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento .img-perfil-mostrar-evento img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento {
+            display: flex;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento .nickname-perfil h1 {
+            font-family: "InterRegular";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 23px;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento .nickname-perfil {
+            display: flex;
+            align-items: center;
+            margin-left: 5px;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .endereco-mostrar-evento p {
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento {
+            display: flex;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .titulo-mostrar-evento h1 {
+            font-family: "InterRegular";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 23px;
+            color: #000000;
+            margin-top: 5px;
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .horario-evento span {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+            margin-right: 5px;
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .horario-evento p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+            margin-right: 5px;
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento {
+            display: flex;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento .data p {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: #000000;
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento .data span {
+            margin-left: 5px;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento .mes p {
+            margin-left: 5px;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .footer-mostrar-evento {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .footer-mostrar-evento .link-evento span {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: #000000;
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .footer-mostrar-evento .link-evento p {
+            color: blue;
+            word-break: break-all;
+        }
+
+
         .btn-mudarExibicao button {
             width: unset !important;
         }
@@ -246,30 +373,30 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web" style="justify-content: center;">
 
 
                                 <div id="publicacoes-web" class="col-8 publicacoes">
                                     <?php
                                     if ($_SESSION['nivel'] == 2) {
-                                    require_once  '../../Dao/publicacaoDao.php';
-                                    $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
-                                    foreach ($mp as $p) {
-                                        if ($p['idTipoMidia'] == 3) { ?>
-                                            <img src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>" alt="">
-                                        <?php
-                                        } elseif ($p['idTipoMidia'] == 2) { ?>
-                                            <video id="player-video" controls>
-                                                <source src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
-                                            </video>
-                                        <?PHP
-                                        } else { ?>
-                                            <div class="audio-player">
-                                                <div class="info-player">
-                                                    <div class="cover">
-                                                        <img class="cover-img" src=".../../../../teste/teste.jpg">
-                                                    </div>
-                                                    <!-- <div class="desc-musica">
+                                        require_once  '../../Dao/publicacaoDao.php';
+                                        $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
+                                        foreach ($mp as $p) {
+                                            if ($p['idTipoMidia'] == 3) { ?>
+                                                <img src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>" alt="">
+                                            <?php
+                                            } elseif ($p['idTipoMidia'] == 2) { ?>
+                                                <video id="player-video" controls>
+                                                    <source src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">
+                                                </video>
+                                            <?PHP
+                                            } else { ?>
+                                                <div class="audio-player">
+                                                    <div class="info-player">
+                                                        <div class="cover">
+                                                            <img class="cover-img" src=".../../../../teste/teste.jpg">
+                                                        </div>
+                                                        <!-- <div class="desc-musica">
                                                     <div class="autor">
                                                         <p>Kanye West</p>
                                                     </div>
@@ -277,38 +404,38 @@ require_once 'GlobalPerfil.php';
                                                         <p>Esqueci</p>
                                                     </div>
                                                 </div> -->
-                                                </div>
-                                                <div class="controls">
-                                                    <div class="reproducao">
-                                                        <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
-                                                        <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
-                                                        <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
                                                     </div>
-                                                    <div class="volume">
-                                                        <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                    <div class="controls">
+                                                        <div class="reproducao">
+                                                            <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                            <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                            <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                        </div>
+                                                        <div class="volume">
+                                                            <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="progress-bar" onclick="seek(event)">
-                                                    <div class="timer">00:00</div>
-                                                    <div class="time-bar">
-                                                        <div class="time-fill"></div>
+                                                    <div class="progress-bar" onclick="seek(event)">
+                                                        <div class="timer">00:00</div>
+                                                        <div class="time-bar">
+                                                            <div class="time-fill"></div>
+                                                        </div>
+                                                        <div class="total-time">00:00</div>
                                                     </div>
-                                                    <div class="total-time">00:00</div>
+                                                    <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">></audio>
                                                 </div>
-                                                <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">></audio>
-                                            </div>
-                                        <?PHP
+                                            <?PHP
+                                            }
                                         }
-                                    }
-                                    }else{
-                                    
+                                    } else {
+
                                         $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idU']);
                                         foreach ($pc as $pcc) {
-                                            if ($pcc['idTipoMidia'] == 3) {?>
+                                            if ($pcc['idTipoMidia'] == 3) { ?>
 
                                                 <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
-                                            
-                                            <?php 
+
+                                            <?php
                                             } else if ($pcc['idTipoMidia'] == 2) {
                                             ?>
                                                 <video id="player-video" controls>
@@ -331,26 +458,26 @@ require_once 'GlobalPerfil.php';
                                                             </div>
                                                         </div> -->
                                                     </div>
-                                                        <div class="controls">
-                                                            <div class="reproducao">
-                                                                <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
-                                                                <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
-                                                                <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
-                                                            </div>
-                                                            <div class="volume">
-                                                                <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
-                                                            </div>
+                                                    <div class="controls">
+                                                        <div class="reproducao">
+                                                            <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                            <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                            <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
                                                         </div>
-                                                        <div class="progress-bar" onclick="seek(event)">
-                                                            <div class="timer">00:00</div>
-                                                            <div class="time-bar">
-                                                                <div class="time-fill"></div>
-                                                            </div>
-                                                            <div class="total-time">00:00</div>
+                                                        <div class="volume">
+                                                            <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
                                                         </div>
-                                                        <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>"></audio>
                                                     </div>
-                                            <?PHP
+                                                    <div class="progress-bar" onclick="seek(event)">
+                                                        <div class="timer">00:00</div>
+                                                        <div class="time-bar">
+                                                            <div class="time-fill"></div>
+                                                        </div>
+                                                        <div class="total-time">00:00</div>
+                                                    </div>
+                                                    <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>"></audio>
+                                                </div>
+                                    <?PHP
                                             }
                                         }
                                     }
@@ -360,10 +487,10 @@ require_once 'GlobalPerfil.php';
 
 
 
-                            <div id="eventos-web" class="eventos eventos-web">
+                            <div id="eventos-web" class="eventos eventos-web" style="justify-content: center;">
                                 <?php
                                 if ($_SESSION['nivel'] == 2) {
-                                require_once '../../Dao/EventoDao.php';
+                                    require_once '../../Dao/EventoDao.php';
                                     if (isset($_SESSION['idU'])) {
                                         $eventos = EventoDao::ListaMeusEventos($_SESSION['idU']);
                                         foreach ($eventos as $evento) : ?>
@@ -379,7 +506,7 @@ require_once 'GlobalPerfil.php';
                                     $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idU']);
                                     foreach ($eventos as $evento) : ?>
                                         <div class="img-evento">
-                                            <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+                                            <img data-bs-toggle="modal" data-bs-target="#modalMostrarEvento"  src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
                                             <h1><?PHP echo $evento['tituloEvento']; ?></h1>
                                         </div>
                                     <?php endforeach; ?>
@@ -404,7 +531,7 @@ require_once 'GlobalPerfil.php';
                                         $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
                                         foreach ($eventos as $evento) : ?>
 
-                                            <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+                                            <img data-bs-toggle="modal" data-bs-target="#modalMostrarEvento" src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
 
                                             <h1>
                                                 <?PHP echo $evento['tituloEvento']; ?>
@@ -523,6 +650,69 @@ require_once 'GlobalPerfil.php';
                 </div>
             </div>
 
+            <!-- --------------------------- MODAL MOSTRAR EVENTO ----------------------- -->
+
+            <div class="modal fade" id="modalMostrarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="conteudo-mostrar-evento">
+                                <div class="img-mostrar-evento" style="width: 50%;">
+                                    <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                                </div>
+                                <div class="informacoes-mostrar-evento" style="width: 50%;">
+                                    <div class="perfil-usuario-mostrar-evento">
+                                        <div class="img-perfil-mostrar-evento">
+                                            <img class="perfil-img" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                                        </div>
+                                        <div class="nickname-perfil">
+                                            <h1> <?PHP echo $_SESSION['nicknameUsuario']; ?></h1>
+                                        </div>
+                                    </div>
+                                    <div class="titulo-mostrar-evento">
+                                        <h1>
+                                            <?PHP echo $evento['tituloEvento']; ?>
+                                        </h1>
+                                    </div>
+                                    <div class="descricao-mostrar-evento">
+                                        <p><?php echo $evento['descEvento']; ?></p>
+                                    </div>
+                                    <div class="endereco-mostrar-evento">
+                                        <p><?php echo $evento['logradouroEvento']; ?> <?php echo $evento['numLogEvento']; ?></p>
+                                    </div>
+                                    <div class="horario-evento">
+                                        <span>Horário de início:</span><?php echo $evento['horarioInicioEvento']; ?>
+                                    </div>
+                                    <div class="horario-evento">
+                                        <span>Horário de término:</span><?php echo $evento['horarioFinalEvento']; ?>
+                                    </div>
+                                    <div class="data-mostrar-evento">
+                                        <div class="data" style="display:flex;">
+                                            <p class="data">Data:</p><span class="date"><?php $dia = date('d', strtotime($evento['dataEvento']));
+                                                                                        echo $dia; ?></span>
+                                        </div>
+                                        <div class="mes">
+                                            <p class="mes"><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
+                                                            echo $mes; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="footer-mostrar-evento">
+                                        <div class="confirmados-mostrar-evento">
+                                            <p><?php
+                                                $prec = PresencaDao::consultar($evento['idEvento']);
+                                                echo $prec . ' Presenças confirmadas'; ?></p>
+                                        </div>
+                                        <div class="link-evento">
+                                            <p><span>link do ingresso:</span><a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
 
@@ -540,7 +730,7 @@ require_once 'GlobalPerfil.php';
                         <div class="modal-body">
 
                             <div class="div-img-capa">
-                            <?php
+                                <?php
                                 if ($_SESSION['nivel'] == 2) {
                                 ?>
                                     <img class="img-capa" src="../PerfilArtista/assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
@@ -928,94 +1118,94 @@ require_once 'GlobalPerfil.php';
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
             </script>
 
-<script>
-        var audioPlayers = document.querySelectorAll('.audio-player');
-        audioPlayers.forEach(function(player) {
-            var audio = player.querySelector('.audio-element');
-            var playButton = player.querySelector('.play-button');
-            var volumeButton = player.querySelector('.volume-button');
-            var timer = player.querySelector('.timer');
-            var totalTime = player.querySelector('.total-time');
-            var timeFill = player.querySelector('.time-fill');
-            var progressBar = player.querySelector('.progress-bar');
+            <script>
+                var audioPlayers = document.querySelectorAll('.audio-player');
+                audioPlayers.forEach(function(player) {
+                    var audio = player.querySelector('.audio-element');
+                    var playButton = player.querySelector('.play-button');
+                    var volumeButton = player.querySelector('.volume-button');
+                    var timer = player.querySelector('.timer');
+                    var totalTime = player.querySelector('.total-time');
+                    var timeFill = player.querySelector('.time-fill');
+                    var progressBar = player.querySelector('.progress-bar');
 
-            playButton.addEventListener('click', function() {
-                toggleAudio(audio, playButton);
-            });
+                    playButton.addEventListener('click', function() {
+                        toggleAudio(audio, playButton);
+                    });
 
-            volumeButton.addEventListener('click', function() {
-                toggleMute(audio, volumeButton);
-            });
+                    volumeButton.addEventListener('click', function() {
+                        toggleMute(audio, volumeButton);
+                    });
 
-            audio.addEventListener('timeupdate', function() {
-                var position = audio.currentTime / audio.duration;
-                timeFill.style.width = (position * 100) + '%';
+                    audio.addEventListener('timeupdate', function() {
+                        var position = audio.currentTime / audio.duration;
+                        timeFill.style.width = (position * 100) + '%';
 
-                var minutes = Math.floor(audio.currentTime / 60);
-                var seconds = Math.floor(audio.currentTime % 60);
-                timer.textContent = padTime(minutes) + ':' + padTime(seconds);
-            });
+                        var minutes = Math.floor(audio.currentTime / 60);
+                        var seconds = Math.floor(audio.currentTime % 60);
+                        timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+                    });
 
-            audio.addEventListener('loadedmetadata', function() {
-                var minutes = Math.floor(audio.duration / 60);
-                var seconds = Math.floor(audio.duration % 60);
-                totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
-            });
+                    audio.addEventListener('loadedmetadata', function() {
+                        var minutes = Math.floor(audio.duration / 60);
+                        var seconds = Math.floor(audio.duration % 60);
+                        totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+                    });
 
-            function toggleAudio(audio, button) {
-                if (audio.paused) {
-                    audio.play();
-                    button.innerHTML = '<i class="fas fa-pause"></i>';
-                } else {
-                    audio.pause();
-                    button.innerHTML = '<i class="fas fa-play"></i>';
+                    function toggleAudio(audio, button) {
+                        if (audio.paused) {
+                            audio.play();
+                            button.innerHTML = '<i class="fas fa-pause"></i>';
+                        } else {
+                            audio.pause();
+                            button.innerHTML = '<i class="fas fa-play"></i>';
+                        }
+                    }
+
+                    function toggleMute(audio, button) {
+                        if (audio.muted) {
+                            audio.muted = false;
+                            button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                        } else {
+                            audio.muted = true;
+                            button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                        }
+                    }
+
+                    function padTime(time) {
+                        return (time < 10 ? '0' : '') + time;
+                    }
+
+                    progressBar.addEventListener('click', function(event) {
+                        seek(event, audio, progressBar);
+                    });
+
+                    player.querySelector('.skip-button').addEventListener('click', function() {
+                        skipBackward(audio);
+                    });
+
+                    player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
+                        skipForward(audio);
+                    });
+                });
+
+                function seek(event, audio, progressBar) {
+                    var progressWidth = progressBar.clientWidth;
+                    var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+                    var positionPercentage = clickX / progressWidth;
+                    var seekTime = positionPercentage * audio.duration;
+
+                    audio.currentTime = seekTime;
                 }
-            }
 
-            function toggleMute(audio, button) {
-                if (audio.muted) {
-                    audio.muted = false;
-                    button.innerHTML = '<i class="fas fa-volume-up"></i>';
-                } else {
-                    audio.muted = true;
-                    button.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                function skipForward(audio) {
+                    audio.currentTime += 10;
                 }
-            }
 
-            function padTime(time) {
-                return (time < 10 ? '0' : '') + time;
-            }
-
-            progressBar.addEventListener('click', function(event) {
-                seek(event, audio, progressBar);
-            });
-
-            player.querySelector('.skip-button').addEventListener('click', function() {
-                skipBackward(audio);
-            });
-
-            player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
-                skipForward(audio);
-            });
-        });
-
-        function seek(event, audio, progressBar) {
-            var progressWidth = progressBar.clientWidth;
-            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-            var positionPercentage = clickX / progressWidth;
-            var seekTime = positionPercentage * audio.duration;
-
-            audio.currentTime = seekTime;
-        }
-
-        function skipForward(audio) {
-            audio.currentTime += 10;
-        }
-
-        function skipBackward(audio) {
-            audio.currentTime -= 10;
-        }
-    </script>
+                function skipBackward(audio) {
+                    audio.currentTime -= 10;
+                }
+            </script>
 
             <script>
                 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
