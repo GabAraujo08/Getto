@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19/06/2023 às 01:53
+-- Tempo de geração: 19/06/2023 às 03:20
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -139,7 +139,8 @@ CREATE TABLE `tbdenuncia` (
 CREATE TABLE `tbdenunciausuario` (
   `idDenunciaUsuario` int(11) NOT NULL,
   `idDenuncia` int(11) DEFAULT NULL,
-  `idUsuario` int(11) DEFAULT NULL
+  `idUsuario` int(11) DEFAULT NULL,
+  `tipoUsuario` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
