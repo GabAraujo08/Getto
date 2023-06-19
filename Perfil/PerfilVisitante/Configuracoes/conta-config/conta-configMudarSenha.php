@@ -13,8 +13,8 @@ require_once '../../../../Dao/UsuarioDao.php';
     <title>Conta</title>
     <link rel="shortcut icon" href="../assets/img/logomarca.png" type="image/x-icon" />
     <link rel="stylesheet" href="../assets/css/contaMudarSenha.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../../assets/fontawesome/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
 <body>
@@ -25,7 +25,7 @@ require_once '../../../../Dao/UsuarioDao.php';
                 <h1 class="logo-tipo">Getto</h1>
             </div>
             <div class="d-flex justify-content-center align-items-center flex-column list-group-box">
-            <ul class="list-group">
+                <ul class="list-group">
                     <a href="../../Feed/feed.php">
                         <li class="list-group-item"><button id="inicio" type="button" class="btn btn-primary custom-btn-item">Início</button></li>
                     </a>
@@ -132,7 +132,7 @@ require_once '../../../../Dao/UsuarioDao.php';
 
 
 
-        
+
         <div class="box">
             <div class="header-feed">
                 <div class="div-logos">
@@ -154,8 +154,7 @@ require_once '../../../../Dao/UsuarioDao.php';
 
                 <div class="voltar-conteudo">
                     <div class="voltar">
-                        <a href="conta-config.php"> <img src="../assets/img/icon-voltar.png" alt=""
-                                class="icon-voltar"></a>
+                        <a href="conta-config.php"> <img src="../assets/img/icon-voltar.png" alt="" class="icon-voltar"></a>
                     </div>
                     <div class="titulo-config">
                         <h1>Alteração de senha</h1>
@@ -163,21 +162,24 @@ require_once '../../../../Dao/UsuarioDao.php';
                 </div>
 
                 <div class="input-group mb-3">
-
-                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input"
-                        placeholder="Senha atual" aria-describedby="inputGroup-sizing-default">
+                    <input name="senha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Senha atual" aria-describedby="inputGroup-sizing-default">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('senha')">
+                        <i class="fas fa-eye" id="toggleSenha"></i>
+                    </button>
                 </div>
 
                 <div class="input-group mb-3">
-
-                    <input name="senhaNova" type="password" class="form-control" aria-label="Sizing example input"
-                        placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
+                    <input name="senhaNova" type="password" class="form-control" aria-label="Sizing example input" placeholder="Nova senha" aria-describedby="inputGroup-sizing-default">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('senhaNova')">
+                        <i class="fas fa-eye" id="toggleSenhaNova"></i>
+                    </button>
                 </div>
 
                 <div class="input-group mb-3">
-
-                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" 
-                        placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
+                    <input name="confSenha" type="password" class="form-control" aria-label="Sizing example input" placeholder="Confirmar senha" aria-describedby="inputGroup-sizing-default">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePasswordVisibility('confSenha')">
+                        <i class="fas fa-eye" id="toggleConfSenha"></i>
+                    </button>
                 </div>
 
 
@@ -227,14 +229,28 @@ require_once '../../../../Dao/UsuarioDao.php';
         </a>
 
     </nav>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+
+    <script>
+        function togglePasswordVisibility(inputName) {
+            var input = document.getElementsByName(inputName)[0];
+            var eyeIcon = document.getElementById("toggle" + inputName);
+
+            if (input.type === "password") {
+                input.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                input.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
 </body>
 
