@@ -1404,6 +1404,7 @@ textarea {
 
 .titulo-sugestao {
   margin-bottom: 1rem;
+  margin-top: 7rem;
 }
 
 .area-info .area-sugestao .sugestao-perfil {
@@ -1504,7 +1505,7 @@ textarea {
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 40%;
+  width: 60%;
   justify-content: space-between;
 }
 
