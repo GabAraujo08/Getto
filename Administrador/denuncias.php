@@ -178,10 +178,6 @@ require_once 'GlobalAdm.php';
                                                             <div class="conteudo-comentario">
                                                                 <h1><?php echo $denunciado[0]['nicknameUsuario'] ?></h1>
                                                                 <p><?php echo $denunciado[0]['nomeUsuario'] ?></p>
-
-
-
-
                                                             </div>
                                                         </div>
                                                     </div>
