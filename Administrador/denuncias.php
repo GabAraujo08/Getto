@@ -210,17 +210,13 @@ require_once 'GlobalAdm.php';
                                     <div class="modal-footer">
                                         <form name="ignora" id="ignora" method="post" action="../Controller/IgnorarDenuncia.php">
                                             <input type="hidden" name="idDenuncia" value="<?php echo $dl['idDenuncia']; ?>">
-                                            <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="#" class="btn btn-secondary">Ignorar denúncia</button>
-                                        </form>
-                                        <form class="formAprovar" name="btnaprova" id="btnAprovar" action="#" method="post">
-
-                                            
-                                        <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="#" class="btnRecusar btn btn-primary">Remover comentário</button>
+                                            <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="btnaprov" class="btn btn-secondary">Ignorar denúncia</button>
                                         </form>
 
-                                        <form class="formRecusar" id="formRecusar" method="post" action="#">
-
-                                            <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="#" class="btnRecusar btn btn-primary">Remover comentário</button>
+                                        <form class="formRecusar" id="formRecusar" method="post" action="../Controller/Banir.php">
+                                            <input type="hidden" name="idUsuario" value="<?php echo $denunciado[0]['idUsuario']; ?>">
+                                            <input type="hidden" name="idDenun" value="<?php echo $dl['idDenuncia']; ?>">
+                                            <button id="btnRecusar" type="submit" data-bs-dismiss="modal" name="botaorecu" class="btnRecusar btn btn-primary">Banir Usuario</button>
 
                                         </form>
 

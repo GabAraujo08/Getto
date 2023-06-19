@@ -56,12 +56,12 @@
 
             $queryInsert = "UPDATE tbComentario
                             SET statusComentario = ?
-                            WHERE idComentario = ?";
+                            WHERE idUsuario = ?";
             
             $prepareStatement = $conexao->prepare($queryInsert);
             
             $prepareStatement->bindValue(1, $c->getStatusComentario());
-            $prepareStatement->bindValue(2, $c->getIdComentario());
+            $prepareStatement->bindValue(2, $c->getIdUsuario());
 
             $prepareStatement->execute();
             return 'Atualizou';
