@@ -535,7 +535,7 @@ require_once 'GlobalPerfil.php';
                 <div class="modal-body">
                     <div class="conteudo-mostrar-evento">
                         <div class="img-mostrar-evento" style="width: 50%;">
-                            <img src="Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
+                            <img src="../PerfilArtista/Evento/assets/img/<?PHP echo $evento['imagemEvento']; ?>" alt="">
                         </div>
                         <div class="informacoes-mostrar-evento" style="width: 50%;">
                             <div class="perfil-usuario-mostrar-evento">
