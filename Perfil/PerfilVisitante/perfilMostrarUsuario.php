@@ -250,9 +250,8 @@ require_once 'GlobalPerfil.php';
 
 
                                 <div id="publicacoes-web" class="col-8 publicacoes">
-
-
                                     <?php
+                                    if ($_SESSION['nivel'] == 2) {
                                     require_once  '../../Dao/publicacaoDao.php';
                                     $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idA']);
                                     foreach ($mp as $p) {
@@ -265,8 +264,6 @@ require_once 'GlobalPerfil.php';
                                             </video>
                                         <?PHP
                                         } else { ?>
-
-
                                             <div class="audio-player">
                                                 <div class="info-player">
                                                     <div class="cover">
@@ -300,47 +297,100 @@ require_once 'GlobalPerfil.php';
                                                 </div>
                                                 <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $p['arquivoMidia']; ?>">></audio>
                                             </div>
+                                        <?PHP
+                                        }
+                                    }
+                                    }else{
+                                    
+                                        $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idU']);
+                                        foreach ($pc as $pcc) {
+                                            if ($pcc['idTipoMidia'] == 3) {?>
 
+                                                <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
+
+                                            <?php
+                                            } else if ($pcc['idTipoMidia'] == 2) {
+                                            ?>
+                                                <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
                                             
-
-                                            
-
-                                    <?PHP
+                                            <?php 
+                                            } else if ($pcc['idTipoMidia'] == 2) {
+                                            ?>
+                                                <video id="player-video" controls>
+                                                    <source src="../PerfilArtista/assets/img/Pubs/<?PHP echo $pcc['arquivoMidia']; ?>">
+                                                </video>
+                                            <?PHP
+                                            } else {
+                                            ?>
+                                                <div class="audio-player">
+                                                    <div class="info-player">
+                                                        <div class="cover">
+                                                            <img class="cover-img" src="../../teste/teste.jpg">
+                                                        </div>
+                                                        <!-- <div class="desc-musica">
+                                                            <div class="autor">
+                                                                <p>Kanye West</p>
+                                                            </div>
+                                                            <div class="nome-musica">
+                                                                <p>Esqueci</p>
+                                                            </div>
+                                                        </div> -->
+                                                    </div>
+                                                        <div class="controls">
+                                                            <div class="reproducao">
+                                                                <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
+                                                                <button class="play-button" onclick="toggleAudio()"><i class="fas fa-play"></i></button>
+                                                                <button class="skip-button" onclick="skipForward()"><i class="fas fa-forward"></i></button>
+                                                            </div>
+                                                            <div class="volume">
+                                                                <button class="volume-button" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="progress-bar" onclick="seek(event)">
+                                                            <div class="timer">00:00</div>
+                                                            <div class="time-bar">
+                                                                <div class="time-fill"></div>
+                                                            </div>
+                                                            <div class="total-time">00:00</div>
+                                                        </div>
+                                                        <audio class="audio-element" id="audio" src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>"></audio>
+                                                    </div>
+                                            <?PHP
+                                            }
                                         }
                                     }
                                     ?>
-
-
                                 </div>
-
                             </div>
 
+
+
                             <div id="eventos-web" class="eventos eventos-web">
-
-
                                 <?php
+                                if ($_SESSION['nivel'] == 2) {
                                 require_once '../../Dao/EventoDao.php';
-
-                                if (isset($_SESSION['idA'])) {
-                                    $eventos = EventoDao::ListaMeusEventos($_SESSION['idA']);
+                                    if (isset($_SESSION['idU'])) {
+                                        $eventos = EventoDao::ListaMeusEventos($_SESSION['idU']);
+                                        foreach ($eventos as $evento) : ?>
+                                            <div class="img-evento">
+                                                <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
+                                                <h1><?PHP echo $evento['tituloEvento']; ?></h1>
+                                            </div>
+                                        <?PHP
+                                        endforeach;
+                                    }
+                                } else {
+                                    require_once '../../Dao/EventoDao.php';
+                                    $eventos = EventoDao::ListaConfirmaEvento($_SESSION['idU']);
                                     foreach ($eventos as $evento) : ?>
                                         <div class="img-evento">
-
-
-
                                             <img src="../PerfilArtista/Evento/assets/img/<?php echo $evento['imagemEvento']; ?>" alt="">
-
-                                            <h1>
-                                                <?PHP echo $evento['tituloEvento']; ?>
-                                            </h1>
-
-
-
+                                            <h1><?PHP echo $evento['tituloEvento']; ?></h1>
                                         </div>
-
-                                <?php endforeach;
-                                } ?>
-
+                                    <?php endforeach; ?>
+                                <?PHP
+                                }
+                                ?>
 
                             </div>
 
@@ -495,7 +545,17 @@ require_once 'GlobalPerfil.php';
                         <div class="modal-body">
 
                             <div class="div-img-capa">
-                                <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
+                            <?php
+                                if ($_SESSION['nivel'] == 2) {
+                                ?>
+                                    <img class="img-capa" src="../PerfilArtista/assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
+                                <?php
+                                } else {
+                                ?>
+                                    <img class="img-capa" src="assets/img/FotoCapa/<?PHP echo $_SESSION['papel']; ?>" alt="">
+                                <?php
+                                }
+                                ?>
                             </div>
 
                             <div class="btn-mudar-capa">
@@ -532,11 +592,11 @@ require_once 'GlobalPerfil.php';
                                 <?php
                                 if ($_SESSION['nivel'] == 2) {
                                 ?>
-                                    <img class="img-usuario" src="assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
+                                    <img class="img-usuario" src="../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoP']; ?>" alt="">
                                 <?php
                                 } else {
                                 ?>
-                                    <img class="img-usuario" src="../PerfilArtista/assets/img/FotoPerfil/<?php echo $_SESSION['fotoP']; ?>" alt="">
+                                    <img class="img-usuario" src="assets/img/FotoPerfil/<?php echo $_SESSION['fotoP']; ?>" alt="">
                                 <?php
                                 }
                                 ?>
