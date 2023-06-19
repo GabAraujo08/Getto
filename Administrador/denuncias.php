@@ -13,10 +13,9 @@ require_once 'GlobalAdm.php';
     <link rel="shortcut icon" href="assets/img/logomarca.svg" type="imagem">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/dashboard.css">
-    <link rel="stylesheet" href="assets/css/modalDenuncia.css">
+    
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/modalDenuncia.css">
 </head>
 
 <body>
@@ -97,11 +96,7 @@ require_once 'GlobalAdm.php';
                                 <div class="titulo-denuncia">
                                     <h1>TIPO DE DENÚNCIA: <?php echo $dl['nomeTipoDenuncia'] ?></h1>
                                 </div>
-                                <div class="desc-denuncia">
-
-                                    <p><?php echo $dl['descDenuncia'] ?></p>
-
-                                </div>
+                                
                             </div>
                             <div class="box-btn-denuncia">
                                 <button data-bs-toggle="modal" data-bs-target="#analiseDenuncia<?php echo $dl['idDenuncia'] ?>" class="btn-denuncia">
@@ -110,29 +105,43 @@ require_once 'GlobalAdm.php';
                             </div>
                         </div>
 
-
+                        <?php
+                        $denunciado = DenunciaUsuarioDao::ListaDenunciado($dl['idDenuncia']);
+                        $denunciador = DenunciaUsuarioDao::ListaDenunciador($dl['idDenuncia']);
+                        ?>
 
                         <div class="modal fade" id="analiseDenuncia<?php echo $dl['idDenuncia'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered justify-content-center modal-xl">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por Gabriel</h1>
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Denúncia feita por <?php echo $denunciador[0]['nomeUsuario'] ?>'</h1>
                                         <button type="submit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="denunciado">
 
                                             <div class="informacoes-denunciado">
-                                                <h1 style="font-family: 'InterBold';">Gabriel Araujo está sendo denunciado por:</h1>
+                                                <h1 style="font-family: 'InterBold';"><?php echo $denunciado[0]['nomeUsuario'] ?> está sendo denunciado por:</h1>
                                                 <div class="comentario">
                                                     <div class="box-comentario">
 
 
-                                                        <img src="../assets/img/perfil.png" alt="">
+                                                   
+                                                        <?PHP
+                                                        if ($denunciado[0]['nivelContaUsuario'] == 2) {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $denunciado[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        } else {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilVisitante/assets/img/FotoPerfil/<?php echo $denunciado[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        }
+                                                        ?>
 
                                                         <div class="conteudo-comentario">
-                                                            <h1>@gabb</h1>
-                                                            <p>Gabriel Araujo</p>
+                                                            <h1><?php echo $denunciado[0]['nicknameUsuario'] ?></h1>
+                                                            <p><?php echo $denunciado[0]['nomeUsuario'] ?></p>
 
 
 
@@ -149,7 +158,7 @@ require_once 'GlobalAdm.php';
 
                                                 <h2 style="font-family: InterBold;">Data da denúncia</h2>
                                                 <div class="box-dataDenuncia">
-                                                    <h3><?php echo $dl['dataDenuncia'] ?></h3>
+                                                    <h3><?php echo $dl['dataFormatada'] ?></h3>
                                                 </div>
 
                                             </div>
@@ -171,11 +180,21 @@ require_once 'GlobalAdm.php';
                                                     <div class="box-comentario">
 
 
-                                                        <img src="../assets/img/perfil.png" alt="">
+                                                    <?PHP
+                                                        if ($denunciador[0]['nivelContaUsuario'] == 2) {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilArtista/assets/img/FotoPerfil/<?php echo $denunciador[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        } else {
+                                                        ?>
+                                                            <img src="../Perfil/PerfilVisitante/assets/img/FotoPerfil/<?php echo $denunciador[0]['fotoPerfilUsuario']; ?>" alt="">
+                                                        <?PHP
+                                                        }
+                                                        ?>
 
                                                         <div class="conteudo-comentario">
-                                                            <h1>@gabb</h1>
-                                                            <p>Gabriel Araujo</p>
+                                                            <h1><?php echo $denunciador[0]['nicknameUsuario'] ?></h1>
+                                                            <p><?php echo $denunciador[0]['nomeUsuario'] ?></p>
 
 
 
@@ -189,7 +208,8 @@ require_once 'GlobalAdm.php';
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <form method="post" action="#">
+                                        <form name="ignora" id="ignora" method="post" action="../Controller/IgnorarDenuncia.php">
+                                            <input type="hidden" name="idDenuncia" value="<?php echo $dl['idDenuncia']; ?>">
                                             <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="#" class="btn btn-secondary">Ignorar denúncia</button>
                                         </form>
                                         <form class="formAprovar" name="btnaprova" id="btnAprovar" action="#" method="post">

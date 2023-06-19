@@ -31,15 +31,30 @@
         public static function ListaDenuncia(){
             $conexao = Conexao::conectar();
 
-            $consulta = $conexao->prepare('SELECT tbDenuncia.dataDenuncia, tbDenuncia.descDenuncia, tbTipoDenuncia.nomeTipoDenuncia
-                                               FROM tbDenuncia
-                                               INNER JOIN tbTipoDenuncia ON tbTipoDenuncia.idTipoDenuncia = tbDenuncia.idTipoDenuncia
-                                               WHERE tbDenuncia.statusDenuncia = "em Analise"');
-    
+            $consulta = $conexao->prepare('SELECT tbDenuncia.idDenuncia, DATE_FORMAT(tbDenuncia.dataDenuncia, "%d/%b") AS dataFormatada, tbDenuncia.descDenuncia, tbTipoDenuncia.nomeTipoDenuncia
+                              FROM tbDenuncia
+                              INNER JOIN tbTipoDenuncia ON tbTipoDenuncia.idTipoDenuncia = tbDenuncia.idTipoDenuncia
+                              WHERE tbDenuncia.statusDenuncia = "em Analise"');
+
             $consulta->execute();
             $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
     
             return $resultado;
+        }
+        public static function atualizarDenuncia($c){
+            $conexao = Conexao::conectar();
+
+            $queryInsert = "UPDATE tbDenuncia
+                            SET statusDenuncia = ?
+                            WHERE idDenuncia = ?";
+            
+            $prepareStatement = $conexao->prepare($queryInsert);
+            
+            $prepareStatement->bindValue(1, $c->getStatusDenuncia());
+            $prepareStatement->bindValue(2, $c->getIdDenuncia());
+
+            $prepareStatement->execute();
+            return 'Atualizou';
         }
     }
 ?>
