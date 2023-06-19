@@ -1504,7 +1504,7 @@ textarea {
 .column-tags {
   display: flex;
   flex-direction: column;
-  height: 158%;
+  height: 100%;
   width: 60%;
   justify-content: space-between;
 }
