@@ -49,6 +49,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                 <div class="div-logo-marca">
 
                     <div class="icone-perfil">
+                        <a href="../perfil.php">
                         <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
                     </div>
 
