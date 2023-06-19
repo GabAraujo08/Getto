@@ -69,8 +69,7 @@ class EventoDao
              $query->execute();
             $resultado1 = $query->fetchAll(PDO::FETCH_ASSOC);
 
-            return $resultado1;
-        
+            return $resultado1; 
     }
     public static function AtualizaFoto($e){
         $conexao = Conexao::conectar();
@@ -91,7 +90,7 @@ class EventoDao
     public static function ListaMeusEventos($id){
             
         $conexao = Conexao::conectar();
-        $consulta = $conexao->prepare(' SELECT DISTINCT tbEvento.tituloEvento, tbEvento.descEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento FROM tbEvento
+        $consulta = $conexao->prepare(' SELECT DISTINCT idEvento, tbEvento.tituloEvento, tbEvento.descEvento, tbEvento.dataEvento, tbEvento.imagemEvento, tbEvento.logradouroEvento, tbEvento.horarioInicioEvento, tbEvento.horarioFinalEvento, tbEvento.numLogEvento, tbEvento.linkIng FROM tbEvento
                                         WHERE tbEvento.idArtista = ?');
         $consulta->bindValue(1, $id);
         $consulta->execute();
