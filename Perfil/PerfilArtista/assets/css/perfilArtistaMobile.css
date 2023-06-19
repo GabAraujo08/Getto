@@ -820,6 +820,7 @@ body {
 
 .atividade {
   display: flex;
+  justify-content: center;
 }
 
 .atividade .publicacoes {
@@ -859,6 +860,11 @@ body {
   width: 31%;
   max-height: 320px;
   height: 70%;
+}
+
+.atividade .publicacoes video {
+  max-height: 321px;
+  margin: 1px;
 }
 
 .publicacoes img:hover {
