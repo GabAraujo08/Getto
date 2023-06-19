@@ -209,7 +209,8 @@ require_once 'GlobalAdm.php';
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <form method="post" action="#">
+                                        <form name="ignora" id="ignora" method="post" action="../Controller/IgnorarDenuncia.php">
+                                            <input type="hidden" name="idDenuncia" value="<?php echo $dl['idDenuncia']; ?>">
                                             <button id="btn-aprovar" type="submit" data-bs-dismiss="modal" name="#" class="btn btn-secondary">Ignorar denúncia</button>
                                         </form>
                                         <form class="formAprovar" name="btnaprova" id="btnAprovar" action="#" method="post">
