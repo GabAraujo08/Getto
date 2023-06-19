@@ -373,7 +373,7 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="publicacoes publicacoes-web" style="justify-content: center;">
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web" >
 
 
                                 <div id="publicacoes-web" class="col-8 publicacoes">
