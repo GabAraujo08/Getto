@@ -35,11 +35,11 @@ require_once '../../../Dao/TipoDenunciaDao.php';
                 <?PHP
                 if ($_POST['nivelConta'] == 2) {
                 ?>
-                    <img src="../assets/img/FotoPerfil/<?PHP echo $_POST['fotoPerfil']; ?>" alt="">
+                    <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $_POST['fotoPerfil']; ?>" alt="">
                 <?PHP
                 } else {
                 ?>
-                    <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $_POST['fotoPerfil']; ?>" alt="">
+                    <img src="../assets/img/FotoPerfil/<?PHP echo $_POST['fotoPerfil']; ?>" alt="">
                 <?PHP
                 }
                 ?>

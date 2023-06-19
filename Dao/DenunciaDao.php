@@ -34,8 +34,6 @@
             $consulta = $conexao->prepare('SELECT tbDenuncia.dataDenuncia, tbDenuncia.descDenuncia, tbTipoDenuncia.nomeTipoDenuncia
                                                FROM tbDenuncia
                                                INNER JOIN tbTipoDenuncia ON tbTipoDenuncia.idTipoDenuncia = tbDenuncia.idTipoDenuncia
-                                               INNER JOIN tbDenunciaUsuario ON tbDenunciaUsuario.idDenuncia = tbDenuncia.idDenuncia
-                                               INNER JOIN tbUsuario ON tbUsuario.idUsuario = tbDenunciaUsuario.idUsuario
                                                WHERE tbDenuncia.statusDenuncia = "em Analise"');
     
             $consulta->execute();

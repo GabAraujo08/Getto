@@ -1010,11 +1010,11 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                     <?PHP
                                                                     if ($c['nivelContaUsuario'] == 2) {
                                                                     ?>
-                                                                        <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                                        <img src="../../PerfilArtista/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
                                                                     <?PHP
                                                                     } else {
                                                                     ?>
-                                                                        <img src="../../PerfilVisitante/assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
+                                                                        <img src="../assets/img/FotoPerfil/<?PHP echo $c['fotoPerfilUsuario']; ?>" alt="">
                                                                     <?PHP
                                                                     }
                                                                     ?>
