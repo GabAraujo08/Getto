@@ -760,7 +760,7 @@ require_once '../../Dao/SeguidoresDao.php';
                                         echo $prec . ' Presenças confirmadas'; ?></p>
                                 </div>
                                 <div class="link-evento">
-                                    <p><span>link do ingresso: </span><a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
+                                    <p><span>link do ingresso:</span><a target="_blank" href="<?php echo $evento['linkIng']; ?>"><?php echo $evento['linkIng']; ?></a> </p>
                                 </div>
                             </div>
                         </div>

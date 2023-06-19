@@ -1100,6 +1100,14 @@ body {
   justify-content: center;
 }
 
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1{
+	word-break: break-all;
+}
+
+#modalMostrarEvento .modal-body .informacoes-mostrar-evento .descricao-mostrar-evento p{
+	word-break: break-all;
+}
+
 #modalMostrarEvento
   .modal-body
   .conteudo-mostrar-evento
@@ -1141,6 +1149,7 @@ body {
   color: #000000;
   display: flex;
   align-items: center;
+  word-break: break-all;
 }
 
 #modalMostrarEvento
@@ -1152,6 +1161,14 @@ body {
   align-items: center;
   margin-left: 5px;
 }
+
+#modalMostrarEvento
+  .modal-body
+  .conteudo-mostrar-evento
+  .informacoes-mostrar-evento
+  .endereco-mostrar-evento p{
+	word-break: break-all;
+  }
 
 #modalMostrarEvento .modal-body .conteudo-mostrar-evento {
   display: flex;
@@ -1170,6 +1187,7 @@ body {
   line-height: 23px;
   color: #000000;
   margin-top: 5px;
+  word-break: break-all;
 }
 
 #modalMostrarEvento
@@ -1184,6 +1202,7 @@ body {
   line-height: 19px;
   color: #000000;
   margin-right: 5px;
+  word-break: break-all;
 }
 
 #modalMostrarEvento
@@ -1198,6 +1217,7 @@ body {
   line-height: 19px;
   color: #000000;
   margin-right: 5px;
+  word-break: break-all;
 }
 
 #modalMostrarEvento
@@ -1219,6 +1239,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   color: #000000;
+  word-break: break-all;
 }
 
 #modalMostrarEvento
@@ -1261,6 +1282,7 @@ body {
   font-weight: 600;
   font-size: 16px;
   color: #000000;
+  word-break: break-all;
 }
 
 #modalMostrarEvento
@@ -1271,6 +1293,7 @@ body {
   .link-evento
   p {
   color: blue;
+  word-break: break-all;
 }
 
 /*---------------------------------MODAL EVENTO----------------------------*/
