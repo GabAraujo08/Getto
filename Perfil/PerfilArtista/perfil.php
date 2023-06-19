@@ -204,14 +204,14 @@ require_once '../../Dao/SeguidoresDao.php';
                                         if (empty($pix)) {
                                             echo '<p class="alerta-pix">Você ainda não tem chave pix cadastrada.</p>
                                             <button data-bs-toggle="modal" data-bs-target="#adicionarPix" style="position: relative;" class="btn btn-primary btn-doacao">
-                <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
+                <img src="assets/img/moeda.png" id="icone" alt="" srcset="">
                 
             </button>';
                                         } else {
                                             foreach ($pix as $cpa) {
                                                 echo '
             <button data-bs-toggle="modal" data-bs-target="#adicionarPix" style="position: relative;" class="btn btn-primary btn-doacao">
-                <img src="assets/img/dollar.png" id="icone" alt="" srcset="">
+                <img src="assets/img/moeda.png" id="icone" alt="" srcset="">
                 
             </button>';
                                             }
