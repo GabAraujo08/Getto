@@ -41,5 +41,20 @@
     
             return $resultado;
         }
+        public static function atualizarDenuncia($c){
+            $conexao = Conexao::conectar();
+
+            $queryInsert = "UPDATE tbDenuncia
+                            SET statusDenuncia = ?
+                            WHERE idDenuncia = ?";
+            
+            $prepareStatement = $conexao->prepare($queryInsert);
+            
+            $prepareStatement->bindValue(1, $c->getStatusDenuncia());
+            $prepareStatement->bindValue(2, $c->getIdDenuncia());
+
+            $prepareStatement->execute();
+            return 'Atualizou';
+        }
     }
 ?>
