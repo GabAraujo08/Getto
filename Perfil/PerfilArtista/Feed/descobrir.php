@@ -157,7 +157,7 @@ error_reporting(0);
                     $pubArtEng = PublicacaoDao::ListaPublicacaoArtistasEngajados();
                     foreach ($pubArtEng as $pae) {
                     ?>
-                        <a href="publicacaoMostrar.php?id=<?php echo $pae['idPublicacao'] ?>"><div class="publicacao">
+                        <div class="publicacao">
                             <?php
                             if ($pae['idTipoMidia'] == 3) {
                             ?>
@@ -210,7 +210,7 @@ error_reporting(0);
                             <?PHP
                                                                                                                             }
                             ?>
-                        </div></a>
+                        </div>
                     <?php
                     }
                     ?>

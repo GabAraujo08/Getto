@@ -333,30 +333,36 @@ require_once '../../Dao/SeguidoresDao.php';
 
                                 <?php
                                 $mp = PublicacaoDao::ListaMinhasPublicacao($_SESSION['idArtista']);
+                                print_r($mp);
                                 foreach ($mp as $p) {
 
                                 ?>
                                     <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="">
                                     <?PHP
 
-                                    if ($p['idTipoMidia'] == 3) {
+                                    if ($p['idTipoMidia'] == 1) {
                                     ?>
-                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
-                                                                                                                                } else if ($p['idTipoMidia'] == 2) {
-                                                                                                                                    ?>
+                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
+                                        <audio id="player-audio" controls>
+                                            <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
+                                        </audio>
+                                    <?PHP
+                                    } else if ($p['idTipoMidia'] == 2) {
+                                    ?>
                                         <video id="player-video" controls>
                                             <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
                                         </video>
                                     <?PHP
-                                                                                                                                } else {
+                                    } else {
                                     ?>
 
                                         <audio id="player-audio" controls>
                                             <source src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
                                         </audio>
+                                        <img src="assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao">
                                 <?PHP
-                                                                                                                                }
-                                                                                                                            }
+                                    }
+                                }
 
                                 ?>
 
@@ -848,7 +854,7 @@ require_once '../../Dao/SeguidoresDao.php';
                                 <div id="previewContainer"></div>
                                 <div id="previewCover"></div>
 
-
+                                <input type="file" style="display: none;" id="inputCapa" name="capaMusica">
 
 
 

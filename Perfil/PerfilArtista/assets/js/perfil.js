@@ -182,65 +182,35 @@ radio3.addEventListener('click', function () {
 
 document.getElementById('inputFile').addEventListener('change', function(event) {
   var file = event.target.files[0];
-  var fileType = file.type.split('/')[0]; // Obtém o tipo de arquivo (imagem, vídeo ou música)
+  var fileType = file.type.split('/')[0];
   var previewContainer = document.getElementById('previewContainer');
   var previewCover = document.getElementById('previewCover');
 
   if (fileType === 'image') {
-    // Se for uma imagem, cria uma tag de imagem e define o atributo src com a URL do arquivo selecionado
     var img = document.createElement('img');
     img.src = URL.createObjectURL(file);
-    previewContainer.innerHTML = ''; // Limpa o conteúdo anterior
+    previewContainer.innerHTML = '';
     previewContainer.appendChild(img);
   } else if (fileType === 'video') {
-    // Se for um vídeo, cria uma tag de vídeo e define o atributo src com a URL do arquivo selecionado
     var video = document.createElement('video');
     video.src = URL.createObjectURL(file);
-    video.controls = true; // Adiciona controles de reprodução
-    previewContainer.innerHTML = ''; // Limpa o conteúdo anterior
+    video.controls = true;
+    previewContainer.innerHTML = '';
     previewContainer.appendChild(video);
   } else if (fileType === 'audio') {
-    // Se for uma música, cria uma tag de áudio e define o atributo src com a URL do arquivo selecionado
     var audio = document.createElement('audio');
     audio.src = URL.createObjectURL(file);
-    audio.id = 'player'
-    audio.controls = true; // Adiciona controles de reprodução
-    previewContainer.innerHTML = ''; // Limpa o conteúdo anterior
+    audio.id = 'player';
+    audio.controls = true;
+    previewContainer.innerHTML = '';
     previewContainer.appendChild(audio);
 
-    var inputCover = document.createElement('input');
-inputCover.type = 'file';
-inputCover.id = 'inputCover';
-inputCover.name = 'capaMusica';
-inputCover.addEventListener('change', function(event) {
+    var inputCapa = document.getElementById('inputCapa');
+    inputCapa.style.display = 'block';
 
-  var coverFile = event.target.files[0]; // Obtém o arquivo da capa do single
-  var coverType = coverFile.type.split('/')[0]; // Obtém o tipo de arquivo da capa do single
-
-  if (coverType === 'image') {
-    // Se for uma imagem, cria uma tag de imagem e define o atributo src com a URL do arquivo selecionado
-    // var img = document.createElement('img');
-    // img.src = URL.createObjectURL(coverFile);
-    // previewCover.innerHTML = ''; // Limpa o conteúdo anterior
-    // previewCover.appendChild(img);
-  } else {
-    // Caso contrário, exibe uma mensagem de erro ou realiza outras ações de tratamento
-    previewCover.innerHTML = 'Arquivo inválido. Por favor, selecione uma imagem como capa do single.';
+    extrator(file); // chama a função extrator passando o arquivo como parâmetro
   }
-  
-  extrator(coverFile); // chama a função extrator passando o arquivo da capa do single como parâmetro
-
 });
-previewContainer.appendChild(inputCover);
-
-var label = document.createElement('label');
-label.htmlFor = 'inputCover';
-label.textContent = 'Selecionar a capa';
-previewCover.appendChild(label);
-}
-});
-
-
 
 
 

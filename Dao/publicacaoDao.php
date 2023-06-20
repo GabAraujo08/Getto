@@ -70,6 +70,20 @@ class PublicacaoDao
 
         return $resultado;
     }
+    public static function getMidiasPublicacao($idPublicacao)
+    {
+    $conexao = Conexao::conectar();
+    $consulta = $conexao->prepare('SELECT tbMidia.arquivoMidia, tbMidia.idTipoMidia
+                                   FROM tbMidiaPublicacao
+                                   INNER JOIN tbMidia ON tbMidiaPublicacao.idMidia = tbMidia.idMidia
+                                   WHERE tbMidiaPublicacao.idPublicacao = :idPublicacao');
+    $consulta->bindParam(':idPublicacao', $idPublicacao, PDO::PARAM_INT);
+    $consulta->execute();
+    $midias = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+    return $midias;
+    }
+
     public static function ListaPublicacaoSegui($id)
     {
 
