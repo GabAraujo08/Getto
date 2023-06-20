@@ -854,7 +854,7 @@ require_once '../../Dao/SeguidoresDao.php';
                                 <div id="previewContainer"></div>
                                 <div id="previewCover"></div>
 
-                                <input type="file" style="display: none;" id="inputCapa" name="capaMusica">
+                                <!--<input type="file" style="display: none;" id="inputCapa" name="capaMusica">-->
 
 
 

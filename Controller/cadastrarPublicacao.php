@@ -38,7 +38,7 @@
     MidiaPublicacaoDao::cadastrar($mp);
 
 
-        if(isset($_FILES['capaMusica']['name'])){
+        /*if(isset($_FILES['capaMusica']['name'])){
             $midia2 = new Midia();
             $midia2->setArquivoMidia(' ');
             $midia2->setIdTipoMidia(3);
@@ -61,4 +61,5 @@
             $mp2->setIdMidia($midia2->getIdMidia());
             $mp2->setIdPublicacao(PublicacaoDao::consultarId($publicacao));
             MidiaPublicacaoDao::cadastrar($mp2);
-        }
+        }*/
+?>
