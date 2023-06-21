@@ -75,13 +75,14 @@ if (isset($_POST['btnAprovar'])) {
             exit; // Encerrar o script após o redirecionamento
         } else {
             // Descartar a saída gerada até o momento
+            header('Location: ../Administrador/verifica.php');
             ob_end_clean();
             // Lógica de tratamento de erro
         }
     } catch (Exception $e) {
         // Descartar a saída gerada até o momento
         ob_end_clean();
-        echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+        header('Location: ../Administrador/verifica.php');
     }
 }
 
@@ -147,13 +148,14 @@ if (isset($_POST['btnRecusar'])) {
             exit; // Encerrar o script após o redirecionamento
         } else {
             // Descartar a saída gerada até o momento
+            header('Location: ../Administrador/verifica.php');
             ob_end_clean();
             // Lógica de tratamento de erro
         }
     } catch (Exception $e) {
         // Descartar a saída gerada até o momento
         ob_end_clean();
-        echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+        header('Location: ../Administrador/verifica.php');
     }
 }
 ?>
