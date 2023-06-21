@@ -39,7 +39,21 @@ require_once '../../../Dao/SeguidoresDao.php';
 </head>
 
 <body>
+    <style>
+        .rotate {
+            animation: rotation 2.5s infinite linear;
+        }
 
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
     <div style="overflow-x: hidden;" class="d-flex">
 
@@ -50,7 +64,7 @@ require_once '../../../Dao/SeguidoresDao.php';
 
                     <div class="icone-perfil">
                         <a href="../perfil.php">
-                        <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
+                            <img class="img perfil-img" src="../assets/img/FotoPerfil/<?PHP echo $_SESSION['fotoPerfilUsuario']; ?>" alt="">
                     </div>
 
                 </div>
@@ -413,7 +427,7 @@ require_once '../../../Dao/SeguidoresDao.php';
                                                 <div class="audio-player">
                                                     <div class="info-player">
                                                         <div class="cover">
-                                                            <img class="cover-img" src=".../../../../../teste/teste.jpg">
+                                                            <img class="cover-img" src=".../../../../../teste/teste.png">
                                                         </div>
                                                         <!-- <div class="desc-musica">
                                                             <div class="autor">
@@ -635,12 +649,12 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                             <input type="hidden" name="emaildenunciado" value="<?php echo $c['emailUsuario']; ?>">
                                                                             <input type="hidden" name="emaildenunciador" value="<?php echo $_SESSION['emailUsuario']; ?>">
                                                                             <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
-                                                                            <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                            <button type="submit" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
                                                                         </form>
                                                                     </div>
 
                                                                 </div>
-                                                                
+
                                                             </div>
 
 
@@ -731,7 +745,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                 if ($p['idTipoMidia'] == 3) {
                                                 ?>
                                                     <img src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>" alt="" class="img-publicacao"> <?PHP
-                                                } else if ($p['idTipoMidia'] == 2) {?>
+                                                                                                                                                } else if ($p['idTipoMidia'] == 2) { ?>
                                                     <video id="player-video" controls>
                                                         <source src="../assets/img/Pubs/<?PHP echo $p['arquivoMidia']; ?>">
                                                     </video>
@@ -742,7 +756,7 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                     <div class="audio-player">
                                                         <div class="info-player">
                                                             <div class="cover">
-                                                                <img class="cover-img" src=".../../../../../teste/teste.jpg">
+                                                                <img class="cover-img" src=".../../../../../teste/teste.png">
                                                             </div>
                                                             <!-- <div class="desc-musica">
                                                                 <div class="autor">
@@ -945,20 +959,21 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
                                                                         ?>
 
                                                                         <div class="box-btn-denuncia">
-                                                                        <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
-                                                                            <input type="hidden" name="comentario" value="<?php echo $c['comentario']; ?>">
-                                                                            <input type="hidden" name="nickname" value="<?php echo $c['nicknameUsuario']; ?>">
-                                                                            <input type="hidden" name="fotoPerfil" value="<?php echo $c['fotoPerfilUsuario']; ?>">
-                                                                            <input type="hidden" name="nivelConta" value="<?php echo $c['nivelContaUsuario']; ?>">
-                                                                            <input type="hidden" name="idDenunciado" value="<?php echo $c['idUsuario']; ?>">
-                                                                            <input type="hidden" name="emaildenunciado" value="<?php echo $c['emailUsuario']; ?>">
-                                                                            <input type="hidden" name="emaildenunciador" value="<?php echo $_SESSION['emailUsuario']; ?>">
-                                                                            <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
-                                                                            <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                        </form>                                                                        </div>
+                                                                            <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
+                                                                                <input type="hidden" name="comentario" value="<?php echo $c['comentario']; ?>">
+                                                                                <input type="hidden" name="nickname" value="<?php echo $c['nicknameUsuario']; ?>">
+                                                                                <input type="hidden" name="fotoPerfil" value="<?php echo $c['fotoPerfilUsuario']; ?>">
+                                                                                <input type="hidden" name="nivelConta" value="<?php echo $c['nivelContaUsuario']; ?>">
+                                                                                <input type="hidden" name="idDenunciado" value="<?php echo $c['idUsuario']; ?>">
+                                                                                <input type="hidden" name="emaildenunciado" value="<?php echo $c['emailUsuario']; ?>">
+                                                                                <input type="hidden" name="emaildenunciador" value="<?php echo $_SESSION['emailUsuario']; ?>">
+                                                                                <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
+                                                                                <button type="submit" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                            </form>
+                                                                        </div>
 
                                                                     </div>
-                                                                    
+
                                                                 </div>
 
                                                             <?php
@@ -1215,9 +1230,11 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
             var totalTime = player.querySelector('.total-time');
             var timeFill = player.querySelector('.time-fill');
             var progressBar = player.querySelector('.progress-bar');
+            var coverImg = player.querySelector('.cover-img');
 
             playButton.addEventListener('click', function() {
                 toggleAudio(audio, playButton);
+                toggleImageRotation(playButton, coverImg);
             });
 
             volumeButton.addEventListener('click', function() {
@@ -1274,25 +1291,32 @@ tem alguma coisa pra mim fazer: mas vc quer fazer? claro sei sabe deixa eu ve
             player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
                 skipForward(audio);
             });
+
+            function seek(event, audio, progressBar) {
+                var progressWidth = progressBar.clientWidth;
+                var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+                var positionPercentage = clickX / progressWidth;
+                var seekTime = positionPercentage * audio.duration;
+
+                audio.currentTime = seekTime;
+            }
+
+            function skipForward(audio) {
+                audio.currentTime += 10;
+            }
+
+            function skipBackward(audio) {
+                audio.currentTime -= 10;
+            }
+
+            function toggleImageRotation(button, image) {
+                if (audio.paused) {
+                    image.classList.remove('rotate');
+                } else {
+                    image.classList.add('rotate');
+                }
+            }
         });
-
-        function seek(event, audio, progressBar) {
-            var progressWidth = progressBar.clientWidth;
-            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-            var positionPercentage = clickX / progressWidth;
-            var seekTime = positionPercentage * audio.duration;
-
-            audio.currentTime = seekTime;
-        }
-
-        function skipForward(audio) {
-            audio.currentTime += 10;
-        }
-
-        function skipBackward(audio) {
-            audio.currentTime -= 10;
-        }
-
     </script>
 
 

@@ -31,6 +31,23 @@ error_reporting(0);
 
 
 
+    <style>
+        .rotate {
+            animation: rotation 2.5s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+
     <div class="d-flex">
         <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
         <div class="area-sidebar">
@@ -175,7 +192,7 @@ error_reporting(0);
                                 <div class="audio-player">
                                     <div class="info-player">
                                         <div class="cover">
-                                            <img class="cover-img" src=".../../../../../teste/teste.jpg">
+                                            <img class="cover-img" src=".../../../../../teste/teste.png">
                                         </div>
                                         <!-- <div class="desc-musica">
                                             <div class="autor">
@@ -501,9 +518,11 @@ error_reporting(0);
             var totalTime = player.querySelector('.total-time');
             var timeFill = player.querySelector('.time-fill');
             var progressBar = player.querySelector('.progress-bar');
+            var coverImg = player.querySelector('.cover-img');
 
             playButton.addEventListener('click', function() {
                 toggleAudio(audio, playButton);
+                toggleImageRotation(playButton, coverImg);
             });
 
             volumeButton.addEventListener('click', function() {
@@ -560,24 +579,32 @@ error_reporting(0);
             player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
                 skipForward(audio);
             });
+
+            function seek(event, audio, progressBar) {
+                var progressWidth = progressBar.clientWidth;
+                var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+                var positionPercentage = clickX / progressWidth;
+                var seekTime = positionPercentage * audio.duration;
+
+                audio.currentTime = seekTime;
+            }
+
+            function skipForward(audio) {
+                audio.currentTime += 10;
+            }
+
+            function skipBackward(audio) {
+                audio.currentTime -= 10;
+            }
+
+            function toggleImageRotation(button, image) {
+                if (audio.paused) {
+                    image.classList.remove('rotate');
+                } else {
+                    image.classList.add('rotate');
+                }
+            }
         });
-
-        function seek(event, audio, progressBar) {
-            var progressWidth = progressBar.clientWidth;
-            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-            var positionPercentage = clickX / progressWidth;
-            var seekTime = positionPercentage * audio.duration;
-
-            audio.currentTime = seekTime;
-        }
-
-        function skipForward(audio) {
-            audio.currentTime += 10;
-        }
-
-        function skipBackward(audio) {
-            audio.currentTime -= 10;
-        }
     </script>
 
 

@@ -21,6 +21,20 @@ require_once 'GlobalPerfil.php';
 <body>
 
     <style>
+
+.rotate {
+            animation: rotation 2.5s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
         #modalMostrarEvento .modal-body .informacoes-mostrar-evento {
             width: 50%;
             display: flex;
@@ -394,7 +408,7 @@ require_once 'GlobalPerfil.php';
                                                 <div class="audio-player">
                                                     <div class="info-player">
                                                         <div class="cover">
-                                                            <img class="cover-img" src=".../../../../teste/teste.jpg">
+                                                            <img class="cover-img" src=".../../../../teste/teste.png">
                                                         </div>
                                                         <!-- <div class="desc-musica">
                                                     <div class="autor">
@@ -1118,94 +1132,104 @@ require_once 'GlobalPerfil.php';
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
             </script>
 
-            <script>
-                var audioPlayers = document.querySelectorAll('.audio-player');
-                audioPlayers.forEach(function(player) {
-                    var audio = player.querySelector('.audio-element');
-                    var playButton = player.querySelector('.play-button');
-                    var volumeButton = player.querySelector('.volume-button');
-                    var timer = player.querySelector('.timer');
-                    var totalTime = player.querySelector('.total-time');
-                    var timeFill = player.querySelector('.time-fill');
-                    var progressBar = player.querySelector('.progress-bar');
+<script>
+        var audioPlayers = document.querySelectorAll('.audio-player');
+        audioPlayers.forEach(function(player) {
+            var audio = player.querySelector('.audio-element');
+            var playButton = player.querySelector('.play-button');
+            var volumeButton = player.querySelector('.volume-button');
+            var timer = player.querySelector('.timer');
+            var totalTime = player.querySelector('.total-time');
+            var timeFill = player.querySelector('.time-fill');
+            var progressBar = player.querySelector('.progress-bar');
+            var coverImg = player.querySelector('.cover-img');
 
-                    playButton.addEventListener('click', function() {
-                        toggleAudio(audio, playButton);
-                    });
+            playButton.addEventListener('click', function() {
+                toggleAudio(audio, playButton);
+                toggleImageRotation(playButton, coverImg);
+            });
 
-                    volumeButton.addEventListener('click', function() {
-                        toggleMute(audio, volumeButton);
-                    });
+            volumeButton.addEventListener('click', function() {
+                toggleMute(audio, volumeButton);
+            });
 
-                    audio.addEventListener('timeupdate', function() {
-                        var position = audio.currentTime / audio.duration;
-                        timeFill.style.width = (position * 100) + '%';
+            audio.addEventListener('timeupdate', function() {
+                var position = audio.currentTime / audio.duration;
+                timeFill.style.width = (position * 100) + '%';
 
-                        var minutes = Math.floor(audio.currentTime / 60);
-                        var seconds = Math.floor(audio.currentTime % 60);
-                        timer.textContent = padTime(minutes) + ':' + padTime(seconds);
-                    });
+                var minutes = Math.floor(audio.currentTime / 60);
+                var seconds = Math.floor(audio.currentTime % 60);
+                timer.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
 
-                    audio.addEventListener('loadedmetadata', function() {
-                        var minutes = Math.floor(audio.duration / 60);
-                        var seconds = Math.floor(audio.duration % 60);
-                        totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
-                    });
+            audio.addEventListener('loadedmetadata', function() {
+                var minutes = Math.floor(audio.duration / 60);
+                var seconds = Math.floor(audio.duration % 60);
+                totalTime.textContent = padTime(minutes) + ':' + padTime(seconds);
+            });
 
-                    function toggleAudio(audio, button) {
-                        if (audio.paused) {
-                            audio.play();
-                            button.innerHTML = '<i class="fas fa-pause"></i>';
-                        } else {
-                            audio.pause();
-                            button.innerHTML = '<i class="fas fa-play"></i>';
-                        }
-                    }
-
-                    function toggleMute(audio, button) {
-                        if (audio.muted) {
-                            audio.muted = false;
-                            button.innerHTML = '<i class="fas fa-volume-up"></i>';
-                        } else {
-                            audio.muted = true;
-                            button.innerHTML = '<i class="fas fa-volume-mute"></i>';
-                        }
-                    }
-
-                    function padTime(time) {
-                        return (time < 10 ? '0' : '') + time;
-                    }
-
-                    progressBar.addEventListener('click', function(event) {
-                        seek(event, audio, progressBar);
-                    });
-
-                    player.querySelector('.skip-button').addEventListener('click', function() {
-                        skipBackward(audio);
-                    });
-
-                    player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
-                        skipForward(audio);
-                    });
-                });
-
-                function seek(event, audio, progressBar) {
-                    var progressWidth = progressBar.clientWidth;
-                    var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-                    var positionPercentage = clickX / progressWidth;
-                    var seekTime = positionPercentage * audio.duration;
-
-                    audio.currentTime = seekTime;
+            function toggleAudio(audio, button) {
+                if (audio.paused) {
+                    audio.play();
+                    button.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    audio.pause();
+                    button.innerHTML = '<i class="fas fa-play"></i>';
                 }
+            }
 
-                function skipForward(audio) {
-                    audio.currentTime += 10;
+            function toggleMute(audio, button) {
+                if (audio.muted) {
+                    audio.muted = false;
+                    button.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    audio.muted = true;
+                    button.innerHTML = '<i class="fas fa-volume-mute"></i>';
                 }
+            }
 
-                function skipBackward(audio) {
-                    audio.currentTime -= 10;
+            function padTime(time) {
+                return (time < 10 ? '0' : '') + time;
+            }
+
+            progressBar.addEventListener('click', function(event) {
+                seek(event, audio, progressBar);
+            });
+
+            player.querySelector('.skip-button').addEventListener('click', function() {
+                skipBackward(audio);
+            });
+
+            player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
+                skipForward(audio);
+            });
+
+            function seek(event, audio, progressBar) {
+                var progressWidth = progressBar.clientWidth;
+                var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+                var positionPercentage = clickX / progressWidth;
+                var seekTime = positionPercentage * audio.duration;
+
+                audio.currentTime = seekTime;
+            }
+
+            function skipForward(audio) {
+                audio.currentTime += 10;
+            }
+
+            function skipBackward(audio) {
+                audio.currentTime -= 10;
+            }
+
+            function toggleImageRotation(button, image) {
+                if (audio.paused) {
+                    image.classList.remove('rotate');
+                } else {
+                    image.classList.add('rotate');
                 }
-            </script>
+            }
+        });
+    </script>
 
             <script>
                 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
