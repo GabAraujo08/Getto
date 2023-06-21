@@ -24,6 +24,21 @@ require_once 'GlobalPerfil.php';
 <style>
     /*------------------------------------- MODAL MOSTRAR EVENTO ----------------------------*/
 
+
+    .rotate {
+            animation: rotation 2.5s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
 #modalMostrarEvento .modal-body .informacoes-mostrar-evento {
   width: 50%;
   display: flex;
@@ -470,7 +485,7 @@ require_once 'GlobalPerfil.php';
                                         <div class="audio-player">
                                             <div class="info-player">
                                                 <div class="cover">
-                                                    <img class="cover-img" src=".../../../../teste/teste.jpg">
+                                                    <img class="cover-img" src=".../../../../teste/teste.png">
                                                 </div>
                                                 <!-- <div class="desc-musica">
                                                     <div class="autor">
@@ -806,7 +821,7 @@ require_once 'GlobalPerfil.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
 
-    <script>
+<script>
         var audioPlayers = document.querySelectorAll('.audio-player');
         audioPlayers.forEach(function(player) {
             var audio = player.querySelector('.audio-element');
@@ -816,9 +831,11 @@ require_once 'GlobalPerfil.php';
             var totalTime = player.querySelector('.total-time');
             var timeFill = player.querySelector('.time-fill');
             var progressBar = player.querySelector('.progress-bar');
+            var coverImg = player.querySelector('.cover-img');
 
             playButton.addEventListener('click', function() {
                 toggleAudio(audio, playButton);
+                toggleImageRotation(playButton, coverImg);
             });
 
             volumeButton.addEventListener('click', function() {
@@ -875,24 +892,32 @@ require_once 'GlobalPerfil.php';
             player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
                 skipForward(audio);
             });
+
+            function seek(event, audio, progressBar) {
+                var progressWidth = progressBar.clientWidth;
+                var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+                var positionPercentage = clickX / progressWidth;
+                var seekTime = positionPercentage * audio.duration;
+
+                audio.currentTime = seekTime;
+            }
+
+            function skipForward(audio) {
+                audio.currentTime += 10;
+            }
+
+            function skipBackward(audio) {
+                audio.currentTime -= 10;
+            }
+
+            function toggleImageRotation(button, image) {
+                if (audio.paused) {
+                    image.classList.remove('rotate');
+                } else {
+                    image.classList.add('rotate');
+                }
+            }
         });
-
-        function seek(event, audio, progressBar) {
-            var progressWidth = progressBar.clientWidth;
-            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-            var positionPercentage = clickX / progressWidth;
-            var seekTime = positionPercentage * audio.duration;
-
-            audio.currentTime = seekTime;
-        }
-
-        function skipForward(audio) {
-            audio.currentTime += 10;
-        }
-
-        function skipBackward(audio) {
-            audio.currentTime -= 10;
-        }
     </script>
 
     <script>

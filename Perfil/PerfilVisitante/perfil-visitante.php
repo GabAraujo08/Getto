@@ -19,212 +19,147 @@ require_once 'GlobalPerfil.php';
 
 <body>
 
-<style>
-    #modalMostrarEvento .modal-body .informacoes-mostrar-evento {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 10px;
-}
+    <style>
+        .rotate {
+            animation: rotation 2.5s infinite linear;
+        }
 
-#modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1{
-	word-break: break-all;
-}
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
 
-#modalMostrarEvento .modal-body .informacoes-mostrar-evento .descricao-mostrar-evento p{
-	word-break: break-all;
-}
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .img-mostrar-evento
-  img {
-  height: 100%;
-  width: 100%;
-}
+        #modalMostrarEvento .modal-body .informacoes-mostrar-evento {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .perfil-usuario-mostrar-evento
-  .img-perfil-mostrar-evento
-  img {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-}
+        #modalMostrarEvento .modal-body .informacoes-mostrar-evento .titulo-mostrar-evento h1 {
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .perfil-usuario-mostrar-evento {
-  display: flex;
-}
+        #modalMostrarEvento .modal-body .informacoes-mostrar-evento .descricao-mostrar-evento p {
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .perfil-usuario-mostrar-evento
-  .nickname-perfil
-  h1 {
-  font-family: "InterRegular";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
-  color: #000000;
-  display: flex;
-  align-items: center;
-  word-break: break-all;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .img-mostrar-evento img {
+            height: 100%;
+            width: 100%;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .perfil-usuario-mostrar-evento
-  .nickname-perfil {
-  display: flex;
-  align-items: center;
-  margin-left: 5px;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento .img-perfil-mostrar-evento img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .endereco-mostrar-evento p{
-	word-break: break-all;
-  }
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento {
+            display: flex;
+        }
 
-#modalMostrarEvento .modal-body .conteudo-mostrar-evento {
-  display: flex;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento .nickname-perfil h1 {
+            font-family: "InterRegular";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 23px;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .titulo-mostrar-evento
-  h1 {
-  font-family: "InterRegular";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 23px;
-  color: #000000;
-  margin-top: 5px;
-  word-break: break-all;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .perfil-usuario-mostrar-evento .nickname-perfil {
+            display: flex;
+            align-items: center;
+            margin-left: 5px;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .horario-evento
-  span {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000000;
-  margin-right: 5px;
-  word-break: break-all;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .endereco-mostrar-evento p {
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .horario-evento
-  p {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000000;
-  margin-right: 5px;
-  word-break: break-all;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento {
+            display: flex;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .data-mostrar-evento {
-  display: flex;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .titulo-mostrar-evento h1 {
+            font-family: "InterRegular";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 23px;
+            color: #000000;
+            margin-top: 5px;
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .data-mostrar-evento
-  .data
-  p {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  color: #000000;
-  word-break: break-all;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .horario-evento span {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+            margin-right: 5px;
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .data-mostrar-evento
-  .data
-  span {
-  margin-left: 5px;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .horario-evento p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+            margin-right: 5px;
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .data-mostrar-evento
-  .mes
-  p {
-  margin-left: 5px;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento {
+            display: flex;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .footer-mostrar-evento {
-    display: flex;
-    flex-direction: column-reverse;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento .data p {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: #000000;
+            word-break: break-all;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .footer-mostrar-evento
-  .link-evento
-  span {
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  color: #000000;
-  word-break: break-all;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento .data span {
+            margin-left: 5px;
+        }
 
-#modalMostrarEvento
-  .modal-body
-  .conteudo-mostrar-evento
-  .informacoes-mostrar-evento
-  .footer-mostrar-evento
-  .link-evento
-  p {
-  color: blue;
-  word-break: break-all;
-}
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .data-mostrar-evento .mes p {
+            margin-left: 5px;
+        }
 
-</style>
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .footer-mostrar-evento {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .footer-mostrar-evento .link-evento span {
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: #000000;
+            word-break: break-all;
+        }
+
+        #modalMostrarEvento .modal-body .conteudo-mostrar-evento .informacoes-mostrar-evento .footer-mostrar-evento .link-evento p {
+            color: blue;
+            word-break: break-all;
+        }
+    </style>
 
 
     <div class="d-flex">
@@ -350,29 +285,29 @@ require_once 'GlobalPerfil.php';
 
                         <div class="atividade">
 
-                            <div id="publicacoes-web" class="publicacoes publicacoes-web" >
+                            <div id="publicacoes-web" class="publicacoes publicacoes-web">
 
                                 <?php
                                 $pc = PublicacaoDao::ListaPublicacaoCurti($_SESSION['idUsuario']);
                                 foreach ($pc as $pcc) {
                                     if ($pcc['idTipoMidia'] == 3) {
                                 ?>
-                                        <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">            
-                               <?php 
-                               } else if ($pcc['idTipoMidia'] == 2) {
-                                ?>
-                                    <video id="player-video" controls>
-                                        <source src="../PerfilArtista/assets/img/Pubs/<?PHP echo $pcc['arquivoMidia']; ?>">
-                                    </video>
-                                <?PHP
-                                } else {
-                                ?>
-                                    <div class="audio-player">
-                                        <div class="info-player">
-                                            <div class="cover">
-                                                <img class="cover-img" src="../../teste/teste.jpg">
-                                            </div>
-                                            <!-- <div class="desc-musica">
+                                        <img src="../PerfilArtista/assets/img/Pubs/<?php echo $pcc['arquivoMidia']; ?>" alt="">
+                                    <?php
+                                    } else if ($pcc['idTipoMidia'] == 2) {
+                                    ?>
+                                        <video id="player-video" controls>
+                                            <source src="../PerfilArtista/assets/img/Pubs/<?PHP echo $pcc['arquivoMidia']; ?>">
+                                        </video>
+                                    <?PHP
+                                    } else {
+                                    ?>
+                                        <div class="audio-player">
+                                            <div class="info-player">
+                                                <div class="cover">
+                                                    <img class="cover-img" src="../../teste/teste.png">
+                                                </div>
+                                                <!-- <div class="desc-musica">
                                                 <div class="autor">
                                                     <p>Kanye West</p>
                                                 </div>
@@ -380,7 +315,7 @@ require_once 'GlobalPerfil.php';
                                                     <p>Esqueci</p>
                                                 </div>
                                             </div> -->
-                                        </div>
+                                            </div>
                                             <div class="controls">
                                                 <div class="reproducao">
                                                     <button class="skip-button" onclick="skipBackward()"><i class="fas fa-backward"></i></button>
@@ -406,7 +341,7 @@ require_once 'GlobalPerfil.php';
                                 ?>
 
                             </div>
-                            <div id="eventos-web" class="eventos eventos-web" style="justify-content: center;">
+                            <div id="eventos-web" class="eventos eventos-web">
 
                                 <?php require_once '../../Dao/EventoDao.php';
 
@@ -527,9 +462,9 @@ require_once 'GlobalPerfil.php';
     </div>
 
 
-        <!-- --------------------------- MODAL MOSTRAR EVENTO ----------------------- -->
+    <!-- --------------------------- MODAL MOSTRAR EVENTO ----------------------- -->
 
-        <div class="modal fade" id="modalMostrarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalMostrarEvento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
@@ -566,11 +501,11 @@ require_once 'GlobalPerfil.php';
                             <div class="data-mostrar-evento">
                                 <div class="data" style="display:flex;">
                                     <p class="data">Data:</p><span class="date"><?php $dia = date('d', strtotime($evento['dataEvento']));
-                                        echo $dia; ?></span>
+                                                                                echo $dia; ?></span>
                                 </div>
                                 <div class="mes">
                                     <p class="mes"><?php $mes = strtolower(date('M', strtotime($evento['dataEvento'])));
-                                        echo $mes; ?></p>
+                                                    echo $mes; ?></p>
                                 </div>
                             </div>
                             <div class="footer-mostrar-evento">
@@ -811,7 +746,7 @@ require_once 'GlobalPerfil.php';
     </script>
 
 
-<script>
+    <script>
         document.getElementById('icone').addEventListener('click', function() {
             var pixInfo = document.getElementById('pix-info');
 
@@ -825,7 +760,7 @@ require_once 'GlobalPerfil.php';
         });
     </script>
 
-    <script>
+<script>
         var audioPlayers = document.querySelectorAll('.audio-player');
         audioPlayers.forEach(function(player) {
             var audio = player.querySelector('.audio-element');
@@ -835,9 +770,11 @@ require_once 'GlobalPerfil.php';
             var totalTime = player.querySelector('.total-time');
             var timeFill = player.querySelector('.time-fill');
             var progressBar = player.querySelector('.progress-bar');
+            var coverImg = player.querySelector('.cover-img');
 
             playButton.addEventListener('click', function() {
                 toggleAudio(audio, playButton);
+                toggleImageRotation(playButton, coverImg);
             });
 
             volumeButton.addEventListener('click', function() {
@@ -894,24 +831,32 @@ require_once 'GlobalPerfil.php';
             player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
                 skipForward(audio);
             });
+
+            function seek(event, audio, progressBar) {
+                var progressWidth = progressBar.clientWidth;
+                var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+                var positionPercentage = clickX / progressWidth;
+                var seekTime = positionPercentage * audio.duration;
+
+                audio.currentTime = seekTime;
+            }
+
+            function skipForward(audio) {
+                audio.currentTime += 10;
+            }
+
+            function skipBackward(audio) {
+                audio.currentTime -= 10;
+            }
+
+            function toggleImageRotation(button, image) {
+                if (audio.paused) {
+                    image.classList.remove('rotate');
+                } else {
+                    image.classList.add('rotate');
+                }
+            }
         });
-
-        function seek(event, audio, progressBar) {
-            var progressWidth = progressBar.clientWidth;
-            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-            var positionPercentage = clickX / progressWidth;
-            var seekTime = positionPercentage * audio.duration;
-
-            audio.currentTime = seekTime;
-        }
-
-        function skipForward(audio) {
-            audio.currentTime += 10;
-        }
-
-        function skipBackward(audio) {
-            audio.currentTime -= 10;
-        }
     </script>
 
 

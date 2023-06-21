@@ -26,6 +26,21 @@ require_once '../../../Dao/ArtistaDao.php';
 
 
 
+<style>
+        .rotate {
+            animation: rotation 2.5s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 
     <div style="overflow-x: hidden;" class="d-flex"> <!-- FAZ COM QUE A SIDEBAR NA WEB FIQUE CORRETA -->
         <div class="box-area-info">
@@ -498,7 +513,7 @@ require_once '../../../Dao/ArtistaDao.php';
                                                 <div class="audio-player">
                                                     <div class="info-player">
                                                         <div class="cover">
-                                                            <img class="cover-img" src=".../../../../../teste/teste.jpg">
+                                                            <img class="cover-img" src=".../../../../../teste/teste.png">
                                                         </div>
                                                         <!-- <div class="desc-musica">
                                                             <div class="autor">
@@ -714,7 +729,7 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                     }
                                                                     ?>
                                                                     <div class="box-btn-denuncia">
-                                                                    <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
+                                                                        <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
                                                                             <input type="hidden" name="comentario" value="<?php echo $cs['comentario']; ?>">
                                                                             <input type="hidden" name="nickname" value="<?php echo $cs['nicknameUsuario']; ?>">
                                                                             <input type="hidden" name="fotoPerfil" value="<?php echo $cs['fotoPerfilUsuario']; ?>">
@@ -723,8 +738,9 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                             <input type="hidden" name="emaildenunciado" value="<?php echo $cs['emailUsuario']; ?>">
                                                                             <input type="hidden" name="emaildenunciador" value="<?php echo $_SESSION['emailUsuario']; ?>">
                                                                             <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
-                                                                            <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                        </form>                                                                    </div>
+                                                                            <button type="submit" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
@@ -832,7 +848,7 @@ require_once '../../../Dao/ArtistaDao.php';
                                                     <div class="audio-player">
                                                         <div class="info-player">
                                                             <div class="cover">
-                                                                <img class="cover-img" src=".../../../../../teste/teste.jpg">
+                                                                <img class="cover-img" src=".../../../../../teste/teste.png">
                                                             </div>
                                                             <!-- <div class="desc-musica">
                                                                 <div class="autor">
@@ -864,7 +880,7 @@ require_once '../../../Dao/ArtistaDao.php';
                                                     </div>
 
 
-                                                   
+
 
                                                 <?PHP
                                                 }
@@ -1041,17 +1057,18 @@ require_once '../../../Dao/ArtistaDao.php';
                                                                         }
                                                                         ?>
                                                                         <div class="box-btn-denuncia">
-                                                                        <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
-                                                                            <input type="hidden" name="comentario" value="<?php echo $c['comentario']; ?>">
-                                                                            <input type="hidden" name="nickname" value="<?php echo $c['nicknameUsuario']; ?>">
-                                                                            <input type="hidden" name="fotoPerfil" value="<?php echo $c['fotoPerfilUsuario']; ?>">
-                                                                            <input type="hidden" name="nivelConta" value="<?php echo $c['nivelContaUsuario']; ?>">
-                                                                            <input type="hidden" name="idDenunciado" value="<?php echo $c['idUsuario']; ?>">
-                                                                            <input type="hidden" name="emaildenunciado" value="<?php echo $c['emailUsuario']; ?>">
-                                                                            <input type="hidden" name="emaildenunciador" value="<?php echo $_SESSION['emailUsuario']; ?>">
-                                                                            <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
-                                                                            <button type="submit"  id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
-                                                                        </form>                                                                        </div>
+                                                                            <form action="denunciaComentario.php" method="Post" id="denuncia" name="denuncia">
+                                                                                <input type="hidden" name="comentario" value="<?php echo $c['comentario']; ?>">
+                                                                                <input type="hidden" name="nickname" value="<?php echo $c['nicknameUsuario']; ?>">
+                                                                                <input type="hidden" name="fotoPerfil" value="<?php echo $c['fotoPerfilUsuario']; ?>">
+                                                                                <input type="hidden" name="nivelConta" value="<?php echo $c['nivelContaUsuario']; ?>">
+                                                                                <input type="hidden" name="idDenunciado" value="<?php echo $c['idUsuario']; ?>">
+                                                                                <input type="hidden" name="emaildenunciado" value="<?php echo $c['emailUsuario']; ?>">
+                                                                                <input type="hidden" name="emaildenunciador" value="<?php echo $_SESSION['emailUsuario']; ?>">
+                                                                                <input type="hidden" name="idDenunciador" value="<?php echo $_SESSION['idUsuario']; ?>">
+                                                                                <button type="submit" id="myBtn" type="button"><i class="fa-solid fa-flag" style="color: #ef220b;"></i></button>
+                                                                            </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
 
@@ -1263,7 +1280,7 @@ require_once '../../../Dao/ArtistaDao.php';
 
 
 
-     <!--<div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!--<div class="modal fade" id="denunciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1355,9 +1372,9 @@ require_once '../../../Dao/ArtistaDao.php';
                     </div> -->
 
 
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
+    </div>
     </div>
 
     <div class="modal fade" id="modalSairConta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1391,9 +1408,11 @@ require_once '../../../Dao/ArtistaDao.php';
             var totalTime = player.querySelector('.total-time');
             var timeFill = player.querySelector('.time-fill');
             var progressBar = player.querySelector('.progress-bar');
+            var coverImg = player.querySelector('.cover-img');
 
             playButton.addEventListener('click', function() {
                 toggleAudio(audio, playButton);
+                toggleImageRotation(playButton, coverImg);
             });
 
             volumeButton.addEventListener('click', function() {
@@ -1450,24 +1469,32 @@ require_once '../../../Dao/ArtistaDao.php';
             player.querySelector('.skip-button:nth-child(3)').addEventListener('click', function() {
                 skipForward(audio);
             });
+
+            function seek(event, audio, progressBar) {
+                var progressWidth = progressBar.clientWidth;
+                var clickX = event.clientX - progressBar.getBoundingClientRect().left;
+                var positionPercentage = clickX / progressWidth;
+                var seekTime = positionPercentage * audio.duration;
+
+                audio.currentTime = seekTime;
+            }
+
+            function skipForward(audio) {
+                audio.currentTime += 10;
+            }
+
+            function skipBackward(audio) {
+                audio.currentTime -= 10;
+            }
+
+            function toggleImageRotation(button, image) {
+                if (audio.paused) {
+                    image.classList.remove('rotate');
+                } else {
+                    image.classList.add('rotate');
+                }
+            }
         });
-
-        function seek(event, audio, progressBar) {
-            var progressWidth = progressBar.clientWidth;
-            var clickX = event.clientX - progressBar.getBoundingClientRect().left;
-            var positionPercentage = clickX / progressWidth;
-            var seekTime = positionPercentage * audio.duration;
-
-            audio.currentTime = seekTime;
-        }
-
-        function skipForward(audio) {
-            audio.currentTime += 10;
-        }
-
-        function skipBackward(audio) {
-            audio.currentTime -= 10;
-        }
     </script>
 
 
