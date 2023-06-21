@@ -144,7 +144,7 @@ require_once '../../../Dao/PresencaDao.php';
                                             <div class="conteudo-evento">
                                                 <div class="criador-evento">
                                                     <div class="img-criador">
-                                                        <img src="../assets/img/FotoPerfil/<?php echo $evento['fotoPerfilUsuario'] ?> " alt="">
+                                                        <img src="../../PerfilArtista/assets/img/FotoPerfil/<?php echo $evento['fotoPerfilUsuario'] ?> " alt="">
                                                     </div>
                                                     <div class="nome-criador">
                                                         <p><?php echo $evento['nicknameUsuario'] ?> </p>
