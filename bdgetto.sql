@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/06/2023 às 05:32
+-- Tempo de geração: 21/06/2023 às 15:36
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -71,7 +71,8 @@ INSERT INTO `tbartista` (`idArtista`, `generoArtista`, `bioArtista`, `portfolio`
 (7, 'Feminino', 'Escritora e Ativista', 'vjfblcbnmklmhnblhvjgcfxdf', 8),
 (8, 'Masculino', 'Atriz', 'vjfblcbnmklmhnblhvjgcfxdf', 9),
 (9, 'Masculino', '', 'vjfblcbnmklmhnblhvjgcfxdf', 10),
-(10, 'Masculino', 'Cantor O maior de Todos', 'vjfblcbnmklmhnblhvjgcfxdf', 11);
+(10, 'Masculino', 'Cantor O maior de Todos', 'vjfblcbnmklmhnblhvjgcfxdf', 11),
+(11, 'Masculino', '', 'https://www.instagram.com/leomessi/', 12);
 
 -- --------------------------------------------------------
 
@@ -104,7 +105,11 @@ INSERT INTO `tbcomentario` (`idComentario`, `comentario`, `statusComentario`, `n
 (8, '\r\n              já vou  adquirir o meu!                                          ', 'Normal', 0, 21, 6, '2023-06-21 00:20:31'),
 (9, 'É GETTO é o nosso lar!\r\n                                                                    ', 'Normal', 0, 26, 5, '2023-06-21 00:24:46'),
 (10, '\r\n        amooooooooooo!\r\n                                                            ', 'Normal', 0, 25, 5, '2023-06-21 00:25:09'),
-(11, 'lindaaaaaaaaaaaaaaa!\r\n                                                                    ', 'Normal', 0, 24, 5, '2023-06-21 00:25:25');
+(11, 'lindaaaaaaaaaaaaaaa!\r\n                                                                    ', 'Normal', 0, 24, 5, '2023-06-21 00:25:25'),
+(12, 'Amo esse som!                                        ', 'Normal', 0, 26, 10, '2023-06-21 10:21:34'),
+(13, '\r\n                  iza maravilhosa sempre!                                      ', 'Normal', 0, 26, 10, '2023-06-21 10:22:05'),
+(14, 'muito boa!!!!! Parabéns Iza                                                ', 'Normal', 0, 26, 3, '2023-06-21 10:24:05'),
+(15, '  pois tu é uma  otaria', 'Normal', 0, 26, 1, '2023-06-21 10:34:16');
 
 -- --------------------------------------------------------
 
@@ -176,7 +181,11 @@ INSERT INTO `tbcurtida` (`idCurtida`, `idUsuario`, `idPublicacao`) VALUES
 (25, 5, 16),
 (26, 5, 20),
 (27, 5, 15),
-(28, 5, 12);
+(28, 5, 12),
+(29, 10, 25),
+(30, 10, 26),
+(31, 10, 24),
+(32, 3, 26);
 
 -- --------------------------------------------------------
 
@@ -273,7 +282,8 @@ INSERT INTO `tbmidia` (`idMidia`, `arquivoMidia`, `idTipoMidia`) VALUES
 (26, '64926ce2c202f.jpg', 3),
 (27, '64926d0dd9bc0webp', 3),
 (28, '64926d458d573.jpg', 3),
-(29, '64926e39e2945.jpg', 3);
+(29, '64926e39e2945.jpg', 3),
+(30, '6492f5c5be16a.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -328,7 +338,8 @@ INSERT INTO `tbmidiapublicacao` (`idMidiaPublicacao`, `idMidia`, `idPublicacao`)
 (26, 26, 27),
 (27, 27, 28),
 (28, 28, 29),
-(29, 29, 30);
+(29, 29, 30),
+(30, 30, 31);
 
 -- --------------------------------------------------------
 
@@ -399,7 +410,8 @@ INSERT INTO `tbpublicacao` (`idPublicacao`, `horarioPublicacao`, `descPublicacao
 (27, '2023-06-21 00:22:10', 'A minha cor não me define!', NULL, 'Normal', 4, 6),
 (28, '2023-06-21 00:22:53', 'Dia de Evento', NULL, 'Normal', 4, 6),
 (29, '2023-06-21 00:23:49', 'Nada tem mais fala do que uma obra!', NULL, 'Normal', 4, 6),
-(30, '2023-06-21 00:27:53', 'Ensaio!!!!!', NULL, 'Normal', 8, 8);
+(30, '2023-06-21 00:27:53', 'Ensaio!!!!!', NULL, 'Normal', 8, 8),
+(31, '2023-06-21 10:06:13', 'Show vindo ai!!!!!', NULL, 'Normal', 9, 9);
 
 -- --------------------------------------------------------
 
@@ -436,7 +448,11 @@ INSERT INTO `tbseguidores` (`idSeguidores`, `idArtista`, `idUsuario`) VALUES
 (16, 6, 5),
 (17, 7, 5),
 (18, 5, 5),
-(19, 2, 5);
+(19, 2, 5),
+(20, 10, 10),
+(21, 5, 10),
+(22, 7, 10),
+(24, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -543,7 +559,8 @@ INSERT INTO `tbusuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `nicknameUs
 (8, 'Djamila Ribeiro', 'djamila@gmail.com', '@djamila', '$2y$10$l8ujwdFm/UqdyAwdWW2hPuGIELKpnqgo/Z1DE5b7/9fal/K1ZtZEC', '(12)35778-2344', '64925ae10cd5djpeg', 'Normal', '8.jpg', '2', 'SAo Paulo', 'AC'),
 (9, 'Jessica Cores', 'jessica@gmail.com', '@JessicaCores', '$2y$10$Hr6FfGPT/B1FOaFloHWsbuResBVQIXyiRmMJ0jzci3CVuL0NU8ZYO', '(12)35778-2344', '64925d0073b70jpg', 'Normal', '9.jpg', '2', 'SAo Paulo', 'AC'),
 (10, 'pericles', 'pericles@gmail.com', '@pericles', '$2y$10$eHHjnwL5HnIozeUfGvdtL.yjznU/xsHEa4dOzBtMUbC3E5Id0CGSa', '(12)35778-2344', '649265628cd09jpg', 'Normal', '10.jpg', '2', 'SAo Paulo', 'MG'),
-(11, 'baco exu do blues', 'baco@gmail.com', '@baco', '$2y$10$T3jgT9HKuGBN10Vv/ll7Ee3i/wyVmB9JrXibwbXl3rJ8op2mYZjFK', '(12)35778-2344', '649265a861063jpeg', 'Normal', '11.jpg', '2', 'SAo Paulo', 'MG');
+(11, 'baco exu do blues', 'baco@gmail.com', '@baco', '$2y$10$T3jgT9HKuGBN10Vv/ll7Ee3i/wyVmB9JrXibwbXl3rJ8op2mYZjFK', '(12)35778-2344', '649265a861063jpeg', 'Normal', '11.jpg', '2', 'SAo Paulo', 'MG'),
+(12, 'Lionel ', 'artistarecusar@gmail.com', '@Messi', '$2y$10$ewpONvLbHfwpgBsmc0cZCOM0MbnEi90BWzD9H1L.MBU2DJ6efDNOe', '(12)35778-2344', '6492fb998c2f1jpg', 'em Verificação', 'papel-parede.svg', '2', 'SAo Paulo', 'AL');
 
 --
 -- Índices para tabelas despejadas
@@ -705,13 +722,13 @@ ALTER TABLE `tbadministrador`
 -- AUTO_INCREMENT de tabela `tbartista`
 --
 ALTER TABLE `tbartista`
-  MODIFY `idArtista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idArtista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `tbcomentario`
 --
 ALTER TABLE `tbcomentario`
-  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idComentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tbcontapixartista`
@@ -723,7 +740,7 @@ ALTER TABLE `tbcontapixartista`
 -- AUTO_INCREMENT de tabela `tbcurtida`
 --
 ALTER TABLE `tbcurtida`
-  MODIFY `idCurtida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idCurtida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `tbdenuncia`
@@ -747,7 +764,7 @@ ALTER TABLE `tbevento`
 -- AUTO_INCREMENT de tabela `tbmidia`
 --
 ALTER TABLE `tbmidia`
-  MODIFY `idMidia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idMidia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `tbmidiamomentos`
@@ -759,7 +776,7 @@ ALTER TABLE `tbmidiamomentos`
 -- AUTO_INCREMENT de tabela `tbmidiapublicacao`
 --
 ALTER TABLE `tbmidiapublicacao`
-  MODIFY `idMidiaPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idMidiaPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `tbmomentos`
@@ -777,13 +794,13 @@ ALTER TABLE `tbpresenca`
 -- AUTO_INCREMENT de tabela `tbpublicacao`
 --
 ALTER TABLE `tbpublicacao`
-  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idPublicacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de tabela `tbseguidores`
 --
 ALTER TABLE `tbseguidores`
-  MODIFY `idSeguidores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `idSeguidores` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `tbtipoarte`
@@ -807,7 +824,7 @@ ALTER TABLE `tbtipomidia`
 -- AUTO_INCREMENT de tabela `tbusuario`
 --
 ALTER TABLE `tbusuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restrições para tabelas despejadas
